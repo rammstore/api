@@ -17,6 +17,12 @@ string
 Одноразовый пароль
 Возвращаемые данные: строка JSON, содержит структуры Session, Client, Company и массив Wallets:
 
+----
+{
+    "Login": "test@gmail.com",
+    "Password": "qwert12345"
+}
+
 Пример ответа:
 
 {
