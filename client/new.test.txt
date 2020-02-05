@@ -16,3 +16,39 @@ OTP
 string
 Одноразовый пароль
 Возвращаемые данные: строка JSON, содержит структуры Session, Client, Company и массив Wallets:
+
+Пример ответа:
+
+{
+    "Session": {
+        "Token": "398D6062-8D57-4B9D-99E3-5421E4D19E89",
+        "WalletID": 136,
+        "DTLastActivity": "2018-12-18T07:25:01.147",
+        "ExpirationMinutes": 60
+    },
+    "Client": {
+        "Login": "test@gmail.com",
+        "FirstName": "test1",
+        "LastName": "test2",
+        "Language": "en",
+        "PushToken": "80b5aaa0-21c7-494d-a0c8-1065098d912e"
+    },
+    "Company": {
+        "Name": "FXTrade",
+        "Demo": false
+    },
+    "Wallets": [
+        {
+            "ID": 12,
+            "IDClient": 2132,
+            "DT": "2018-12-18T07:25:01.147",
+            "Asset": "USD",
+            "Status": 1,
+            "Balance": 0,
+            "Bonus": 0,
+            "Invested": 0,
+            "Margin": 0,
+            "IntervalPnL": 0
+        }
+    ]
+}
