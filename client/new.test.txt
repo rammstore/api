@@ -1,1 +1,4 @@
-new.test v2
+session.login
+Авторизует пользователя по логину и паролю, создает сессию. Возвращает токен для использования API и информацию по сессии.
+
+URL вызова: https://maindc.ramm.store/api/client/v1/session.login
