@@ -8,3 +8,9 @@ session.login
 URL вызова: https://maindc.ramm.store/api/client/v1/session.login
 
 Тело запроса - строка JSON, содержит параметры:
+
+Login	string	Логин
+Password	string	Пароль
+ExpirationMinutes	number	Автоматическое удаление сессии при неактивности в течении заданного времени. Значение по умолчанию: 60.
+OTP	string	Одноразовый пароль
+Возвращаемые данные: строка JSON, содержит структуры Session, Client, Company и массив Wallets:
