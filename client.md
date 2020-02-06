@@ -56,18 +56,17 @@ Direction   | string | Направление сортировки, вариан
 ```json
 {
     "Filter": {
-        "StrategyID": 3457,
-        "DealID": 111
+        "StrategyID": 3457
     },
     "Pagination": {
-        "TotalRecords": 1,
+        "TotalRecords": 15,
         "TotalPages": 1,
         "CurrentPage": 1,
-        "PerPage": 5,
+        "PerPage": 100,
         "MaxPerPage": 100
     },
     "OrderBy": {
-        "Field": "ID",
+        "Field": "DealID",
         "Direction": "Desc"
     }
 }
