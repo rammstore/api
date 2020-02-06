@@ -1,4 +1,4 @@
-# API DOCUMENTATION
+# ![logo](https://ramm.tech/wp-content/uploads/2019/02/rocket.png) API DOCUMENTATION
 
 Открытая документация АПИ ramm.store
 
