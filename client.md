@@ -1,4 +1,4 @@
-# RAMM.STORE API documentation
+# RAMM.STORE CLIENT API DOCUMENTATION
 ### Содержание
 * [Выполнение запросов](#Выполнение-запросов)
 * [Ошибки](#Ошибки)
@@ -46,6 +46,10 @@ OTP   | string | Одноразовый пароль |
 
 Возвращаемые данные: строка JSON, содержит структуры Session, Client, Company и массив Wallets:
 
+Параметр | Тип | Описание 
+---------|----------|----------
+Session
+Token   | string | Токен, уникальный идентификатор |
 
 Session	Token	string	Токен, уникальный идентификатор
 
