@@ -238,30 +238,23 @@ IntervalPnL   | real | Прибыль/убыток в текущем торго�
 
 **Параметры:**
 
+Может содержать секции [Filter, Pagination, OrderBy](#Методы-поиска-данных).
 Параметр | Тип | Описание | По умолчанию
 :--------|----------|----------|:--------------:
 ID   | number | ID кошелька |
 
-Тело запроса - строка JSON, содержит 
-структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Допустимые поля для секции Filter:	
 
+Поле | Тип | Описание 
+:--------|----------|----------
+StrategyID   | number | ID стратегии  |
+AccountID   | number | ID сделки |
+DTFrom   | datetime | Начальная дата  |
+DTTo   | datetime | Конечная дата  |
+Type   | number | 0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners |
 
-
-Filter	
-StrategyID	number	ID стратегии
-AccountID	number	ID счета
-DealID	number	ID сделки
-DTFrom	number	Начальная дата
-DTTo	number	Конечная дата
-Type	number	0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners
-
-Pagination	
-CurrentPage	number	Номер текущей страницы
-PerPage	number	Количество записей на одной странице
-
-OrderBy	
-Field	string	Сортировка по параметру, варианты: ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment
-Direction	string	Направление сортировки, варианты: Asc, Desc
+Допустимые поля для секции OrderBy:	
+ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment
 
 **Возвращаемые данные:**
 
