@@ -8,7 +8,7 @@
         * [session.login](#session.login)
 
 ## Выполнение запросов
-Для обращения к API необходимо сделать POST-запрос по адресу https://maindc.ramm.store/api/client/v{VER}/{method}, где:
+Для обращения к API необходимо сделать POST-запрос по адресу `https://maindc.ramm.store/api/client/v{VER}/{method}`, где:
 * {VER} — версия API (на данный момент — 1);
 * {method} — метод API.
 
