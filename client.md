@@ -277,8 +277,11 @@ ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment.
 
 **Возвращаемые данные:**
 
+Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets и WalletTransfers:
+
 Параметр | Тип | Описание 
 ---------|----------|----------
+Wallets
 ID   | number | ID кошелька  |
 Asset   | string | Название актива  |
 Balance   | real | Баланс кошелька  |
@@ -286,152 +289,72 @@ Bonus   | real | Сумма бонусов  |
 Invested   | real | Инвестированная сумма  |
 Margin   | real | Задействованная маржа  |
 IntervalPnL   | real | Прибыль/убыток в текущем торговом интервале |
+WalletTransfers
+ID   | number | ID перевода  |
+StrategyID   | number | ID стратегии  |
+AccountID   | number | ID счета  |
+DealID   | number | ID сделки  |
+DT   | datetime | Дата перевода  |
+AccrualDate   | datetime | Дата зачисления  |
+Amount   | real | Сумма перевода  |
+Type   | number | 0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners |
+Comment   | string | Комментарий для клиента  |
 
 **Пример вызова:**
 ```json
 {
-    "ID": 12345
+    "Filter": {
+        "StrategyID": 3457
+    },
+    "Pagination": {
+        "CurrentPage": 1,
+        "PerPage": 100
+    },
+    "OrderBy": {
+        "Field": "ID",
+        "Direction": "Desc"
+    }
 }
 ```
 **Пример ответа:**
 ```json
 {
-    "ID": 12345,
-    "Asset": "USD",
-    "Balance": 900,
-    "Bonus": 0,
-    "Invested": 123.45,
-    "Margin": 12.34,
-    "IntervalPnL": 23.45
+    "Filter": {
+        "StrategyID": 3457,
+        "DealID": 111
+    },
+    "Pagination": {
+        "TotalRecords": 1,
+        "TotalPages": 1,
+        "CurrentPage": 1,
+        "PerPage": 100,
+        "MaxPerPage": 1000
+    },
+    "OrderBy": {
+        "Field": "ID",
+        "Direction": "Desc"
+    },
+    "Wallets": [
+        {
+            "ID": 48,
+            "Asset": "USD",
+            "Balance": 0.132,
+            "Bonus": 90,
+            "Invested": 90.07,
+            "Margin": 0,
+            "IntervalPnL": -9.93
+        }
+    ],
+    "WalletTransfers": [
+        {
+            "ID": 101,
+            "StrategyID": 3457,
+            "AccountID": 1312,
+            "DealID": 111,
+            "DT": "2018-12-12T07:27:50.75",
+            "Amount": 500,
+            "Type": 5
+        }
+    ]
 }
 ```
-
-
-
-
-Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets и WalletTransfers:
-
-
-Filter	StrategyID	number	ID стратегии
-
-AccountID	number	ID счета
-
-DealID	number	ID сделки
-
-DTFrom	number	Начальная дата
-
-DTTo	number	Конечная дата
-
-Type	number	0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners
-OrderBy	Field	string	Сортировка по параметру, варианты: ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment
-
-Direction	string	Направление сортировки, варианты: Asc, Desc
-Pagination	TotalRecords	number	Общее количество записей
-
-TotalPages	number	Общее количество страниц
-
-CurrentPage	number	Номер текущей страницы
-
-PerPage	number	Количество записей на одной странице
-
-MaxPerPage	number	Максимальное количество записей на одной странице
-Wallets	ID	number	ID кошелька
-
-Asset	string	Название актива
-
-Balance	real	Сумма в кошельке
-
-Bonus	real	Сумма бонусов
-
-Invested	real	Инвестированная сумма
-
-Margin	real	Задействованная маржа
-
-IntervalPnL	real	Прибыль/убыток в текущем торговом интервале
-WalletTransfers	ID	number	ID перевода
-
-StrategyID	number	ID стратегии
-
-AccountID	number	ID счета
-
-DealID	number	ID сделки
-
-DT	number	Дата перевода
-
-AccrualDate	number	Дата зачисления
-
-Amount	real	Сумма перевода
-
-Type	number	0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners
-
-Comment	string	Комментарий для клиента
-
-
-Пример вызова:
-
-
-{
-"Filter":
-{
-"StrategyID":3457,
-"DealID":111
-},
-"Pagination":
-{
-"CurrentPage": 1,
-"PerPage": 5
-},
-"OrderBy":
-{
-"Field": "ID",
-"Direction": "Desc"
-}
-}
-
-Пример ответа:
-
-{
-"Filter":
-{
-"StrategyID":3457,
-"DealID":111
-},
-"Pagination":
-{
-"TotalRecords": 1,
-"TotalPages": 1,
-"CurrentPage": 1,
-"PerPage": 5,
-"MaxPerPage": 100
-},
-"OrderBy":
-{
-"Field": "ID",
-"Direction": "Desc"
-},
-"Wallets":
-[
-{
-"ID": 48,
-"Asset": "USD",
-"Balance": 0.132,
-"Bonus": 90,
-"Invested": 90.07,
-"Margin": 0,
-"IntervalPnL": -9.93
-}
-],
-"WalletTransfers":
-[
-{
-"ID": 101,
-"StrategyID": 3457,
-"AccountID": 1312,
-"DealID": 111,
-"DT": "2018-12-12T07:27:50.75",
-"Amount": 500,
-"Type": 5
-}
-]
-}
-
