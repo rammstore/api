@@ -9,6 +9,15 @@
     }
 }
 ```
+json
+```json
+{
+    "error": {
+        "code": 404,
+        "message": "Method Not Found"
+    }
+}
+```
 # ![tj's logo](https://ramm.tech/wp-content/uploads/2019/02/rocket.png) TJournal API documentation
 
 Открытая документация API TJournal.
