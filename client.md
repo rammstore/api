@@ -1,4 +1,4 @@
-# RAMM.STORE CLIENT API DOCUMENTATION
+# RAMM.STORE Client API Documentation
 ### Содержание
 * [Выполнение запросов](#Выполнение-запросов)
 * [Ошибки](#Ошибки)
@@ -48,7 +48,7 @@ OTP   | string | Одноразовый пароль |
 
 Параметр | Тип | Описание 
 ---------|----------|----------
-Session
+Session |
 Token   | string | Токен, уникальный идентификатор |
 
 Session	Token	string	Токен, уникальный идентификатор
