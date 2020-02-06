@@ -12,7 +12,7 @@
 json
 ```json
 {
-    "error": {
+"error": {
         "code": 404,
         "message": "Method Not Found"
     }
