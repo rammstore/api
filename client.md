@@ -27,21 +27,32 @@
 * Поиск по одному или нескольким полям: *<название сущности>*.search
 
 ### Фильтрация, пагинация и сортировка при поиске
-Filter	
-StrategyID	number	ID стратегии
-AccountID	number	ID счета
-DealID	number	ID сделки
-DTFrom	number	Начальная дата
-DTTo	number	Конечная дата
-Type	number	0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners
 
-Pagination	
-CurrentPage	number	Номер текущей страницы
-PerPage	number	Количество записей на одной странице
+В поисковых методах могут быть заданы следующие секции:
 
-OrderBy	
-Field	string	Сортировка по параметру, варианты: ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment
-Direction	string	Направление сортировки, варианты: Asc, Desc
+#### Filter	
+
+Список допустимых полей для поиска зависит от вызываемого метода.
+
+#### Pagination	
+
+Задание текущей страницы и количества записей на страницу.
+
+Параметр | Тип | Описание | По умолчанию
+:--------|----------|----------|:--------------:
+CurrentPage   | number | Номер текущей страницы | 1
+PerPage   | number | Количество записей на одной странице | 100
+
+
+#### OrderBy
+
+Задание поля для сортировки и направления сортировки.
+
+Параметр | Тип | Описание | По умолчанию
+:--------|----------|----------|:--------------:
+Field   | string | Поле для сортировки |
+Direction   | string | Направление сортировки, варианты: Asc, Desc | Asc
+
 
 ## Ошибки
 API может возвращать различные ошибки в следующем формате:
