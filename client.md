@@ -239,6 +239,7 @@ IntervalPnL   | real | Прибыль/убыток в текущем торго�
 **Параметры:**
 
 Может содержать секции [Filter, Pagination, OrderBy](#Методы-поиска-данных).
+
 Параметр | Тип | Описание | По умолчанию
 :--------|----------|----------|:--------------:
 ID   | number | ID кошелька |
@@ -254,7 +255,7 @@ DTTo   | datetime | Конечная дата  |
 Type   | number | 0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners |
 
 Допустимые поля для секции OrderBy:	
-ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment
+ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment.
 
 **Возвращаемые данные:**
 
