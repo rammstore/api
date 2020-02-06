@@ -1,8 +1,14 @@
 # ![logo](https://ramm.tech/wp-content/uploads/2019/02/rocket.png) API DOCUMENTATION
 
 Открытая документация АПИ ramm.store
-
-
+```
+{
+    "error": {
+        "code": 404,
+        "message": "Method Not Found"
+    }
+}
+```
 # ![tj's logo](https://ramm.tech/wp-content/uploads/2019/02/rocket.png) TJournal API documentation
 
 Открытая документация API TJournal.
