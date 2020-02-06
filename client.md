@@ -5,7 +5,7 @@
 * [Методы](#Методы)
     * [Аутентификация и авторизация клиента, действия с собственной сессией](#Аутентификация-и-авторизация-клиента-действия-с-собственной-сессией)
         * [session.login](#sessionlogin)
-	* [session.logout](#sessionlogout)
+        * [session.logout](#sessionlogout)
 
 ## Выполнение запросов
 Для обращения к API необходимо сделать POST-запрос по адресу `https://maindc.ramm.store/api/client/v{VER}/{method}`, где:
