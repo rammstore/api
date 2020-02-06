@@ -1,1 +1,1 @@
-Описание методов API ramm.store
+Лог изменений методов API ramm.store
