@@ -358,3 +358,78 @@ Comment   | string | Комментарий для клиента  |
     ]
 }
 ```
+### Информация о стратегиях
+
+#### strategyportfolio.get
+
+#### strategysymbolstat.get
+
+#### strategies.search
+
+#### strategies.get
+
+#### ratings.get
+
+#### charts.get
+
+
+### Собственные стратегии клиента
+
+#### myStrategies.search
+
+#### myStrategies.add
+
+#### myStrategies.close
+
+#### myStrategies.pause
+
+#### myStrategies.resume
+
+#### myStrategies.getToken
+
+#### myStrategies.setToken
+
+#### myStrategies.checkName
+
+#### strategyCommands.get
+
+
+### Торговые счета клиентов
+
+#### accounts.add
+
+#### accounts.fund
+
+#### accounts.withdraw
+
+#### accounts.close
+
+#### accounts.get
+
+#### accounts.getStatement
+
+#### accounts.pause
+
+#### accounts.resume
+
+#### accounts.setFactor
+
+#### accounts.setProtection
+
+#### accounts.setTarget
+
+#### accounts.search
+
+#### accounts.getCharts
+
+#### positions.search
+
+#### deals.search
+
+#### accountCommands.get
+
+### Параметры платформы
+
+#### platform.getSpecification
+
+#### accounts.searchSpec
