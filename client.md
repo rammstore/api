@@ -50,48 +50,31 @@ OTP   | string | Одноразовый пароль |
 ---------|----------|----------
 ***Session*** |
 Token   | string | Токен, уникальный идентификатор |
-
-Session	Token	string	Токен, уникальный идентификатор
-
-WalletID	number	ID кошелька
-
-DTLastActivity	number	Время последней активности
-
-ExpirationMinutes	number	Длительность сессии
-Client	Login	string	Логин
-
-FirstName	string	Имя клиента
-
-LastName	string	Фамилия клиента
-
-Language	string	Язык интерфейса (1-англ., 2 - рус.)
-
-PushToken	string	Токен клиента
-Company	Name	string	Название компании
-
-Demo	boolean	Признак демо-компании
-
-Contacts	string	Контакты компании
-Wallets	ID	number	ID кошелька
-
-IDClient	number	ID клиента
-
-DT	number	Дата создания кошелька
-
-Asset	string	Название актива
-
-Status	number	0-new, 1-active
-
-Balance	real	Сумма в кошельке
-
-Bonus	real	Сумма бонусов
-
-Invested	real	Инвестированная сумма
-
-Margin	real	Задействованная маржа
-
-IntervalPnL	real	Прибыль/убыток в текущем торговом интервале
-
+WalletID   | number | ID кошелька по-умолчанию |
+DTLastActivity   | number | Время последней активности  |
+ExpirationMinutes   | number | Длительность сессии  |
+***Client*** |
+Login   | string | Логин  |
+FirstName   | string | Имя клиента  |
+LastName   | string | Фамилия клиента  |
+Language   | string | Язык интерфейса  |
+PushToken   | string | Токен клиента для Push-нотификации  |
+***Company*** |
+Name   | string | Название компании  |
+Demo   | boolean | Признак демо-компании  |
+Contacts   | string | Контакты компании  |
+***Wallets*** |
+ID   | number | ID кошелька  |
+IDClient   | number | ID клиента  |
+DT   | number | Дата создания кошелька  |
+Asset   | string | Название актива  |
+Status   | number | 0-new, 1-active  |
+Balance   | real | Баланс кошелька  |
+Bonus   | real | Сумма бонусов  |
+Invested   | real | Инвестированная сумма  |
+Margin   | real | Задействованная маржа  |
+IntervalPnL   | real | Прибыль/убыток в текущем торговом интервале |
+		
 Пример вызова:
 ```json
 {
