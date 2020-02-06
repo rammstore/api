@@ -1,4 +1,4 @@
-# ![tj's logo](http://tjournal.ru/static/main/img/logos/logo-github-markdown.png) TJournal API documentation
+# ![tj's logo](https://ramm.tech/wp-content/uploads/2019/02/rocket.png) TJournal API documentation
 
 Открытая документация API TJournal.
 > **Внимание!** API находится в режиме постоянной разработки, ответы от сервера могут меняться. (Но мы постараемся обо всех изменениях предупреждать :-)
