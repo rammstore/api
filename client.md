@@ -8,7 +8,7 @@
         * [session.login](#session.login)
 
 ## Выполнение запросов
-Для обращения к API необходимо сделать POST-запрос по адресу https://api.ramm.store/api/{vVER}/{method}, где:
+Для обращения к API необходимо сделать POST-запрос по адресу https://maindc.ramm.store/api/client/v{VER}/{method}, где:
 * {VER} — версия API (на данный момент — 1);
 * {method} — метод API.
 
@@ -16,19 +16,14 @@
 
 ## Ошибки
 API может возвращать различные ошибки в следующем формате:
-
+```json
 {
-    "error": {
-        "code": 404,
-        "message": "Method Not Found"
+    "Error": {
+        "Code": "invalid_input",
+        "Message": "Invalid input in the field 'Login'"
     }
 }
-
-## Пагинация, фильтрация, сортировка
-Пагинация
-Фильтрация
-Сортировка
-
+```
 ## Методы
 ### Аутентификация и авторизация клиента, действия с собственной сессией
 #### session.login
