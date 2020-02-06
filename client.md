@@ -8,7 +8,7 @@
         * [session.login](#session.login)
 
 ## Выполнение запросов
-Для обращения к API необходимо сделать GET- или POST-запрос по адресу https://api.ramm.store/api/{vVER}/{method}, где:
+Для обращения к API необходимо сделать POST-запрос по адресу https://api.ramm.store/api/{vVER}/{method}, где:
 * {VER} — версия API (на данный момент — 1);
 * {method} — метод API.
 
