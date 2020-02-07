@@ -1,9 +1,23 @@
 # RAMM.STORE API Documentation
-RAMM.STORE API состоит из 
+RAMM.STORE – облако для финансовых продуктов.
 
-Client API
+Взаимодействие с облаком осуществляется посредством следующего набора API.
 
-Trading API
+## Client API
+API клиентского интерфейса. Позволяет реализовать веб и мобильные приложения для клиентов сервиса.
 
-Manager API
+[Перейти к Client API Documentation](client.md)
 
+## Trading API
+API для отправки торговых сигналов клиентами.
+
+[Перейти к Trading API Documentation](trading.md)
+
+## Manager API
+API для бекофисных функций.
+
+[Перейти к Manager API Documentation](manager.md)
+
+------------
+
+[История изменений API](CHANGELOG.md)
