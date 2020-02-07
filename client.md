@@ -9,6 +9,8 @@
         * [session.login](#sessionlogin)
         * [session.logout](#sessionlogout)
         * [password.set](#passwordset)
+    * [Спецификации](#Спецификации)
+        * [platform.getSpecification](#platformgetSpecification)
     * [Кошельки и операции с кошельком](#Кошельки-и-операции-с-кошельком)
         * [wallets.get](#walletsget)
         * [walletTransfers.search](#walletTransferssearch)
@@ -43,11 +45,9 @@
         * [accounts.setTarget](#accountssetTarget)
         * [accounts.search](#accountssearch)
         * [accounts.getChart](#accountsgetChart)
+        * [accounts.getCommandResult](#accountsgetCommandResult)
         * [positions.search](#positionssearch)
         * [deals.search](#dealssearch)
-        * [accounts.getCommandResult](#accountsgetCommandResult)
-    * [Параметры платформы](#Параметры-платформы)
-        * [platform.getSpecification](#platformgetSpecification)
 
 ## Выполнение запросов
 Для обращения к API необходимо сделать POST-запрос по адресу `https://maindc.ramm.store/api/client/v{VER}/{method}`, где:
@@ -247,6 +247,9 @@ OldPassword   | string | Текущий пароль |
     "OldPassword": "12345qwert"
 }
 ```
+[Вернуться к содержанию](#Содержание)
+### Параметры платформы
+#### platform.getSpecification
 [Вернуться к содержанию](#Содержание)
 
 ### Кошельки и операции с кошельком
@@ -463,14 +466,8 @@ Comment   | string | Комментарий для клиента  |
 
 #### accounts.getChart
 
+#### accounts.getCommandResult
+
 #### positions.search
 
 #### deals.search
-
-#### accounts.getCommandResult
-
-### Параметры платформы
-
-#### platform.getSpecification
-
-#### accounts.searchSpec
