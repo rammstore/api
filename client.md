@@ -48,7 +48,6 @@
         * [accounts.getCommandResult](#accountsgetCommandResult)
     * [Параметры платформы](#Параметры-платформы)
         * [platform.getSpecification](#platformgetSpecification)
-        * [accounts.searchSpec](#accountssearchSpec)
 
 ## Выполнение запросов
 Для обращения к API необходимо сделать POST-запрос по адресу `https://maindc.ramm.store/api/client/v{VER}/{method}`, где:
