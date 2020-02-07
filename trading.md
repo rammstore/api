@@ -1,1 +1,1 @@
-Описание методов API ramm.store
+# RAMM.STORE Trading API Documentation
