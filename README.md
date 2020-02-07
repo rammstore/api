@@ -1,7 +1,7 @@
 # RAMM.STORE API Documentation
 RAMM.STORE API состоит из 
 
-Client API
+[Client API](client.md)
 
 Trading API
 
