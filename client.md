@@ -9,16 +9,18 @@
         * [session.login](#sessionlogin)
         * [session.logout](#sessionlogout)
         * [password.set](#passwordset)
+    * [Спецификации](#Спецификации)
+        * [specifications.get](#specificationsget)
     * [Кошельки и операции с кошельком](#Кошельки-и-операции-с-кошельком)
         * [wallets.get](#walletsget)
         * [walletTransfers.search](#walletTransferssearch)
     * [Информация о стратегиях](#Информация-о-стратегиях)
         * [strategies.get](#strategiesget)
+        * [strategies.getChart](#strategiesgetChart)
+        * [strategies.getPortfolio](#strategiesgetPortfolio)
+        * [strategies.getSymbolStat](#strategiesgetSymbolStat)
         * [strategies.search](#strategiessearch)
-        * [strategyportfolio.get](#strategyportfolioget)
-        * [strategysymbolstat.get](#strategysymbolstatget)
         * [ratings.get](#ratingsget)
-        * [charts.get](#chartsget)
     * [Собственные стратегии клиента](#Собственные-стратегии-клиента)
         * [myStrategies.add](#myStrategiesadd)
         * [myStrategies.close](#myStrategiesclose)
@@ -28,7 +30,7 @@
         * [myStrategies.getToken](#myStrategiesgetToken)
         * [myStrategies.setToken](#myStrategiessetToken)
         * [myStrategies.checkName](#myStrategiescheckName)
-        * [strategyCommands.get](#strategyCommandsget)
+        * [myStrategies.getCommandResult](#myStrategiesgetCommandResult)
     * [Торговые счета клиентов](#Торговые-счета-клиентов)
         * [accounts.add](#accountsadd)
         * [accounts.close](#accountsclose)
@@ -42,13 +44,10 @@
         * [accounts.setProtection](#accountssetProtection)
         * [accounts.setTarget](#accountssetTarget)
         * [accounts.search](#accountssearch)
-        * [accounts.getCharts](#accountsgetCharts)
+        * [accounts.getChart](#accountsgetChart)
+        * [accounts.getCommandResult](#accountsgetCommandResult)
         * [positions.search](#positionssearch)
         * [deals.search](#dealssearch)
-        * [accountCommands.get](#accountCommandsget)
-    * [Параметры платформы](#Параметры-платформы)
-        * [platform.getSpecification](#platformgetSpecification)
-        * [accounts.searchSpec](#accountssearchSpec)
 
 ## Выполнение запросов
 Для обращения к API необходимо сделать POST-запрос по адресу `https://maindc.ramm.store/api/client/v{VER}/{method}`, где:
@@ -123,6 +122,8 @@ API может возвращать различные ошибки в след�
 
 Авторизует пользователя по логину и паролю, создает сессию. Возвращает токен для использования API и информацию по сессии.
 
+Вместо логина и пароля может быть передан OTP-токен, в случае авторизации через сайт брокера.
+
 **URL:** `https://maindc.ramm.store/api/client/v1/session.login`
 
 **Параметры:**
@@ -152,7 +153,6 @@ PushToken   | string | Токен клиента для Push-нотификац�
 ***Company*** |
 Name   | string | Название компании  |
 Demo   | boolean | Признак демо-компании  |
-Contacts   | string | Контакты компании  |
 ***Wallets*** |
 ID   | number | ID кошелька  |
 IDClient   | number | ID клиента  |
@@ -189,12 +189,8 @@ IntervalPnL   | real | Прибыль/убыток в текущем торго�
         "PushToken": "80b5aaa0-21c7-494d-a0c8-1065098d912e"
     },
     "Company": {
-        "Name": "FXTrade",
-        "Demo": false,
-        "Contacts": {
-            "CompanyName": "TradeForex Ltd",
-            "CompanyInfo": "TradeForex Ltd is a broker"
-        }
+        "Name": "BrokerName",
+        "Demo": false
     },
     "Wallets": [
         {
@@ -212,6 +208,8 @@ IntervalPnL   | real | Прибыль/убыток в текущем торго�
     ]
 }
 ```
+[Вернуться к содержанию](#Содержание)
+
 #### session.logout
 
 Удаляет сессию.
@@ -221,6 +219,8 @@ IntervalPnL   | real | Прибыль/убыток в текущем торго�
 **Параметры:** отсутствуют
 
 **Возвращаемые данные:** отсутствуют
+
+[Вернуться к содержанию](#Содержание)
 
 #### password.set
 
@@ -244,6 +244,10 @@ OldPassword   | string | Текущий пароль |
     "OldPassword": "12345qwert"
 }
 ```
+[Вернуться к содержанию](#Содержание)
+### Спецификации
+#### specifications.get
+[Вернуться к содержанию](#Содержание)
 
 ### Кошельки и операции с кошельком
 #### wallets.get
@@ -288,6 +292,7 @@ IntervalPnL   | real | Прибыль/убыток в текущем торго�
     "IntervalPnL": 23.45
 }
 ```
+[Вернуться к содержанию](#Содержание)
 #### walletTransfers.search
 
 Поиск переводов.
@@ -317,7 +322,7 @@ ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment.
 
 Параметр | Тип | Описание 
 ---------|----------|----------
-Wallets
+***Wallets***
 ID   | number | ID кошелька  |
 Asset   | string | Название актива  |
 Balance   | real | Баланс кошелька  |
@@ -325,7 +330,7 @@ Bonus   | real | Сумма бонусов  |
 Invested   | real | Инвестированная сумма  |
 Margin   | real | Задействованная маржа  |
 IntervalPnL   | real | Прибыль/убыток в текущем торговом интервале |
-WalletTransfers
+***WalletTransfers***
 ID   | number | ID перевода  |
 StrategyID   | number | ID стратегии  |
 AccountID   | number | ID счета  |
@@ -394,20 +399,20 @@ Comment   | string | Комментарий для клиента  |
     ]
 }
 ```
+[Вернуться к содержанию](#Содержание)
 ### Информация о стратегиях
-
-#### strategyportfolio.get
-
-#### strategysymbolstat.get
-
-#### strategies.search
-
 #### strategies.get
-
+[Вернуться к содержанию](#Содержание)
+#### strategies.getChart
+[Вернуться к содержанию](#Содержание)
+#### strategies.getPortfolio
+[Вернуться к содержанию](#Содержание)
+#### strategies.getSymbolStat
+[Вернуться к содержанию](#Содержание)
+#### strategies.search
+[Вернуться к содержанию](#Содержание)
 #### ratings.get
-
-#### charts.get
-
+[Вернуться к содержанию](#Содержание)
 
 ### Собственные стратегии клиента
 
@@ -427,7 +432,7 @@ Comment   | string | Комментарий для клиента  |
 
 #### myStrategies.checkName
 
-#### strategyCommands.get
+#### myStrategies.getCommandResult
 
 
 ### Торговые счета клиентов
@@ -456,16 +461,10 @@ Comment   | string | Комментарий для клиента  |
 
 #### accounts.search
 
-#### accounts.getCharts
+#### accounts.getChart
+
+#### accounts.getCommandResult
 
 #### positions.search
 
 #### deals.search
-
-#### accountCommands.get
-
-### Параметры платформы
-
-#### platform.getSpecification
-
-#### accounts.searchSpec
