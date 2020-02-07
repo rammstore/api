@@ -15,10 +15,10 @@
     * [Информация о стратегиях](#Информация-о-стратегиях)
         * [strategies.get](#strategiesget)
         * [strategies.search](#strategiessearch)
-        * [strategyportfolio.get](#strategyportfolioget)
-        * [strategysymbolstat.get](#strategysymbolstatget)
+        * [strategies.getPortfolio](#strategiesgetPortfolio)
+        * [strategies.getSymbolStat](#strategiesgetSymbolStat)
         * [ratings.get](#ratingsget)
-        * [charts.get](#chartsget)
+        * [strategies.getChart](#strategiesgetChart)
     * [Собственные стратегии клиента](#Собственные-стратегии-клиента)
         * [myStrategies.add](#myStrategiesadd)
         * [myStrategies.close](#myStrategiesclose)
@@ -28,7 +28,7 @@
         * [myStrategies.getToken](#myStrategiesgetToken)
         * [myStrategies.setToken](#myStrategiessetToken)
         * [myStrategies.checkName](#myStrategiescheckName)
-        * [strategyCommands.get](#strategyCommandsget)
+        * [myStrategies.getCommandResult](#myStrategiesgetCommandResult)
     * [Торговые счета клиентов](#Торговые-счета-клиентов)
         * [accounts.add](#accountsadd)
         * [accounts.close](#accountsclose)
@@ -42,10 +42,10 @@
         * [accounts.setProtection](#accountssetProtection)
         * [accounts.setTarget](#accountssetTarget)
         * [accounts.search](#accountssearch)
-        * [accounts.getCharts](#accountsgetCharts)
+        * [accounts.getChart](#accountsgetChart)
         * [positions.search](#positionssearch)
         * [deals.search](#dealssearch)
-        * [accountCommands.get](#accountCommandsget)
+        * [accounts.getCommandResult](#accountsgetCommandResult)
     * [Параметры платформы](#Параметры-платформы)
         * [platform.getSpecification](#platformgetSpecification)
         * [accounts.searchSpec](#accountssearchSpec)
@@ -248,7 +248,7 @@ OldPassword   | string | Текущий пароль |
     "OldPassword": "12345qwert"
 }
 ```
-[Содержание](#Содержание)
+[Вернуться к содержанию](#Содержание)
 
 ### Кошельки и операции с кошельком
 #### wallets.get
@@ -403,9 +403,9 @@ Comment   | string | Комментарий для клиента  |
 [Вернуться к содержанию](#Содержание)
 ### Информация о стратегиях
 [Вернуться к содержанию](#Содержание)
-#### strategyportfolio.get
+#### strategies.getPortfolio
 [Вернуться к содержанию](#Содержание)
-#### strategysymbolstat.get
+#### strategies.getSymbolStat
 [Вернуться к содержанию](#Содержание)
 #### strategies.search
 [Вернуться к содержанию](#Содержание)
@@ -413,7 +413,7 @@ Comment   | string | Комментарий для клиента  |
 [Вернуться к содержанию](#Содержание)
 #### ratings.get
 [Вернуться к содержанию](#Содержание)
-#### charts.get
+#### strategies.getChart
 [Вернуться к содержанию](#Содержание)
 
 ### Собственные стратегии клиента
@@ -434,7 +434,7 @@ Comment   | string | Комментарий для клиента  |
 
 #### myStrategies.checkName
 
-#### strategyCommands.get
+#### myStrategies.getCommandResult
 
 
 ### Торговые счета клиентов
@@ -463,13 +463,13 @@ Comment   | string | Комментарий для клиента  |
 
 #### accounts.search
 
-#### accounts.getCharts
+#### accounts.getChart
 
 #### positions.search
 
 #### deals.search
 
-#### accountCommands.get
+#### accounts.getCommandResult
 
 ### Параметры платформы
 
