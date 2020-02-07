@@ -153,7 +153,6 @@ PushToken   | string | Токен клиента для Push-нотификац�
 ***Company*** |
 Name   | string | Название компании  |
 Demo   | boolean | Признак демо-компании  |
-Contacts   | string | Контакты компании  |
 ***Wallets*** |
 ID   | number | ID кошелька  |
 IDClient   | number | ID клиента  |
@@ -190,12 +189,8 @@ IntervalPnL   | real | Прибыль/убыток в текущем торго�
         "PushToken": "80b5aaa0-21c7-494d-a0c8-1065098d912e"
     },
     "Company": {
-        "Name": "FXTrade",
-        "Demo": false,
-        "Contacts": {
-            "CompanyName": "TradeForex Ltd",
-            "CompanyInfo": "TradeForex Ltd is a broker"
-        }
+        "Name": "BrokerName",
+        "Demo": false
     },
     "Wallets": [
         {
