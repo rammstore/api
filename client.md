@@ -14,11 +14,11 @@
         * [walletTransfers.search](#walletTransferssearch)
     * [Информация о стратегиях](#Информация-о-стратегиях)
         * [strategies.get](#strategiesget)
-        * [strategies.search](#strategiessearch)
+        * [strategies.getChart](#strategiesgetChart)
         * [strategies.getPortfolio](#strategiesgetPortfolio)
         * [strategies.getSymbolStat](#strategiesgetSymbolStat)
+        * [strategies.search](#strategiessearch)
         * [ratings.get](#ratingsget)
-        * [strategies.getChart](#strategiesgetChart)
     * [Собственные стратегии клиента](#Собственные-стратегии-клиента)
         * [myStrategies.add](#myStrategiesadd)
         * [myStrategies.close](#myStrategiesclose)
@@ -401,6 +401,9 @@ Comment   | string | Комментарий для клиента  |
 ```
 [Вернуться к содержанию](#Содержание)
 ### Информация о стратегиях
+#### strategies.get
+[Вернуться к содержанию](#Содержание)
+#### strategies.getChart
 [Вернуться к содержанию](#Содержание)
 #### strategies.getPortfolio
 [Вернуться к содержанию](#Содержание)
@@ -408,11 +411,7 @@ Comment   | string | Комментарий для клиента  |
 [Вернуться к содержанию](#Содержание)
 #### strategies.search
 [Вернуться к содержанию](#Содержание)
-#### strategies.get
-[Вернуться к содержанию](#Содержание)
 #### ratings.get
-[Вернуться к содержанию](#Содержание)
-#### strategies.getChart
 [Вернуться к содержанию](#Содержание)
 
 ### Собственные стратегии клиента
