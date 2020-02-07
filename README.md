@@ -16,4 +16,6 @@ API для бекофисных функций.
 
 [Перейти к Manager API Documentation](manager.md)
 
+------------
+
 [История изменений](CHANGELOG.md)
