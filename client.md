@@ -10,7 +10,7 @@
         * [session.logout](#sessionlogout)
         * [password.set](#passwordset)
     * [Спецификации](#Спецификации)
-        * [company.get](#companyget)
+        * [specifications.get](#specificationsget)
     * [Кошельки и операции с кошельком](#Кошельки-и-операции-с-кошельком)
         * [wallets.get](#walletsget)
         * [walletTransfers.search](#walletTransferssearch)
@@ -246,8 +246,9 @@ OldPassword   | string | Текущий пароль |
 ```
 [Вернуться к содержанию](#Содержание)
 ### Спецификации
-#### company.get
+#### specifications.get
 [Вернуться к содержанию](#Содержание)
+
 ### Кошельки и операции с кошельком
 #### wallets.get
 
