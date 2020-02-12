@@ -14,7 +14,7 @@
         * [ratings.get](#ratingsget)
 
 ## Выполнение запросов
-Для обращения к API необходимо сделать POST-запрос по адресу `https://maindc.ramm.store/api/partner/v{VER}/{method}`, где:
+Для обращения к API необходимо сделать POST-запрос по адресу `https://api.ramm.store/api/partner/v{VER}/{method}`, где:
 * {VER} — версия API (на данный момент — 1);
 * {method} — метод API.
 
@@ -76,7 +76,7 @@ API может возвращать различные ошибки в след�
 {
     "Error": {
         "Code": "invalid_input",
-        "Message": "Invalid input in the field 'Login'"
+        "Message": "Invalid input in the field 'ID'"
     }
 }
 ```
