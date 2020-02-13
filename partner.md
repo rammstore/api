@@ -39,7 +39,7 @@ API может возвращать различные ошибки в след�
 
 **Параметры:**
 
-Может содержать секции Filter, Pagination, OrderBy.
+Может содержать секции Filter, Pagination.
 
 **Filter**	
 
@@ -62,48 +62,45 @@ PerPage   | number | Количество записей на одной стр�
 
 **Возвращаемые данные**
 
-Возвращаемые данные по методам поиска всегда содержат полную информацию об используемом фильтре, пагинации и сортировке.
+Возвращаемые данные по методам поиска всегда содержат полную информацию об используемом фильтре и пагинации.
 
 Пример:
 ```json
 {
     "Filter": {
-        "StrategyID": 3457
+        "StrategyName": "TestStrategy"
     },
     "Pagination": {
         "TotalRecords": 15,
         "TotalPages": 1,
         "CurrentPage": 1,
-        "PerPage": 100,
-        "MaxPerPage": 100
+        "PerPage": 100
     }
 }
 ```
 
 **Возвращаемые данные:**
 
-Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets и WalletTransfers:
+Возвращаемые данные - структуры Pagination, Filter, массивы Strategies и Chart:
 
 Параметр | Тип | Описание 
 ---------|----------|----------
-***Wallets***
-ID   | number | ID кошелька  |
-Asset   | string | Название актива  |
-Balance   | real | Баланс кошелька  |
-Bonus   | real | Сумма бонусов  |
-Invested   | real | Инвестированная сумма  |
-Margin   | real | Задействованная маржа  |
-IntervalPnL   | real | Прибыль/убыток в текущем торговом интервале |
-***WalletTransfers***
-ID   | number | ID перевода  |
-StrategyID   | number | ID стратегии  |
-AccountID   | number | ID счета  |
-DealID   | number | ID сделки  |
-DT   | datetime | Дата перевода  |
-AccrualDate   | datetime | Дата зачисления  |
-Amount   | real | Сумма перевода  |
-Type   | number | 0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners |
-Comment   | string | Комментарий для клиента  |
+***Strategies***
+ID	| number |	ID стратегии	
+Name |	string	| Название стратегии
+Fee |	real	| Вознаграждение с прибыли	
+Commission	| real	| Размер комиссии	
+MonthlyYield |	real	| Среднемесячная прибыль в %	
+Yield	| real	| Прибыль в %	
+AgeByDays	| number	| Возраст в днях	
+Symbols	| string	| Строка с перечислением самых используемых торговых инструментов (не более 3-х)	
+SignalSourceType	| number	| Тип источника сигнала (0 - RAMM token, 1 - MT Manager API)	
+IsMyStrategy	| boolean	| Признак собственной стратегии	
+Status	| number	| 0-not activated, 1-active, 2-paused, 3-disabled, 4-closed	
+Type	| number	| Тип стратегии	
+Accounts	| number	| Количество инвесторов
+***Chart***
+Yield   | real | Значение доходности  |
 
 **Пример вызова:**
 ```json
@@ -115,51 +112,43 @@ Comment   | string | Комментарий для клиента  |
     "Pagination": {
         "CurrentPage": 1,
         "PerPage": 100
-    },
-    "OrderBy": {
-        "Field": "ID",
-        "Direction": "Desc"
     }
 }
 ```
 **Пример ответа:**
 ```json
 {
-    "Filter": {
-        "RatingType": 0,
-        "StrategyName": "Super",
-    },
     "Pagination": {
         "TotalRecords": 1,
         "TotalPages": 1,
         "CurrentPage": 1,
-        "PerPage": 100,
-        "MaxPerPage": 1000
+        "PerPage": 5
     },
-    "OrderBy": {
-        "Field": "ID",
-        "Direction": "Desc"
-    },
-    "Wallets": [
+    "Strategies": [
         {
-            "ID": 48,
-            "Asset": "USD",
-            "Balance": 0.132,
-            "Bonus": 90,
-            "Invested": 90.07,
-            "Margin": 0,
-            "IntervalPnL": -9.93
+            "Strategy": {
+                "ID": 341,
+                "Name": "TEST_1",
+                "Fee": 0.25,
+                "Commission": 0.00001,
+                "MonthlyYield": 7,
+                "Yield": 100,
+                "AgeByDays": 365,
+                "Symbols": "EURUSD",
+                "SignalSourceType": 0,
+                "IsMyStrategy": 0,
+                "Status": 0,
+                "Type": 4,
+                "Accounts": 10
+            }
         }
     ],
-    "WalletTransfers": [
+    "Chart": [
         {
-            "ID": 101,
-            "StrategyID": 3457,
-            "AccountID": 1312,
-            "DealID": 111,
-            "DT": "2018-12-12T07:27:50.75",
-            "Amount": 500,
-            "Type": 5
+            "Yield": 100
+        },
+        {
+            "Yield": 105
         }
     ]
 }
