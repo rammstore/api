@@ -218,7 +218,6 @@ Status|number|0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
         "Fee": 0.25,
         "Commission": 0.00001,
         "DTCreated": "2018-09-21T11:09:38.243",
-        "DTClosed": "2019-09-21T11:09:38.243",
         "Equity": 1000,
         "Status": 1
     }
