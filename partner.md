@@ -103,9 +103,7 @@ MonthlyYield |	real	| Среднемесячная прибыль в %
 Yield	| real	| Прибыль в %	
 AgeByDays	| number	| Возраст в днях	
 Symbols	| string	| Строка с перечислением самых используемых торговых инструментов (не более 3-х)	
-SignalSourceType	| number	| Тип источника сигнала (0 - RAMM token, 1 - MT Manager API)	
 Status	| number	| 0-not activated, 1-active, 2-paused, 3-disabled, 4-closed	
-Type	| number	| Тип стратегии	
 Accounts	| number	| Количество инвесторов
 ***Chart***
 Yield   | real | Значение доходности  |
