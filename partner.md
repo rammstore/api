@@ -101,8 +101,9 @@ MonthlyYield |	real	| Среднемесячная прибыль в %
 Yield	| real	| Прибыль в %	
 AgeByDays	| number	| Возраст в днях	
 Symbols	| string	| Строка с перечислением самых используемых торговых инструментов (не более 3-х)	
-Status	| number	| 0-not activated, 1-active, 2-paused, 3-disabled, 4-closed	
 Accounts	| number	| Количество инвесторов
+Equity|real|Суммарное эквити инвестиций в стратегию
+Status	| number	| 0-not activated, 1-active, 2-paused, 3-disabled, 4-closed	
 ***Chart***
 Yield   | real | Значение доходности  |
 
@@ -135,14 +136,13 @@ Yield   | real | Значение доходности  |
                 "Name": "SuperStrategy",
                 "Fee": 0.25,
                 "Commission": 0.00001,
-                "MonthlyYield": 7,
-                "Yield": 100,
-                "AgeByDays": 365,
-                "Symbols": "EURUSD",
-                "SignalSourceType": 0,
-                "Status": 0,
-                "Type": 4,
-                "Accounts": 10
+                "MonthlyYield": 0.0787,
+                "Yield": 0.9649,
+                "AgeByDays": 366,
+                "Symbols": "EURUSD, WTI, XAUUSD",
+                "Accounts": 123,
+                "Equity": 12345.67,
+                "Status": 0
             }
         }
     ],
