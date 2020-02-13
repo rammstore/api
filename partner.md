@@ -223,7 +223,7 @@ Status|number|0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
 
 Получение графика заданного типа для заданной стратегии
 
-**URL:** `https://api.ramm.store/api/partner/v1/strategies.getCharts`
+**URL:** `https://api.ramm.store/api/partner/v1/strategies.getChart`
 
 **Параметры:**
 
