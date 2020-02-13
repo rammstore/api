@@ -68,7 +68,7 @@ PerPage   | number | Количество записей на одной стр�
 ```json
 {
     "Filter": {
-        "StrategyName": "TestStrategy"
+        "StrategyName": "Super"
     },
     "Pagination": {
         "TotalRecords": 15,
@@ -127,7 +127,7 @@ Yield   | real | Значение доходности  |
         {
             "Strategy": {
                 "ID": 341,
-                "Name": "TEST_1",
+                "Name": "SuperStrategy",
                 "Fee": 0.25,
                 "Commission": 0.00001,
                 "MonthlyYield": 7,
