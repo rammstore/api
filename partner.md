@@ -211,6 +211,54 @@ Status|number|0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
 [Вернуться к содержанию](#Содержание)
 #### strategies.getChart
 
+Получение графика заданного типа для заданной стратегии
+
+**URL:** `https://api.ramm.store/api/partner/v1/strategies.getCharts`
+
+**Параметры:**
+
+Параметр | Тип | Описание | По умолчанию
+:--------|----------|----------|:--------------:
+StrategyID|number|ID стратегии
+MaxPoints|number|Макс.количество точек графика
+chartType|string|Тип графика (yield, yield-leverage)
+chartSize|string|	Размер графика (full, large, medium, small)
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - массив Chart:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+***Chart***
+DT|number|Дата/время
+Yield|real|Значение доходности
+
+**Пример вызова:**
+```json
+{
+    "StrategyID": 445,
+    "chartType": "yield",
+    "chartSize": "full",
+    "MaxPoints": 10
+}
+```
+**Пример ответа:**
+```json
+{
+    "Chart": [
+        {
+            "DT": "2018-12-13T00:00:00",
+            "Yield": 0.5
+        },
+        {
+            "DT": "2018-12-14T00:00:00",
+            "Yield": 1
+        }
+    ]
+}
+```
+
 [Вернуться к содержанию](#Содержание)
 #### strategies.getPortfolio
 
