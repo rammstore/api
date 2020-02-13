@@ -195,9 +195,9 @@ MonthlyYield|real|Размер вознаграждения
 Fee|real|Размер вознаграждения
 Commission|real|Размер комиссии
 Accounts|number|Количество инвестиций
+Equity|real|Суммарное эквити инвестиций в стратегию
 DTCreated|number|Дата создания
 DTClosed|number|Дата закрытия
-Equity|real|Суммарное эквити инвестиций в стратегию
 Status|number|0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
 
 **Пример вызова:**
@@ -216,8 +216,9 @@ Status|number|0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
         "MonthlyYield": 0.05,
         "Fee": 0.25,
         "Commission": 0.00001,
+        "Accounts": 12,
+        "Equity": 1234.56,
         "DTCreated": "2018-09-21T11:09:38.243",
-        "Equity": 1000,
         "Status": 1
     }
 }
