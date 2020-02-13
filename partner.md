@@ -106,7 +106,7 @@ Yield   | real | Значение доходности  |
 {
     "Filter": {
         "RatingType": 0,
-        "StrategyName": "Super",
+        "StrategyName": "Super"
     },
     "Pagination": {
         "CurrentPage": 1,
