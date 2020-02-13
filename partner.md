@@ -76,17 +76,9 @@ PerPage   | number | Количество записей на одной стр�
         "CurrentPage": 1,
         "PerPage": 100,
         "MaxPerPage": 100
-    },
-    "OrderBy": {
-        "Field": "DealID",
-        "Direction": "Desc"
     }
 }
 ```
-
-
-Допустимые поля для секции OrderBy:	
-ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment.
 
 **Возвращаемые данные:**
 
