@@ -237,9 +237,6 @@ Status|number|0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
 Параметр | Тип | Описание | По умолчанию
 :--------|----------|----------|:--------------:
 StrategyID|number|ID стратегии
-MaxPoints|number|Макс.количество точек графика
-chartType|string|Тип графика (yield, yield-leverage)
-chartSize|string|	Размер графика (full, large, medium, small)
 
 **Возвращаемые данные:**
 
@@ -254,10 +251,7 @@ Yield|real|Значение доходности
 **Пример вызова:**
 ```json
 {
-    "StrategyID": 445,
-    "chartType": "yield",
-    "chartSize": "full",
-    "MaxPoints": 10
+    "StrategyID": 445
 }
 ```
 **Пример ответа:**
@@ -266,11 +260,11 @@ Yield|real|Значение доходности
     "Chart": [
         {
             "DT": "2018-12-13T00:00:00",
-            "Yield": 0.5
+            "Yield": 1.23
         },
         {
             "DT": "2018-12-14T00:00:00",
-            "Yield": 1
+            "Yield": 1.45
         }
     ]
 }
