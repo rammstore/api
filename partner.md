@@ -95,7 +95,6 @@ Yield	| real	| Прибыль в %
 AgeByDays	| number	| Возраст в днях	
 Symbols	| string	| Строка с перечислением самых используемых торговых инструментов (не более 3-х)	
 SignalSourceType	| number	| Тип источника сигнала (0 - RAMM token, 1 - MT Manager API)	
-IsMyStrategy	| boolean	| Признак собственной стратегии	
 Status	| number	| 0-not activated, 1-active, 2-paused, 3-disabled, 4-closed	
 Type	| number	| Тип стратегии	
 Accounts	| number	| Количество инвесторов
@@ -136,7 +135,6 @@ Yield   | real | Значение доходности  |
                 "AgeByDays": 365,
                 "Symbols": "EURUSD",
                 "SignalSourceType": 0,
-                "IsMyStrategy": 0,
                 "Status": 0,
                 "Type": 4,
                 "Accounts": 10
