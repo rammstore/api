@@ -11,9 +11,9 @@
    * [strategies.getSymbolStat](#strategiesgetSymbolStat)
 
 ## Выполнение запросов
-Для обращения к API необходимо сделать POST-запрос по адресу `https://api.ramm.store/api/partner/v{VER}/{method}`, где:
-* {VER} — версия API (на данный момент — 1);
-* {method} — метод API.
+Для обращения к API необходимо сделать `POST`-запрос по адресу `https://api.ramm.store/api/partner/v{VER}/{method}`, где:
+* `{VER}` — версия API (на данный момент — 1);
+* `{method}` — метод API.
 
 Headers:
 
