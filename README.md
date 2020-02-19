@@ -13,6 +13,11 @@ API для отправки торговых сигналов клиентами
 
 [Перейти к Trading API Documentation](trading.md)
 
+## Partner API
+API для получения данных партнерами.
+
+[Перейти к Partner API Documentation](partner.md)
+
 ## Manager API
 API для бекофисных функций.
 
