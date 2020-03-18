@@ -471,7 +471,6 @@ DTCreated	|	number	|	Дата создания	|
 DTClosed	|	number	|	Дата закрытия	|
 Equity	|	real	|	Суммарное эквити инвестиций в стратегию	|
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
-
 ***MyAccount***
 ID	|	number	|	ID счета	|
 ProfitCurrentIntervalGross	|	real	|	Прибыль в текущем торговои интервале	|
