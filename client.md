@@ -256,7 +256,37 @@ OldPassword   | string | Текущий пароль |
 ```
 [Вернуться к содержанию](#Содержание)
 ### Спецификации
-#### specifications.get
+#### platform.getSpecification
+
+Получение спецификации платформы
+
+**URL:** `https://maindc.ramm.store/api/client/v1/platform.getSpecification`
+
+**Параметры:** отсутствуют
+
+**Возвращаемые данные:**
+
+Структура	|	Поле	|	Тип	|	Описание	|
+------------|--------|--------|-----------|
+
+Account	|	AvailableCurrency	|	string	|	Доступные валюты счета	|
+	      |	MinBalance	|	real	|	Минимальный баланс инвестиции инвестора	|
+Strategy	|	MinAmountToCreate	|	real	|	Минимальный баланс инвестиции трейдера	|
+
+
+**Пример ответа:**
+```json
+{
+    "Account": {
+        "AvailableCurrency": "USD",
+        "MinBalance": 250
+    },
+    "Strategy": {
+        "MinAmountToCreate": 200
+    }
+}
+```
+
 [Вернуться к содержанию](#Содержание)
 
 ### Кошельки и операции с кошельком
