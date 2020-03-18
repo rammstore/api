@@ -567,6 +567,57 @@ Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account,
 ```
 [Вернуться к содержанию](#Содержание)
 #### charts.get
+
+Получение графика заданного типа для заданной стратегии.
+
+**URL:** `https://maindc.ramm.store/api/client/v1/charts.get`
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+StrategyID	|	number	|	ID стратегии	|
+MaxPoints	|	number	|	Макс.количество точек графика	|
+chartType	|	string	|	Тип графика (yield, yield-leverage)	|
+chartSize	|	string	|	Размер графика (full, large, medium, small)	|
+
+
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - массив Chart:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+***Chart***
+DT	|	number	|	Дата/время	|
+Yield	|	real	|	Значение доходности	|
+Leverage	|	real	|	Плечо	|
+
+
+**Пример вызова:**
+```json
+{
+    "StrategyID": 445,
+    "chartType": "yield-leverage",
+    "MaxPoints": 10
+}
+```
+**Пример ответа:**
+```json
+{
+    "Chart": [
+        {
+            "DT": "2018-12-13T00:00:00",
+            "Yield": 0.626
+        },
+        {
+            "DT": "2018-12-14T00:00:00",
+            "Yield": 1.62
+        }
+    ]
+}
+```
 [Вернуться к содержанию](#Содержание)
 #### strategyportfolio.get
 [Вернуться к содержанию](#Содержание)
