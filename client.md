@@ -760,10 +760,10 @@ MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
 Accounts	|	number	|	Количество счетов		|
 Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
-****Offer****
+****Offer (вложенная структура)****
 Commission	|	real	|	Размер комиссии (numeric (6,6))		|
 Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
-****Account****
+****Account (вложенная структура)****
 ID	|	number	|	ID счета		|
 IsSecurity	|	boolean	|	Признак счета управляющего		|
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account		|
@@ -795,41 +795,85 @@ FeeToPay	|	real	|	Невыплаченное вознаграждение		|
 **Пример вызова:**
 ```json
 {
-    "ID": 333
+    "Filter": {
+        "Name": "TEST",
+        "MyActiveAccounts": true
+    },
+    "Pagination": {
+        "CurrentPage": 1,
+        "PerPage": 5
+    },
+    "OrderBy": {
+        "Field": "ID",
+        "Direction": "Desc"
+    }
 }
 ```
 **Пример ответа:**
 ```json
 {
-    "Strategy": {
-        "ID": 333,
-        "Name": "TEST1",
-        "Yield": 0.00001,
-        "MonthlyYield": 0.05,
-        "Fee": 0.25,
-        "Accounts": 5,
-        "DTCreated": "2018-09-21T11:09:38.243",
-        "DTClosed": "2019-09-21T11:09:38.243",
-        "Equity": 1000,
-        "IsMyStrategy": true
+    "Filter": {
+        "Name": "TEST",
+        "MyActiveAccounts": true
     },
-    "MyAccount": {
-        "ID": 4545,
-        "ProfitCurrentIntervalGross": 152.23,
-        "TotalProfitNet": 512.65,
-        "FeeToPay": 54.56,
-        "FeePaid": 101.58,
-        "TotalCommissionPaid": 25.34,
-        "State": 0,
-        "Equity": 1500.56,
-        "Factor": 1,
-        "AvailableToWithdraw": 1000,
-        "AccountMinBalance": 100,
-        "IsSecurity": false,
-        "Target": 5000,
-        "Protection": 500,
-        "Type": 2
-    }
+    "Pagination": {
+        "TotalRecords": 1,
+        "TotalPages": 1,
+        "CurrentPage": 1,
+        "PerPage": 5,
+        "MaxPerPage": 100
+    },
+    "Wallets": [
+        {
+            "ID": 48,
+            "Asset": "USD",
+            "Balance": 0.132,
+            "Bonus": 90,
+            "Invested": 90.07,
+            "Margin": 0,
+            "IntervalPnL": -9.93
+        }
+    ],
+    "Strategies": [
+        {
+            "ID": 341,
+            "Name": "TEST_1",
+            "DTCreated": "2018-09-21T11:09:38.23",
+            "DTClosed": "2018-09-22T11:09:38.23",
+            "Offer": {
+                "Commission": 0.00001,
+                "Fee": 0.25
+            },
+            "Status": 2,
+            "Yield": 1.076,
+            "MonthlyYield": 0.07,
+            "Accounts": 17,
+            "Symbols": "EURUSD",
+            "IsMyStrategy": 1,
+            "Account": {
+                "ID": 1185,
+                "IsSecurity": true,
+                "Type": 0,
+                "AccountSpecAssetID": 5,
+                "Asset": "USD",
+                "TradingIntervalCurrentID": 164,
+                "DTCreated": "2018-09-21T11:09:38.243",
+                "Balance": 1000.46,
+                "Equity": 1006.64,
+                "Margin": 2.27,
+                "MarginLevel": 5.34,
+                "IntervalPnL": 6.64,
+                "Status": 3,
+                "Factor": 1,
+                "Protection": 0.01,
+                "ProtectionEquity": 10,
+                "Target": 0.01,
+                "TargetEquity": 1010,
+                "TargetReached": "2018-12-12T15:34:54.217",
+                "Positions": 2
+            }
+        }
+    ]
 }
 ```
 
