@@ -10,15 +10,15 @@
         * [session.logout](#sessionlogout)
         * [password.set](#passwordset)
     * [Спецификации](#Спецификации)
-        * [specifications.get](#specificationsget)
+        * [platform.getSpecification](#specificationsget)
     * [Кошельки и операции с кошельком](#Кошельки-и-операции-с-кошельком)
         * [wallets.get](#walletsget)
         * [walletTransfers.search](#walletTransferssearch)
     * [Информация о стратегиях](#Информация-о-стратегиях)
         * [strategies.get](#strategiesget)
-        * [strategies.getChart](#strategiesgetChart)
-        * [strategies.getPortfolio](#strategiesgetPortfolio)
-        * [strategies.getSymbolStat](#strategiesgetSymbolStat)
+        * [charts.get](#strategiesgetChart)
+        * [strategyportfolio.get](#strategiesgetPortfolio)
+        * [strategysymbolstat.get](#strategiesgetSymbolStat)
         * [strategies.search](#strategiessearch)
         * [ratings.get](#ratingsget)
     * [Собственные стратегии клиента](#Собственные-стратегии-клиента)
@@ -30,7 +30,9 @@
         * [myStrategies.getToken](#myStrategiesgetToken)
         * [myStrategies.setToken](#myStrategiessetToken)
         * [myStrategies.checkName](#myStrategiescheckName)
-        * [myStrategies.getCommandResult](#myStrategiesgetCommandResult)
+        * [strategyCommands.get](#strategyCommandsget)
+        * [myStrategies.getActiveAccounts](#myStrategiesgetActiveAccounts)
+        * [myStrategies.getClosedAccounts](#myStrategiesgetClosedAccounts)
     * [Торговые счета клиентов](#Торговые-счета-клиентов)
         * [accounts.add](#accountsadd)
         * [accounts.close](#accountsclose)
@@ -44,9 +46,12 @@
         * [accounts.setProtection](#accountssetProtection)
         * [accounts.setTarget](#accountssetTarget)
         * [accounts.search](#accountssearch)
-        * [accounts.getChart](#accountsgetChart)
-        * [accounts.getCommandResult](#accountsgetCommandResult)
+        * [accounts.getCharts](#accountsgetChart)
+        * [accounts.searchSpec](#accountssearchSpec)
+        * [accountCommands.get](#accountCommandsget)
+    * [Открытые позиции](#Открытые-позиции)        
         * [positions.search](#positionssearch)
+    * [Сделки на счете](#Сделки-на-счете)    
         * [deals.search](#dealssearch)
 
 ## Выполнение запросов
@@ -408,11 +413,11 @@ Comment   | string | Комментарий для клиента  |
 ### Информация о стратегиях
 #### strategies.get
 [Вернуться к содержанию](#Содержание)
-#### strategies.getChart
+#### charts.get
 [Вернуться к содержанию](#Содержание)
-#### strategies.getPortfolio
+#### strategyportfolio.get
 [Вернуться к содержанию](#Содержание)
-#### strategies.getSymbolStat
+#### strategysymbolstat.get
 [Вернуться к содержанию](#Содержание)
 #### strategies.search
 [Вернуться к содержанию](#Содержание)
@@ -437,7 +442,11 @@ Comment   | string | Комментарий для клиента  |
 
 #### myStrategies.checkName
 
-#### myStrategies.getCommandResult
+#### strategyCommands.get
+
+#### myStrategies.getActiveAccounts
+
+#### myStrategies.getClosedAccounts
 
 
 ### Торговые счета клиентов
@@ -466,10 +475,16 @@ Comment   | string | Комментарий для клиента  |
 
 #### accounts.search
 
-#### accounts.getChart
+#### accounts.getCharts
 
-#### accounts.getCommandResult
+#### accounts.searchSpec
+
+#### accountCommands.get
+
+### Открытые позиции
 
 #### positions.search
+
+### Сделки на счете
 
 #### deals.search
