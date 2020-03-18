@@ -710,6 +710,129 @@ Share	|	real	|	Доля символа	|
 
 [Вернуться к содержанию](#Содержание)
 #### strategies.search
+
+Поиск стратегий с фильтрацией по подстроке, содержащейся в названии стратегии (Name) и по трем фильтрам.
+Каждый фильтр может принимать три значения: true, false и "не задан".
+
+**URL:** `https://maindc.ramm.store/api/client/v1/strategies.search`
+
+**Параметры:**
+
+Может содержать секции [Filter, Pagination, OrderBy](#Методы-поиска-данных).
+
+Допустимые поля для секции Filter:	
+
+Поле | Тип | Описание 
+:--------|----------|----------
+Name	|	string	|	Подстрока поиска	|
+MyActiveAccounts	|	boolean	|	если = true, то ищем только стратегии с активными инвестициями данного клиента	|
+MyStrategies	|	boolean	|	если = true, то ищем собственные стратегии клиента	|
+ActiveStrategies	|	boolean	|	если = true, то ищем только активные стратегии	|
+
+
+Допустимые поля для секции OrderBy:	
+ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, PartnerShare, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets и Strategies:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+***Wallets***
+ID	|	number	|	ID кошелька (bigint)		|
+Asset	|	string	|	Название актива		|
+Balance	|	real	|	Сумма в кошельке		|
+Bonus	|	real	|	Сумма бонусов		|
+Invested	|	real	|	Инвестированная сумма		|
+Margin	|	real	|	Задействованная маржа		|
+IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале		|
+***Strategies***
+ID	|	number	|	ID стратегии		|
+Name	|	string	|	Название стратегии (Varchar(64))		|
+DTCreated	|	number	|	Дата создания стратегии		|
+DTStat	|	number	|	Дата сбора статистики		|
+DTClosed	|	number	|	Дата закрытия стратегии		|
+PartnerShare	|	real	|	Доля партнера		|
+Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
+Yield	|	real	|	Прибыль в %		|
+MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
+Accounts	|	number	|	Количество счетов		|
+Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)		|
+IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
+****Offer****
+Commission	|	real	|	Размер комиссии (numeric (6,6))		|
+Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
+****Account****
+ID	|	number	|	ID счета		|
+IsSecurity	|	boolean	|	Признак счета управляющего		|
+Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account		|
+AccountSpecAssetID	|	number	|	Спецификация счета для заданного актива		|
+Asset	|	string	|	Название валюты счета		|
+TradingIntervalCurrentID	|	number	|	ID текущего торгового интервала		|
+DTCreated	|	number	|	Дата создания		|
+Balance	|	real	|	Баланс счета		|
+Equity	|	real	|	Эквити		|
+Margin	|	real	|	Задействованная маржа		|
+MarginLevel	|	real	|	Уровень маржи		|
+IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале		|
+Status	|	number	|	0-new (without money), 1-active (trading), 2-MC, 3-ProtectionTarget, 4-Pause, 5-disabled (cant trade), 6-closed (cant activate)		|
+Factor	|	real	|	Повышающий/понижающий коэффициент копирования		|
+MCReached	|	number	|	Дата/время срабатывания StopOut		|
+Protection	|	real	|	Процент защиты счета (numeric (4,3))		|
+ProtectionEquity	|	real	|	Значение эквити, при котором сработает защита счета		|
+ProtectionReached	|	number	|	Дата/время срабатывания защиты счета		|
+Target	|	real	|	Целевая доходность (numeric (8,3))		|
+TargetEquity	|	real	|	Целевая доходность в валюте счета		|
+TargetReached	|	number	|	Дата/время достижения целевой доходности		|
+Positions	|	number	|	Количество открытых		|
+AccountMinBalance	|	real	|	Минимальный баланс счета		|
+AvailableToWithdraw	|	real	|	Средства, доступные к выводу		|
+FeePaid	|	real	|	Выплаченное вознаграждение		|
+FeeToPay	|	real	|	Невыплаченное вознаграждение		|
+
+
+**Пример вызова:**
+```json
+{
+    "ID": 333
+}
+```
+**Пример ответа:**
+```json
+{
+    "Strategy": {
+        "ID": 333,
+        "Name": "TEST1",
+        "Yield": 0.00001,
+        "MonthlyYield": 0.05,
+        "Fee": 0.25,
+        "Accounts": 5,
+        "DTCreated": "2018-09-21T11:09:38.243",
+        "DTClosed": "2019-09-21T11:09:38.243",
+        "Equity": 1000,
+        "IsMyStrategy": true
+    },
+    "MyAccount": {
+        "ID": 4545,
+        "ProfitCurrentIntervalGross": 152.23,
+        "TotalProfitNet": 512.65,
+        "FeeToPay": 54.56,
+        "FeePaid": 101.58,
+        "TotalCommissionPaid": 25.34,
+        "State": 0,
+        "Equity": 1500.56,
+        "Factor": 1,
+        "AvailableToWithdraw": 1000,
+        "AccountMinBalance": 100,
+        "IsSecurity": false,
+        "Target": 5000,
+        "Protection": 500,
+        "Type": 2
+    }
+}
+```
+
 [Вернуться к содержанию](#Содержание)
 #### ratings.get
 [Вернуться к содержанию](#Содержание)
