@@ -442,6 +442,93 @@ Comment   | string | Комментарий для клиента  |
 [Вернуться к содержанию](#Содержание)
 ### Информация о стратегиях
 #### strategies.get
+
+Получение информации о стратегии.
+
+**URL:** `https://maindc.ramm.store/api/client/v1/strategies.get`
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+ID	| number    | ID стратегии|
+
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - структуры Strategy и MyAccount:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+***Strategy***
+ID	|	number	|	ID стратегии	|
+Name	|	string	|	Имя стратегии	|
+Yield	|	real	|	Размер комиссии	|
+MonthlyYield	|	real	|	Размер вознаграждения	|
+Fee	|	real	|	Признак собственной стратегии	|
+Accounts	|	number	|	Количество инвестиций	|
+DTCreated	|	number	|	Дата создания	|
+DTClosed	|	number	|	Дата закрытия	|
+Equity	|	real	|	Суммарное эквити инвестиций в стратегию	|
+IsMyStrategy	|	bool	|	Признак собственной стратегии	|
+
+***MyAccount***
+ID	|	number	|	ID счета	|
+ProfitCurrentIntervalGross	|	real	|	Прибыль в текущем торговои интервале	|
+TotalProfitNet	|	real	|	Суммарная чистая прибыль	|
+FeeToPay	|	real	|	Невыплаченное вознаграждение	|
+FeePaid	|	real	|	Выплаченное вознаграждение	|
+TotalCommissionPaid	|	real	|	Суммарная выплаченная комиссия	|
+State	|	number	|	Состояние счета (см. ниже)	|
+Equity	|	real	|	Название валюты депозита	|
+Factor	|	real	|	Повышающий/понижающий коэффициент копирования	|
+AvailableToWithdraw	|	real	|	Доступные к выводу средства	|
+AccountMinBalance	|	real	|	Минимальный баланс инвестиции	|
+IsSecurity	|	bool	|	Признак сигнальной инвестиции	|
+Target	|	real	|	Целевая доходность	|
+Protection	|	real	|	Защита капитала	|
+Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
+
+**Пример вызова:**
+```json
+{
+    "ID": 333
+}
+```
+**Пример ответа:**
+```json
+{
+    "Strategy": {
+        "ID": 333,
+        "Name": "TEST1",
+        "Yield": 0.00001,
+        "MonthlyYield": 0.05,
+        "Fee": 0.25,
+        "Accounts": 5,
+        "DTCreated": "2018-09-21T11:09:38.243",
+        "DTClosed": "2019-09-21T11:09:38.243",
+        "Equity": 1000,
+        "IsMyStrategy": true
+    },
+    "MyAccount": {
+        "ID": 4545,
+        "ProfitCurrentIntervalGross": 152.23,
+        "TotalProfitNet": 512.65,
+        "FeeToPay": 54.56,
+        "FeePaid": 101.58,
+        "TotalCommissionPaid": 25.34,
+        "State": 0,
+        "Equity": 1500.56,
+        "Factor": 1,
+        "AvailableToWithdraw": 1000,
+        "AccountMinBalance": 100,
+        "IsSecurity": false,
+        "Target": 5000,
+        "Protection": 500,
+        "Type": 2
+    }
+}
+```
 [Вернуться к содержанию](#Содержание)
 #### charts.get
 [Вернуться к содержанию](#Содержание)
