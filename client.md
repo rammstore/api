@@ -1501,6 +1501,38 @@ StrategyNameAvailable	|boolean |Признак уникальности имен
 [Вернуться к содержанию](#Содержание)
 
 #### strategyCommands.get
+
+Получение текущего статуса команды управления стратегиями по ее ID и ID стратегии.
+
+**URL:** `https://maindc.ramm.store/api/client/v1/strategyCommands.get`
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+StrategyCommandID |number	|ID команды
+StrategyID |number	|ID стратегии
+
+
+**Возвращаемые данные:**
+
+Параметр | Тип | Описание 
+---------|----------|----------
+StrategyCommandStatus	|number |Статус команды (0-new, 1-ok, 2-reject, 3-error)
+
+**Пример вызова:**
+```json
+{
+    "StrategyCommandID": 445,
+    "StrategyID": 223
+}
+```
+**Пример ответа:**
+```json
+{
+    "StrategyCommandStatus": 0
+}
+```
 [Вернуться к содержанию](#Содержание)
 
 #### myStrategies.getActiveAccounts
