@@ -879,6 +879,148 @@ FeeToPay	|	real	|	Невыплаченное вознаграждение		|
 
 [Вернуться к содержанию](#Содержание)
 #### ratings.get
+
+Получение рейтинга стратегии и информации о собственных инвестициях в них.
+
+**URL:** `https://maindc.ramm.store/api/client/v1/ratings.get`
+
+**Параметры:**
+
+Может содержать секции [Filter, Pagination](#Методы-поиска-данных).
+
+Допустимые поля для секции Filter:	
+
+Поле | Тип | Описание 
+:--------|----------|----------
+RatingType	|	number	|	Тип рейтинга: 0-rating, 1-all, 2-popular	|
+StrategyName	|	string	|	Название стратегии	|
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - структуры Pagination, Filter, массивы MyFunds, Strategies и Chart:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+***MyFunds***
+InvestedNet	|	real	|	Общая инвестированная сумма
+EquityNet	|	real	|	Суммарное эквити (свободные + инвестированные средства)
+***Strategies***
+****Strategy (вложенная структура)****
+ID	|	number	|	ID стратегии	|
+Name	|	string	|	Название стратегии	|
+Fee	|	real	|	Вознаграждение с прибыли	|
+Commission	|	real	|	Размер комиссии	|
+MonthlyYield	|	real	|	Среднемесячная прибыль в %	|
+Yield	|	real	|	Прибыль в %	|
+AgeByDays	|	number	|	Возраст в днях	|
+Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)	|
+SignalSourceType	|	number	|	Тип источника сигнала (0 - RAMM token, 1 - MT Manager API)	|
+IsMyStrategy	|	boolean	|	Признак собственной стратегии	|
+Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed	|
+Type	|	number	|	Тип стратегии	|
+Accounts	|	number	|	Количество инвесторов	|
+****Account (вложенная структура)****
+ID	|	number	|	ID инвестиции	|
+Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
+Equity	|	real	|	Эквити счета	|
+ProfitCurrentIntervalNet	|	real	|	Прибыль/убыток в текущем торговом интервале	|
+Factor	|	real	|	Повышающий/понижающий коэффициент копирования	|
+Target	|	real	|	Целевая доходность инвестиции, в %	|
+Protection	|	real	|	Уровень защиты инвестиции, в %	|
+ProtectionEquity	|	real	|	Уровень защиты инвестиции, в валюте счета	|
+TargetEquity	|	real	|	Целевая доходность инвестиции, в валюте счета	|
+State	|	number	|	Код состояния счета (см.ниже)	|
+Status	|	number	|	0-new (without money), 1-active (trading), 2-MC, 3-ProtectionTarget, 4-Pause, 5-disabled (cant trade), 6-closed (cant activate)	|
+IsSecurity	|	bool	|	Признак инвестиции трейдера	|
+Balance	|	real	|	Баланс инвестиции	|
+AccountMinBalance	|	real	|	Минимальный баланс инвестиции	|
+AvailableToWithdraw	|	real	|	Доступные к выводу средства	|
+***Chart***
+Yield	|	real	|	Прибыль в %	|
+
+
+**Пример вызова:**
+```json
+{
+    "Filter": {
+        "RatingType": 0,
+        "StrategyName": "test0702_1"
+    },
+    "Pagination": {
+        "CurrentPage": 1,
+        "PerPage": 100
+    }
+}
+```
+
+**Пример ответа:**
+```json
+{
+    "Pagination": {
+        "TotalRecords": 1,
+        "TotalPages": 1,
+        "CurrentPage": 1,
+        "PerPage": 100
+    },
+    "Strategies": [
+        {
+            "Strategy": {
+                "ID": 1218,
+                "Name": "Test0702_1",
+                "Fee": 0.25,
+                "Commission": 0.000003,
+                "MonthlyYield": 0.3859,
+                "Yield": 0.5278,
+                "AgeByDays": 41,
+                "Symbols": "EURUSD, USDJPY",
+                "IsMyStrategy": true,
+                "Status": 2,
+                "SignalSourceType": 0,
+                "Accounts": 1,
+                "Type": 0
+            },
+            "Account": {
+                "ID": 1000097,
+                "Type": 0,
+                "Equity": 1528.83,
+                "ProfitCurrentIntervalNet": 527.83,
+                "Factor": 1,
+                "Target": 1,
+                "Protection": 0.5,
+                "ProtectionEquity": 764.415,
+                "TargetEquity": 3057.66,
+                "State": 11,
+                "Status": 4,
+                "IsSecurity": 1,
+                "Balance": 1528.83,
+                "AccountMinBalance": 200,
+                "AvailableToWithdraw": 1328.83
+            },
+            "Chart": [
+                {
+                    "Yield": -0.391
+                },
+                {
+                    "Yield": -2.886
+                },
+                {
+                    "Yield": -4.735
+                },
+                {
+                    "Yield": -9.322
+                }
+            ]
+        }
+    ],
+    "MyFunds": [
+        {
+            "InvestedNet": 75303.25,
+            "EquityNet": 201623.65
+        }
+    ]
+}
+```
+
 [Вернуться к содержанию](#Содержание)
 
 ### Собственные стратегии клиента
