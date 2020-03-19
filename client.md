@@ -1194,6 +1194,119 @@ AccountMinBalance	|	real	|	Мин. баланс инвестиции	|
 ```
 
 #### myStrategies.add
+
+Создание клиентом новой стратегии.
+
+**URL:** `https://maindc.ramm.store/api/client/v1/myStrategies.add`
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+Name	|	string	|	Подстрока поиска	|
+FeeRate	|	real	|	Вознаграждение с прибыли	|
+CommissionRate	|	real	|	Размер комиссии	|
+Shared	|	boolean	|	Признак копирования стратегии клиентам других брокеров	|
+Protection	|	real	|	Процент защиты счета	|
+Target	|	real	|	Целевая доходность	|
+Money	|	real	|	Сумма собственной счета трейдера	|
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - структура AccountCommand и массивы Wallets, Strategies:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+***AccountCommand***
+ID	|	number	|	ID команды	|
+***Strategy***
+ID	|	number	|	ID стратегии	|
+Name	|	string	|	Название стратегии	|
+DTCreated	|	number	|	Дата создания стратегии	|
+DTStat	|	number	|	Дата сбора статистики	|
+PartnerShare	|	real	|	Доля партнера	|
+Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed	|
+Yield	|	real	|	Прибыль в %	|
+Accounts	|	number	|	Количество счетов	|
+Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)	|
+****Offer (вложенная структура)****
+Commission	|	real	|	Размер комиссии	|
+Fee	|	real	|	Вознаграждение с прибыли	|
+***Account***
+ID	|	number	|	ID счета	|
+IsSecurity	|	boolean	|	Признак счета управляющего	|
+AccountSpecAssetID	|	number	|	Спецификация счета для заданного актива	|
+Asset	|	string	|	Название валюты счета	|
+TradingIntervalCurrentID	|	number	|	ID текущего торгового интервала	|
+DTCreated	|	number	|	Дата создания	|
+Balance	|	real	|	Баланс счета	|
+Equity	|	real	|	Эквити	|
+Margin	|	real	|	Задействованная маржа	|
+IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале	|
+Status	|	number	|	См. ниже	|
+Factor	|	real	|	Повышающий/понижающий коэффициент копирования	|
+MCReached	|	number	|	Дата/время срабатывания StopOut	|
+Protection	|	real	|	Процент защиты счета	|
+ProtectionEquity	|	real	|	Значение эквити, при котором сработает защита счета	|
+ProtectionReached	|	number	|	Дата/время срабатывания защиты счета	|
+Target	|	real	|	Целевая доходность	|
+TargetEquity	|	real	|	Целевая доходность в валюте счета	|
+TargetReached	|	number	|	Дата/время достижения целевой доходности	|
+
+**Пример вызова:**
+```json
+{
+    "Name": "TEST_1",
+    "FeeRate": 0.2,
+    "Shared": true,
+    "CommissionRate": 0.0001,
+    "Protection": 0.5,
+    "Target": 1.5,
+    "Money": 1000
+}
+```
+**Пример ответа:**
+```json
+{
+    "Strategies": [
+        {
+            "Strategy": {
+                "ID": 341,
+                "Name": "TEST_1",
+                "DTCreated": "2018-09-21T11:09:38.23",
+                "Offer": {
+                    "Commission": 0.0001,
+                    "Fee": 0.2
+                },
+                "Status": 1,
+                "Yield": 0,
+                "Accounts": 1,
+                "Symbols": ""
+            },
+            "Account": {
+                "ID": 1185,
+                "IsSecurity": true,
+                "AccountSpecAssetID": 5,
+                "Asset": "USD",
+                "TradingIntervalCurrentID": 164,
+                "DTCreated": "2018-09-21T11:09:38.243",
+                "Balance": 1000,
+                "Equity": 1000,
+                "Margin": 0,
+                "IntervalPnL": 0,
+                "Status": 3,
+                "Factor": 1,
+                "Protection": 0.5,
+                "ProtectionEquity": 500,
+                "Target": 1.5,
+                "TargetEquity": 1500,
+                "TargetReached": "2018-12-12T15:34:54.217"
+            }
+        }
+    ]
+}
+```
+
 [Вернуться к содержанию](#Содержание)
 
 #### myStrategies.close
