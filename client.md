@@ -1536,6 +1536,80 @@ StrategyCommandStatus	|number |Статус команды (0-new, 1-ok, 2-rejec
 [Вернуться к содержанию](#Содержание)
 
 #### myStrategies.getActiveAccounts
+
+Поиск активных инвестиций в стратегию.
+
+**URL:** `https://maindc.ramm.store/api/client/v1/myStrategies.getActiveAccounts`
+
+**Параметры:**
+
+Может содержать секции [Pagination, OrderBy](#Методы-поиска-данных).
+
+Поле | Тип | Описание 
+:--------|----------|----------
+StrategyID	|number	|ID стратегии|
+
+Допустимые поля для секции OrderBy:	
+ID, DT, Equity, ProfitCurrentIntervalGross, FeePaid, TotalCommissionTrader, FeeToPay, IsMyStrategy, TotalProfitNet.
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - структуры Pagination, OrderBy, массив Accounts:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+StrategyID	|number	|ID стратегии
+***Accounts***
+ID	|	number	|	ID инвестиции	|
+DT	|	number	|	Дата создания инвестиции	|
+Equity	|	real	|	Эквити инвестиции	|
+ProfitCurrentIntervalGross	|	real	|	Грязная прибыль за текущий торговый интервал	|
+FeePaid	|	real	|	Выплаченное вознаграждение	|
+TotalCommissionTrader	|	real	|	Общая сумма комиссии трейдера	|
+FeeToPay	|	real	|	Невыплаченное вознаграждение	|
+TotalProfitNet	|	real	|	Суммарная чистая прибыль	|
+IsMyStrategy	|	boolean	|	Признак собственной стратегии	|
+
+**Пример вызова:**
+```json
+{
+    "StrategyID": 3256,
+    "Pagination": {
+        "CurrentPage": 1,
+        "PerPage": 5
+    },
+    "OrderBy": {
+        "Field": "ID",
+        "Direction": "Desc"
+    }
+}
+```
+**Пример ответа:**
+```json
+{
+    "StrategyID": 3256,
+    "Pagination": {
+        "TotalRecords": 1,
+        "TotalPages": 1,
+        "CurrentPage": 1,
+        "PerPage": 5,
+        "MaxPerPage": 100
+    },
+    "Accounts": [
+        {
+            "ID": 48,
+            "DT": "2019-02-07T14:28:09.580",
+            "Equity": 1000,
+            "ProfitCurrentIntervalGross": 100,
+            "FeePaid": 10,
+            "TotalCommissionTrader": 5,
+            "FeeToPay": 7.93,
+            "TotalProfitNet": 56.45,
+            "IsMyStrategy": 1
+        }
+    ]
+}
+```
 [Вернуться к содержанию](#Содержание)
 
 #### myStrategies.getClosedAccounts
