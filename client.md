@@ -352,6 +352,7 @@ Bonus   | real | Сумма бонусов  |
 Invested   | real | Инвестированная сумма  |
 Margin   | real | Задействованная маржа  |
 IntervalPnL   | real | Прибыль/убыток в текущем торговом интервале |
+ActiveStrategiesCount| number | Количество активных стратегий  |
 
 **Пример вызова:**
 ```json
