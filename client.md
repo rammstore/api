@@ -507,14 +507,16 @@ ID	| number    | ID стратегии|
 ***Strategy***
 ID	|	number	|	ID стратегии	|
 Name	|	string	|	Имя стратегии	|
-Yield	|	real	|	Размер комиссии	|
-MonthlyYield	|	real	|	Размер вознаграждения	|
-Fee	|	real	|	Признак собственной стратегии	|
+Yield	|	real	|	Доходность	|
+MonthlyYield	|	real	|	Среднемесячная доходность|
+Fee	|	real	|	Размер вознаграждения	|
+Commission |	real	|	Размер комиссии	|
 Accounts	|	number	|	Количество инвестиций	|
 DTCreated	|	number	|	Дата создания	|
 DTClosed	|	number	|	Дата закрытия	|
 Equity	|	real	|	Суммарное эквити инвестиций в стратегию	|
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
+Status	|	number	|	Статус стратегии	|
 ***MyAccount***
 ID	|	number	|	ID счета	|
 ProfitCurrentIntervalGross	|	real	|	Прибыль в текущем торговои интервале	|
@@ -531,6 +533,7 @@ IsSecurity	|	bool	|	Признак сигнальной инвестиции	|
 Target	|	real	|	Целевая доходность	|
 Protection	|	real	|	Защита капитала	|
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
+Status	|	number	|	Статус счета	|
 
 **Пример вызова:**
 ```json
@@ -551,7 +554,8 @@ Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account,
         "DTCreated": "2018-09-21T11:09:38.243",
         "DTClosed": "2019-09-21T11:09:38.243",
         "Equity": 1000,
-        "IsMyStrategy": true
+        "IsMyStrategy": true,
+        "Status":0
     },
     "MyAccount": {
         "ID": 4545,
@@ -568,7 +572,8 @@ Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account,
         "IsSecurity": false,
         "Target": 5000,
         "Protection": 500,
-        "Type": 2
+        "Type": 2,
+        "Status":0
     }
 }
 ```
