@@ -604,7 +604,6 @@ chartSize	|	string	|	Размер графика (full, large, medium, small)	|
 ***Chart***
 DT	|	number	|	Дата/время	|
 Yield	|	real	|	Значение доходности	|
-Leverage	|	real	|	Плечо	|
 
 
 **Пример вызова:**
@@ -802,7 +801,8 @@ AccountMinBalance	|	real	|	Минимальный баланс счета		|
 AvailableToWithdraw	|	real	|	Средства, доступные к выводу		|
 FeePaid	|	real	|	Выплаченное вознаграждение		|
 FeeToPay	|	real	|	Невыплаченное вознаграждение		|
-
+****Chart (вложенный массив)****
+Yield	|	real	|	Прибыль в %	|
 
 **Пример вызова:**
 ```json
@@ -883,7 +883,21 @@ FeeToPay	|	real	|	Невыплаченное вознаграждение		|
                 "TargetEquity": 1010,
                 "TargetReached": "2018-12-12T15:34:54.217",
                 "Positions": 2
-            }
+            },
+            "Chart": [
+                {
+                    "Yield": -0.391
+                },
+                {
+                    "Yield": -2.886
+                },
+                {
+                    "Yield": -4.735
+                },
+                {
+                    "Yield": -9.322
+                }
+            ]
         }
     ]
 }
