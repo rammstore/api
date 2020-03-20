@@ -369,7 +369,8 @@ ActiveStrategiesCount| number | Количество активных страт
     "Bonus": 0,
     "Invested": 123.45,
     "Margin": 12.34,
-    "IntervalPnL": 23.45
+    "IntervalPnL": 23.45,
+    "ActiveStrategiesCount": 2
 }
 ```
 [Вернуться к содержанию](#Содержание)
@@ -388,13 +389,14 @@ ActiveStrategiesCount| number | Количество активных страт
 Поле | Тип | Описание 
 :--------|----------|----------
 StrategyID   | number | ID стратегии  |
-AccountID   | number | ID сделки |
+AccountID   | number | ID счета |
+DealID | number | ID сделки |
 DTFrom   | datetime | Начальная дата  |
 DTTo   | datetime | Конечная дата  |
 Type   | number | 0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners |
 
 Допустимые поля для секции OrderBy:	
-ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment.
+ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment, StrategyName.
 
 **Возвращаемые данные:**
 
@@ -420,6 +422,7 @@ AccrualDate   | datetime | Дата зачисления  |
 Amount   | real | Сумма перевода  |
 Type   | number | 0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners |
 Comment   | string | Комментарий для клиента  |
+StrategyName   | string | Название стратегии  |
 
 **Пример вызова:**
 ```json
@@ -474,7 +477,8 @@ Comment   | string | Комментарий для клиента  |
             "DealID": 111,
             "DT": "2018-12-12T07:27:50.75",
             "Amount": 500,
-            "Type": 5
+            "Type": 5,
+            "StrategyName": "SuperStrategy"
         }
     ]
 }
