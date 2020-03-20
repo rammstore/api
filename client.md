@@ -305,7 +305,6 @@ OldPassword   | string | Текущий пароль |
 
 Структура	|	Поле	|	Тип	|	Описание	|
 ------------|--------|--------|-----------|
-
 Account	|	AvailableCurrency	|	string	|	Доступные валюты счета	|
 	      |	MinBalance	|	real	|	Минимальный баланс инвестиции инвестора	|
 Strategy	|	MinAmountToCreate	|	real	|	Минимальный баланс инвестиции трейдера	|
