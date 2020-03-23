@@ -1576,7 +1576,7 @@ StrategyCommandStatus	|number |Статус команды (0-new, 1-ok, 2-rejec
 StrategyID	|number	|ID стратегии|
 
 Допустимые поля для секции OrderBy:	
-ID, DT, Equity, ProfitCurrentIntervalGross, FeePaid, TotalCommissionTrader, FeeToPay, IsMyStrategy, TotalProfitNet.
+ID, DT, Equity, ProfitCurrentIntervalGross, FeePaid, TotalCommissionTrader, FeeToPay, IsMyAccount, TotalProfitNet.
 
 **Возвращаемые данные:**
 
@@ -1594,7 +1594,7 @@ FeePaid	|	real	|	Выплаченное вознаграждение	|
 TotalCommissionTrader	|	real	|	Общая сумма комиссии трейдера	|
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 TotalProfitNet	|	real	|	Суммарная чистая прибыль	|
-IsMyStrategy	|	boolean	|	Признак собственной стратегии	|
+IsMyAccount	|	boolean	|	Признак собственного счета	|
 
 **Пример вызова:**
 ```json
@@ -1631,7 +1631,7 @@ IsMyStrategy	|	boolean	|	Признак собственной стратеги�
             "TotalCommissionTrader": 5,
             "FeeToPay": 7.93,
             "TotalProfitNet": 56.45,
-            "IsMyStrategy": 1
+            "IsMyAccount": 1
         }
     ]
 }
@@ -1866,6 +1866,93 @@ CommandID	|number	|ID команды закрытия
 [Вернуться к содержанию](#Содержание)
 
 #### accounts.get
+
+Получение информации о счете.
+
+**URL:** `https://maindc.ramm.store/api/client/v1/accounts.get`
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+AccountID	| number    | ID счета|
+
+
+**Возвращаемые данные:**
+
+Возвращаемые данные содержат структуру Strategy:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+ID	|	number	|	ID счета
+DT	|	number	|	Дата создания
+DTClosed	|	number	|	Дата закрытия
+Fee |	real	|	Размер вознаграждения
+Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
+IsSecurity	|	boolean	|	Признак сигнальной инвестиции
+Status	|	number	|	см.ниже
+Balance	|	real	|	Баланс счета
+Bonus	|	real	|	Бонус
+Equity	|	real	|	Эквити
+AvailableToWithdraw	|	real	|	Доступно для снятия
+AccountMinBalance	|	real	|	Минимальный баланс счета
+Factor	|	real	|	Повышающий/понижающий коэффициент копирования
+Margin	|	real	|	Задействованная маржа
+MarginLevel	|	real	|	Уровень маржи
+MCReached	|	number	|	Дата/время срабатывания StopOut
+Protection	|	real	|	Процент защиты счета (numeric (4,3))
+ProtectionEquity	|	real	|	Значение эквити, при котором сработает защита счета
+ProtectionReached	|	number	|	Дата/время срабатывания защиты счета
+Target	|	real	|	Целевая доходность (numeric (8,3))
+TargetEquity	|	real	|	Целевая доходность в валюте счета
+TargetReached	|	number	|	Дата/время достижения целевой доходности
+ProfitBase	|	real	|	База для подсчета вознаграждения
+AssetName	|	string	|	Название валюты счета
+Precision	|	number	|	Точность округления, знаки после запятой
+PositionsCount	|	number	|	Количество позиций
+TotalProfitGross	|	real	|	"Грязная" прибыль, до вычета вознаграждения
+***Strategy***
+ID	|	number	|	ID стратегии
+Name	|	string	|	Имя стратегии
+Status	|	number	|	Код статуса стратегии
+
+**Пример вызова:**
+```json
+{
+    "AccountID": 333
+}
+```
+**Пример ответа:**
+```json
+{
+    "ID": 22,
+    "Strategy": {
+        "ID": 17,
+        "Name": "TEST1",
+        "Status": 0
+    },
+    "Fee": 0.25,
+    "DT": "2019-01-24T10:05:39.960",
+    "DTClosed": "2019-02-07T14:28:09.580",
+    "Type": 0,
+    "IsSecurity": true,
+    "Status": 6,
+    "Balance": 0,
+    "Bonus": 0,
+    "Equity": 0,
+    "AvailableToWithdraw": 0,
+    "Factor": 1,
+    "Margin": 0,
+    "Protection": 0.5,
+    "ProtectionEquity": 501.795,
+    "Target": 1,
+    "TargetEquity": 2007.18,
+    "ProfitBase": 61.87,
+    "AssetName": "USD",
+    "Precision": 2,
+    "PositionsCount": 0
+}
+```
 [Вернуться к содержанию](#Содержание)
 
 #### accounts.getStatement
