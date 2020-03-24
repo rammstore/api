@@ -2507,6 +2507,37 @@ Precision	|	number	|	Точность (знаки после запятой)
 [Вернуться к содержанию](#Содержание)
 
 #### accountCommands.get
+
+Получение текущего статуса команды управления счетами по ее ID и ID счета.
+
+**URL:** `https://maindc.ramm.store/api/client/v1/accountCommands.get`
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+AccountCommandID	|number	|ID команды
+AccountID	|number	|ID счета
+
+**Возвращаемые данные:**
+
+Параметр | Тип | Описание 
+---------|----------|----------
+AccountCommandStatus	|number	|Статус команды (0-new, 1-ok, 2-reject, 3-error)
+
+**Пример вызова:**
+```json
+{
+    "AccountCommandID": 445,
+    "AccountID": 223
+}
+```
+**Пример ответа:**
+```json
+{
+    "AccountCommandStatus": 0
+}
+```
 [Вернуться к содержанию](#Содержание)
 
 ### Открытые позиции
