@@ -2235,6 +2235,179 @@ CommandID	|number	|ID команды установки доходности
 [Вернуться к содержанию](#Содержание)
 
 #### accounts.search
+
+Поиск счетов и соответствующих им стратегий с фильтрацией по подстроке (из имени стратегии).
+
+**URL:** `https://maindc.ramm.store/api/client/v1/accounts.search`
+
+**Параметры:**
+
+Может содержать секции [Filter, Pagination, OrderBy](#Методы-поиска-данных).
+
+Допустимые поля для секции Filter:	
+
+Поле | Тип | Описание 
+:--------|----------|----------
+Value	|string	|Подстрока поиска
+MyActiveAccounts	|boolean	|флаг поиска собственных счетов. (1 - только собственные, 0 - только чужие, нет параметра - все)
+
+Допустимые поля для секции OrderBy:	
+Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClosed, Strategy.Offer.Commission, Strategy.Offer.Fee, Strategy.PartnerShare, Strategy.Status, Strategy.Yield, Strategy.MonthlyYield, Strategy.Accounts, Strategy.Symbols, ID, IsSecurity, Type, AccountSpecAssetID, Asset, TradingIntervalCurrentID, DTCreated, DTClosed, Balance, Equity, Margin, MarginLevel, IntervalPnL, Status, Factor, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AvailableToWithdraw, AccountMinBalance, IsMyStrategy.
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets и Accounts:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+***Wallets***
+ID	|	number	|	ID кошелька (bigint)
+Asset	|	string	|	Название актива
+Balance	|	real	|	Сумма в кошельке
+Bonus	|	real	|	Сумма бонусов
+Invested	|	real	|	Инвестированная сумма
+Margin	|	real	|	Задействованная маржа
+IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
+***Accounts***
+ID	|	number	|	ID счета
+IsSecurity	|	boolean	|	Признак счета управляющего
+Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
+AccountSpecAssetID	|	number	|	Спецификация счета для заданного актива
+Asset	|	string	|	Название валюты счета
+TradingIntervalCurrentID	|	number	|	ID текущего торгового интервала
+DTCreated	|	number	|	Дата создания
+DTClosed	|	number	|	Дата закрытия счета
+Balance	|	real	|	Баланс счета
+Equity	|	real	|	Эквити
+Margin	|	real	|	Задействованная маржа
+MarginLevel	|	real	|	Уровень маржи
+IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
+Status	|	number	|	см. ниже
+Factor	|	real	|	Повышающий/понижающий коэффициент копирования
+MCReached	|	number	|	Дата/время срабатывания StopOut
+Protection	|	real	|	Процент защиты счета (numeric (4,3))
+ProtectionEquity	|	real	|	Значение эквити, при котором сработает защита счета
+ProtectionReached	|	number	|	Дата/время срабатывания защиты счета
+Target	|	real	|	Целевая доходность (numeric (8,3))
+TargetEquity	|	real	|	Целевая доходность в валюте счета
+TargetReached	|	number	|	Дата/время достижения целевой доходности
+AvailableToWithdraw	|	real	|	Доступно для вывода
+AccountMinBalance	|	real	|	Минимальный баланс
+****Strategy (вложенная структура)****
+ID	|	number	|	ID стратегии
+Name	|	string	|	Название стратегии (Varchar(64))
+DTCreated	|	number	|	Дата создания стратегии
+DTStat	|	number	|	Дата сбора статистики
+DTClosed	|	number	|	Дата закрытия стратегии
+PartnerShare	|	real	|	Доля партнера
+Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
+Yield	|	real	|	Прибыль в %
+MonthlyYield	|	real	|	Среднемесячная прибыль в %
+Accounts	|	number	|	Количество счетов
+Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)
+IsMyStrategy	|	bool	|	Признак собственной стратегии
+*****Offer (вложенная структура)*****
+Commission	|	real	|	Размер комиссии (numeric (6,6))
+Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))
+****Charts (вложенный массив)****
+Yield	|	real	|	Значение доходности
+
+**Пример вызова:**
+```json
+{
+    "Filter": {
+        "MyActiveAccounts": true
+    },
+    "OrderBy": {
+        "Field": "Strategy.Yield",
+        "Direction": "Desc"
+    },
+    "Pagination": {
+        "CurrentPage": 1,
+        "PerPage": 10
+    }
+}
+```
+**Пример ответа:**
+```json
+{
+    "Filter": {
+        "MyActiveAccounts": true
+    },
+    "OrderBy": {
+        "Field": "Strategy.Yield",
+        "Direction": "Desc"
+    },
+    "Pagination": {
+        "TotalRecords": 1,
+        "TotalPages": 1,
+        "CurrentPage": 1,
+        "PerPage": 10,
+        "MaxPerPage": 100
+    },
+    "Wallets": [
+        {
+            "ID": 11120,
+            "Asset": "USD",
+            "Balance": 9000.6,
+            "Invested": 914.63,
+            "Margin": 0,
+            "IntervalPnL": -85.37
+        }
+    ],
+    "Accounts": [
+        {
+            "Strategy": {
+                "ID": 1252,
+                "Name": "TestStr2003_1",
+                "DTCreated": "2020-03-20T14:29:13.697",
+                "DTStat": "2020-03-20T14:29:13.697",
+                "Offer": {
+                    "Commission": 0.000002,
+                    "Fee": 0.25
+                },
+                "PartnerShare": 0,
+                "Status": 1,
+                "Yield": -0.0854,
+                "MonthlyYield": -0.0854,
+                "Accounts": 2,
+                "Symbols": "EURUSD",
+                "IsMyStrategy": true
+            },
+            "ID": 1000196,
+            "IsSecurity": true,
+            "Type": 0,
+            "AccountSpecAssetID": 5,
+            "Asset": "USD",
+            "TradingIntervalCurrentID": 7931,
+            "DTCreated": "2020-03-20T14:29:13.697",
+            "Balance": 914.63,
+            "Equity": 914.63,
+            "Margin": 0,
+            "IntervalPnL": -85.37,
+            "Status": 1,
+            "Factor": 1,
+            "Protection": 0.5,
+            "ProtectionEquity": 500,
+            "Target": 1,
+            "TargetEquity": 2000,
+            "AvailableToWithdraw": 714.63,
+            "AccountMinBalance": 200,
+            "Chart": [
+                {
+                    "Yield": -10.173
+                },
+                {
+                    "Yield": -13.131
+                },
+                {
+                    "Yield": -8.644
+                }
+            ]
+        }
+    ]
+}
+```
 [Вернуться к содержанию](#Содержание)
 
 #### accounts.getCharts
