@@ -2661,9 +2661,9 @@ PrecisionVolume	|	number	|	Количество знаков после запя
 
 #### deals.search
 
-Поиск счетов и соответствующих им стратегий с фильтрацией по подстроке (из имени стратегии).
+Поиск сделок с фильтрацией по номеру счета.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.search`
+**URL:** `https://maindc.ramm.store/api/client/v1/deals.search`
 
 **Параметры:**
 
@@ -2673,79 +2673,56 @@ PrecisionVolume	|	number	|	Количество знаков после запя
 
 Поле | Тип | Описание 
 :--------|----------|----------
-Value	|string	|Подстрока поиска
-MyActiveAccounts	|boolean	|флаг поиска собственных счетов. (1 - только собственные, 0 - только чужие, нет параметра - все)
+AccountID	|number	|ID счета
 
 Допустимые поля для секции OrderBy:	
-Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClosed, Strategy.Offer.Commission, Strategy.Offer.Fee, Strategy.PartnerShare, Strategy.Status, Strategy.Yield, Strategy.MonthlyYield, Strategy.Accounts, Strategy.Symbols, ID, IsSecurity, Type, AccountSpecAssetID, Asset, TradingIntervalCurrentID, DTCreated, DTClosed, Balance, Equity, Margin, MarginLevel, IntervalPnL, Status, Factor, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AvailableToWithdraw, AccountMinBalance, IsMyStrategy.
+ID, SignalID, CommandID, SOID, TradingIntervalID, DT, Type, Symbol, Volume, Price, Commission, Entry, Profit, Swap, TotalProfit, DealToID, Netting.
 
 **Возвращаемые данные:**
 
-Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets и Accounts:
+Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets, DealsTotal и Deals:
 
 Параметр | Тип | Описание 
 ---------|----------|----------
 ***Wallets***
-ID	|	number	|	ID кошелька (bigint)
+ID	|	number	|	ID кошелька
 Asset	|	string	|	Название актива
 Balance	|	real	|	Сумма в кошельке
 Bonus	|	real	|	Сумма бонусов
 Invested	|	real	|	Инвестированная сумма
 Margin	|	real	|	Задействованная маржа
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
-***Accounts***
-ID	|	number	|	ID счета
-IsSecurity	|	boolean	|	Признак счета управляющего
-Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
-AccountSpecAssetID	|	number	|	Спецификация счета для заданного актива
-Asset	|	string	|	Название валюты счета
-TradingIntervalCurrentID	|	number	|	ID текущего торгового интервала
-DTCreated	|	number	|	Дата создания
-DTClosed	|	number	|	Дата закрытия счета
-Balance	|	real	|	Баланс счета
-Equity	|	real	|	Эквити
-Margin	|	real	|	Задействованная маржа
-MarginLevel	|	real	|	Уровень маржи
-IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
-Status	|	number	|	см. ниже
-Factor	|	real	|	Повышающий/понижающий коэффициент копирования
-MCReached	|	number	|	Дата/время срабатывания StopOut
-Protection	|	real	|	Процент защиты счета (numeric (4,3))
-ProtectionEquity	|	real	|	Значение эквити, при котором сработает защита счета
-ProtectionReached	|	number	|	Дата/время срабатывания защиты счета
-Target	|	real	|	Целевая доходность (numeric (8,3))
-TargetEquity	|	real	|	Целевая доходность в валюте счета
-TargetReached	|	number	|	Дата/время достижения целевой доходности
-AvailableToWithdraw	|	real	|	Доступно для вывода
-AccountMinBalance	|	real	|	Минимальный баланс
-****Strategy (вложенная структура)****
-ID	|	number	|	ID стратегии
-Name	|	string	|	Название стратегии (Varchar(64))
-DTCreated	|	number	|	Дата создания стратегии
-DTStat	|	number	|	Дата сбора статистики
-DTClosed	|	number	|	Дата закрытия стратегии
-PartnerShare	|	real	|	Доля партнера
-Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
-Yield	|	real	|	Прибыль в %
-MonthlyYield	|	real	|	Среднемесячная прибыль в %
-Accounts	|	number	|	Количество счетов
-Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)
-IsMyStrategy	|	bool	|	Признак собственной стратегии
-*****Offer (вложенная структура)*****
-Commission	|	real	|	Размер комиссии (numeric (6,6))
-Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))
-****Charts (вложенный массив)****
-Yield	|	real	|	Значение доходности
+***DealsTotal***
+Profit	|	real	|	Прибыль
+TotalProfit	|	real	|	Суммарная прибыль
+Swap	|	real	|	Свопы
+Commission	|	real	|	Комиссия
+***Deals***
+ID	|	number	|	ID сделки
+SignalID	|	number	|	ID сигнала
+CommandID	|	number	|	ID команды
+SOID	|	number	|	ID StopOut
+TradingIntervalID	|	number	|	ID спецификации инструментов
+DT	|	number	|	Дата/время создания сделки
+Type	|	number	|	См.ниже
+Symbol	|	string	|	Название инструмента
+Volume	|	real	|	Суммарный объем
+Price	|	real	|	Средняя цена
+Commission	|	real	|	Суммарная комиссия
+Entry	|	number	|	0 - In, 1 - Out, 2 - InOut
+Profit	|	real	|	Прибыль/убыток по сделке (без учета комиссий и свопов)
+Swap	|	real	|	Своп
+TotalProfit	|	real	|	Прибыль/убыток по сделке (с учетом комиссий и свопов)
+DealToID	|	number	|	ID результирующей сделки
+PrecisionPrice	|	number	|	Количество знаков после запятой при выводе цены
+PrecisionVolume	|	number	|	Количество знаков после запятой при выводе объема
+Netting	|	number	|	признак неттинговой сделки
 
 **Пример вызова:**
 ```json
 {
     "Filter": {
-        "MyActiveAccounts": true
-    },
-    "OrderBy": {
-        "Field": "Strategy.Yield",
-        "Direction": "Desc"
+        "AccountID": "1000201"
     },
     "Pagination": {
         "CurrentPage": 1,
@@ -2757,14 +2734,14 @@ Yield	|	real	|	Значение доходности
 ```json
 {
     "Filter": {
-        "MyActiveAccounts": true
+        "AccountID": 1000201
     },
     "OrderBy": {
-        "Field": "Strategy.Yield",
-        "Direction": "Desc"
+        "Field": "ID",
+        "Direction": "Asc"
     },
     "Pagination": {
-        "TotalRecords": 1,
+        "TotalRecords": 3,
         "TotalPages": 1,
         "CurrentPage": 1,
         "PerPage": 10,
@@ -2772,63 +2749,50 @@ Yield	|	real	|	Значение доходности
     },
     "Wallets": [
         {
-            "ID": 11120,
+            "ID": 11121,
             "Asset": "USD",
-            "Balance": 9000.6,
-            "Invested": 914.63,
+            "Balance": 10200,
+            "Invested": 762.71,
             "Margin": 0,
-            "IntervalPnL": -85.37
+            "IntervalPnL": -37.29
         }
     ],
-    "Accounts": [
+    "DealsTotal": [
         {
-            "Strategy": {
-                "ID": 1252,
-                "Name": "TestStr2003_1",
-                "DTCreated": "2020-03-20T14:29:13.697",
-                "DTStat": "2020-03-20T14:29:13.697",
-                "Offer": {
-                    "Commission": 0.000002,
-                    "Fee": 0.25
-                },
-                "PartnerShare": 0,
-                "Status": 1,
-                "Yield": -0.0854,
-                "MonthlyYield": -0.0854,
-                "Accounts": 2,
-                "Symbols": "EURUSD",
-                "IsMyStrategy": true
-            },
-            "ID": 1000196,
-            "IsSecurity": true,
+            "Profit": 462.87,
+            "TotalProfit": 462.71,
+            "Swap": 0,
+            "Commission": 0.16
+        }
+    ],
+    "Deals": [
+        {
+            "ID": 246529,
+            "CommandID": 62925,
+            "TradingIntervalID": 7936,
+            "DT": "2020-03-24T10:52:45.637",
+            "Type": 2,
+            "Commission": 0,
+            "Profit": 500,
+            "Swap": 0,
+            "TotalProfit": 500
+        },
+        {
+            "ID": 246535,
+            "SignalID": 62945,
+            "TradingIntervalID": 7936,
+            "DT": "2020-03-24T11:36:34.063",
             "Type": 0,
-            "AccountSpecAssetID": 5,
-            "Asset": "USD",
-            "TradingIntervalCurrentID": 7931,
-            "DTCreated": "2020-03-20T14:29:13.697",
-            "Balance": 914.63,
-            "Equity": 914.63,
-            "Margin": 0,
-            "IntervalPnL": -85.37,
-            "Status": 1,
-            "Factor": 1,
-            "Protection": 0.5,
-            "ProtectionEquity": 500,
-            "Target": 1,
-            "TargetEquity": 2000,
-            "AvailableToWithdraw": 714.63,
-            "AccountMinBalance": 200,
-            "Chart": [
-                {
-                    "Yield": -10.173
-                },
-                {
-                    "Yield": -13.131
-                },
-                {
-                    "Yield": -8.644
-                }
-            ]
+            "Symbol": "EURUSD",
+            "Volume": 0.0388,
+            "Price": 1.08673,
+            "Commission": 0.08,
+            "Entry": 0,
+            "Profit": 0,
+            "Swap": 0,
+            "TotalProfit": -0.08,
+            "PrecisionPrice": 6,
+            "PrecisionVolume": 4
         }
     ]
 }
