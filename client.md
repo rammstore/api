@@ -2433,9 +2433,9 @@ chartSize	|	string	|	Размер графика (full, large, medium, small)
 Параметр | Тип | Описание 
 ---------|----------|----------
 ***Chart***
-DT	number	Дата/время
-Yield	real	Значение доходности
-Equity	real	Эквити счета
+DT	|number	|Дата/время
+Yield	|real	|Значение доходности
+Equity	|real	|Эквити счета
 
 
 **Пример вызова:**
@@ -2466,6 +2466,44 @@ Equity	real	Эквити счета
 [Вернуться к содержанию](#Содержание)
 
 #### accounts.searchSpec
+
+Получение настроек счетов клиента.
+
+**URL:** `https://maindc.ramm.store/api/client/v1/accounts.searchSpec`
+
+**Параметры: отсутствуют**
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - структура AccountSpecAsset:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+***AccountSpecAsset***
+IDAccountSpecAsset	|	number	|	ID cпецификация счета для заданного актива
+IDSpec	|	number	|	ID спецификации
+IDAsset	|	number	|	ID актива
+IDStreamDefault	|	number	|	ID стрима по умолчанию (для инвесторов)
+IDStreamDefaultSecurity	|	number	|	ID стрима по умолчанию (для трейдеров)
+AccountMinBalance	|	real	|	Минимальный баланс инвестиции (для инвестора)
+SecurityMinBalance	|	real	|	Минимальный баланс инвестиции (для трейдера)
+Precision	|	number	|	Точность (знаки после запятой)
+
+**Пример ответа:**
+```json
+{
+    "AccountSpecAsset": {
+        "IDAccountSpecAsset": 1,
+        "IDSpec": 1,
+        "IDAsset": 2,
+        "IDStreamDefault": 10,
+        "IDStreamDefaultSecurity": 11,
+        "AccountMinBalance": 100,
+        "SecurityMinBalance": 200,
+        "Precision": 2
+    }
+}
+```
 [Вернуться к содержанию](#Содержание)
 
 #### accountCommands.get
