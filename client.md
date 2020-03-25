@@ -1099,6 +1099,7 @@ Yield	|	real	|	Прибыль в %	|
 MonthlyYield	|	real	|	Среднемесячная прибыль в %	|
 Accounts	|	number	|	Количество счетов	|
 Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)	|
+MasterAccount | string | Логин внешнего счета
 FeePaid	|	real	|	Выплаченное вознаграждение	|
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 CommissionPaid	|	real	|	Выплаченная комиссия	|
@@ -1189,6 +1190,7 @@ AccountMinBalance	|	real	|	Мин. баланс инвестиции	|
             "Yield": 1.076,
             "Accounts": 17,
             "Symbols": "EURUSD",
+            "MasterAccount": "12132545",
             "MonthlyYield": 0.5,
             "FeePaid": 5.01,
             "FeeToPay": 1.01,
