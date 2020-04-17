@@ -97,8 +97,8 @@ ID	| number |	ID стратегии
 Name |	string	| Название стратегии
 Fee |	real	| Вознаграждение с прибыли	
 Commission	| real	| Размер комиссии	
-MonthlyYield |	real	| Среднемесячная прибыль в %	
-Yield	| real	| Прибыль в %	
+MonthlyYield |	real	| Среднемесячная прибыль, в долях от стартового баланса
+Yield	| real	| Прибыль, в долях от стартового баланса
 AgeByDays	| number	| Возраст в днях	
 Symbols	| string	| Строка с перечислением самых используемых торговых инструментов (не более 3-х)	
 Accounts	| number	| Количество инвесторов
@@ -190,8 +190,8 @@ StrategyID	| number	| ID стратегии
 ***Strategy***
 ID|number|ID стратегии
 Name|string|Имя стратегии
-Yield|real|Размер комиссии
-MonthlyYield|real|Размер вознаграждения
+Yield|real|Прибыль, в долях от стартового баланса
+MonthlyYield|real|Среднемесячная прибыль, в долях от стартового баланса
 Fee|real|Размер вознаграждения
 Commission|real|Размер комиссии
 Accounts|number|Количество инвестиций
@@ -212,7 +212,7 @@ Status|number|0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
     "Strategy": {
         "ID": 333,
         "Name": "TEST1",
-        "Yield": 0.00001,
+        "Yield": 0.1,
         "MonthlyYield": 0.05,
         "Fee": 0.25,
         "Commission": 0.00001,
@@ -246,7 +246,7 @@ StrategyID|number|ID стратегии
 ---------|----------|----------
 ***Chart***
 DT|number|Дата/время
-Yield|real|Значение доходности
+Yield|real|Прибыль, в долях от стартового баланса
 
 **Пример вызова:**
 ```json
