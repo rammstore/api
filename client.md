@@ -10,10 +10,8 @@
         * [session.login](#sessionlogin)
         * [session.logout](#sessionlogout)
         * [password.set](#passwordset)
-    * [Общая информация о клиенте](#Общая-информация-о-клиенте)
-        * [statistic.get](#statisticget)        
     * [Спецификации](#Спецификации)
-        * [platform.getSpecification](#platformgetSpecification)
+        * [platform.getSpecification](#platformgetspecification)
     * [Кошельки и операции с кошельком](#Кошельки-и-операции-с-кошельком)
         * [wallets.get](#walletsget)
         * [walletTransfers.search](#walletTransferssearch)
@@ -294,85 +292,6 @@ OldPassword   | string | Текущий пароль |
 }
 ```
 [Вернуться к содержанию](#Содержание)
-### Общая информация о клиенте
-#### statistic.get
-
-Получение общей статистики клиента
-
-**URL:** `https://maindc.ramm.store/api/client/v1/statistic.get`
-
-**Параметры:** отсутствуют
-
-**Возвращаемые данные:**
-
-Возвращаемые данные:
-
-Параметр | Тип | Описание 
----------|----------|----------
-IDClient                          	|	number	|	ID клиента
-IDCompany                         	|	number	|	ID компании
-Test                              	|	number	|	Признак тестового счета
-AccountsBalance                   	|	real	|	Суммарный баланс инвестиций
-AccountsEquity                    	|	real	|	Суммарное эквити инвестиций
-AccountsProfitCurrentIntervalGross	|	real	|	Суммарный профит в текущем интервале
-AccountsProfitPositionsGross      	|	real	|	Суммарный профит по открытым позициям
-AccountsPastProfit                	|	real	|	Суммарная прибыль предыдущих периодов
-AccountsFeeCharged                	|	real	|	Суммарное начисленное вознаграждение (по инвестициям)
-AccountsFeePaid                   	|	real	|	Суммарное выплаченное вознаграждение (по инвестициям)
-AccountsCommissionPaid            	|	real	|	Суммарная выплаченная комиссия (по инвестициям)
-AccountsActive                    	|	number	|	Количество активных инвестиций
-AccountsClosed                    	|	number	|	Количество закрытых инвестиций
-StrategiesActive                  	|	number	|	Количество активных стратегий
-StrategiesClosed                  	|	number	|	Количество закрытых стратегий
-StrategiesFeeReceived             	|	real	|	Суммарное полученное вознаграждение (по стратегиям)
-StrategiesFeeDue                  	|	real	|	Суммарное начисленное, но не полученное вознаграждение (по стратегиям)
-StrategiesCommissionReceived      	|	real	|	Суммарная полученная комиссия (по стратегиям)
-StrategiesCommissionDue           	|	real	|	Суммарная начисленная, но не полученная комиссия (по стратегиям)
-WalletTransfersTotalIn            	|	real	|	Сумма входящих перечислений
-WalletTransfersTotalOut           	|	real	|	Сумма исходящих перечислений
-WalletTransfersTotalDelta         	|	real	|	Разница входящих и исходящих
-Swap                              	|	real	|	Свопы
-DealsVolume                       	|	real	|	Объем сделок
-WalletsTotalBalance               	|	real	|	Суммарный баланс кошельков
-PositionsCount                    	|	number	|	Количество открытых позиций
-Login	|	string	|	Логин клиента
-
-
-**Пример ответа:**
-```json
-{
-    "IDClient": 34,
-    "IDCompany": 2,
-    "Test": 0,
-    "AccountsBalance": 3423.23,
-    "AccountsEquity": 3423.23,
-    "AccountsProfitCurrentIntervalGross": 3423.23,
-    "AccountsProfitPositionsGross": 3423.23,
-    "AccountsPastProfit": 0,
-    "AccountsFeeCharged": 454.45,
-    "AccountsFeePaid": 454.55,
-    "AccountsCommissionPaid": 87.78,
-    "AccountsActive": 5,
-    "AccountsClosed": 10,
-    "StrategiesActive": 3,
-    "StrategiesClosed": 33,
-    "StrategiesFeeReceived": 786,
-    "StrategiesFeeDue": 455,
-    "StrategiesCommissionReceived": 24,
-    "StrategiesCommissionDue": 54,
-    "WalletTransfersTotalIn": 4000,
-    "WalletTransfersTotalOut": 300,
-    "WalletTransfersTotalDelta": 3700,
-    "Swap": 4.15,
-    "DealsVolume": 45000,
-    "WalletsTotalBalance": 4000,
-    "PositionsCount": 5,
-    "Login": "khgjh@gfg.tu"
-}
-```
-
-[Вернуться к содержанию](#Содержание)
-
 ### Спецификации
 #### platform.getSpecification
 
