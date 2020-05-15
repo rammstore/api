@@ -513,6 +513,7 @@ Fee	|	real	|	Размер вознаграждения	|
 Commission |	real	|	Размер комиссии	|
 Accounts	|	number	|	Количество инвестиций	|
 DTCreated	|	number	|	Дата создания	|
+DTStat	|	number	|	Дата начала сбора статистики	|
 DTClosed	|	number	|	Дата закрытия	|
 Equity	|	real	|	Суммарное эквити инвестиций в стратегию	|
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
@@ -552,6 +553,7 @@ Status	|	number	|	Статус счета	|
         "Fee": 0.25,
         "Accounts": 5,
         "DTCreated": "2018-09-21T11:09:38.243",
+        "DTStat": "2017-09-21T11:09:38.243",
         "DTClosed": "2019-09-21T11:09:38.243",
         "Equity": 1000,
         "IsMyStrategy": true,
@@ -851,6 +853,7 @@ Yield	|	real	|	Прибыль в %	|
             "ID": 341,
             "Name": "TEST_1",
             "DTCreated": "2018-09-21T11:09:38.23",
+            "DTStat": "2017-09-21T11:09:38.23",
             "DTClosed": "2018-09-22T11:09:38.23",
             "Offer": {
                 "Commission": 0.00001,
@@ -1181,6 +1184,7 @@ AccountMinBalance	|	real	|	Мин. баланс инвестиции	|
             "ID": 341,
             "Name": "TEST_1",
             "DTCreated": "2018-09-21T11:09:38.23",
+            "DTStat": "2017-09-21T11:09:38.23",
             "DTClosed": "2018-09-22T11:09:38.23",
             "Offer": {
                 "Commission": 0.00001,
@@ -1302,6 +1306,7 @@ TargetReached	|	number	|	Дата/время достижения целевой
                 "ID": 341,
                 "Name": "TEST_1",
                 "DTCreated": "2018-09-21T11:09:38.23",
+                "DTStat": "2017-09-21T11:09:38.23",
                 "Offer": {
                     "Commission": 0.0001,
                     "Fee": 0.2

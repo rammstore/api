@@ -198,6 +198,7 @@ Accounts|number|Количество инвестиций
 Equity|real|Суммарное эквити инвестиций в стратегию
 DTCreated|number|Дата создания
 DTClosed|number|Дата закрытия
+DTStat	|	number	|	Дата начала сбора статистики	|
 Status|number|0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
 
 **Пример вызова:**
@@ -219,6 +220,7 @@ Status|number|0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
         "Accounts": 12,
         "Equity": 1234.56,
         "DTCreated": "2018-09-21T11:09:38.243",
+        "DTStat": "2017-09-21T11:09:38.243",
         "Status": 1
     }
 }
