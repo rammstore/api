@@ -663,7 +663,7 @@ Status	|	number	|	Статус счета	|
 [Вернуться к содержанию](#Содержание)
 #### charts.get
 
-Получение графика заданного типа для заданной стратегии.
+Получение графика доходности для заданной стратегии.
 
 **URL:** `https://maindc.ramm.store/api/client/v1/charts.get`
 
@@ -672,10 +672,7 @@ Status	|	number	|	Статус счета	|
 Поле | Тип | Описание 
 :--------|----------|----------
 StrategyID	|	number	|	ID стратегии	|
-MaxPoints	|	number	|	Макс.количество точек графика	|
-chartType	|	string	|	Тип графика (yield, yield-leverage)	|
-chartSize	|	string	|	Размер графика (full, large, medium, small)	|
-
+MaxPoints	|	number	|	Макс.количество точек графика. Варианты: 25, 250 |
 
 
 **Возвращаемые данные:**
@@ -693,8 +690,7 @@ Yield	|	real	|	Значение доходности	|
 ```json
 {
     "StrategyID": 445,
-    "chartType": "yield-leverage",
-    "MaxPoints": 10
+    "MaxPoints": 25
 }
 ```
 **Пример ответа:**
