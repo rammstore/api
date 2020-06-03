@@ -1031,6 +1031,7 @@ ID	|	number	|	ID инвестиции	|
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
 Equity	|	real	|	Эквити счета	|
 ProfitCurrentIntervalNet	|	real	|	Прибыль/убыток в текущем торговом интервале	|
+TotalProfitNet	|	real	|	Суммарная прибыль/убыток|
 Factor	|	real	|	Повышающий/понижающий коэффициент копирования	|
 Target	|	real	|	Целевая доходность инвестиции, в %	|
 Protection	|	real	|	Уровень защиты инвестиции, в %	|
@@ -1152,7 +1153,7 @@ Value	|string	|Подстрока поиска|
 IsActive	|boolean	|Признак активной стратегии|
 
 Допустимые поля для секции OrderBy:	
-ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, PartnerShare, Status, Yield, MonthlyYield, Accounts, Symbols, FeeToPay, FeePaid, CommissionPaid, CommissionToPay, Account.ID, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.AvailableToWithdraw, Account.AccountMinBalance.
+ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, PartnerShare, Status, Yield, MonthlyYield, Accounts, Symbols, FeeToPay, FeePaid, CommissionPaid, CommissionToPay, Account.ID, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.TotalProfitNet, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.AvailableToWithdraw, Account.AccountMinBalance.
 
 **Возвращаемые данные:**
 
@@ -1202,6 +1203,7 @@ Equity	|	real	|	Эквити	|
 Margin	|	real	|	Задействованная маржа	|
 MarginLevel	|	real	|	Уровень маржи	|
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале	|
+TotalProfitNet	|	real	|	Суммарная прибыль/убыток |
 Status	|	number	|	0-new (without money), 1-active (trading), 2-MC, 3-ProtectionTarget, 4-Pause, 5-disabled (cant trade), 6-closed (cant activate)	|
 Factor	|	real	|	Повышающий/понижающий коэффициент копирования	|
 MCReached	|	number	|	Дата/время срабатывания StopOut	|
@@ -2337,7 +2339,7 @@ Value	|string	|Подстрока поиска
 MyActiveAccounts	|boolean	|флаг поиска собственных счетов. (1 - только собственные, 0 - только чужие, нет параметра - все)
 
 Допустимые поля для секции OrderBy:	
-Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClosed, Strategy.Offer.Commission, Strategy.Offer.Fee, Strategy.PartnerShare, Strategy.Status, Strategy.Yield, Strategy.MonthlyYield, Strategy.Accounts, Strategy.Symbols, ID, IsSecurity, Type, AccountSpecAssetID, Asset, TradingIntervalCurrentID, DTCreated, DTClosed, Balance, Equity, Margin, MarginLevel, IntervalPnL, Status, Factor, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AvailableToWithdraw, AccountMinBalance, IsMyStrategy.
+Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClosed, Strategy.Offer.Commission, Strategy.Offer.Fee, Strategy.PartnerShare, Strategy.Status, Strategy.Yield, Strategy.MonthlyYield, Strategy.Accounts, Strategy.Symbols, ID, IsSecurity, Type, AccountSpecAssetID, Asset, TotalProfitNet, TradingIntervalCurrentID, DTCreated, DTClosed, Balance, Equity, Margin, MarginLevel, IntervalPnL, Status, Factor, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AvailableToWithdraw, AccountMinBalance, IsMyStrategy.
 
 **Возвращаемые данные:**
 
@@ -2367,6 +2369,7 @@ Equity	|	real	|	Эквити
 Margin	|	real	|	Задействованная маржа
 MarginLevel	|	real	|	Уровень маржи
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
+TotalProfitNet	|	real	|	Суммарная прибыль/убыток
 Status	|	number	|	см. ниже
 Factor	|	real	|	Повышающий/понижающий коэффициент копирования
 MCReached	|	number	|	Дата/время срабатывания StopOut
