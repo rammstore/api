@@ -14,7 +14,7 @@ API для отправки торговых сигналов клиентами
 [Перейти к Trading API Documentation](trading.md)
 
 ## Partner API
-API для получения данных партнерами.
+API для получения данных партнерами и для отображения данных на лендингах.
 
 [Перейти к Partner API Documentation](partner.md)
 
