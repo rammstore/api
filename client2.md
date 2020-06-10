@@ -851,8 +851,9 @@ MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
 Accounts	|	number	|	Количество счетов		|
 Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
-****Offer (вложенная структура)****
-Commission	|	real	|	Размер комиссии (numeric (6,6))		|
+****PublicOffer (вложенная структура)****
+ID	|	number	|	ID публичной оферты		|
+Commission	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
 Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
 ****Account (вложенная структура)****
 ID	|	number	|	ID счета		|
@@ -881,6 +882,10 @@ AccountMinBalance	|	real	|	Минимальный баланс счета		|
 AvailableToWithdraw	|	real	|	Средства, доступные к выводу		|
 FeePaid	|	real	|	Выплаченное вознаграждение		|
 FeeToPay	|	real	|	Невыплаченное вознаграждение		|
+****Offer (вложенная структура)****
+ID	|	number	|	ID оферты счета		|
+Commission	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
+Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
 ****Chart (вложенный массив)****
 Yield	|	real	|	Прибыль в %	|
 
@@ -932,9 +937,9 @@ Yield	|	real	|	Прибыль в %	|
             "Name": "TEST_1",
             "DTCreated": "2018-09-21T11:09:38.23",
             "DTStat": "2017-09-21T11:09:38.23",
-            "DTClosed": "2018-09-22T11:09:38.23",
-            "Offer": {
-                "Commission": 0.00001,
+            "PublicOffer": {
+                "ID": 23148,
+                "Commission": 10,
                 "Fee": 0.25
             },
             "Status": 2,
@@ -963,7 +968,12 @@ Yield	|	real	|	Прибыль в %	|
                 "Target": 0.01,
                 "TargetEquity": 1010,
                 "TargetReached": "2018-12-12T15:34:54.217",
-                "Positions": 2
+                "Positions": 2,
+                "Offer": {
+                    "ID": 23140,
+                    "Commission": 0,
+                    "Fee": 0.0
+                }
             },
             "Chart": [
                 {
