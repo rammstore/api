@@ -205,7 +205,6 @@ DT   | number | Дата создания кошелька  |
 Asset   | string | Название актива  |
 Status   | number | 0-new, 1-active  |
 Balance   | real | Баланс кошелька  |
-Bonus   | real | Сумма бонусов  |
 Invested   | real | Инвестированная сумма  |
 Margin   | real | Задействованная маржа  |
 IntervalPnL   | real | Прибыль/убыток в текущем торговом интервале |	
@@ -246,7 +245,6 @@ ActiveStrategiesCount | number | количество активных стра�
             "Asset": "USD",
             "Status": 1,
             "Balance": 0,
-            "Bonus": 0,
             "Invested": 0,
             "Margin": 0,
             "IntervalPnL": 0,
@@ -427,7 +425,6 @@ ID   | number | ID кошелька |
 ID   | number | ID кошелька  |
 Asset   | string | Название актива  |
 Balance   | real | Баланс кошелька  |
-Bonus   | real | Сумма бонусов  |
 Invested   | real | Инвестированная сумма  |
 Margin   | real | Задействованная маржа  |
 IntervalPnL   | real | Прибыль/убыток в текущем торговом интервале |
@@ -445,7 +442,6 @@ ActiveStrategiesCount| number | Количество активных страт
     "ID": 12345,
     "Asset": "USD",
     "Balance": 900,
-    "Bonus": 0,
     "Invested": 123.45,
     "Margin": 12.34,
     "IntervalPnL": 23.45,
@@ -472,7 +468,7 @@ AccountID   | number | ID счета |
 DealID | number | ID сделки |
 DTFrom   | datetime | Начальная дата  |
 DTTo   | datetime | Конечная дата  |
-Type   | number | 0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners |
+Type   | number | 0-fund, 1-withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners |
 
 Допустимые поля для секции OrderBy:	
 ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment, StrategyName.
@@ -487,7 +483,6 @@ ID, StrategyID, AccountID, DealID, DT, AccrualDate, Amount, Type, Comment, Strat
 ID   | number | ID кошелька  |
 Asset   | string | Название актива  |
 Balance   | real | Баланс кошелька  |
-Bonus   | real | Сумма бонусов  |
 Invested   | real | Инвестированная сумма  |
 Margin   | real | Задействованная маржа  |
 IntervalPnL   | real | Прибыль/убыток в текущем торговом интервале |
@@ -499,7 +494,7 @@ DealID   | number | ID сделки  |
 DT   | datetime | Дата перевода  |
 AccrualDate   | datetime | Дата зачисления  |
 Amount   | real | Сумма перевода  |
-Type   | number | 0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners |
+Type   | number | 0-fund, 1-withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners |
 Comment   | string | Комментарий для клиента  |
 StrategyName   | string | Название стратегии  |
 
@@ -542,7 +537,6 @@ StrategyName   | string | Название стратегии  |
             "ID": 48,
             "Asset": "USD",
             "Balance": 0.132,
-            "Bonus": 90,
             "Invested": 90.07,
             "Margin": 0,
             "IntervalPnL": -9.93
@@ -833,7 +827,6 @@ ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, PartnerShare
 ID	|	number	|	ID кошелька (bigint)		|
 Asset	|	string	|	Название актива		|
 Balance	|	real	|	Сумма в кошельке		|
-Bonus	|	real	|	Сумма бонусов		|
 Invested	|	real	|	Инвестированная сумма		|
 Margin	|	real	|	Задействованная маржа		|
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале		|
@@ -924,7 +917,6 @@ Yield	|	real	|	Прибыль в %	|
             "ID": 48,
             "Asset": "USD",
             "Balance": 0.132,
-            "Bonus": 90,
             "Invested": 90.07,
             "Margin": 0,
             "IntervalPnL": -9.93
@@ -1028,7 +1020,6 @@ ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, PartnerShare
 ID	|	number	|	ID кошелька	|
 Asset	|	string	|	Название актива	|
 Balance	|	real	|	Сумма в кошельке	|
-Bonus	|	real	|	Сумма бонусов	|
 Invested	|	real	|	Инвестированная сумма	|
 Margin	|	real	|	Задействованная маржа	|
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале	|
@@ -1117,7 +1108,6 @@ AccountMinBalance	|	real	|	Мин. баланс инвестиции	|
             "ID": 48,
             "Asset": "USD",
             "Balance": 0.132,
-            "Bonus": 90,
             "Invested": 90.07,
             "Margin": 0,
             "IntervalPnL": -9.93
@@ -1863,7 +1853,6 @@ Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account,
 IsSecurity	|	boolean	|	Признак сигнальной инвестиции
 Status	|	number	|	см.ниже
 Balance	|	real	|	Баланс счета
-Bonus	|	real	|	Бонус
 Equity	|	real	|	Эквити
 AvailableToWithdraw	|	real	|	Доступно для снятия
 AccountMinBalance	|	real	|	Минимальный баланс счета
@@ -1909,7 +1898,6 @@ Status	|	number	|	Код статуса стратегии
     "IsSecurity": true,
     "Status": 6,
     "Balance": 0,
-    "Bonus": 0,
     "Equity": 0,
     "AvailableToWithdraw": 0,
     "Factor": 1,
@@ -2235,7 +2223,6 @@ Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClos
 ID	|	number	|	ID кошелька (bigint)
 Asset	|	string	|	Название актива
 Balance	|	real	|	Сумма в кошельке
-Bonus	|	real	|	Сумма бонусов
 Invested	|	real	|	Инвестированная сумма
 Margin	|	real	|	Задействованная маржа
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
@@ -2544,7 +2531,6 @@ ID, Symbol, Volume, Price, Margin, ProfitCalcQuote, Profit, Swap, TotalProfit.
 ID	|	number	|	ID кошелька
 Asset	|	string	|	Название актива
 Balance	|	real	|	Сумма в кошельке
-Bonus	|	real	|	Сумма бонусов
 Invested	|	real	|	Инвестированная сумма
 Margin	|	real	|	Задействованная маржа
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
@@ -2661,7 +2647,6 @@ ID, SignalID, CommandID, SOID, TradingIntervalID, DT, Type, Symbol, Volume, Pric
 ID	|	number	|	ID кошелька
 Asset	|	string	|	Название актива
 Balance	|	real	|	Сумма в кошельке
-Bonus	|	real	|	Сумма бонусов
 Invested	|	real	|	Инвестированная сумма
 Margin	|	real	|	Задействованная маржа
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
