@@ -23,7 +23,6 @@
         * [strategyportfolio.get](#strategyportfolioget)
         * [strategysymbolstat.get](#strategysymbolstatget)
         * [strategies.search](#strategiessearch)
-        * [ratings.get](#ratingsget)
     * [Собственные стратегии клиента](#Собственные-стратегии-клиента)
         * [myStrategies.search](#myStrategiessearch)
         * [myStrategies.add](#mystrategiesadd)	
@@ -802,8 +801,7 @@ Share	|	real	|	Доля символа	|
 [Вернуться к содержанию](#Содержание)
 #### strategies.search
 
-Поиск стратегий с фильтрацией по подстроке, содержащейся в названии стратегии (Name) и по трем фильтрам.
-Каждый фильтр может принимать три значения: true, false и "не задан".
+Поиск стратегий с фильтрацией и сортировками.
 
 **URL:** `https://maindc.ramm.store/api/client/v1/strategies.search`
 
@@ -819,7 +817,8 @@ Name	|	string	|	Подстрока поиска	|
 MyActiveAccounts	|	boolean	|	если = true, то ищем только стратегии с активными инвестициями данного клиента	|
 MyStrategies	|	boolean	|	если = true, то ищем собственные стратегии клиента	|
 ActiveStrategies	|	boolean	|	если = true, то ищем только активные стратегии	|
-
+AgeMin |	number	|	минимальный возраст в днях |
+DealsMin |	number	|	минимальное количество сделок |
 
 Допустимые поля для секции OrderBy:	
 ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, PartnerShare, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
