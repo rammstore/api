@@ -1304,46 +1304,11 @@ StrategyNameAvailable	|boolean |Признак уникальности имен
 ```
 [Вернуться к содержанию](#Содержание)
 
-#### strategyCommands.get
-
-Получение текущего статуса команды управления стратегиями по ее ID и ID стратегии.
-
-**URL:** `https://ramm.store/api/client/v2/strategyCommands.get`
-
-**Параметры:**
-
-Поле | Тип | Описание 
-:--------|----------|----------
-StrategyCommandID |number	|ID команды
-StrategyID |number	|ID стратегии
-
-
-**Возвращаемые данные:**
-
-Параметр | Тип | Описание 
----------|----------|----------
-StrategyCommandStatus	|number |Статус команды (0-new, 1-ok, 2-reject, 3-error)
-
-**Пример вызова:**
-```json
-{
-    "StrategyCommandID": 445,
-    "StrategyID": 223
-}
-```
-**Пример ответа:**
-```json
-{
-    "StrategyCommandStatus": 0
-}
-```
-[Вернуться к содержанию](#Содержание)
-
 #### myStrategies.getActiveAccounts
 
 Поиск активных инвестиций в стратегию.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/myStrategies.getActiveAccounts`
+**URL:** `https://ramm.store/api/client/v2/myStrategies.getActiveAccounts`
 
 **Параметры:**
 
@@ -1420,7 +1385,7 @@ IsMyAccount	|	boolean	|	Признак собственного счета	|
 
 Поиск закрытых инвестиций в стратегию.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/myStrategies.getClosedAccounts`
+**URL:** `https://ramm.store/api/client/v2/myStrategies.getClosedAccounts`
 
 **Параметры:**
 
@@ -1489,6 +1454,41 @@ IsMyStrategy	|	boolean	|	Признак собственной стратеги�
 ```
 [Вернуться к содержанию](#Содержание)
 
+#### strategyCommands.get
+
+Получение текущего статуса команды управления стратегиями по ее ID и ID стратегии.
+
+**URL:** `https://ramm.store/api/client/v2/strategyCommands.get`
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+StrategyCommandID |number	|ID команды
+StrategyID |number	|ID стратегии
+
+
+**Возвращаемые данные:**
+
+Параметр | Тип | Описание 
+---------|----------|----------
+StrategyCommandStatus	|number |Статус команды (0-new, 1-ok, 2-reject, 3-error)
+
+**Пример вызова:**
+```json
+{
+    "StrategyCommandID": 445,
+    "StrategyID": 223
+}
+```
+**Пример ответа:**
+```json
+{
+    "StrategyCommandStatus": 0
+}
+```
+[Вернуться к содержанию](#Содержание)
+
 ### Торговые счета клиентов
 [Вернуться к содержанию](#Содержание)
 
@@ -1496,7 +1496,7 @@ IsMyStrategy	|	boolean	|	Признак собственной стратеги�
 
 Создание счета.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.add`
+**URL:** `https://ramm.store/api/client/v2/accounts.add`
 
 **Параметры:**
 
@@ -1560,7 +1560,7 @@ CommandBalanceID	|number	|ID команды пополнения счета
 
 Пополняет счет.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.fund`
+**URL:** `https://ramm.store/api/client/v2/accounts.fund`
 
 **Параметры:**
 
@@ -1597,7 +1597,7 @@ CommandBalanceID	|number	|ID команды пополнения счета
 
 Снимает средства со счета.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.withdraw`
+**URL:** `https://ramm.store/api/client/v2/accounts.withdraw`
 
 **Параметры:**
 
@@ -1634,7 +1634,7 @@ CommandBalanceID	|number	|ID команды снятия средств
 
 Закрывает счет.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.close`
+**URL:** `https://ramm.store/api/client/v2/accounts.close`
 
 **Параметры:**
 
@@ -1667,7 +1667,7 @@ CommandID	|number	|ID команды закрытия
 
 Получение информации о счете.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.get`
+**URL:** `https://ramm.store/api/client/v2/accounts.get`
 
 **Параметры:**
 
@@ -1755,7 +1755,7 @@ Status	|	number	|	Код статуса стратегии
 
 Получение стейтмента счета.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.getStatement`
+**URL:** `https://ramm.store/api/client/v2/accounts.getStatement`
 
 **Параметры:**
 
@@ -1862,7 +1862,7 @@ AvailableToWithdraw	|	real	|	Средства, доступные к вывод�
 Ставит счет на паузу (временное прекращение копирования с закрытием всех открытых позиций)
 ВНИМАНИЕ. Счет трейдера этим методом поставить на паузу нельзя! Используйте метод myStrategies.pause для постановки на паузу всей стратегии.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.pause`
+**URL:** `https://ramm.store/api/client/v2/accounts.pause`
 
 **Параметры:**
 
@@ -1896,7 +1896,7 @@ CommandID	|number	|ID команды постановки на паузу
 Снимает счет с паузы (возобновление копирования, открытие всех позиций стратегии по текущим ценам).
 ВНИМАНИЕ. Счет трейдера этим методом снять с паузы нельзя! Используйте метод myStrategies.resume для снятия с паузы всей стратегии.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.resume`
+**URL:** `https://ramm.store/api/client/v2/accounts.resume`
 
 **Параметры:**
 
@@ -1929,7 +1929,7 @@ CommandID	|number	|ID команды снятия с паузы
 
 Устанавливает на счета значение повышающего/понижающего коэффициента копирования.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.setFactor`
+**URL:** `https://ramm.store/api/client/v2/accounts.setFactor`
 
 **Параметры:**
 
@@ -1964,7 +1964,7 @@ CommandID	|number	|ID команды установки коэффициента
 
 Устанавливает процент защиты счета.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.setProtection`
+**URL:** `https://ramm.store/api/client/v2/accounts.setProtection`
 
 **Параметры:**
 
@@ -1999,7 +1999,7 @@ CommandID	|number	|ID команды установки защиты
 
 Устанавливает целевую доходность счета.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.setTarget`
+**URL:** `https://ramm.store/api/client/v2/accounts.setTarget`
 
 **Параметры:**
 
@@ -2034,7 +2034,7 @@ CommandID	|number	|ID команды установки доходности
 
 Поиск счетов и соответствующих им стратегий с фильтрацией по подстроке (из имени стратегии).
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.search`
+**URL:** `https://ramm.store/api/client/v2/accounts.search`
 
 **Параметры:**
 
@@ -2209,7 +2209,7 @@ Yield	|	real	|	Значение доходности
 
 Получение графика заданного типа для заданного счета.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.getCharts`
+**URL:** `https://ramm.store/api/client/v2/accounts.getCharts`
 
 **Параметры:**
 
@@ -2264,7 +2264,7 @@ Equity	|real	|Эквити счета
 
 Получение настроек счетов клиента.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accounts.searchSpec`
+**URL:** `https://ramm.store/api/client/v2/accounts.searchSpec`
 
 **Параметры: отсутствуют**
 
@@ -2305,7 +2305,7 @@ Precision	|	number	|	Точность (знаки после запятой)
 
 Получение текущего статуса команды управления счетами по ее ID и ID счета.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/accountCommands.get`
+**URL:** `https://ramm.store/api/client/v2/accountCommands.get`
 
 **Параметры:**
 
@@ -2341,7 +2341,7 @@ AccountCommandStatus	|number	|Статус команды (0-new, 1-ok, 2-reject
 
 Поиск открытых позиций с фильтрацией по номеру счета.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/positions.search`
+**URL:** `https://ramm.store/api/client/v2/positions.search`
 
 **Параметры:**
 
@@ -2457,7 +2457,7 @@ PrecisionVolume	|	number	|	Количество знаков после запя
 
 Поиск сделок с фильтрацией по номеру счета.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/deals.search`
+**URL:** `https://ramm.store/api/client/v2/deals.search`
 
 **Параметры:**
 
