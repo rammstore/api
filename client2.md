@@ -1134,6 +1134,13 @@ CommissionRate	|	real	|	Размер комиссии	|
 ---------|----------|----------
 CommandID	|number	|ID команды добавления оферты
 
+Параметр | Тип | Описание 
+---------|----------|----------
+OfferID	| number	|ID созданной оферты 
+FeeRate	|	real	|	Вознаграждение с прибыли	|
+CommissionRate	|	real	|	Размер комиссии	|
+Link | string | ссылка на оферту
+
 **Пример вызова:**
 ```json
 {
@@ -1145,7 +1152,10 @@ CommandID	|number	|ID команды добавления оферты
 **Пример ответа:**
 ```json
 {
-    "CommandID": 5654
+    "OfferID": 5654,
+    "FeeRate": 0.25,
+    "CommissionRate": 0,
+    "Link": "cca6x1qoq1"
 }
 ```
 
