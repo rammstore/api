@@ -25,6 +25,8 @@
         * [strategies.search](#strategiessearch)
     * [Собственные стратегии клиента](#Собственные-стратегии-клиента)
         * [myStrategies.add](#mystrategiesadd)	
+        * [myStrategies.addOffer](#mystrategiesaddOffer)	
+        * [myStrategies.setPublicOffer](#mystrategiessetpublicoffer)	
         * [myStrategies.close](#myStrategiesclose)
         * [myStrategies.pause](#myStrategiespause)
         * [myStrategies.resume](#myStrategiesresume)        
@@ -1112,6 +1114,76 @@ TargetReached	|	number	|	Дата/время достижения целевой
 ```
 [Вернуться к содержанию](#Содержание)
 
+#### myStrategies.addOffer
+
+Создание новой оферты для стратегии.
+
+**URL:** `https://ramm.store/api/client/v2/myStrategies.addOffer`
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+StrategyID	|number	|ID стратегии|
+FeeRate	|	real	|	Вознаграждение с прибыли	|
+CommissionRate	|	real	|	Размер комиссии	|
+
+**Возвращаемые данные:**
+
+Параметр | Тип | Описание 
+---------|----------|----------
+CommandID	|number	|ID команды добавления оферты
+
+**Пример вызова:**
+```json
+{
+    "StrategyID": 12345,
+    "FeeRate": 0.25,
+    "CommissionRate": 0
+}
+```
+**Пример ответа:**
+```json
+{
+    "CommandID": 5654
+}
+```
+
+#### myStrategies.setPublicOffer
+
+Установка публичной оферты для стратегии.
+
+**URL:** `https://ramm.store/api/client/v2/myStrategies.setPublicOffer`
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+StrategyID	|number	|ID стратегии|
+OfferID	|	real	|	ID оферты, которую нужно сделать публичной 	|
+
+**Возвращаемые данные:**
+
+Параметр | Тип | Описание 
+---------|----------|----------
+CommandID	|number	|ID команды установки публичной оферты
+
+**Пример вызова:**
+```json
+{
+    "StrategyID": 12345,
+    "OfferID": 23456
+}
+```
+**Пример ответа:**
+```json
+{
+    "CommandID": 5654
+}
+```
+
+[Вернуться к содержанию](#Содержание)
+
 #### myStrategies.close
 
 Закрывает стратегию.
@@ -1526,7 +1598,7 @@ AccountID	|number	|ID счета
 CommandBalanceID	|number	|ID команды пополнения счета
 
 
-**Пример вызова для публичной оферты:**
+**Пример вызова для инвестирования по публичной оферте:**
 ```json
 {
     "StrategyID": 4566,
@@ -1537,7 +1609,7 @@ CommandBalanceID	|number	|ID команды пополнения счета
     "Money": 500
 }
 ```
-**Пример вызова по скрытой ссылке:**
+**Пример вызова для инвестирования по скрытой ссылке:**
 ```json
 {
     "Link": "cca6x1qoq1",
