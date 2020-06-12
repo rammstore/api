@@ -815,7 +815,7 @@ AgeMin |	number	|	минимальный возраст в днях |
 DealsMin |	number	|	минимальное количество сделок |
 
 Допустимые поля для секции OrderBy:	
-ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, PartnerShare, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
+ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
 
 **Возвращаемые данные:**
 
@@ -836,7 +836,6 @@ Name	|	string	|	Название стратегии (Varchar(64))		|
 DTCreated	|	number	|	Дата создания стратегии		|
 DTStat	|	number	|	Дата сбора статистики		|
 DTClosed	|	number	|	Дата закрытия стратегии		|
-PartnerShare	|	real	|	Доля партнера		|
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
 Yield	|	real	|	Прибыль в %		|
 MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
@@ -987,7 +986,6 @@ Yield	|	real	|	Прибыль в %	|
 [Вернуться к содержанию](#Содержание)
 
 ### Собственные стратегии клиента
-[Вернуться к содержанию](#Содержание)
 
 #### myStrategies.search
 [Вернуться к содержанию](#Содержание)
@@ -1008,7 +1006,7 @@ Value	|string	|Подстрока поиска|
 IsActive	|boolean	|Признак активной стратегии|
 
 Допустимые поля для секции OrderBy:	
-ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, PartnerShare, Status, Yield, MonthlyYield, Accounts, Symbols, FeeToPay, FeePaid, CommissionPaid, CommissionToPay, Account.ID, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.TotalProfitNet, Account.TotalProfit, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.AvailableToWithdraw, Account.AccountMinBalance.
+ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, Status, Yield, MonthlyYield, Accounts, Symbols, FeeToPay, FeePaid, CommissionPaid, CommissionToPay, Account.ID, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.TotalProfitNet, Account.TotalProfit, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.AvailableToWithdraw, Account.AccountMinBalance.
 
 **Возвращаемые данные:**
 
@@ -1029,7 +1027,6 @@ Name	|	string	|	Название стратегии	|
 DTCreated	|	number	|	Дата создания стратегии	|
 DTStat	|	number	|	Дата сбора статистики	|
 DTClosed	|	number	|	Дата закрытия стратегии	|
-PartnerShare	|	real	|	Доля партнера	|
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed	|
 Yield	|	real	|	Прибыль в %	|
 MonthlyYield	|	real	|	Среднемесячная прибыль в %	|
@@ -1041,7 +1038,8 @@ FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 CommissionPaid	|	real	|	Выплаченная комиссия	|
 CommissionToPay	|	real	|	Невыплаченная комиссия	|
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
-****Offer (вложенная структура)****
+****PublicOffer (вложенная структура)****
+ID	|	number	|	ID оферты	|
 Commission	|	real	|	Размер комиссии (numeric (6,6))		|
 Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
 ****Account (вложенная структура)****
@@ -1190,7 +1188,6 @@ ID	|	number	|	ID стратегии	|
 Name	|	string	|	Название стратегии	|
 DTCreated	|	number	|	Дата создания стратегии	|
 DTStat	|	number	|	Дата сбора статистики	|
-PartnerShare	|	real	|	Доля партнера	|
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed	|
 Yield	|	real	|	Прибыль в %	|
 Accounts	|	number	|	Количество счетов	|
@@ -2211,7 +2208,7 @@ Value	|string	|Подстрока поиска
 MyActiveAccounts	|boolean	|флаг поиска собственных счетов. (1 - только собственные, 0 - только чужие, нет параметра - все)
 
 Допустимые поля для секции OrderBy:	
-Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClosed, Strategy.Offer.Commission, Strategy.Offer.Fee, Strategy.PartnerShare, Strategy.Status, Strategy.Yield, Strategy.MonthlyYield, Strategy.Accounts, Strategy.Symbols, ID, IsSecurity, Type, AccountSpecAssetID, Asset, TotalProfitNet, TotalProfit, TradingIntervalCurrentID, DTCreated, DTClosed, Balance, Equity, Margin, MarginLevel, IntervalPnL, Status, Factor, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AvailableToWithdraw, AccountMinBalance, IsMyStrategy.
+Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClosed, Strategy.Offer.Commission, Strategy.Offer.Fee, Strategy.Status, Strategy.Yield, Strategy.MonthlyYield, Strategy.Accounts, Strategy.Symbols, ID, IsSecurity, Type, AccountSpecAssetID, Asset, TotalProfitNet, TotalProfit, TradingIntervalCurrentID, DTCreated, DTClosed, Balance, Equity, Margin, MarginLevel, IntervalPnL, Status, Factor, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AvailableToWithdraw, AccountMinBalance, IsMyStrategy.
 
 **Возвращаемые данные:**
 
@@ -2259,7 +2256,6 @@ Name	|	string	|	Название стратегии (Varchar(64))
 DTCreated	|	number	|	Дата создания стратегии
 DTStat	|	number	|	Дата сбора статистики
 DTClosed	|	number	|	Дата закрытия стратегии
-PartnerShare	|	real	|	Доля партнера
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
 Yield	|	real	|	Прибыль в %
 MonthlyYield	|	real	|	Среднемесячная прибыль в %
@@ -2326,7 +2322,6 @@ Yield	|	real	|	Значение доходности
                     "Commission": 0.000002,
                     "Fee": 0.25
                 },
-                "PartnerShare": 0,
                 "Status": 1,
                 "Yield": -0.0854,
                 "MonthlyYield": -0.0854,
