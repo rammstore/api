@@ -24,7 +24,6 @@
         * [strategysymbolstat.get](#strategysymbolstatget)
         * [strategies.search](#strategiessearch)
     * [Собственные стратегии клиента](#Собственные-стратегии-клиента)
-        * [myStrategies.search](#myStrategiessearch)
         * [myStrategies.add](#mystrategiesadd)	
         * [myStrategies.close](#myStrategiesclose)
         * [myStrategies.pause](#myStrategiespause)
@@ -32,9 +31,9 @@
         * [myStrategies.getToken](#myStrategiesgetToken)
         * [myStrategies.setToken](#myStrategiessetToken)
         * [myStrategies.checkName](#myStrategiescheckName)
-        * [strategyCommands.get](#strategyCommandsget)
         * [myStrategies.getActiveAccounts](#myStrategiesgetActiveAccounts)
         * [myStrategies.getClosedAccounts](#myStrategiesgetClosedAccounts)
+        * [strategyCommands.get](#strategyCommandsget)
     * [Торговые счета клиентов](#Торговые-счета-клиентов)
         * [accounts.add](#accountsadd)
         * [accounts.close](#accountsclose)
@@ -166,7 +165,7 @@ API может возвращать различные ошибки в след�
 
 Вместо логина и пароля может быть передан OTP-токен, в случае авторизации через сайт брокера.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/session.login`
+**URL:** `https://ramm.store/api/client/v2/session.login`
 
 **Параметры:**
 
@@ -259,7 +258,7 @@ ActiveStrategiesCount | number | количество активных стра�
 
 Удаляет сессию.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/session.logout`
+**URL:** `https://ramm.store/api/client/v2/session.logout`
 
 **Параметры:** отсутствуют
 
@@ -271,7 +270,7 @@ ActiveStrategiesCount | number | количество активных стра�
 
 Установка пароля собственной учетной записи клиента. Перед установкой нового пароля проверяется правильность текущего пароля.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/password.set`
+**URL:** `https://ramm.store/api/client/v2/password.set`
 
 **Параметры:**
 
@@ -295,7 +294,7 @@ OldPassword   | string | Текущий пароль |
 
 Получение общей статистики клиента
 
-**URL:** `https://maindc.ramm.store/api/client/v1/statistic.get`
+**URL:** `https://ramm.store/api/client/v2/statistic.get`
 
 **Параметры:** отсутствуют
 
@@ -374,7 +373,7 @@ Login	|	string	|	Логин клиента
 
 Получение спецификации платформы
 
-**URL:** `https://maindc.ramm.store/api/client/v1/platform.getSpecification`
+**URL:** `https://ramm.store/api/client/v2/platform.getSpecification`
 
 **Параметры:** отсутствуют
 
@@ -410,7 +409,7 @@ MinAmountToCreate	|	real	|	Минимальный баланс инвестиц�
 
 Полная информацию по кошельку.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/wallets.get`
+**URL:** `https://ramm.store/api/client/v2/wallets.get`
 
 **Параметры:**
 
@@ -453,7 +452,7 @@ ActiveStrategiesCount| number | Количество активных страт
 
 Поиск переводов.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/walletTransfers.search`
+**URL:** `https://ramm.store/api/client/v2/walletTransfers.search`
 
 **Параметры:**
 
@@ -562,7 +561,7 @@ StrategyName   | string | Название стратегии  |
 
 Получение информации о стратегии.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/strategies.get`
+**URL:** `https://ramm.store/api/client/v2/strategies.get`
 
 **Параметры:**
 
@@ -658,7 +657,7 @@ Status	|	number	|	Статус счета	|
 
 Получение графика доходности для заданной стратегии.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/charts.get`
+**URL:** `https://ramm.store/api/client/v2/charts.get`
 
 **Параметры:**
 
@@ -707,7 +706,7 @@ Yield	|	real	|	Значение доходности	|
 
 Получение информации о текущем портфеле позиций для заданной стратегии.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/strategyportfolio.get`
+**URL:** `https://ramm.store/api/client/v2/strategyportfolio.get`
 
 **Параметры:**
 
@@ -752,7 +751,7 @@ Share	|	real	|	Доля инструмента	|
 
 Отдает информацию по статистике использования различных торговых инструментов стратегией.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/strategysymbolstat.get`
+**URL:** `https://ramm.store/api/client/v2/strategysymbolstat.get`
 
 **Параметры:**
 
@@ -797,7 +796,7 @@ Share	|	real	|	Доля символа	|
 
 Поиск стратегий с фильтрацией и сортировками.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/strategies.search`
+**URL:** `https://ramm.store/api/client/v2/strategies.search`
 
 **Параметры:**
 
@@ -846,6 +845,18 @@ IsMyStrategy	|	boolean	|	Признак собственной стратеги�
 ID	|	number	|	ID публичной оферты		|
 Commission	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
 Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
+****TraderInfo (вложенная структура)****
+MasterAccount | string | Логин внешнего счета
+FeePaid	|	real	|	Выплаченное вознаграждение	|
+FeeToPay	|	real	|	Невыплаченное вознаграждение	|
+CommissionPaid	|	real	|	Выплаченная комиссия	|
+CommissionToPay	|	real	|	Невыплаченная комиссия	|
+****PartnerInfo (вложенная структура)****
+MasterAccount | string | Логин внешнего счета
+FeePaid	|	real	|	Выплаченное вознаграждение	|
+FeeToPay	|	real	|	Невыплаченное вознаграждение	|
+CommissionPaid	|	real	|	Выплаченная комиссия	|
+CommissionToPay	|	real	|	Невыплаченная комиссия	|
 ****Account (вложенная структура)****
 ID	|	number	|	ID счета		|
 IsSecurity	|	boolean	|	Признак счета управляющего		|
@@ -873,7 +884,7 @@ AccountMinBalance	|	real	|	Минимальный баланс счета		|
 AvailableToWithdraw	|	real	|	Средства, доступные к выводу		|
 FeePaid	|	real	|	Выплаченное вознаграждение		|
 FeeToPay	|	real	|	Невыплаченное вознаграждение		|
-****Offer (вложенная структура)****
+****AccountOffer (вложенная структура)****
 ID	|	number	|	ID оферты счета		|
 Commission	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
 Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
@@ -986,182 +997,11 @@ Yield	|	real	|	Прибыль в %	|
 [Вернуться к содержанию](#Содержание)
 
 ### Собственные стратегии клиента
-
-#### myStrategies.search
-[Вернуться к содержанию](#Содержание)
-
-Поиск собственных стратегий клиента с фильтрацией по подстроке, содержащейся в названии стратегии (Name), и по признаку активной/закрытой стратегии.
-
-**URL:** `https://maindc.ramm.store/api/client/v1/myStrategies.search`
-
-**Параметры:**
-
-Может содержать секции [Filter, Pagination, OrderBy](#Методы-поиска-данных).
-
-Допустимые поля для секции Filter:	
-
-Поле | Тип | Описание 
-:--------|----------|----------
-Value	|string	|Подстрока поиска|
-IsActive	|boolean	|Признак активной стратегии|
-
-Допустимые поля для секции OrderBy:	
-ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, Status, Yield, MonthlyYield, Accounts, Symbols, FeeToPay, FeePaid, CommissionPaid, CommissionToPay, Account.ID, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.TotalProfitNet, Account.TotalProfit, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.AvailableToWithdraw, Account.AccountMinBalance.
-
-**Возвращаемые данные:**
-
-Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets и Strategies:
-
-Параметр | Тип | Описание 
----------|----------|----------
-***Wallets***
-ID	|	number	|	ID кошелька	|
-Asset	|	string	|	Название актива	|
-Balance	|	real	|	Сумма в кошельке	|
-Invested	|	real	|	Инвестированная сумма	|
-Margin	|	real	|	Задействованная маржа	|
-IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале	|
-***Strategies***
-ID	|	number	|	ID стратегии	|
-Name	|	string	|	Название стратегии	|
-DTCreated	|	number	|	Дата создания стратегии	|
-DTStat	|	number	|	Дата сбора статистики	|
-DTClosed	|	number	|	Дата закрытия стратегии	|
-Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed	|
-Yield	|	real	|	Прибыль в %	|
-MonthlyYield	|	real	|	Среднемесячная прибыль в %	|
-Accounts	|	number	|	Количество счетов	|
-Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)	|
-MasterAccount | string | Логин внешнего счета
-FeePaid	|	real	|	Выплаченное вознаграждение	|
-FeeToPay	|	real	|	Невыплаченное вознаграждение	|
-CommissionPaid	|	real	|	Выплаченная комиссия	|
-CommissionToPay	|	real	|	Невыплаченная комиссия	|
-IsMyStrategy	|	bool	|	Признак собственной стратегии	|
-****PublicOffer (вложенная структура)****
-ID	|	number	|	ID оферты	|
-Commission	|	real	|	Размер комиссии (numeric (6,6))		|
-Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
-****Account (вложенная структура)****
-ID	|	number	|	ID счета	|
-IsSecurity	|	number	|	Признак инвестиции трейдера (0/1)	|
-AccountSpecAssetID	|	number	|	Спецификация счета для заданного актива	|
-Asset	|	string	|	Название валюты счета	|
-TradingIntervalCurrentID	|	number	|	ID текущего торгового интервала	|
-Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
-DTCreated	|	number	|	Дата создания	|
-Balance	|	real	|	Баланс счета	|
-Equity	|	real	|	Эквити	|
-Margin	|	real	|	Задействованная маржа	|
-MarginLevel	|	real	|	Уровень маржи	|
-IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале	|
-TotalProfitNet	|	real	|	Суммарная прибыль/убыток |
-TotalProfit	|	real	|	Сумма "чистой" прибыли прошлых периодов и "грязной" прибыли текущего периода |
-Status	|	number	|	0-new (without money), 1-active (trading), 2-MC, 3-ProtectionTarget, 4-Pause, 5-disabled (cant trade), 6-closed (cant activate)	|
-Factor	|	real	|	Повышающий/понижающий коэффициент копирования	|
-MCReached	|	number	|	Дата/время срабатывания StopOut	|
-Protection	|	real	|	Процент защиты счета	|
-ProtectionEquity	|	real	|	Значение эквити, при котором сработает защита счета	|
-ProtectionReached	|	number	|	Дата/время срабатывания защиты счета	|
-Target	|	real	|	Целевая доходность	|
-TargetEquity	|	real	|	Целевая доходность в валюте счета	|
-TargetReached	|	number	|	Дата/время достижения целевой доходности	|
-AvailableToWithdraw	|	real	|	Доступно к выводу	|
-AccountMinBalance	|	real	|	Мин. баланс инвестиции	|
-
-
-**Пример вызова:**
-```json
-{
-    "Filter": {
-        "Name": "TEST",
-        "IsActive": true
-    },
-    "Pagination": {
-        "CurrentPage": 1,
-        "PerPage": 5
-    },
-    "OrderBy": {
-        "Field": "ID",
-        "Direction": "Desc"
-    }
-}
-```
-**Пример ответа:**
-```json
-{
-    "Filter": {
-        "Name": "TEST",
-        "IsActive": true
-    },
-    "Pagination": {
-        "TotalRecords": 1,
-        "TotalPages": 1,
-        "CurrentPage": 1,
-        "PerPage": 5,
-        "MaxPerPage": 100
-    },
-    "Wallets": [
-        {
-            "ID": 48,
-            "Asset": "USD",
-            "Balance": 0.132,
-            "Invested": 90.07,
-            "Margin": 0,
-            "IntervalPnL": -9.93
-        }
-    ],
-    "Strategies": [
-        {
-            "ID": 341,
-            "Name": "TEST_1",
-            "DTCreated": "2018-09-21T11:09:38.23",
-            "DTStat": "2017-09-21T11:09:38.23",
-            "DTClosed": "2018-09-22T11:09:38.23",
-            "Offer": {
-                "Commission": 0.00001,
-                "Fee": 0.25
-            },
-            "Status": 2,
-            "Yield": 1.076,
-            "Accounts": 17,
-            "Symbols": "EURUSD",
-            "MasterAccount": "12132545",
-            "MonthlyYield": 0.5,
-            "FeePaid": 5.01,
-            "FeeToPay": 1.01,
-            "Account": {
-                "ID": 1185,
-                "AccountSpecAssetID": 5,
-                "Asset": "USD",
-                "TradingIntervalCurrentID": 164,
-                "Type": 0,
-                "DTCreated": "2018-09-21T11:09:38.243",
-                "Balance": 1000.46,
-                "Equity": 1006.64,
-                "Margin": 2.27,
-                "MarginLevel": 5.23,
-                "IntervalPnL": 6.64,
-                "Status": 3,
-                "Factor": 1,
-                "Protection": 0.01,
-                "ProtectionEquity": 10,
-                "Target": 0.01,
-                "TargetEquity": 1010,
-                "TargetReached": "2018-12-12T15:34:54.217",
-                "AvailableToWithdraw": 100.01,
-                "AccountMinBalance": 10.01
-            }
-        }
-    ]
-}
-```
-
 #### myStrategies.add
 
 Создание клиентом новой стратегии.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/myStrategies.add`
+**URL:** `https://ramm.store/api/client/v2/myStrategies.add`
 
 **Параметры:**
 
@@ -1276,7 +1116,7 @@ TargetReached	|	number	|	Дата/время достижения целевой
 
 Закрывает стратегию.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/myStrategies.close`
+**URL:** `https://ramm.store/api/client/v2/myStrategies.close`
 
 **Параметры:**
 
@@ -1308,7 +1148,7 @@ CommandID	|number	|ID команды закрытия счета
 
 Ставит стратегию на "Паузу" (копирование сигналов временно прекращается, все позиции закрываются).
 
-**URL:** `https://maindc.ramm.store/api/client/v1/myStrategies.pause`
+**URL:** `https://ramm.store/api/client/v2/myStrategies.pause`
 
 **Параметры:**
 
@@ -1340,7 +1180,7 @@ CommandID	|number	|ID команды
 
 Снимает стратегию с "Паузы" (копирование сигналов возобновляется). При возобновлении торговли на стратегии выставляется признак NeedSync, который используется в торговом АПИ для отправки синхронизации.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/myStrategies.resume`
+**URL:** `https://ramm.store/api/client/v2/myStrategies.resume`
 
 **Параметры:**
 
@@ -1372,7 +1212,7 @@ CommandID	|number	|ID команды
 
 Возвращает текущий токен стратегии.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/myStrategies.getToken`
+**URL:** `https://ramm.store/api/client/v2/myStrategies.getToken`
 
 **Параметры:**
 
@@ -1404,7 +1244,7 @@ Token	|string	|Токен, уникальный идентификатор
 
 Получение нового токена стратегии (старый немедленно перестает работать).
 
-**URL:** `https://maindc.ramm.store/api/client/v1/myStrategies.setToken`
+**URL:** `https://ramm.store/api/client/v2/myStrategies.setToken`
 
 **Параметры:**
 
@@ -1436,7 +1276,7 @@ Token	|string	|Токен, уникальный идентификатор
 
 Проверка имени новой стратегии на уникальность.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/mystrategies.checkName`
+**URL:** `https://ramm.store/api/client/v2/mystrategies.checkName`
 
 **Параметры:**
 
@@ -1468,7 +1308,7 @@ StrategyNameAvailable	|boolean |Признак уникальности имен
 
 Получение текущего статуса команды управления стратегиями по ее ID и ID стратегии.
 
-**URL:** `https://maindc.ramm.store/api/client/v1/strategyCommands.get`
+**URL:** `https://ramm.store/api/client/v2/strategyCommands.get`
 
 **Параметры:**
 
