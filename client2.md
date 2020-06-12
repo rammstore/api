@@ -185,7 +185,7 @@ OTP   | string | Одноразовый пароль |
 ***Session*** |
 Token   | string | Токен, уникальный идентификатор |
 WalletID   | number | ID кошелька по-умолчанию |
-DTLastActivity   | number | Время последней активности  |
+DTLastActivity   | datetime | Время последней активности  |
 ExpirationMinutes   | number | Длительность сессии  |
 ***Client*** |
 ID    | number | Уникальный номер клиента
@@ -202,7 +202,7 @@ BrandKey   | string | Код брендирования  |
 ***Wallets*** |
 ID   | number | ID кошелька  |
 IDClient   | number | ID клиента  |
-DT   | number | Дата создания кошелька  |
+DT   | datetime | Дата создания кошелька  |
 Asset   | string | Название актива  |
 Status   | number | 0-new, 1-active  |
 Balance   | real | Баланс кошелька  |
@@ -583,16 +583,18 @@ ID	|	number	|	ID стратегии	|
 Name	|	string	|	Имя стратегии	|
 Yield	|	real	|	Доходность	|
 MonthlyYield	|	real	|	Среднемесячная доходность|
-Fee	|	real	|	Размер вознаграждения	|
-Commission |	real	|	Размер комиссии	|
 Accounts	|	number	|	Количество инвестиций	|
-DTCreated	|	number	|	Дата создания	|
-DTStat	|	number	|	Дата начала сбора статистики	|
-DTClosed	|	number	|	Дата закрытия	|
+DTCreated	|	datetime	|	Дата создания	|
+DTStat	|	datetime	|	Дата начала сбора статистики	|
+DTClosed	|	datetime	|	Дата закрытия	|
 Equity	|	real	|	Суммарное эквити инвестиций в стратегию	|
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
 Status	|	number	|	Статус стратегии	|
-***MyAccount***
+***PublicOffer***
+ID	|	number	|	ID оферты	|
+FeeRate	|	real	|	Размер вознаграждения	|
+CommissionRate |	real	|	Размер комиссии	|
+***Account***
 ID	|	number	|	ID счета	|
 ProfitCurrentIntervalGross	|	real	|	Прибыль в текущем торговои интервале	|
 TotalProfitNet	|	real	|	Суммарная чистая прибыль	|
@@ -610,6 +612,10 @@ Target	|	real	|	Целевая доходность	|
 Protection	|	real	|	Защита капитала	|
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
 Status	|	number	|	Статус счета	|
+***AccountOffer***
+ID	|	number	|	ID оферты	|
+FeeRate	|	real	|	Размер вознаграждения	|
+CommissionRate |	real	|	Размер комиссии	|
 
 **Пример вызова:**
 ```json
@@ -677,7 +683,7 @@ MaxPoints	|	number	|	Макс.количество точек графика. В
 Параметр | Тип | Описание 
 ---------|----------|----------
 ***Chart***
-DT	|	number	|	Дата/время	|
+DT	|	datetime	|	Дата/время	|
 Yield	|	real	|	Значение доходности	|
 
 
@@ -794,6 +800,56 @@ Share	|	real	|	Доля символа	|
 ```
 
 [Вернуться к содержанию](#Содержание)
+#### strategies.getOffers
+
+Получение доступных оферт. Возвращает разные наборы данных для инвесторов, партнеров и владельца стратегии.
+
+**URL:** `https://ramm.store/api/client/v2/strategies.getOffers`
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+StrategyID	|	number	|	ID стратегии	|
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - массив Offers:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+***Offers***
+OfferID	|	number	|	ID оферты	|
+DTCreated	|	datetime	|	Дата создания стратегии		|
+FeeRate	|	real	|	Вознаграждение с прибыли	|
+CommissionRate	|	real	|	Размер комиссии	|
+IsPublic |	boolean	|	Является ли оферта публичной. Для непубличных оферт не передается.	|
+Link | string | Cсылка на оферту. Отображается инвестору, при наличии у него трейдеру
+Description | string | Описание, заданное при создании оферты. Отображается только владельцу стратегии. | 
+
+**Пример вызова:**
+```json
+{
+    "StrategyID": 12345
+}
+```
+**Пример ответа:**
+```json
+{
+    "Offers": [
+        {
+            "DT": "2018-12-13T00:00:00",
+            "Yield": 0.626
+        },
+        {
+            "DT": "2018-12-14T00:00:00",
+            "Yield": 1.62
+        }
+    ]
+}
+```
+[Вернуться к содержанию](#Содержание)
+
 #### strategies.search
 
 Поиск стратегий с фильтрацией и сортировками.
@@ -816,7 +872,7 @@ AgeMin |	number	|	минимальный возраст в днях |
 DealsMin |	number	|	минимальное количество сделок |
 
 Допустимые поля для секции OrderBy:	
-ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
+ID, Name, DT, DTStat, DTClosed, Offer.Commission, Offer.Fee, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
 
 **Возвращаемые данные:**
 
@@ -834,9 +890,9 @@ IntervalPnL	|	real	|	Прибыль/убыток в текущем торгов�
 ***Strategies***
 ID	|	number	|	ID стратегии		|
 Name	|	string	|	Название стратегии (Varchar(64))		|
-DTCreated	|	number	|	Дата создания стратегии		|
-DTStat	|	number	|	Дата сбора статистики		|
-DTClosed	|	number	|	Дата закрытия стратегии		|
+DTCreated	|	datetime	|	Дата создания стратегии		|
+DTStat	|	datetime	|	Дата сбора статистики		|
+DTClosed	|	datetime	|	Дата закрытия стратегии		|
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
 Yield	|	real	|	Прибыль в %		|
 MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
@@ -866,7 +922,7 @@ Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account,
 AccountSpecAssetID	|	number	|	Спецификация счета для заданного актива		|
 Asset	|	string	|	Название валюты счета		|
 TradingIntervalCurrentID	|	number	|	ID текущего торгового интервала		|
-DTCreated	|	number	|	Дата создания		|
+DTCreated	|	datetime	|	Дата создания		|
 Balance	|	real	|	Баланс счета		|
 Equity	|	real	|	Эквити		|
 Margin	|	real	|	Задействованная маржа		|
@@ -1028,8 +1084,8 @@ ID	|	number	|	ID команды	|
 ***Strategy***
 ID	|	number	|	ID стратегии	|
 Name	|	string	|	Название стратегии	|
-DTCreated	|	number	|	Дата создания стратегии	|
-DTStat	|	number	|	Дата сбора статистики	|
+DTCreated	|	datetime	|	Дата создания стратегии	|
+DTStat	|	datetime	|	Дата сбора статистики	|
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed	|
 Yield	|	real	|	Прибыль в %	|
 Accounts	|	number	|	Количество счетов	|
@@ -1043,7 +1099,7 @@ IsSecurity	|	boolean	|	Признак счета управляющего	|
 AccountSpecAssetID	|	number	|	Спецификация счета для заданного актива	|
 Asset	|	string	|	Название валюты счета	|
 TradingIntervalCurrentID	|	number	|	ID текущего торгового интервала	|
-DTCreated	|	number	|	Дата создания	|
+DTCreated	|	datetime	|	Дата создания	|
 Balance	|	real	|	Баланс счета	|
 Equity	|	real	|	Эквити	|
 Margin	|	real	|	Задействованная маржа	|
@@ -1412,7 +1468,7 @@ ID, DT, Equity, ProfitCurrentIntervalGross, FeePaid, TotalCommissionTrader, FeeT
 StrategyID	|number	|ID стратегии
 ***Accounts***
 ID	|	number	|	ID инвестиции	|
-DT	|	number	|	Дата создания инвестиции	|
+DT	|	datetime	|	Дата создания инвестиции	|
 Equity	|	real	|	Эквити инвестиции	|
 ProfitCurrentIntervalGross	|	real	|	Грязная прибыль за текущий торговый интервал	|
 FeePaid	|	real	|	Выплаченное вознаграждение	|
@@ -1489,8 +1545,8 @@ ID, DT, DTClosed, FeePaid, TotalCommissionTrader, IsMyStrategy,TotalProfitNet.
 StrategyID	|number	|ID стратегии
 ***Accounts***
 ID	|	number	|	ID инвестиции
-DT	|	number	|	Дата создания инвестиции
-DTClosed	|	number	|	Дата закрытия инвестиции
+DT	|	datetime	|	Дата создания инвестиции
+DTClosed	|	datetime	|	Дата закрытия инвестиции
 FeePaid	|	real	|	Выплаченное вознаграждение
 TotalCommissionTrader	|	real	|	Общая сумма комиссии трейдера
 TotalProfitNet	|	real	|	Суммарная чистая прибыль
@@ -1765,8 +1821,8 @@ AccountID	| number    | ID счета|
 Параметр | Тип | Описание 
 ---------|----------|----------
 ID	|	number	|	ID счета
-DT	|	number	|	Дата создания
-DTClosed	|	number	|	Дата закрытия
+DT	|	datetime	|	Дата создания
+DTClosed	|	datetime	|	Дата закрытия
 Fee |	real	|	Размер вознаграждения
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
 IsSecurity	|	boolean	|	Признак сигнальной инвестиции
@@ -1866,8 +1922,8 @@ ID	|	number	|	ID счета
 IsMyAccount	|	boolean	|	Признак собственной инвестиции
 IsSecurity	|	bool	|	Признак сигнальной инвестиции
 IDCompany	|	number	|	ID компании
-DT	|	number	|	Дата создания
-DTClosed	|	number	|	Дата закрытия
+DT	|	datetime	|	Дата создания
+DTClosed	|	datetime	|	Дата закрытия
 ABook	|	real	|	Доля А-Бук
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
 AssetName	|	string	|	Название валюты депозита
@@ -2152,8 +2208,8 @@ Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account,
 AccountSpecAssetID	|	number	|	Спецификация счета для заданного актива
 Asset	|	string	|	Название валюты счета
 TradingIntervalCurrentID	|	number	|	ID текущего торгового интервала
-DTCreated	|	number	|	Дата создания
-DTClosed	|	number	|	Дата закрытия счета
+DTCreated	|	datetime	|	Дата создания
+DTClosed	|	datetime	|	Дата закрытия счета
 Balance	|	real	|	Баланс счета
 Equity	|	real	|	Эквити
 Margin	|	real	|	Задействованная маржа
@@ -2175,9 +2231,9 @@ AccountMinBalance	|	real	|	Минимальный баланс
 ****Strategy (вложенная структура)****
 ID	|	number	|	ID стратегии
 Name	|	string	|	Название стратегии (Varchar(64))
-DTCreated	|	number	|	Дата создания стратегии
-DTStat	|	number	|	Дата сбора статистики
-DTClosed	|	number	|	Дата закрытия стратегии
+DTCreated	|	datetime	|	Дата создания стратегии
+DTStat	|	datetime	|	Дата сбора статистики
+DTClosed	|	datetime	|	Дата закрытия стратегии
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
 Yield	|	real	|	Прибыль в %
 MonthlyYield	|	real	|	Среднемесячная прибыль в %
@@ -2310,7 +2366,7 @@ chartSize	|	string	|	Размер графика (full, large, medium, small)
 Параметр | Тип | Описание 
 ---------|----------|----------
 ***Chart***
-DT	|number	|Дата/время
+DT	|datetime	|Дата/время
 Yield	|real	|Значение доходности
 Equity	|real	|Эквити счета
 
@@ -2578,7 +2634,7 @@ SignalID	|	number	|	ID сигнала
 CommandID	|	number	|	ID команды
 SOID	|	number	|	ID StopOut
 TradingIntervalID	|	number	|	ID спецификации инструментов
-DT	|	number	|	Дата/время создания сделки
+DT	|	datetime	|	Дата/время создания сделки
 Type	|	number	|	См.ниже
 Symbol	|	string	|	Название инструмента
 Volume	|	real	|	Суммарный объем
