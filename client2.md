@@ -594,7 +594,7 @@ Status	|	number	|	Статус стратегии	|
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
 CommissionRate |	real	|	Размер комиссии	|
-***Account***
+***MyAccount***
 ID	|	number	|	ID счета	|
 ProfitCurrentIntervalGross	|	real	|	Прибыль в текущем торговои интервале	|
 TotalProfitNet	|	real	|	Суммарная чистая прибыль	|
@@ -612,10 +612,11 @@ Target	|	real	|	Целевая доходность	|
 Protection	|	real	|	Защита капитала	|
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
 Status	|	number	|	Статус счета	|
-***AccountOffer***
+***MyAccountOffer***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
 CommissionRate |	real	|	Размер комиссии	|
+
 
 **Пример вызова:**
 ```json
@@ -631,19 +632,23 @@ CommissionRate |	real	|	Размер комиссии	|
         "Name": "TEST1",
         "Yield": 0.00001,
         "MonthlyYield": 0.05,
-        "Fee": 0.25,
         "Accounts": 5,
         "DTCreated": "2018-09-21T11:09:38.243",
         "DTStat": "2017-09-21T11:09:38.243",
-        "DTClosed": "2019-09-21T11:09:38.243",
         "Equity": 1000,
         "IsMyStrategy": true,
-        "Status":0
+        "Status": 0,
+        "PublicOffer": {
+            "ID": 123456,
+            "FeeRate": 0.25,
+            "CommissionRate": 5
+        }
     },
     "MyAccount": {
         "ID": 4545,
         "ProfitCurrentIntervalGross": 152.23,
         "TotalProfitNet": 512.65,
+        "TotalProfit": 512.65,
         "FeeToPay": 54.56,
         "FeePaid": 101.58,
         "TotalCommissionPaid": 25.34,
@@ -656,7 +661,12 @@ CommissionRate |	real	|	Размер комиссии	|
         "Target": 5000,
         "Protection": 500,
         "Type": 2,
-        "Status":0
+        "Status": 0,
+        "MyAccountOffer": {
+            "ID": 123456,
+            "FeeRate": 0.25,
+            "CommissionRate": 5
+        }
     }
 }
 ```
