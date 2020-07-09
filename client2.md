@@ -596,11 +596,10 @@ FeeRate	|	real	|	Размер вознаграждения	|
 CommissionRate |	real	|	Размер комиссии	|
 ***MyAccount***
 ID	|	number	|	ID счета	|
-ProfitCurrentIntervalGross	|	real	|	Прибыль в текущем торговои интервале	|
-TotalProfitNet	|	real	|	Суммарная чистая прибыль	|
-TotalProfit	|	real	|	Сумма "чистой" прибыли прошлых периодов и "грязной" прибыли текущего периода |
+TotalProfit	|	real	|	Прибыль по счету |
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 FeePaid	|	real	|	Выплаченное вознаграждение	|
+ProfitCurrentIntervalGross	|	real	|	Прибыль в текущем торговом интервале	|
 TotalCommissionPaid	|	real	|	Суммарная выплаченная комиссия	|
 State	|	number	|	Состояние счета (см. ниже)	|
 Equity	|	real	|	Название валюты депозита	|
@@ -646,11 +645,10 @@ CommissionRate |	real	|	Размер комиссии	|
     },
     "MyAccount": {
         "ID": 4545,
-        "ProfitCurrentIntervalGross": 152.23,
-        "TotalProfitNet": 512.65,
         "TotalProfit": 512.65,
         "FeeToPay": 54.56,
         "FeePaid": 101.58,
+        "ProfitCurrentIntervalGross": 152.23,
         "TotalCommissionPaid": 25.34,
         "State": 0,
         "Equity": 1500.56,
