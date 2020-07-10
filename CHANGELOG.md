@@ -1,4 +1,5 @@
-Лог изменений методов API ramm.store
+Лог изменений методов API ramm.store.
+
 Difference API начального и 2-ой версии с офертами.
 1. Strategies.get: в возвращаемых: Fee и Commission перемещены из блока Strategy в новый блок PublicOffer под названиями FeeRate, CommissionRate.
 Там же из MyAccount убрано поле TotalProfitNet.
