@@ -601,19 +601,14 @@ URL вызова: https://ramm.store/api/manager/v1/managers.add
 Тело запроса - строка JSON, содержит структуру Manager и массив Methods с методами, на которые нужно установить права:
 
 Структура |	Параметр | Тип | Описание
----------|----------|----------|----------
-Manager|	Login|	string|	Логин|
-
- 1  |Password|	string|	Пароль|
-
- 1  |FirstName|	string|	Имя|
-
- 1  |LastName|	string|	Фамилия|
-
-  1 |Mobile|	string|	Номер телефона|
-
- 1  |Comment|	string|	Комментарий|
- Methods| 1|string|	Название метода, на который устанавливаются права|
+---------|----------|----------|---------------
+Manager|	   Login|	   string|	   Логин|
+ 1    |  Password|	   string|	Пароль|
+ 1  |    FirstName|	   string|	Имя|
+ 1  |    LastName|	   string|	Фамилия|
+ 1 |    Mobile|	   string|	Номер телефона|
+ 1  |    Comment|	   string|	Комментарий|
+ Methods|   1|   string|	Название метода, на который устанавливаются права|
 
 Возвращаемые данные: строка JSON, содержит параметры:
 
