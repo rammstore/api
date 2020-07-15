@@ -603,12 +603,12 @@ URL вызова: https://ramm.store/api/manager/v1/managers.add
 Структура |	Параметр | Тип | Описание
 ---------|----------|----------|---------------
 Manager|	   Login|	   string|	   Логин|
- 1    |  Password|	   string|	Пароль|
- 1  |    FirstName|	   string|	Имя|
- 1  |    LastName|	   string|	Фамилия|
- 1 |    Mobile|	   string|	Номер телефона|
- 1  |    Comment|	   string|	Комментарий|
- Methods|   1|   string|	Название метода, на который устанавливаются права|
+     |  Password|	   string|	Пароль|
+   |    FirstName|	   string|	Имя|
+  |    LastName|	   string|	Фамилия|
+ |    Mobile|	   string|	Номер телефона|
+   |    Comment|	   string|	Комментарий|
+ Methods|   |   string|	Название метода, на который устанавливаются права|
 
 Возвращаемые данные: строка JSON, содержит параметры:
 
