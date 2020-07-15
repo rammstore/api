@@ -276,7 +276,7 @@ Content-Type: application/jsonstrategies
 
 ## positions.get
 
-## Операции с записями об исполнении ордеров
+## Операции с записями об исполнении агрегированного ордера
 
 ## fills.search
 
