@@ -675,7 +675,7 @@ OrderBy|	Field|	string|	Сортировка по параметру, вариа
 Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив Managers, каждый элемент которого содержит параметры:
 Структура |	Параметр | Тип | Описание
 ---------|----------|----------|---------------
-Filter|	Value	string|	Подстрока поиска|
+Filter|	Value|	string|	Подстрока поиска|
 Pagination|	TotalRecords|	number|	Общее количество записей|
 -| TotalPages|	number|	Общее количество страниц|
 -| CurrentPage|	number|	Номер текущей страницы|
