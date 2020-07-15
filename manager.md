@@ -422,8 +422,55 @@ Login|	string|	Логин менеджера|
 ## Информация о залогиненном менеджере, получение и изменение собственного профиля
 
 ## profile.get
+Информация о залогиненном менеджере (то есть о самом себе)
+
+URL вызова: https://ramm.store/api/manager/v1/profile.get
+
+Тело запроса: отсутствует
+
+Возвращаемые данные: строка JSON, содержит параметры:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+ID	number	ID менеджера
+Login	string	Логин
+FirstName	string	Имя
+LastName	string	Фамилия
+Mobile	string	Номер телефона
+
+
+Пример ответа:
+
+{
+"ID":1,
+"Login":"test1@gmail.com",
+"FirstName":"Vasiliy",
+"LastName":"Pupkin",
+"Mobile":"+74959466482"
+}
 
 ## profile.set
+Обновление менеджером информации о себе.
+
+URL вызова: https://ramm.store/api/manager/v1/profile.set
+
+Тело запроса: строка JSON, содержит параметры:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+FirstName	string	Имя
+LastName	string	Фамилия
+Mobile	string	Номер телефона
+
+Возвращаемые данные: отсутствуют
+
+Пример вызова:
+
+{
+"FirstName":"Vasiliy",
+"LastName":"Pupkin",
+"Mobile":"+74959466482"
+}
 
 ## Действия с настройками пользователей
         
