@@ -591,8 +591,8 @@ Equity	|	real	|	Суммарное эквити инвестиций в стра
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
 Status	|	number	|	Статус стратегии	|
 ***Tags***
-****TagName****	|	string	|	Название тэга	|
-****Value****	|	structure	|	Структура, содержащая данные	|
+_TagName_	|	string	|	Название тэга	|
+_Value_	|	structure	|	Структура, содержащая данные	|
 ***PublicOffer***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
@@ -914,8 +914,8 @@ Accounts	|	number	|	Количество счетов		|
 Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
 ***Tags***
-<TagName>	|	string	|	Название тэга	|
-<Value>	|	structure	|	Структура, содержащая данные	|
+_TagName_	|	string	|	Название тэга	|
+_Value_	|	structure	|	Структура, содержащая данные	|
 ****PublicOffer (вложенная структура)****
 ID	|	number	|	ID публичной оферты		|
 Commission	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
