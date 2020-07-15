@@ -590,13 +590,24 @@ DTClosed	|	datetime	|	Дата закрытия	|
 Equity	|	real	|	Суммарное эквити инвестиций в стратегию	|
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
 Status	|	number	|	Статус стратегии	|
-***Tags***
-_TagName_	|	string	|	Название тэга	|
-_Value_	|	structure	|	Структура, содержащая данные	|
 ***PublicOffer***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
 CommissionRate |	real	|	Размер комиссии	|
+****TraderInfo (вложенная структура)****
+MasterAccount | string | Логин внешнего счета
+FeePaid	|	real	|	Выплаченное вознаграждение	|
+FeeToPay	|	real	|	Невыплаченное вознаграждение	|
+CommissionPaid	|	real	|	Выплаченная комиссия	|
+CommissionToPay	|	real	|	Невыплаченная комиссия	|
+****PartnerInfo (вложенная структура)****
+FeePaid	|	real	|	Выплаченное вознаграждение	|
+FeeToPay	|	real	|	Невыплаченное вознаграждение	|
+CommissionPaid	|	real	|	Выплаченная комиссия	|
+CommissionToPay	|	real	|	Невыплаченная комиссия	|
+***Tags***
+_TagName_	|	string	|	Название тэга	|
+_Value_	|	structure	|	Структура, содержащая данные	|
 ***MyAccount***
 ID	|	number	|	ID счета	|
 TotalProfit	|	real	|	Прибыль по счету |
@@ -640,13 +651,13 @@ CommissionRate |	real	|	Размер комиссии	|
         "Equity": 1000,
         "IsMyStrategy": true,
         "Status": 0,
-        "Tags": {
-            "Youtube": "BERFDOJK8"
-        },
         "PublicOffer": {
             "ID": 123456,
             "FeeRate": 0.25,
             "CommissionRate": 5
+        },
+        "Tags": {
+            "Youtube": "BERFDOJK8"
         }
     },
     "MyAccount": {
