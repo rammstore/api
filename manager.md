@@ -603,7 +603,7 @@ URL вызова: https://ramm.store/api/manager/v1/managers.add
 Структура |	Параметр | Тип | Описание
 ---------|----------|----------|---------------
 Manager|	   Login|	   string|	   Логин|
-   |  Password|	   string|	Пароль|
+ 1  |  Password|	   string|	Пароль|
    |    FirstName|	   string|	Имя|
    |    LastName|	   string|	Фамилия|
    |    Mobile|	   string|	Номер телефона|
