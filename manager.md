@@ -594,6 +594,66 @@ OTP|	string|	Одноразовый пароль|
 ## Операции с менеджерами, управляющими сервисом RAMM
 
 ## managers.add
+Создает менеджера в компании запрашивающего менеджера.
+
+URL вызова: https://ramm.store/api/manager/v1/managers.add
+
+Тело запроса - строка JSON, содержит структуру Manager и массив Methods с методами, на которые нужно установить права:
+
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Manager|	Login|	string|	Логин|
+
+|Password|	string|	Пароль|
+
+|FirstName|	string|	Имя
+
+|LastName|	string|	Фамилия|
+
+|Mobile|	string|	Номер телефона|
+
+|Comment|	string|	Комментарий|
+Methods||string|	Название метода, на который устанавливаются права|
+
+Возвращаемые данные: строка JSON, содержит параметры:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID менеджера|
+Login|	string|	Логин|
+Password|	string|	Пароль|
+
+
+Пример вызова:
+
+{
+"Manager":
+{  
+"Login":"test@gmail.com",
+"Password": "qwert12345",
+"FirstName":"Vasiliy",
+"LastName":"Pupkin",
+"Mobile":"+74959466482",
+"Comment":"Some comment"
+},
+"Methods": 
+[
+"session.login",
+"session.get",
+"session.heartbeat",
+"session.getMySessions",
+"session.getMethods"
+]
+}
+
+
+Пример ответа:
+
+{
+"ID": 158,
+"Login":"test@gmail.com",
+"Password": "qwert12345"
+}
 
 ## managers.search
 
