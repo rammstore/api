@@ -137,6 +137,85 @@ Content-Type: application/jsonstrategies
 ## Аутентификация, действия с собственной сессией
 
 ## session.login
+Авторизует пользователя по логину и паролю, создает сессию. Возвращает токен для использования API и информацию по сессии (без списка прав).
+
+При вызове без указания номера компании возвращается список всех доступных компаний.
+
+URL вызова: https://maindc.ramm.store/api/manager/v1/session.login
+
+Тело запроса - строка JSON, содержит параметры:
+
+Login	string	Логин
+Password	string	Пароль
+CompanyID	number	Номер компании
+ExpirationMinutes	number	Автоматическое удаление сессии при неактивности в течении заданного времени. Значение по умолчанию: 10.
+Возвращаемые данные 1 (при вызове с указанием CompanyID): строка JSON, содержит параметры:
+
+
+Token	string	Токен, уникальный идентификатор
+Login	string	Логин
+ManagerID	number	ID менеджера
+CompanyID	number	ID компании
+DTCreated	number	Время создания
+DTLastActivity	number	Время последней активности
+DTRightsLastUpdate	number	Время последнего изменения прав
+ExpirationMinutes	number	Длительность сессии
+Demo	boolean	Признак демо-сессии (сессия для работы с демо-компанией)
+Возвращаемые данные 2 (при вызове без указания CompanyID) - массив Companies, каждый элемент которого содержит параметры:
+
+
+ID	number	ID компании
+Name	string	Название компании
+Demo	boolean	Признак демо-компании
+URL	string	URL для создания сессии по данной компании
+
+
+Пример вызова:
+
+
+{
+"Login":"test@gmail.com",
+"Password": "qwert12345",
+"CompanyID": 0,
+"ExpirationMinutes":100
+}
+
+Примеры ответа:
+
+(1) вызов с указанием CompanyID
+
+{
+"Token":"43C2CD3D-D6B6-4E0E-AD14-3954A0CA2EE6",
+"Login":"test@gmail.com",
+"ManagerID":5,
+"CompanyID":0,
+"DTCreated":"2018-11-23T11:59:12.493",
+"DTLastActivity":"2018-11-23T11:59:12.493",
+"DTRightsLastUpdate":"2018-11-23T11:54:00",
+"ExpirationMinutes":100,
+"Demo":false
+}
+
+
+(2) вызов без указания CompanyID
+
+{
+"Companies":
+[
+{
+"ID": 158,
+"Name": "SomeBrokerCompany",
+"Demo": false,
+"URL": "https://dc1.ramm.tech"
+},
+{
+"ID": 356,
+"Name": "AnotherCompnay",
+"Demo": true,
+"URL": "https://dc2.ramm.tech"
+}
+]
+}
 
 ## session.get
 
