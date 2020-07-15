@@ -591,8 +591,8 @@ Equity	|	real	|	Суммарное эквити инвестиций в стра
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
 Status	|	number	|	Статус стратегии	|
 ***Tags***
-<TagName>	|	string	|	Название тэга	|
-<Value>	|	structure	|	Структура, содержащая данные	|
+****TagName****	|	string	|	Название тэга	|
+****Value****	|	structure	|	Структура, содержащая данные	|
 ***PublicOffer***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
