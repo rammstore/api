@@ -897,7 +897,7 @@ AgeMin |	number	|	минимальный возраст в днях |
 DealsMin |	number	|	минимальное количество сделок |
 
 Допустимые поля для секции OrderBy:	
-ID, Name, DT, DTStat, DTClosed, Offer.Commission, Offer.Fee, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
+ID, Name, DT, DTStat, DTClosed, Offer.CommissionRate, Offer.FeeRate, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
 
 **Возвращаемые данные:**
 
@@ -929,8 +929,8 @@ _TagName_	|	string	|	Название тэга	|
 _Value_	|	structure	|	Структура, содержащая данные	|
 ****PublicOffer (вложенная структура)****
 ID	|	number	|	ID публичной оферты		|
-Commission	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
-Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
+CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
+FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
 ****TraderInfo (вложенная структура)****
 MasterAccount | string | Логин внешнего счета
 FeePaid	|	real	|	Выплаченное вознаграждение	|
@@ -971,8 +971,8 @@ FeePaid	|	real	|	Выплаченное вознаграждение		|
 FeeToPay	|	real	|	Невыплаченное вознаграждение		|
 ****AccountOffer (вложенная структура)****
 ID	|	number	|	ID оферты счета		|
-Commission	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
-Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
+CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
+FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
 ****Chart (вложенный массив)****
 Yield	|	real	|	Прибыль в %	|
 
