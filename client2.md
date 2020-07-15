@@ -897,7 +897,7 @@ AgeMin |	number	|	минимальный возраст в днях |
 DealsMin |	number	|	минимальное количество сделок |
 
 Допустимые поля для секции OrderBy:	
-ID, Name, DT, DTStat, DTClosed, Offer.CommissionRate, Offer.FeeRate, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
+ID, Name, DT, DTStat, DTClosed, Offer.FeeRate, Offer.CommissionRate, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
 
 **Возвращаемые данные:**
 
@@ -929,8 +929,8 @@ _TagName_	|	string	|	Название тэга	|
 _Value_	|	structure	|	Структура, содержащая данные	|
 ****PublicOffer (вложенная структура)****
 ID	|	number	|	ID публичной оферты		|
-CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
 FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
+CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
 ****TraderInfo (вложенная структура)****
 MasterAccount | string | Логин внешнего счета
 FeePaid	|	real	|	Выплаченное вознаграждение	|
@@ -971,8 +971,8 @@ FeePaid	|	real	|	Выплаченное вознаграждение		|
 FeeToPay	|	real	|	Невыплаченное вознаграждение		|
 ****AccountOffer (вложенная структура)****
 ID	|	number	|	ID оферты счета		|
-CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
 FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
+CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
 ****Chart (вложенный массив)****
 Yield	|	real	|	Прибыль в %	|
 
@@ -1025,8 +1025,8 @@ Yield	|	real	|	Прибыль в %	|
             "DTStat": "2017-09-21T11:09:38.23",
             "PublicOffer": {
                 "ID": 23148,
-                "Commission": 10,
-                "Fee": 0.25
+                "Fee": 0.25,
+                "Commission": 10
             },
             "Status": 2,
             "Yield": 1.076,
@@ -1060,8 +1060,8 @@ Yield	|	real	|	Прибыль в %	|
                 "Positions": 2,
                 "Offer": {
                     "ID": 23140,
-                    "Commission": 0,
-                    "Fee": 0.0
+                    "Fee": 0.0,
+                    "Commission": 0
                 }
             },
             "Chart": [
@@ -1860,8 +1860,8 @@ CurrentDate	|	number	|	Дата получения стейтмента
 ****Strategy (вложенная структура)****
 ID	|	number	|	ID стратегии
 Name	|	string	|	Имя стратегии
-Commission	|	real	|	Размер комиссии
 Fee	|	real	|	Размер вознаграждения
+Commission	|	real	|	Размер комиссии
 IsMyStrategy	|	bool	|	Признак собственной стратегии
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
 ****Account (вложенная структура)****
@@ -1906,8 +1906,8 @@ AvailableToWithdraw	|	real	|	Средства, доступные к вывод�
             "Strategy": {
                 "ID": 744,
                 "Name": "EURUSD_sell",
-                "Commission": 0,
                 "Fee": 0.25,
+                "Commission": 0,
                 "IsMyStrategy": true,
                 "Status": 1
             },
@@ -2133,7 +2133,7 @@ Value	|string	|Подстрока поиска
 MyActiveAccounts	|boolean	|флаг поиска собственных счетов. (1 - только собственные, 0 - только чужие, нет параметра - все)
 
 Допустимые поля для секции OrderBy:	
-Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClosed, Strategy.Offer.Commission, Strategy.Offer.Fee, Strategy.Status, Strategy.Yield, Strategy.MonthlyYield, Strategy.Accounts, Strategy.Symbols, ID, IsSecurity, Type, AccountSpecAssetID, Asset, TotalProfitNet, TotalProfit, TradingIntervalCurrentID, DTCreated, DTClosed, Balance, Equity, Margin, MarginLevel, IntervalPnL, Status, Factor, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AvailableToWithdraw, AccountMinBalance, IsMyStrategy.
+Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClosed, Strategy.Offer.FeeRate, Strategy.Offer.CommissionRate, Strategy.Status, Strategy.Yield, Strategy.MonthlyYield, Strategy.Accounts, Strategy.Symbols, ID, IsSecurity, Type, AccountSpecAssetID, Asset, TotalProfitNet, TotalProfit, TradingIntervalCurrentID, DTCreated, DTClosed, Balance, Equity, Margin, MarginLevel, IntervalPnL, Status, Factor, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AvailableToWithdraw, AccountMinBalance, IsMyStrategy.
 
 **Возвращаемые данные:**
 
@@ -2188,8 +2188,9 @@ Accounts	|	number	|	Количество счетов
 Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)
 IsMyStrategy	|	bool	|	Признак собственной стратегии
 *****Offer (вложенная структура)*****
-Commission	|	real	|	Размер комиссии (numeric (6,6))
-Fee	|	real	|	Вознаграждение с прибыли (numeric (3,2))
+ID |	number	|	ID оферты
+FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))
+CommissionRate	|	real	|	Размер комиссии (numeric (6,6))
 ****Charts (вложенный массив)****
 Yield	|	real	|	Значение доходности
 
@@ -2244,6 +2245,7 @@ Yield	|	real	|	Значение доходности
                 "DTCreated": "2020-03-20T14:29:13.697",
                 "DTStat": "2020-03-20T14:29:13.697",
                 "Offer": {
+                    "ID": 123456,
                     "Commission": 0.000002,
                     "Fee": 0.25
                 },
