@@ -757,6 +757,52 @@ Managers|	ID|	number|	ID менеджера|
 }
 
 ## managers.get
+Информация по менеджеру из компании залогиненного менеджера.
+
+URL вызова: https://ramm.store/api/manager/v1/managers.get
+
+Тело запроса - строка JSON, содержит параметр:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID менеджера|
+
+Возвращаемые данные: строка JSON, содержит параметры:
+Параметр/Структура | Параметр | Тип | Описание
+--------|----------|----------|--------------
+ID| -|	number|	ID менеджера|
+Login| -| string|	Логин|
+FirstName| -| string|	Имя|
+LastName| -| string|	Фамилия|
+Mobile| -| string|	Номер телефона|
+Comment| -| string|	Комментарий|
+Tag| -| string|	Метка|
+Company|	ID|	number|	ID компании|
+-| Name|	string|	Название компании|
+-| Demo|	boolean|	Признак "демо"|
+
+Пример вызова:
+
+{
+"ID":1,
+}
+
+Пример ответа:
+
+{ 
+"ID":1,
+"Login":"test@gmail.com",
+"FirstName":"Vasiliy",
+"LastName":"Pupkin",
+"Mobile":"+74959466482",
+"Comment":"Some comment",
+"Tag":"Tag1",
+"Company":
+{
+"ID":2,
+"Name":"FXInvest",
+"Demo": false
+}
+}
 
 ## managers.set
 
