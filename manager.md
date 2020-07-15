@@ -604,16 +604,16 @@ URL вызова: https://ramm.store/api/manager/v1/managers.add
 ---------|----------|----------|----------
 Manager|	Login|	string|	Логин|
 
-|Password|	string|	Пароль|
+   |Password|	string|	Пароль|
 
-|FirstName|	string|	Имя|
+   |FirstName|	string|	Имя|
 
-|LastName|	string|	Фамилия|
+   |LastName|	string|	Фамилия|
 
-|Mobile|	string|	Номер телефона|
+   |Mobile|	string|	Номер телефона|
 
-|Comment|	string|	Комментарий|
-Methods||string|	Название метода, на который устанавливаются права|
+   |Comment|	string|	Комментарий|
+Methods| |string|	Название метода, на который устанавливаются права|
 
 Возвращаемые данные: строка JSON, содержит параметры:
 
