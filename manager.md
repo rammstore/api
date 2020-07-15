@@ -769,13 +769,13 @@ ID|	number|	ID менеджера|
 Возвращаемые данные: строка JSON, содержит параметры:
 Параметр/Структура | Параметр | Тип | Описание
 --------|----------|----------|--------------
-ID| -|	number|	ID менеджера|
-Login| -| string|	Логин|
-FirstName| -| string|	Имя|
-LastName| -| string|	Фамилия|
-Mobile| -| string|	Номер телефона|
-Comment| -| string|	Комментарий|
-Tag| -| string|	Метка|
+ID| |	number|	ID менеджера|
+Login| | string|	Логин|
+FirstName| | string|	Имя|
+LastName| | string|	Фамилия|
+Mobile| | string|	Номер телефона|
+Comment| | string|	Комментарий|
+Tag| | string|	Метка|
 Company|	ID|	number|	ID компании|
 -| Name|	string|	Название компании|
 -| Demo|	boolean|	Признак "демо"|
