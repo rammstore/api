@@ -305,15 +305,15 @@ URL вызова: https://maindc.ramm.store/api/manager/v1/session.getMySessions
 Возвращаемые данные - массив JSON, каждый элемент которого содержит параметры:
 Параметр | Тип | Описание 
 ---------|----------|----------
-Token	string	Токен, уникальный идентификатор
-Login	string	Логин
-ManagerID	number	ID менеджера
-CompanyID	number	ID компании
-DTCreated	number	Время создания
-DTLastActivity	number	Время последней активности
-DTRightsLastUpdate	number	Время последнего изменения прав
-ExpirationMinutes	number	Длительность сессии
-Demo	boolean	Признак демо-сессии (сессия для работы с демо-компанией)
+Token|	string|	Токен, уникальный идентификатор|
+Login|	string|	Логин|
+ManagerID|	number|	ID менеджера|
+CompanyID|	number|	ID компании|
+DTCreated|	number|	Время создания|
+DTLastActivity|	number|	Время последней активности|
+DTRightsLastUpdate|	number|	Время последнего изменения прав|
+ExpirationMinutes|	number|	Длительность сессии|
+Demo|	boolean|	Признак демо-сессии (сессия для работы с демо-компанией)|
 
 
 Пример ответа:
