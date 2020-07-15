@@ -144,30 +144,33 @@ Content-Type: application/jsonstrategies
 URL вызова: https://maindc.ramm.store/api/manager/v1/session.login
 
 Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+Login	| string	| Логин |
+Password |	string |	Пароль |
+CompanyID |	number |	Номер компании |
+ExpirationMinutes |	number |	Автоматическое удаление сессии при неактивности в течении заданного времени. Значение по умолчанию: 10. |
 
-Login	string	Логин
-Password	string	Пароль
-CompanyID	number	Номер компании
-ExpirationMinutes	number	Автоматическое удаление сессии при неактивности в течении заданного времени. Значение по умолчанию: 10.
 Возвращаемые данные 1 (при вызове с указанием CompanyID): строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+Token	| string |	Токен, уникальный идентификатор |
+Login	| string |	Логин |
+ManagerID |	number |	ID менеджера |
+CompanyID |	number |	ID компании |
+DTCreated |	number |	Время создания |
+DTLastActivity |	number |	Время последней активности |
+DTRightsLastUpdate |	number |	Время последнего изменения прав |
+ExpirationMinutes |	number |	Длительность сессии |
+Demo |	boolean |	Признак демо-сессии (сессия для работы с демо-компанией) |
 
-
-Token	string	Токен, уникальный идентификатор
-Login	string	Логин
-ManagerID	number	ID менеджера
-CompanyID	number	ID компании
-DTCreated	number	Время создания
-DTLastActivity	number	Время последней активности
-DTRightsLastUpdate	number	Время последнего изменения прав
-ExpirationMinutes	number	Длительность сессии
-Demo	boolean	Признак демо-сессии (сессия для работы с демо-компанией)
 Возвращаемые данные 2 (при вызове без указания CompanyID) - массив Companies, каждый элемент которого содержит параметры:
-
-
-ID	number	ID компании
-Name	string	Название компании
-Demo	boolean	Признак демо-компании
-URL	string	URL для создания сессии по данной компании
+Параметр | Тип | Описание 
+---------|----------|----------
+ID	| number |	ID компании |
+Name |	string |	Название компании |
+Demo |	boolean |	Признак демо-компании |
+URL  |	string |	URL для создания сессии по данной компании |
 
 
 Пример вызова:
