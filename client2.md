@@ -590,6 +590,9 @@ DTClosed	|	datetime	|	Дата закрытия	|
 Equity	|	real	|	Суммарное эквити инвестиций в стратегию	|
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
 Status	|	number	|	Статус стратегии	|
+***Tags***
+<TagName>	|	string	|	Название тэга	|
+<Value>	|	structure	|	Структура, содержащая данные	|
 ***PublicOffer***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
@@ -637,6 +640,9 @@ CommissionRate |	real	|	Размер комиссии	|
         "Equity": 1000,
         "IsMyStrategy": true,
         "Status": 0,
+        "Tags": {
+            "Youtube": "BERFDOJK8"
+        },
         "PublicOffer": {
             "ID": 123456,
             "FeeRate": 0.25,
@@ -907,6 +913,9 @@ MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
 Accounts	|	number	|	Количество счетов		|
 Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
+***Tags***
+<TagName>	|	string	|	Название тэга	|
+<Value>	|	structure	|	Структура, содержащая данные	|
 ****PublicOffer (вложенная структура)****
 ID	|	number	|	ID публичной оферты		|
 Commission	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
@@ -1015,6 +1024,9 @@ Yield	|	real	|	Прибыль в %	|
             "Accounts": 17,
             "Symbols": "EURUSD",
             "IsMyStrategy": 1,
+            "Tags": {
+                "Youtube": "BERFDOJK8"
+            },
             "Account": {
                 "ID": 1185,
                 "IsSecurity": true,
