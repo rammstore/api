@@ -606,7 +606,7 @@ Manager|	Login|	string|	Логин|
 
 |Password|	string|	Пароль|
 
-|FirstName|	string|	Имя
+|FirstName|	string|	Имя|
 
 |LastName|	string|	Фамилия|
 
