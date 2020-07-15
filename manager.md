@@ -651,6 +651,110 @@ Password|	string|	Пароль|
 }
 
 ## managers.search
+Поиск менеджеров по подстроке, либо по фильтру.
+
+URL вызова: https://ramm.store/api/manager/v1/managers.search
+
+Тело запроса - строка JSON, содержит структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|---------------
+Filter|	Value|	string|	Подстрока поиска|
+-| ID|	number|	ID менеджера|
+-| Login|	string|	Логин|
+-| FirstName|	string|	Имя|
+-| LastName|	string|	Фамилия|
+-| Mobile|	string|	Номер телефона|
+-| Comment|	string|	Комментарий|
+-| Status|	number|	0-new not activated, 1-active, 2-temporary disabled, 3-disabled and hidden, 4-deleted|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, Login, FirstName, LastName, Status, Tag, Comment, Mobile|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив Managers, каждый элемент которого содержит параметры:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|---------------
+Filter|	Value	string|	Подстрока поиска|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+-| MaxPerPage|	number|	Максимальное количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, Login, FirstName, LastName, Status, Tag, Comment, Mobile|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+Managers|	ID|	number|	ID менеджера|
+-| Login|	string|	Логин|
+-| FirstName|	string|	Имя|
+-| LastName|	string|	Фамилия|
+-| Mobile|	string|	Номер телефона|
+-| Comment|	string|	Комментарий|
+-| Status|	number|	0-new, not activated, 1-active, 2-temporarily disabled, 3-disabled and hidden, 4-deleted|
+-| Tag|	number|	Произвольное число (для увязки с внешними системами)|
+
+Пример вызова:
+
+{
+"Filter":
+{
+"Value":"Pupk"
+},
+"Pagination":
+{
+"CurrentPage": 1,
+"PerPage": 5
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+}
+}
+
+Пример ответа:
+
+{
+"Filter":
+{
+"Value":"Pupk"
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"TotalRecords": 2,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 5,
+"MaxPerPage": 100
+},
+"Managers":
+[
+{ 
+"ID":1,
+"Login":"test@gmail.com",
+"FirstName":"Vasiliy",
+"LastName":"Pupkin",
+"Mobile":"+74959466482",
+"Comment":"",
+"Status":0,
+"Tag":0
+},
+{ 
+"ID":2,
+"Login":"test2@gmail.com",
+"FirstName":"Basilio",
+"LastName":"Pupkini",
+"Mobile":"+74959466483",
+"Comment":"",
+"Status":0,
+"Tag":0
+}
+]
+}
 
 ## managers.get
 
