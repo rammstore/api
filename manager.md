@@ -432,11 +432,11 @@ URL вызова: https://ramm.store/api/manager/v1/profile.get
 
 Параметр | Тип | Описание 
 ---------|----------|----------
-ID	number	ID менеджера
-Login	string	Логин
-FirstName	string	Имя
-LastName	string	Фамилия
-Mobile	string	Номер телефона
+ID|	number|	ID менеджера|
+Login|	string|	Логин|
+FirstName|	string|	Имя|
+LastName|	string|	Фамилия|
+Mobile|	string|	Номер телефона|
 
 
 Пример ответа:
@@ -458,9 +458,9 @@ URL вызова: https://ramm.store/api/manager/v1/profile.set
 
 Параметр | Тип | Описание 
 ---------|----------|----------
-FirstName	string	Имя
-LastName	string	Фамилия
-Mobile	string	Номер телефона
+FirstName|	string|	Имя|
+LastName|	string|	Фамилия|
+Mobile|	string|	Номер телефона|
 
 Возвращаемые данные: отсутствуют
 
@@ -475,8 +475,45 @@ Mobile	string	Номер телефона
 ## Действия с настройками пользователей
         
 ## settings.set
-        
+Сохранение настроек пользователя. При вызове с указанием SettingsKey, но без указания Settings, 
+существующая настройка с ключом SettingsKey будет удалена.
+
+URL вызова: https://ramm.store/api/manager/v1/settings.set
+
+Тело запроса: строка JSON, содержит параметры:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+SettingsKey|	string|	Ключ настройки|
+Settings|	string|	Строка с настройками|
+
+Возвращаемые данные: отсутствуют
+
+Пример вызова:
+
+{
+"SettingsKey" : "test",
+"Settings" : "test settings"
+}
+
 ## settings.get
+Получение настроек пользователя
+
+URL вызова: https://ramm.store/api/manager/v1/settings.get
+
+Тело запроса: строка JSON, содержит параметры:
+
+Параметр | Тип | Описание 
+---------|----------|----------
+SettingsKey|	string|	Ключ настройки|
+
+Возвращаемые данные: Строка настроек
+
+Пример вызова:
+
+{
+"SettingsKey" : "test"
+}
 
 ## Действия с паролями
 
