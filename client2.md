@@ -927,7 +927,6 @@ FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 CommissionPaid	|	real	|	Выплаченная комиссия	|
 CommissionToPay	|	real	|	Невыплаченная комиссия	|
 ****PartnerInfo (вложенная структура)****
-MasterAccount | string | Логин внешнего счета
 FeePaid	|	real	|	Выплаченное вознаграждение	|
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 CommissionPaid	|	real	|	Выплаченная комиссия	|
