@@ -288,7 +288,7 @@ Content-Type: application/jsonstrategies
 
 ## fillRequests.get
 
-## Операции с торговыми сигналами
+## Операции с сигналами на исполнение
 
 ## signals.search
 
