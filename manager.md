@@ -216,6 +216,8 @@ Content-Type: application/jsonstrategies
 
 ## clients.getCharges
 
+## clients.searchStatistic
+
 ## Кошельки клиентов
 
 ## wallets.get
