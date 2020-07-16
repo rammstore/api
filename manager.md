@@ -3843,9 +3843,140 @@ DTProcessed|	number|	Время обработки записи в базе да
 ## Операции с запросами на исполнение
 
 ## fillRequests.search
+Поиск запросов на исполнение по конкретному ID, либо по всех по компании менеджера.
 
+URL вызова: https://ramm.store/api/manager/v1/fillRequests.search
+
+Тело запроса - строка JSON, содержит структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	StreamID|	number|	ID потока котировок|
+-| Symbol|	string|	Название символа|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, StreamID, Symbol, Volume, DT, DTProcessed, DTLastFill,Test|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив FillRequests, каждый элемент которого содержит поля:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	StreamID|	number|	ID потока котировок|
+-| Symbol|	string|	Название символа|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, StreamID, Symbol, Volume, DT, DTProcessed, DTLastFill, Test|
+-| Direction|	string|	Направление сортировки|
+FillRequests|	ID|	number|	ID запроса на исполнение|
+-| StreamID|	number|	ID потока котировок|
+-| Symbol|	string|	Название символа|
+-| Volume|	real|	Запрошенный объем|
+-| DT|	number|	Время создания запроса на исполнение|
+-| DTProcessed|	number|	Время полной обработки запроса на исполнение|
+-| DTLastFill|	number|	Время поступления последней записи об исполнении|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"StreamID":1,
+"Symbol": "EURUSD"
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"CurrentPage": 1,
+"PerPage": 20
+}
+}
+
+Пример ответа:
+
+{
+"Filter":
+{
+"StreamID":1,
+"Symbol": "EURUSD"
+},
+
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"TotalRecords": 1,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 20
+},
+"FillRequests":
+[
+{
+"ID":158,
+"StreamID":1,
+"Symbol": "EURUSD",
+"Volume":1.5,
+"DT":"2018-11-23T11:55:12.493",
+"DTProcessed":"2018-11-23T11:57:12.493",
+"DTLastFill":"2018-11-23T11:59:12.493",
+"Test":0
+}
+]
+}
 
 ## fillRequests.get
+Получение информации о конкретном запросе на исполнение.
+
+URL вызова: https://ramm.store/api/manager/v1/hb.get
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID запроса на исполнение|
+
+
+Возвращаемые данные - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID запроса на исполнение|
+StreamID|	number|	ID потока котировок|
+Symbol|	string|	Название символа|
+Volume|	real|	Запрошенный объем|
+DT|	number|	Время создания запроса на исполнение|
+DTProcessed|	number|	Время полной обработки запроса на исполнение|
+DTLastFill|	number|	Время поступления последней записи об исполнении|
+
+
+Пример вызова:
+
+{
+"ID":158
+}
+
+Пример ответа:
+
+{
+"ID":158,
+"StreamID":1,
+"Symbol": "EURUSD",
+"Volume":1.5,
+"DT":"2018-11-23T11:55:12.493",
+"DTProcessed":"2018-11-23T11:57:12.493",
+"DTLastFill":"2018-11-23T11:59:12.493"
+}
 
 
 ## Операции с сигналами на исполнение
