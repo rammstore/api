@@ -914,6 +914,104 @@ CompanyID|	number|	ID компании|
 }
 
 ## companies.search
+Поиск компании
+
+URL вызова: https://ramm.store/api/manager/v1/companies.search
+
+Тело запроса - строка JSON, содержит структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	Name|	string|	Подстрока поиска (в названии)|
+-| ParentID|	number|	ID родительской компании|
+-| ID|	number|	ID компании|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, ParentID, Name, URL, Demo, Status, ParentCompanyName
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив Companies, каждый элемент которого содержит параметры:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	Name|	string|	Подстрока поиска (в названии)|
+-| ParentID|	number|	ID родительской компании|
+-| ID|	number|	ID компании|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+-| MaxPerPage|	number|	Максимальное количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, ParentID, Name, URL, Demo, Status, ParentCompanyName|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+Companies|	ID|	number|	ID компании|
+-| ParentID|	number|	ID родительской компании|
+-| ParentCompanyName|	string|	Название родительской компании|
+-| Name|	string|	Название компании|
+-| URL|	string|	URL компании|
+-| Demo|	boolean|	Признак "демо"|
+-| Status|	number|	Статус компании (0-new, 1-ok, 2-deleted, 3... errors )|
+
+Пример вызова:
+
+{
+"Filter":
+{
+"Name":"FX"
+},
+"Pagination":
+{
+"CurrentPage": 1,
+"PerPage": 5
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+}
+}
+
+Пример ответа:
+
+{
+"Filter":
+{
+"Name":"FX"
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"TotalRecords": 2,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 5,
+"MaxPerPage": 100
+},
+"Companies":
+[
+{
+"ID":2,
+"ParentID":1,
+"ParentCompanyName":"InvestFX",
+"Name":"FXInvest",
+"URL":"fxinvest.com",
+"Demo":false,
+"Status":0
+},
+{
+"ID":3,
+"ParentID":1,
+"ParentCompanyName":"InvestFX",
+"Name":"FXTrade",
+"URL":"fxtrade.com",
+"Demo":false,
+"Status":0
+}
+]
+}
 
 ## companies.get
 
