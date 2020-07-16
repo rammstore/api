@@ -108,6 +108,7 @@ API построен на указании названий вызываемых
 Заголовок запроса должен содержать значения: 
 
 Token: <токен>
+
 Content-Type: application/jsonstrategies
 
 ## Регистрация менеджера
@@ -4576,7 +4577,7 @@ error:
 }
 
 
-Коды ошибок HTTP
+**Коды ошибок HTTP**
 Код | Расшифровка
 ---------|----------
 200|	'OK'|
@@ -4588,7 +4589,7 @@ error:
 405|	'Method Not Allowed'|
 422|	'Unprocessable Entity'|
 
-Внутренние коды ошибок
+**Внутренние коды ошибок**
 Код | Сообщение
 ---------|----------
 incorrect_method|	The method you are trying to invoke doesn't exist|
