@@ -955,6 +955,7 @@ Equity	|	real	|	Эквити		|
 Margin	|	real	|	Задействованная маржа		|
 MarginLevel	|	real	|	Уровень маржи		|
 ProfitCurrentIntervalGross	|	real	|	Прибыль/убыток в текущем торговом интервале		|
+TotalProfit | real	| итого прибыль по счету	|
 Status	|	number	|	0-new (without money), 1-active (trading), 2-MC, 3-ProtectionTarget, 4-Pause, 5-disabled (cant trade), 6-closed (cant activate)		|
 Factor	|	real	|	Повышающий/понижающий коэффициент копирования		|
 MCReached	|	number	|	Дата/время срабатывания StopOut		|
@@ -1050,6 +1051,7 @@ Yield	|	real	|	Прибыль в %	|
                 "Margin": 2.27,
                 "MarginLevel": 5.34,
                 "ProfitCurrentIntervalGross": 6.64,
+                "TotalProfit": 3.32,
                 "Status": 3,
                 "Factor": 1,
                 "Protection": 0.01,
