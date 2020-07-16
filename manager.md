@@ -1873,12 +1873,262 @@ Wallets|	ID|	number|	ID кошелька|
 ## Операции с кошельками клиентов
 
 ## walletTransfers.add
+Добавляет перевод средств: пополнение, снятие, пополнение бонусом, снятие бонуса.
+При указании Amount с точностью больше, чем точность в БД, такой трансфер будет отклоняться.
+
+URL вызова: https://ramm.store/api/manager/v1/walletTransfers.add
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+WalletID|	number|	ID кошелька|
+ExecutionServerName|	string|	Название торговго сервера исполнения|
+ExecutionAccount|	string|	Счет исполнения|
+ExternalTransferID|	number|	ID внешнего перевода|
+Type|	number|	0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners|
+Amount|	real|	Сумма|
+CommentClient|	string|	Комментарий для клиента|
+CommentCompany|	string|	Внутренний комментарий|
+
+Возвращаемые данные: строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+WalletTransferID|	number|	ID перевода|
+
+
+Пример вызова:
+
+{ 
+"WalletID":12321,
+"ExecutionServerName":"FXTrade MT5",
+"ExecutionAccount":"465465465",
+"ExternalTransferID": 546546,
+"Type":2,
+"Amount":254.56,
+"CommentClient":"Бонус",
+"CommentCompany":"Бонусы исчерпаны"
+}
+
+Пример ответа:
+
+{
+"WalletTransferID":7654
+}
+
+
 
 ## walletTransfers.search
+Поиск переводов с фильтрацией по ID кошелька и ID клиента. Входные параметры могут быть не заданы или заданы частично, тогда поиск вернет весь список переводов.
+
+URL вызова: https://ramm.store/api/manager/v1/walletTransfers.search
+
+Тело запроса - строка JSON, содержит структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	WalletID|	number|	ID кошелька|
+-| ID|	number|	ID трансфера|
+-| Type|	number|	0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners|
+-| ClientID|	number|	ID клиента|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, WalletID, ExternalTransferID, DT, Type, Amount, CommentClient, CommentCompany, Test|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+Возвращаемые данные - структуры Pagination, Filter, OrderBy и массив WalletTransfers:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	WalletID|	number|	ID кошелька|
+-| ID|	number|	ID трансфера|
+-| Type|	number|	0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners|
+-| ClientID|	number|	ID клиента|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, WalletID, ExternalTransferID, DT, Type, Amount, CommentClient, CommentCompany, Test|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+-| MaxPerPage|	number|	Максимальное количество записей на одной странице|
+WalletTransfers|	ID|	number|	ID перевода|
+-| WalletID|	number|	ID кошелька|
+-| ExternalTransferID|	number|	ID внешнего перевода|
+-| DT|	number|	Дата перевода|
+-| Type|	number|	0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners|
+-| Amount|	real|	Сумма перевода|
+-| CommentClient|	string|	Комментарий для клиента|
+-| CommentCompany|	string|	Внутренний комментарий|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"WalletID":222,
+"ClientID":111,
+"Type":0
+},
+
+"Pagination":
+{
+"CurrentPage": 1,
+"PerPage": 5
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+}
+}
+
+Пример ответа:
+
+{
+"Filter":
+{
+"WalletID":222,
+"ClientID":111,
+"Type":0
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"TotalRecords": 2,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 5,
+"MaxPerPage": 100
+},
+"WalletTransfers":
+[
+{
+"ID":220,
+"WalletID":222,
+"ExternalTransferID": 546546,
+"DT":"2018-11-23T11:59:12.493",
+"Type":0,
+"Amount":254.56,
+"CommentClient":"Платеж по карте",
+"CommentCompany":"",
+"Test":0
+},
+{
+"ID":221,
+"WalletID":222,
+"ExternalTransferID": 546547,
+"DT":"2018-11-23T11:59:15.000",
+"Type":0,
+"Amount":254.56,
+"CommentClient":"Платеж по карте",
+"CommentCompany":"",
+"Test":0
+}
+]
+}
 
 ## walletTransfers.get
+Информация по конкретному переводу.
+
+URL вызова: https://ramm.store/api/manager/v1/walletTransfers.get
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID| number|	ID перевода|
+
+
+Возвращаемые данные - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID перевода|
+WalletID|	number|	ID кошелька|
+ExternalTransferID|	number|	ID внешнего перевода|
+DT|	number|	Дата перевода|
+Type|	number|	0-fund, 1-withdraw, 2-bonus fund, 3-bonus withdraw, 4-to account, 5-from account, 6-fee, 7-commission, 8-partners|
+Amount|	real|	Сумма перевода|
+CommentClient|	string|	Комментарий для клиента|
+CommentCompany|	string|	Внутренний комментарий|
+
+
+Пример вызова:
+
+{
+"ID":223322
+}
+
+Пример ответа:
+
+{
+"ID":223322,
+"IDWallet":222,
+"ExternalTransferID": 546546,
+"DT":"2018-11-23T11:59:12.493",
+"Type":0,
+"Amount":254.56,
+"CommentClient":"Платеж по карте",
+"CommentCompany":""
+}
+
 
 ## walletTransfers.getRewards
+Возвращает информацию о начислениях фи и комиссий по всем счетам с заданного сервера MT с ID больше, чем указанный в заголовке ID
+
+URL вызова: https://ramm.store/api/manager/v1/walletTransfers.getRewards
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ExecutionServerName|	string|	Имя сервера MT|
+ID|	number|	ID последней проведенной операции|
+
+
+Возвращаемые данные - массив Transactions, каждый элемент которого содержит поля:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Transactions|	ExecutionAccount|	number|	ID счета в MT|
+-| ID|	number|	ID операции|
+-| Amount|	real|	Сумма перевода|
+
+
+Пример вызова:
+
+{
+"ExecutionServerName":"Server1",
+"ID":146
+}
+
+Пример ответа:
+
+{
+    "Transactions": [
+        {
+            "ExecutionAccount": "50000059",
+            "ID": 150,
+            "Amount": 16.81
+        },
+        {
+            "ExecutionAccount": "50000059",
+            "ID": 153,
+            "Amount": 16.81
+        },
+        {
+            "ExecutionAccount": "50000059",
+            "ID": 171,
+            "Amount": 16.81
+        },
+        {
+            "ExecutionAccount": "50000059",
+            "ID": 187,
+            "Amount": 16.81
+        }
+    ]
+}
 
 ## Операции со стратегиями RAMM
 
