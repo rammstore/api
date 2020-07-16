@@ -4266,9 +4266,137 @@ Precision|	number|	Точность округления|
 ## Торговые инструменты
 
 ## symbols.search
+Поиск символа по конкретному ID, либо вывод информации о всех символах.
 
+URL вызова: https://ramm.store/api/manager/v1/symbol.search
+
+Тело запроса - строка JSON, содержит структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	Name|	string|	Часть краткого названия инструмента (тикера)|
+-| Enabled|	boolean|	Флаг "активен"|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, IDAssetBase, AssetBaseName, IDAssetQuote, AssetQuoteName, Name, FullName, Enabled|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив Symbols, каждый элемент которого содержит поля:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	Name|	string|	Часть краткого названия инструмента (тикера)|
+-| Enabled|	boolean|	Флаг "активен"|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, IDAssetBase, AssetBaseName, IDAssetQuote, AssetQuoteName, Name, FullName, Enabled|
+-| Direction|	string|	Направление сортировки|
+Symbols|	ID|	number|	ID символа|
+-| IDAssetBase|	number|	ID базового актива|
+-| AssetBaseName|	string|	Название базового актива|
+-| IDAssetQuote|	number|	ID актива котировки|
+-| AssetQuoteName|	string|	Название актива котировки|
+-| Name|	string|	Краткое название инструмента (тикер)|
+-| FullName|	string|	Полное название инструмента|
+-| Enabled|	boolean|	Флаг "активен"|
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"Name":"EUR"
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"CurrentPage": 1,
+"PerPage": 20
+}
+}
+
+Пример ответа:
+
+{
+"Filter":
+{
+"Name":"EUR"
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"TotalRecords": 1,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 20
+},
+"Symbols":
+[
+{
+"ID":1,
+"IDAssetBase":978,
+"AssetBaseName":"EUR",
+"IDAssetQuote":840,
+"AssetQuoteName":"USD",
+"Name":"EURUSD",
+"FullName":"Euro / US Dollar",
+"Enabled":true
+}
+]
+}
 
 ## symbols.get
+Получение информации о конкретном символе.
+
+URL вызова: https://maindc.ramm.store/api/manager/v1/symbol.get
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID символа|
+
+
+Возвращаемые данные - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID символа|
+IDAssetBase|	number|	ID базового актива|
+AssetBaseName|	string|	Название базового актива|
+IDAssetQuote|	number|	ID актива котировки|
+AssetQuoteName|	string|	Название актива котировки|
+Name|	string|	Краткое название инструмента (тикер)|
+FullName|	string|	Полное название инструмента|
+Enabled|	boolean|	Флаг "активен"|
+
+
+Пример вызова:
+
+{
+"ID":1
+}
+
+Пример ответа:
+
+{
+"ID":1,
+"IDAssetBase":978,
+"AssetBaseName":"EUR",
+"IDAssetQuote":840,
+"AssetQuoteName":"USD",
+"Name":"EURUSD",
+"FullName":"Euro / US Dollar",
+"Enabled":true
+}
 
 
 ## Передача торговых сигналов
