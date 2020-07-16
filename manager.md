@@ -4536,7 +4536,65 @@ Comment| -|	string|	Комментарий|
 ## Операции со стримами
 
 ## streams.get
+Получение информации о потоках исполнения (стримах) по компании.
+
+URL вызова: https://ramm.store/api/manager/v1/streams.get
+
+Тело запроса - отсутствует
+
+
+Возвращаемые данные - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+IDStream|	number|	ID потока исполнения|
+Name|	string|	Название потока исполнения|
+
+Пример ответа:
+
+{
+"IDStream":2,
+"Name":"Stream 2"
+}
 
 
 ## Ошибки и возможные коды ответа
+Базовые ошибки возвращаются с помощью кодов HTTP.
+При необходимости, более подробный код ошибки возвращается в объекте error (в виде строки JSON).
 
+Пример возвращаемого значения:
+
+400
+
+Bad Request
+
+{
+error:
+{
+"code":"invalid_input",
+"message":"invalid input in field 'ID'"
+}
+}
+
+
+Коды ошибок HTTP
+Код | Расшифровка
+---------|----------
+200|	'OK'|
+400|	'Bad Request'|
+401|	'Unauthorized'|
+402|	'Payment Required'|
+403|	'Forbidden'|
+404|	'Not Found'|
+405|	'Method Not Allowed'|
+422|	'Unprocessable Entity'|
+
+Внутренние коды ошибок
+Код | Сообщение
+---------|----------
+incorrect_method|	The method you are trying to invoke doesn't exist|
+access_denied|	No rights to use the invoked method|
+invalid_input|	Invalid input in field <field name>|
+bad_credentials|	Login/Password incorrect or not found|
+login_blocked|	The login is blocked|
+invalid_status|	Invalid status of the account|
+forbidden|	Forbidden to get the requested data|
