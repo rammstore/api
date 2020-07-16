@@ -1014,6 +1014,44 @@ Companies|	ID|	number|	ID компании|
 }
 
 ## companies.get
+Отдает полные данные по конкретной компании
+
+URL вызова: https://ramm.store/api/manager/v1/companies.get
+
+Тело запроса - строка JSON, содержит параметр:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID компании|
+
+Возвращаемые данные: строка JSON, содержит параметры
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID компании|
+ParentID|	number|	ID родительской компании|
+ParentCompanyName|	string|	Название родительской компании|
+Name|	string|	Название компании|
+URL|	string|	URL компании|
+Demo|	boolean|	Признак "демо"|
+Status|	number|	Статус компании (0-new, 1-ok, 2-deleted, 3... errors )|
+
+
+Пример вызова:
+
+{
+"ID":1,
+}
+
+Пример ответа:
+
+{
+"ID":2,
+"ParentID":1,
+"ParentCompanyName":"FXTrade",
+"Name":"FXInvest",
+"URL":"fxinvest.com",
+"Demo":false,
+"Status":0
+}
 
 ## Операции с компанией текущей сессии менеджера
 
