@@ -3671,7 +3671,124 @@ PrecisionVolume|	number|	Количество знаков после запят
 ## Операции с записями об исполнении агрегированного ордера
 
 ## fills.search
+Поиск записей об исполнении ордеров (филлов) по критериям фильтрации.
+Если не заданы параметры @IDFillRequest, или @Symbol, или @Ticket, то нельзя задавать диапазон дат больше месяца.
 
+URL вызова: https://ramm.store/api/manager/v1/fills.search
+
+Тело запроса - строка JSON, содержит структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	DTProcessedFrom|	number|	Начальное время обработки записи|
+-| DTProcessedTo|	number|	Конечное время обработки записи|
+-| FillRequestID|	number|	ID записи запроса на исполнение|
+-| Symbol|	string|	Название инструмента|
+-| Ticket|	number|	Номер тикета внешней ликвидности|
+-| PriceFrom|	real|	Цена исполнения, начало диапазона|
+-| PriceTo|	real|	Цена исполнения, конец диапазона|
+-| ID|	number|	ID записи|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, FillRequestID, Symbol, Price, VolumeFilled, VolumeRejected, CommissionFill, Ticket, DT, DTExecuted, DTProcessed, Test|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив Fills, каждый элемент которого содержит поля:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	FillRequestID|	number|	ID записи запроса на исполнение|
+-| Symbol|	string|	Название инструмента|
+-| Ticket|	number|	Номер тикета внешней ликвидности|
+-| DTProcessedFrom|	number|	Начальное время обработки записи|
+-| DTProcessedTo|	number|	Конечное время обработки записи|
+-| PriceFrom|	real|	Цена исполнения, начало диапазона|
+-| PriceTo|	real|	Цена исполнения, конец диапазона|
+-| ID|	number|	ID записи|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, FillRequestID, Symbol, Price, VolumeFilled, VolumeRejected, CommissionFill, Ticket, DT, DTExecuted, DTProcessed, Test|
+-| OrderDirection|	string|	Направление сортировки|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+-| MaxPerPage|	number|	Максимальное количество записей на одной странице|
+Fills|	ID|	number|	ID записи об исполнении|
+-| FillRequestID|	number|	ID запроса на исполнение|
+-| Symbol|	string|	Название символа|
+-| Price|	real|	Цена исполнения|
+-| VolumeFilled|	real|	Открытый объем|
+-| VolumeRejected|	real|	Объем реджекта|
+-| CommissionFill|	real|	Комиссия за исполнение|
+-| Ticket|	string|	Номер тикета внешней ликвидности|
+-| DT|	number|	Время создания записи об исполнении|
+-| DTExecuted|	number|	Время исполнения (полученное из внешней ликвидности, в ее временной зоне)|
+-| DTProcessed|	number|	Время обработки записи в базе данных|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"FillRequestID":789565,
+"Symbol":"EURUSD",
+"Ticket":"158",
+"PriceFrom":1.1200,
+"PriceTo":1.1300
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"CurrentPage": 2,
+"PerPage": 20
+}
+}
+
+Пример ответа:
+
+{
+{
+"Filter":
+{
+"FillRequestID":789565,
+"Symbol":"EURUSD",
+"Ticket":"158"
+},
+"OrderBy": {
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination": {
+"TotalRecords": 2,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 20,
+"MaxPerPage": 100
+},
+"Fills":
+[
+{
+"ID":789565,
+"FillRequestID":45465654,
+"Symbol": "EURUSD",
+"Price":1.1200,
+"VolumeFilled":1,
+"VolumeRejected":0.5,
+"CommissionFill":-0.15,
+"Ticket":"044544565",
+"DT":"2018-11-23T11:55:12.493",
+"DTExecuted":"2018-11-23T11:57:12.493",
+"DTProcessed":"2018-11-23T11:59:12.493",
+"Test":0
+}
+]
+}
 
 ## fills.get
 
