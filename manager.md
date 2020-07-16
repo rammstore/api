@@ -1056,6 +1056,38 @@ Status|	number|	Статус компании (0-new, 1-ok, 2-deleted, 3... erro
 ## Операции с компанией текущей сессии менеджера
 
 ## company.get
+Отдает базовую информацию по компании
+
+URL вызова: https://ramm.store/api/manager/v1/company.get
+
+Тело запроса: отсутствует.
+
+Возвращаемые данные: строка JSON, содержит параметры:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+ID| - | number|	ID компании|
+Name| - | string|	Название компании|
+URL| - | string|	URL компании|
+Demo| - | boolean|	Признак "демо"|
+Status| - | number|	Статус компании (0-new, 1-ok, 2-deleted, 3... errors)|
+Parent|	ID|	number|	ID родительской компании|
+-| Name|	string|	Название родительской компании|
+
+
+Пример ответа:
+
+{
+"ID":2,
+"Name":"FXInvest",
+"URL":"fxinvest.com",
+"Demo":false,
+"Status":0,
+"Parent":
+{
+"ID":1,
+"Name":"FXTrade"
+}
+}
 
 ## company.set
 
