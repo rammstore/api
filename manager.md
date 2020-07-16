@@ -2300,7 +2300,107 @@ Strategies| -| ID|	number|	ID стратегии|
 
 
 ## strategies.get
+Информация о заданной стратегии.
 
+URL вызова: https://ramm.store/api/manager/v1/strategies.get
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID стратегии|
+
+
+Возвращаемые данные - строка JSON, содержит указанные параметры и массив Chart с данными графика:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+-| ID|	number|	ID стратегии|
+-| CompanyID|	number|	ID компании|
+-| TraderID|	number|	ID клиента (трейдера) (bigint)|
+-| WalletID|	number|	ID кошелька (bigint)|
+-| TradingCoreID|	number|	ID торгового ядра|
+-| Name|	string|	Название стратегии (Varchar(64))|
+-| Demo|	boolean|	Признак "демо"|
+-| DTClosed|	number|	Дата закрытия стратегии|
+-| Commission|	real|	Размер комиссии (numeric (6,6))|
+-| Fee|	real|	Вознаграждение с прибыли (numeric (3,2))|
+-| PartnerShare|	real|	Доля партнера|
+-| DTCreated|	number|	Дата создания стратегии|
+-| DTStat|	number|	Дата начала сбора статистики|
+-| DTStamp|	number|	Текущая дата|
+-| Yield|	real|	Прибыль в %|
+-| Accounts|	number|	Количество счетов|
+-| Status|	number|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed|
+-| Symbols|	string|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)|
+-| UnitPrice|	real|	Цена пая|
+-| Leverage|	real|	Фактическое плечо|
+-| MonthlyYield|	real|	Среднемесячная доходность|
+-| Equity|	real|	Сумма средств всех инвестиций стратегии|
+-| TraderLogin|	string|	Логин трейдера|
+-| TraderLastName|	string|	Фамилия трейдера|
+-| TraderFirstName|	string|	Имя трейдера|
+-| ExternalServer|	string|	Название внешнего сервера|
+-| ExternalAccount|	string|	Номер внешнего счета|
+-| CompanyName|	string|	Название компании|
+Chart|	Yield|	real|	Значение доходности|
+-| DT|	number|	Дата значения|
+
+Ограничения и типы:
+([Commission]>=(0) AND [Commission]<=(1)) 6 знаков после запятой
+
+([Fee]>=(0) AND [Fee]<=(1)) 2 знака после запятой
+
+([PartnerShare]>=(0) AND [PartnerShare]<=(1)) 3 знака после запятой
+
+
+Пример вызова:
+
+{
+"ID":7986
+}
+
+Пример ответа:
+
+{
+"ID":7986,
+"CompanyID":1,
+"TraderID": 222,
+"WalletID":4565465,
+"TradingCoreID":1,
+"Name":"SuperProfit USD 25",
+"Demo":true,
+"DTClosed":"2018-11-23T11:59:12.493",
+"Commission":0.00001,
+"Fee":0.25,
+"PartnerShare":0,
+"DTCreated":"2018-05-23T11:59:12.493",
+"DTStat":"2017-05-23T11:59:12.493",
+"DTStamp":"2018-09-22T11:09:38.243",
+"Yield":1.076,
+"Accounts":5,
+"Status":2,
+"Symbols":"EURUSD",
+"UnitPrice":115.45,
+"Leverage":14.2,
+"MonthlyYield":25.5,
+"Equity":1500.00
+"TraderLogin":"Trader2",
+"TraderLastName":"John",
+"TraderFirstName":"Doe",
+"ExternalServer":"TradeServer1",
+"ExternalAccount":"223322",
+"CompanyName":"FXTrade",
+"Chart":
+[
+{
+"Yield":0.0000000000,
+"DT":"2018-05-23T11:59:12.493"
+},
+{
+"Yield":0.0000000000,
+"DT":"2018-05-23T11:59:12.493"
+}
+]
+}
 
 ## strategies.add
 
