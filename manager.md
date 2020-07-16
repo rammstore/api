@@ -3491,7 +3491,7 @@ Pagination|	TotalRecords|	number|	Общее количество записей
 -| MaxPerPage|	number|	Максимальное количество записей на одной странице|
 OrderBy|	Field|	string|	Сортировка по параметру, варианты:ID, AccountID, SymbolSpecID, Symbol, VolumeRequestLong, VolumeRequestShort, VolumeOpen, VolumeRejected, PriceOpen, Swap, SwapDT, MarginRequestLong, MarginRequestShort, MarginOpen, MarginLongTotal, MarginShortTotal, MarginTotal, Profit, TotalProfit, ProfitCalcQuote, ClientID, WalletID, IDStrategy, StrategyName, TraderID, TraderLogin, Test|
 -| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
-Positions|	ID	number|	ID позиции|
+Positions|	ID|	number|	ID позиции|
 -| AccountID|	number|	ID счета|
 -| SymbolSpecID|	number|	ID спецификации символа|
 -| Symbol|	string|	Название инструмента|
