@@ -2404,7 +2404,72 @@ Chart|	Yield|	real|	Значение доходности|
 }
 
 ## strategies.add
+Создает новую стратегию.
 
+URL вызова: https://ramm.store/api/manager/v1/strategies.add
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+WalletID|	number|	ID кошелька (bigint)|
+ClientID|	number|	ID клиента (трейдера) (bigint)|
+AccountSpecAssetID|	number|	Спецификация счета для заданного актива|
+Name|	string|	Название стратегии (Varchar(50))|
+FeeRate|	real|	Вознаграждение с прибыли (numeric (3,2))|
+Protection|	real|	Процент защиты счета (numeric (4,3))|
+Target|	real|	Целевая доходность (numeric (8,3))|
+Money|	real|	Сумма (numeric (28,2))|
+CommissionRate|	real| Комиссия трейдера (целое число, USD / млн. USD оборота)|
+ExternalServer|	string|	Название внешнего сервера (Varchar(50))|
+ExternalAccount|	string|	ID внешнего счета (Varchar(20))|
+ExecutionTags|	string|	JSON-строка с необязательными параметрами исполнения. Кавычки нужно экранировать как \"|
+
+Возвращаемые данные - строка JSON, содержит параметры:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Strategy|	ID|	number|	ID стратегии|
+
+Ограничения и типы:
+
+([CommissionRate]>=(0) ) целое число
+
+([FeeRate]>=(0) AND [FeeRate]<=(1)) 2 знака после запятой
+
+([PartnerShare]>=(0) AND [PartnerShare]<=(1)) 3 знака после запятой
+
+[Protection]>=(0) AND [Protection]<(1) имеет 3 знака после запятой
+
+[ProtectionEquity]>=(0)
+
+[Target]>(0) OR [Target] IS NULL имеет 3 знака после запятой
+
+[TargetEquity]>(0)
+
+
+Пример вызова:
+
+{
+"WalletID":4565465,
+"ClientID":7986,
+"AccountSpecAssetID":1,
+"Name":"SuperProfit USD 25",
+"FeeRate": 0.25,
+"Protection":0.5,
+"Target":1.5,
+"Money":1000,
+"CommissionRate":0.0001,
+"ExternalServer":"FXTrade MT5 Server",
+"ExternalAccount": "10000005454"
+}
+
+Пример ответа:
+
+{
+"Strategy":
+{
+"ID":7986
+}
+}
 
 ## strategies.set
 
