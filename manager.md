@@ -2133,16 +2133,184 @@ Transactions|	ExecutionAccount|	number|	ID счета в MT|
 ## Операции со стратегиями RAMM
 
 ## strategies.search
+Поиск стратегий по параметрам.
+
+URL вызова: https://ramm.store/api/manager/v1/strategies.search
+
+Тело запроса - строка JSON, содержит структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter	WalletID	number	ID кошелька (bigint)|
+-| ClientID|	number|	ID клиента (трейдера) (bigint)|
+-| Name|	string|	Подстрока поиска имени (Varchar(64))|
+-| DTClosedFrom|	number|	Начальная дата закрытия стратегии|
+-| DTClosedTo|	number|	Конечная дата закрытия стратегии|
+-| DTCreatedFrom|	number|	Начальная дата создания стратегии|
+-| DTCreatedTo|	number|	Конечная дата создания стратегии|
+-| YieldFrom|	real|	Прибыль в %, начало диапазона|
+-| YieldTo|	real|	Прибыль в %, конец диапазона|
+-| Status|	number|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed|
+-| Symbols|	string|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)|
+-| TraderLogin|	string|	Логин трейдера|
+-| Value|	string|	Значение поиска|
+-| ExternalAccount|	string|	Номер внешнего счета|
+-| Closed|	boolean|	Признак закрытой стратегии|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, ClientID, WalletID, Name, DTCreated, DTClosed, Yield, Accounts, Status, Symbols, UnitPrice, Leverage, MonthlyYield, TraderLogin|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив Strategies, каждый элемент которого содержит поля:
+Структура, 1 уровень| Структура, 2 уровень| Параметр| Тип| Описание
+---------|----------|----------|----------|----------
+Filter| -|Closed|	boolean|	Признак закрытой стратегии|
+-|-| ClientID|	number|	ID клиента (трейдера) (bigint)|
+-|-| WalletID|	number|	ID кошелька (bigint)|
+-|-| Name|	string|	Подстрока поиска (Varchar(64))|
+-|-| DTClosedFrom|	number|	Начальная дата закрытия стратегии|
+-|-| DTClosedTo|	number|	Конечная дата закрытия стратегии|
+-|-| DTCreatedFrom|	number|	Начальная дата создания стратегии|
+-|-| DTCreatedTo|	number|	Конечная дата создания стратегии|
+-|-| YieldFrom|	real|	Прибыль в %, начало диапазона|
+-|-| YieldTo|	real|	Прибыль в %, конец диапазона|
+-|-| Status|	number|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed|
+-|-| Symbols|	string|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)|
+-|-| TraderLogin|	string|	Логин трейдера|
+-|-| Value|	string|	Значение поиска|
+OrderBy| -| Field|	string|	Сортировка по параметру, варианты: ID, ClientID, WalletID, Name, DTCreated, DTClosed, Yield, Accounts, Status, Symbols, UnitPrice, Leverage, MonthlyYield, TraderLogin|
+-| -| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+Pagination|	-| TotalRecords|	number|	Общее количество записей|
+-| -| TotalPages|	number|	Общее количество страниц|
+-| -| CurrentPage|	number|	Номер текущей страницы|
+-| -| PerPage|	number|	Количество записей на одной странице|
+-| -| MaxPerPage|	number|	Максимальное количество записей на одной странице|
+Strategies| -| ID|	number|	ID стратегии|
+-| -| ClientID|	number|	ID клиента (трейдера) (bigint)|
+-| -| WalletID|	number|	ID кошелька (bigint)|
+-| -| TradingCoreID|	number|	ID торгового ядра|
+-| -| Name|	string|	Название стратегии Varchar(64)|
+-| -| DTCreated|	number|	Дата создания стратегии|
+-| -| DTClosed|	number|	Дата закрытия стратегии (если она закрыта)|
+-| -| DTStat|	number|	Дата начала сбора статистики|
+-| -| DTStamp|	number|	Текущая дата|
+-| -| Commission|	real|	Размер комиссии (numeric (6,6))|
+-| -| Fee|	real|	Вознаграждение с прибыли (numeric (3,2))|
+-| -| PartnerShare|	real|	Доля партнера|
+-| -| Yield|	real|	Прибыль в %|
+-| -| Accounts|	number|	Количество счетов|
+-| -| Status|	number|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed|
+-| -| Symbols|	string|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)|
+-| -| UnitPrice|	real|	Цена пая|
+-| -| Leverage|	real|	Фактическое плечо|
+-| -| MonthlyYield|	real|	Среднемесячная доходность|
+-| -| TraderLogin|	string|	Логин трейдера|
+-| -| ExternalServer|	string|	Название внешнего сервера|
+-| -| ExternalAccount|	string|	Номер внешнего счета|
+-| Chart|	Yield|	real|	Значение доходности|
+
+Ограничения и типы:
+
+([Commission]>=(0) AND [Commission]<=(1)) 6 знаков после запятой
+([Fee]>=(0) AND [Fee]<=(1)) 2 знака после запятой
+([PartnerShare]>=(0) AND [PartnerShare]<=(1)) 3 знака после запятой
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"Closed":true,
+"ClientID":222,
+"Name":"SuperProfit"
+},
+"Pagination":
+{
+"CurrentPage": 1,
+"PerPage": 5
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+}
+}
+
+Пример ответа:
+
+{
+"Filter":
+{
+"Closed":true,
+"ClientID":222,
+"Name":"SuperProfit"
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"TotalRecords": 1,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 5,
+"MaxPerPage": 100
+},
+"Strategies":
+[
+{
+"ID":7986,
+"ClientID": 222,
+"WalletID":4565465,
+"TradingCoreID":1,
+"Name":"SuperProfit USD 25",
+"DTCreated": "2018-09-21T11:09:38.243",
+"DTClosed":"2018-09-23T11:09:39.243",
+"DTStat":"2017-09-23T11:09:39.243",
+"DTStamp":"2018-09-22T11:09:38.243",
+"Commission":0.00001,
+"Fee":0.25,
+"Yield":1.076,
+"Accounts":5,
+"Status":2,
+"Symbols":"EURUSD",
+"UnitPrice":115.45,
+"Leverage":14.2,
+"MonthlyYield":25.5,
+"TraderLogin":"Trader2",
+"ExternalServer":"MT5-FXBroker-real",
+"ExternalAccount":"100000555",
+"Chart":
+[
+{
+"Yield":0.0000000000
+},
+{
+"Yield":1.1000000000
+}
+]
+}
+]
+}
+
 
 ## strategies.get
 
+
 ## strategies.add
+
 
 ## strategies.set
 
+
 ## strategies.close
 
+
 ## strategysymbolstat.get
+
 
 ## Операции с торговыми счетами клиентов
 
