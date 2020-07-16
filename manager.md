@@ -1249,7 +1249,8 @@ Filter|	Value|	string|	Подстрока поиска|
 -| LastName|	boolean|	Фамилия|
 -| Mobile|	number|	Номер телефона|
 -| Comment|	string|	Комментарий|
--| Status|	number| 0 - не было балансовых проводок 1 - были получены бонусы 2 - было получено вознаграждение партнера 3 - было получено вознаграждение трейдера 4 - вносил собственные средства|
+-| Status|	number| 0 - не было балансовых проводок 
+1 - были получены бонусы 2 - было получено вознаграждение партнера 3 - было получено вознаграждение трейдера 4 - вносил собственные средства|
 Pagination|	CurrentPage|	number|	Номер текущей страницы|
 -| PerPage|	number|	Количество записей на одной странице|
 OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, Login, Email, FirstName, LastName, Language, Status, Tag, Test, ActiveAccountsCount, ActiveAccountsTotalBalance, ActiveAccountsTotalEquity, ActiveAccountsTotalPositionsCount, ClosedAccountsCount, ActiveStrategiesCount, ClosedStrategiesCount, WalletsTotalBalance, TotalFunds|
