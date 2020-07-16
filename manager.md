@@ -2576,7 +2576,7 @@ Filter| -| StrategyID|	number|	ID стратегии|
 -| -| Type|	number|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account|
 -| -| State|	number|	См. ниже|
 -| -| ID|	number|	ID счета|
--| -| StreamIDм	number|	ID потока исполнения|
+-| -| StreamID|	number|	ID потока исполнения|
 -| -| Test|	number|	Признак тестового счета (0,1, 2 - all)|
 -| Statuses|	-| number|	См.ниже|
 Pagination|	-| CurrentPage|	number|	Номер текущей страницы|
