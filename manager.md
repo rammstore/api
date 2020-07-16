@@ -3352,7 +3352,109 @@ Deals|	ID|	number|	ID сделки|
 }
 
 ## deals.get
+Информация о заданной сделке.
 
+URL вызова: https://ramm.store/api/manager/v1/deals.get
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID сделки|
+
+
+Возвращаемые данные - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+DealID|	number|	ID сделки|
+AccountID|	number|	ID счета|
+SignalID|	number|	ID сигнала|
+CommandID|	number|	ID команды|
+SOID|	number|	ID StopOut|
+SymbolSpecID|	number|	ID спецификации инструментов|
+StreamID|	number|	ID потока котировок|
+FillRequestID|	number|	ID запроса на открытие позиции|
+DT|	number|	Дата/время создания сделки|
+Type|	number|	См. ниже|
+Symbol|	string|	Название инструмента|
+Volume|	real|	Суммарный объем|
+VolumeA|	real|	В том числе, объем A-Book|
+Price|	real|	Средняя цена|
+CommissionLiquidity|	real|	Комиссия за использование ликвидности|
+CommissionBroker|	real|	Комиссия брокера|
+CommissionTrader|	real|	Комиссия трейдера|
+CommissionPartner|	real|	Комиссия партнера|
+Commission|	real|	Суммарная комиссия|
+Entry|	number|	0 - In, 1 - Out, 2 - InOut|
+Profit|	real|	Прибыль/убыток по сделке (без учета комиссий и свопов)|
+Swap|	real|	Своп|
+TotalProfit|	real|	Прибыль/убыток по сделке (с учетом комиссий и свопов)|
+Comment|	string|	Комментарий|
+Tag|	number|	Произвольное число (для увязки с внешними системами)|
+DealToID|	number|	ID результирующей сделки|
+PrecisionPrice|	number|	Количество знаков после запятой при выводе цены|
+PrecisionVolume|	number|	Количество знаков после запятой при выводе объема|
+Netting|	number|	Признак неттинговой сделки|
+TurnoverUSD|	real|	Сгенерированный дилом оборот в USD|
+
+Значения поля "Type"
+Значение | Расшифровка
+---------|----------
+0|	Buy|
+1|	Sell|
+2|	Balance|
+3|	Credit|
+4|	Additional charge|
+5|	Correction|
+6|	Bonus|
+7|	Fee|
+8|	Dividend|
+9|	Interest|
+10|	Canceled/Rejected buy deal|
+11|	Canceled/Rejected sell deal|
+12|	Periodical commission|
+13|	Zero total  order|
+
+
+Пример вызова:
+
+{
+"ID":3335
+}
+
+Пример ответа:
+
+{
+"DealID":3335,
+"AccountID":545,
+"SignalID":4878,
+"CommandID":4554,
+"SOID":7821,
+"SymbolSpecID":1,
+"StreamID":1,
+"FillRequestID":54546,
+"DT":"2018-11-23T11:59:12.493",
+"Type":0,
+"Symbol":"EURUSD",
+"Volume":0.15,
+"VolumeA":0.1,
+"Price":1.1254,
+"CommissionLiquidity":0.01,
+"CommissionBroker":0.01,
+"CommissionTrader":0.03,
+"CommissionPartner":0.01,
+"Commission":0.06,
+"Entry":0,
+"Profit":1.23,
+"Swap":-0.03,
+"TotalProfit":1.2,
+"Comment":"",
+"Tag":4546545,
+"DealToID":4455,
+"PrecisionPrice":2,
+"PrecisionVolume":4,
+"Netting":1,
+"TurnoverUSD": 16783.02
+}
 
 ## Операции с открытыми позициями
 
