@@ -1605,8 +1605,7 @@ Filter|	Login|	string|	Логин|
 -| Test|	number|	Признак тестового клиента|
 Pagination|	CurrentPage|	number|	Номер текущей страницы|
 -| PerPage|	number|	Количество записей на одной странице|
-OrderBy|	Field|	string|	Сортировка по параметру, варианты:
-IDClient, IDCompany, Test, AccountsBalance, AccountsEquity, AccountsProfitCurrentIntervalGross, AccountsProfitPositionsGross, AccountsPastProfit, AccountsFeeCharged,  AccountsFeePaid, AccountsCommissionPaid, AccountsActive, AccountsClosed, StrategiesActive, StrategiesClosed, StrategiesFeeReceived, StrategiesFeeDue, StrategiesCommissionReceived, StrategiesCommissionDue, WalletTransfersTotalIn, WalletTransfersTotalOut, WalletTransfersTotalDelta, Swap, DealsVolume, WalletsTotalBalance, PositionsCount, Login|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: IDClient, IDCompany, Test, AccountsBalance, AccountsEquity, AccountsProfitCurrentIntervalGross, AccountsProfitPositionsGross, AccountsPastProfit, AccountsFeeCharged,  AccountsFeePaid, AccountsCommissionPaid, AccountsActive, AccountsClosed, StrategiesActive, StrategiesClosed, StrategiesFeeReceived, StrategiesFeeDue, StrategiesCommissionReceived, StrategiesCommissionDue, WalletTransfersTotalIn, WalletTransfersTotalOut, WalletTransfersTotalDelta, Swap, DealsVolume, WalletsTotalBalance, PositionsCount, Login|
 -| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
 
 
