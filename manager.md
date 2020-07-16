@@ -2692,6 +2692,7 @@ Accounts|  -|	ID|	number|	ID счета|
 
 [TargetEquity]>(0)
 
+ 
 
 Пример вызова:
 
@@ -2886,6 +2887,7 @@ AvailableStreams|	StreamID|	number|	ID стрима|
 [Target]>(0) OR [Target] IS NULL имеет 3 знака после запятой
 
 [TargetEquity]>(0)
+
 
 
 Пример вызова:
