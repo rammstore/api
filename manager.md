@@ -1163,8 +1163,231 @@ WalletsBalance|	string|	Суммарный баланс кошельков кл�
 ## Операции с клиентами сервиса RAMM
 
 ## clients.addWithWallet
+Создает клиента с кошельком. На данный момент кошельки создаются только в валюте USD.
+
+URL вызова: https://ramm.store/api/manager/v1/clients.addWithWallet
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+Login|	string|	Логин|
+Password|	string|	Пароль|
+FirstName|	string|	Имя|
+LastName|	string|	Фамилия|
+Email|	string|	Email|
+Mobile|	string|	Номер телефона|
+Tag|	number|	Произвольное число (для увязки с внешними системами)|
+Test|	boolean|	Признак "тестовый"|
+Language|	string|	Язык интерфейса, макс. 3 символа, например ISO 639-1|
+Comment|	string|	Комментарий|
+Country|	string|	Страна|
+ExternalPartnerReference|	string|	Произвольная строка для привязки клиента к партнеру|
+ExecutionServerName|	string|	Название внешнего сервера|
+ExecutionAccount|	string|	Номер счета на внешнем сервере|
+PrecisionVolume|	number|	Точность округления лотов|
+
+Возвращаемые данные: строка JSON, содержит структуры Client и Wallet:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Client|	ID|	number|	ID клиента|
+-| Login|	string|	Логин
+-| Password|	string|	Пароль|
+Wallet|	ID|	number|	ID кошелька|
+-| AssetID|	number|	ID актива|
+-| AssetName|	string|	Название актива|
+
+
+Пример вызова:
+
+{ 
+"Login":"test@gmail.com",
+"Password": "qwert12345",
+"FirstName":"Vasiliy",
+"LastName":"Pupkin",
+"Mobile":"+74959466482",
+"Tag":1,
+"Test":true,
+"Language":"ru",
+"Comment":"Some comment",
+"Country":"Slovenia",
+"ExternalPartnerReference":"RX5676",
+"ExecutionServerName":"FXTrade-MT5",
+"ExecutionAccount":"454654654",
+"PrecisionVolume": 2
+}
+
+Пример ответа:
+
+{
+"Client":
+{
+"ID": 13,
+"Login": "test@gmail.com",
+"Password": "qwert12345"
+},
+"Wallet":
+{
+"ID": 11,
+"AssetID": 840,
+"AssetName": "USD"
+}
+}
 
 ## clients.search
+Поиск по клиентам
+
+URL вызова: https://ramm.store/api/manager/v1/clients.search
+
+Тело запроса - строка JSON, может (но не обязана) содержать структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+-| Test|	boolean|	Признак тестового клиента|
+Filter|	Value|	string|	Подстрока поиска|
+-| ID|	number|	ID клиента|
+-| Login|	string|	Логин|
+-| FirstName|	string|	Имя|
+-| LastName|	boolean|	Фамилия|
+-| Mobile|	number|	Номер телефона|
+-| Comment|	string|	Комментарий|
+-| Status|	number| 
+0 - не было балансовых проводок
+1 - были получены бонусы
+2 - было получено вознаграждение партнера
+3 - было получено вознаграждение трейдера
+4 - вносил собственные средства|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, Login, Email, FirstName, LastName, Language, Status, Tag, Test, ActiveAccountsCount, ActiveAccountsTotalBalance, ActiveAccountsTotalEquity, ActiveAccountsTotalPositionsCount, ClosedAccountsCount, ActiveStrategiesCount, ClosedStrategiesCount, WalletsTotalBalance, TotalFunds|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив Clients, каждый элемент которого содержит поля:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	Value|	string|	Подстрока поиска|
+OrderBy|	Field|	string|	Параметр сортировки|
+-| OrderDirection|	string|	Направление сортировки|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+-| MaxPerPage|	number|	Максимальное количество записей на одной странице|
+Clients|	ID|	number|	ID клиента|
+-| Login|	string|	Логин|
+-| Email|	string|	Адрес эл.почты|
+-| FirstName|	string|	Имя|
+-| LastName|	boolean|	Фамилия|
+-| Mobile|	number|	Номер телефона|
+-| Language|	string|	Язык интерфейса, макс. 3 символа, например ISO 639-1|
+-| Status|	number|	
+0 - не было балансовых проводок
+1 - были получены бонусы
+2 - было получено вознаграждение партнера
+3 - было получено вознаграждение трейдера
+4 - вносил собственные средства|
+-| Tag|	number|	Произвольное число (для увязки с внешними системами)|
+-| Comment|	string|	Комментарий|
+-| Test|	boolean|	Признак тестового клиента|
+-| Enabled|	boolean|	Признак отсутствия блокировки клиента|
+-| ActiveAccountsCount|	number|	Количество активных инвестиций|
+-| ActiveAccountsTotalBalance|	real|	Суммарный баланс активных инвестиций|
+-| ActiveAccountsTotalEquity|	real|	Суммарное эквити активных инвестиций|
+-| ActiveAccountsTotalPositionsCount|	number|	Суммарное количество позиций, открытых на активных инвестициях|
+-| ClosedAccountsCount|	number|	Количество закрытых инвестиций|
+-| ActiveStrategiesCount|	number|	Количество активных стратегий|
+-| ClosedStrategiesCount|	number|	Количество закрытых стратегий|
+-| WalletsTotalBalance| real|	Суммарный баланс кошельков клиентов|
+-| TotalFunds|	real|	Общая сумма средств клиентов|
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"Value":"te"
+},
+"OrderBy":
+{
+"Field": "Login",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"CurrentPage": 2,
+"PerPage": 20
+}
+}
+
+
+Пример ответа:
+
+{
+"Filter":
+{
+"Value": "te"
+},
+"OrderBy": {
+"Field": "Login",
+"Direction": "Desc"
+},
+"Pagination": {
+"TotalRecords": 2,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 20,
+"MaxPerPage": 100
+},
+"Clients":
+[
+{
+"ID":2,
+"Login":"test@test.ru",
+"Email":"test@test.ru",
+"FirstName":"Vassily",
+"LastName":"Pupkin",
+"Mobile":"+74959466482",
+"Comment":"",
+"Language":"ru",
+"Status":0,
+"Tag": 232,
+"Test":0,
+"Enabled":1,
+"ActiveAccountsCount":3,
+"ActiveAccountsTotalBalance":523.45,
+"ActiveAccountsTotalEquity":575.49,
+"ActiveAccountsTotalPositionsCount":5,
+"ClosedAccountsCount":10,
+"ActiveStrategiesCount":5,
+"ClosedStrategiesCount":6,
+"WalletsTotalBalance":1542.43,
+"TotalFunds":2065.88
+},
+{
+"ID":3,
+"Login":"test1@test.ru",
+"Email":"test1@test.ru",
+"FirstName":"Vasilisa",
+"LastName":"Pupkina",
+"Mobile":"+74959466482",
+"Comment":"",
+"Language":"en",
+"Status":0,
+"Tag": 233,
+"Test":0,
+"Enabled":1,
+"ActiveAccountsCount":3,
+"ActiveAccountsTotalBalance":523.45,
+"ActiveAccountsTotalEquity":575.49,
+"ActiveAccountsTotalPositionsCount":5,
+"ClosedAccountsCount":10,
+"ActiveStrategiesCount":5,
+"ClosedStrategiesCount":6,
+"WalletsTotalBalance":1542.43,
+"TotalFunds":2065.88
+}
+]
+}
 
 ## clients.get
 
