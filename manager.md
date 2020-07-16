@@ -3169,56 +3169,254 @@ CommandID|	number|	ID команды снятия с паузы|
 ## Операции со сделками на счете
 
 ## deals.search
+Поиск сделок по критериям фильтрации. Критерии могут быть не заданы или заданы частично.
+
+URL вызова: https://ramm.store/api/manager/v1/deals.search
+
+Тело запроса - строка JSON, содержит структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	AccountID|	number|	ID счета|
+-| SignalID|	number|	ID сигнала|
+-| SOID|	number|	ID StopOut|
+-| CommandID|	number|	ID команды|
+-| StrategyID|	number|	ID стратегии|
+-| Symbol|	string|	Название инструмента|
+-| Type|	number|	См. ниже|
+-| AccountType|	number|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account|
+-| ID|	number|	ID сделки|
+-| DTFrom|	number|	Начальная дата|
+-| DTTo|	number|	Конечная дата|
+-| ClientID|	number|	ID клиента|
+-| WalletID|	number|	ID кошелька|
+-| Test|	number|	Признак сделок с тестового счета (0,1, 2 - all)|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Параметр сортировки, варианты: ID, StrategyID, AccountID, AccountType, SignalID, CommandID, SOID, SymbolSpecID, StreamID, FillRequestID, ClientID, WalletID, DT, Type, Symbol, Volume, VolumeA, Price, Commission, Entry, Profit, Swap, TotalProfit, DealToID, Netting, ClientLogin, ClientEmail, Test, TurnoverUSD|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив Deals, каждый элемент которого соответствует сделке:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	AccountID|	number|	ID счета|
+-| SignalID|	number|	ID сигнала|
+-| SOID|	number|	ID StopOut|
+-| CommandID|	number|	ID команды|
+-| StrategyID|	number|	ID стратегии|
+-| Symbol|	string|	Название инструмента|
+-| Type|	number|	См. ниже|
+-| DTFrom|	number|	Начальная дата|
+-| DTTo|	number|	Конечная дата|
+-| ClientID|	number|	ID клиента|
+-| WalletID|	number|	ID кошелька|
+-| ID	number|	ID| сделки|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+-| MaxPerPage|	number|	Максимальное количество записей на одной странице|
+OrderBy|	Field|	string|	Параметр сортировки, варианты: ID, StrategyID, AccountID, AccountType, SignalID, CommandID, SOID, SymbolSpecID, StreamID, FillRequestID, ClientID, WalletID, DT, Type, Symbol, Volume, VolumeA, Price, Commission, Entry, Profit, Swap, TotalProfit, DealToID, Netting, ClientLogin, ClientEmail, Test|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+Deals|	ID|	number|	ID сделки|
+-| StrategyID|	number|	ID стратегии|
+-| AccountID|	number|	ID счета|
+-| AccountType|	number|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account|
+-| SignalID|	number|	ID сигнала|
+-| CommandID|	number|	ID команды|
+-| SOID|	number|	ID StopOut|
+-| SymbolSpecID|	number|	ID спецификации инструментов|
+-| StreamID|	number|	ID потока котировок|
+-| FillRequestID|	number|	ID запроса на открытие позиции|
+-| ClientID|	number|	ID клиента|
+-| WalletID|	number|	ID кошелька|
+-| DT|	number|	Дата/время создания сделки|
+-| Type|	number|	См.ниже|
+-| Symbol|	string|	Название инструмента|
+-| Volume|	real|	Суммарный объем|
+-| VolumeA|	real|	В том числе, объем A-Book|
+-| Price|	real|	Средняя цена|
+-| Commission|	real|	Суммарная комиссия|
+-| Entry|	number|	0 - In, 1 - Out, 2 - InOut|
+-| Profit|	real|	Прибыль/убыток по сделке (без учета комиссий и свопов)|
+-| Swap|	real|	Своп|
+-| TotalProfit|	real|	Прибыль/убыток по сделке (с учетом комиссий и свопов)|
+-| DealToID|	number|	ID результирующей сделки|
+-| Netting|	number|	признак неттинговой сделки|
+-| PrecisionPrice|	number|	Количество знаков после запятой при выводе цены|
+-| PrecisionVolume|	number|	Количество знаков после запятой при выводе объема|
+-| ClientLogin|	string|	Логин клиента|
+-| ClientEmail|	string|	E-mail клиента|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+-| TurnoverUSD|	real|	Сгенерированный дилом оборот в USD|
+-| StrategyTags|	string|	Постфиксы и прочие инструкции исполнения|
+
+Значения поля "Type"
+Значение | Расшифровка
+---------|----------
+0|	Buy|
+1|	Sell|
+2|	Balance|
+3|	Credit|
+4|	Additional charge|
+5|	Correction|
+6|	Bonus|
+7|	Fee|
+8|	Dividend|
+9|	Interest|
+10|	Canceled/Rejected buy deal|
+11|	Canceled/Rejected sell deal|
+12|	Periodical commission|
+13|	Zero total  order|
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"DTFrom": "2018-12-25T17:19:16.547",
+"SignalID": 7326
+},
+"OrderBy":
+{
+"Field": "DT",
+"Direction": "Asc"
+},
+"Pagination":
+{
+"CurrentPage": 1,
+"PerPage": 50
+}
+}
+
+Пример ответа:
+
+{
+"Filter":
+{
+"SignalID": 7326,
+"DTFrom": "2018-12-25T17:19:16.547"
+},
+"OrderBy":
+{
+"Field": "DT",
+"Direction": "Asc"
+},
+"Pagination":
+{
+"TotalRecords": 1,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 50,
+"MaxPerPage": 100
+},
+"Deals":
+[
+{
+"ID":4546,
+"StrategyID":2233,
+"AccountID":545,
+"AccountType":0,
+"SignalID":4878,
+"CommandID":4554,
+"SOID":7821,
+"SymbolSpecID":1,
+"StreamID":1,
+"FillRequestID":54546,
+"ClientID":222,
+"WalletID":333,
+"DT":"2018-11-23T11:59:12.493",
+"Type":0,
+"Symbol":"EURUSD",
+"Volume":0.15,
+"VolumeA":0.1,
+"Price":1.1254,
+"Commission":0.06,
+"Entry":0,
+"Profit":1.23,
+"Swap":-0.03,
+"TotalProfit":1.2,
+"DealToID":4455,
+"Netting":1,
+"PrecisionPrice":2,
+"PrecisionVolume":4,
+"ClientLogin":"TraderA",
+"ClientEmail":"trader1@gmail.com",
+"Test":0,
+"TurnoverUSD": 16783.02,
+"StrategyTags": "Postfix: c"
+}
+]
+}
 
 ## deals.get
+
 
 ## Операции с открытыми позициями
 
 ## positions.search
 
+
 ## positions.get
+
 
 ## Операции с записями об исполнении агрегированного ордера
 
 ## fills.search
 
+
 ## fills.get
+
 
 ## Операции с запросами на исполнение
 
 ## fillRequests.search
 
+
 ## fillRequests.get
+
 
 ## Операции с сигналами на исполнение
 
 ## signals.search
 
+
 ## signals.get
+
 
 ## Активы: валюты, акции, фьючерсы и т. п.
 
 ## assets.search
 
+
 ## assets.get
+
 
 ## Торговые инструменты
 
 ## symbols.search
 
+
 ## symbols.get
+
 
 ## Передача торговых сигналов
 
 ## trading.searchStrategies
 
+
 ## trading.addSignal
 
+
 ## trading.addSync
+
 
 ## Операции со стримами
 
 ## streams.get
+
 
 ## Ошибки и возможные коды ответа
 
