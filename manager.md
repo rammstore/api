@@ -3593,6 +3593,79 @@ Positions|	ID|	number|	ID позиции|
 }
 
 ## positions.get
+Информация о заданной позиции.
+
+URL вызова: https://ramm.store/api/manager/v1/positions.get
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID позиции|
+
+
+Возвращаемые данные - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+PositionID|	number|	ID позиции|
+AccountID|	number|	ID счета|
+SymbolSpecID|	number|	ID спецификации символа|
+Symbol|	string|	Название инструмента|
+VolumeRequestLong|	real|	Запрошенный в лонг объем|
+VolumeRequestShort|	real|	Запрошенный в шорт объем|
+VolumeOpen|	real|	Открытый объем|
+VolumeRejected|	real|	Объем реджектов|
+PriceOpen|	real|	Средняя цена открытия|
+Swap|	real|	Накопленный своп|
+SwapDT|	number|	Дата последнего начисления свопа|
+MarginRequestLong|	real|	Маржа, зарезервированная под запрошенный в лонг объем|
+MarginRequestShort|	real|	Маржа, зарезервированная под запрошенный в шорт объем|
+MarginOpen|	real|	Маржа под открытый объем|
+MarginLongTotal|	real|	Суммарная маржа в лонг|
+MarginShortTotal|	real|	Суммарная маржа в шорт|
+MarginTotal|	real|	Итоговая необходимая маржа|
+Profit|	real|	Прибыль/убыток без учета свопа|
+TotalProfit|	real|	Прибыль/убыток с учетом свопа|
+ProfitCalcQuote|	real|	Котировка, по которой вычислялась прибыль|
+ClientID|	number|	ID клиента|
+WalletID|	number|	ID кошелька|
+PrecisionPrice|	number|	Количество знаков после запятой при выводе цены|
+PrecisionVolume|	number|	Количество знаков после запятой при выводе объема|
+
+
+Пример вызова:
+
+{
+"PositionID":333
+}
+
+Пример ответа:
+
+{
+"PositionID":333,
+"AccountID":454777,
+"SymbolSpecID":1,
+"Symbol":"EURUSD",
+"VolumeRequestLong":0.1,
+"VolumeRequestShort":0,
+"VolumeOpen":0.1,
+"VolumeRejected":0,
+"PriceOpen":1.1200,
+"Swap":-0.13,
+"SwapDT":"2018-11-23T11:59:12.493",
+"MarginRequestLong":112.00,
+"MarginRequestShort":0,
+"MarginOpen":112.00,
+"MarginLongTotal":224.00,
+"MarginShortTotal":0,
+"MarginTotal":224.00,
+"Profit":100.00,
+"TotalProfit":99.87,
+"ProfitCalcQuote":1.1300,
+"ClientID":222,
+"WalletID":333,
+"PrecisionPrice":2,
+"PrecisionVolume":4
+}
 
 
 ## Операции с записями об исполнении агрегированного ордера
