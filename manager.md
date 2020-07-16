@@ -2957,19 +2957,214 @@ AvailableStreams|	StreamID|	number|	ID стрима|
 }
 
 ## accounts.set
+Устанавливает новую долю A-Book по счету.
 
+URL вызова: https://ramm.store/api/manager/v1/accounts.set
+
+Тело запроса: строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID счета|
+ABook|	real|	Доля A-Book (numeric (3,2))|
+StreamID|	number|	ID стрима|
+
+Возвращаемые данные: строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ABookCommandID|	number|	ID команды изменения доли A-Book|
+CommandStreamID|	number|	ID команды изменения стрима|
+
+Ограничения
+
+[ABook]>=(0) AND [ABook]<=(1) имеет 2 знака после запятой
+
+Пример запроса:
+{ 
+"ID":4565,
+"ABook":0.5,
+"StreamID":5
+}
+
+Пример ответа:
+{ 
+"ABookCommandID":6899,
+"CommandStreamID":7222
+}
 
 ## accounts.close
+Закрывает счет с указанным ID.
 
+URL вызова: https://ramm.store/api/manager/v1/accounts.close
+
+Тело запроса: строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID счета|
+
+Возвращаемые данные: строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+CommandID|	number|	ID команды закрытия счета|
+
+Пример запроса:
+{ 
+"ID":4565
+}
+
+Пример ответа:
+{ 
+"CommandID":7222
+}
 
 ## accounts.getStatement
+Получение данных для построения стейтмента
 
+URL вызова: https://ramm.store/api/manager/v1/accountStatements.get
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID счета|
+
+
+Возвращаемые данные - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+IDStrategy|	number|	ID стратегии|
+StrategyName|	string|	Название стратегии|
+Commission|	real|	Комиссия|
+Fee|	real|	Вознаграждение|
+IDAccount|	number|	ID счета|
+DT|	number|	Дата/время|
+ABook|	real|	доля ABook|
+Type|	number|	См. ниже|
+DTStamp|	number|	Дата/время снятия статистики|
+AccountAssetName|	string|	Название валюты счета|
+LeverageMax|	number|	Максимальное плечо|
+MCLevel|	number|	Уровень маржинколла|
+State|	number|	см.ниже|
+Factor|	real|	Значение фактора|
+Target|	real|	Цель|
+Protection|	real|	Защита|
+TargetEquity|	real|	Целевой уровень эквити|
+ProtectionEquity|	real|	Уровень срабатывания защиты|
+
+Значения поля "Type"
+Значение | Расшифровка
+---------|----------
+0|	real security|
+1| virtual master|
+2|	real internal ramm account|
+3|	real external account|
+
+Значения поля "State"
+Значение | Расшифровка
+---------|----------
+0|	new|
+1|	(not used)|
+2|	active, no positions|
+3|	active, with positions|
+4|	margin call, with positions|
+5|	margin call, no positions|
+6|	protection, with positions|
+7|	protection, no positions|
+8|	target, with positions|
+9|	target, no positions|
+10|	pause, with positions|
+11|	pause, no positions|
+12|	disabled, with positions|
+13|	disabled, no positions|
+14|	closed, with positions|
+15|	closed, no positions|
+
+
+Пример вызова:
+
+{
+"ID":333
+}
+
+Пример ответа:
+
+{
+"IDStrategy":341,
+"StrategyName":"TEST_1",
+"Commission":0.000010,
+"Fee":0.25,
+"IDAccount":333,
+"DT":"2018-09-21T11:09:38.243",
+"ABook":1.00,
+"Type":0,
+"DTStamp":"2019-05-14T17:16:00.490",
+"AccountAssetName":"USD",
+"LeverageMax":100,
+"MCLevel":20,
+"State":8,
+"Factor":1.00,
+"Target":0.010,
+"Protection":0.010,
+"TargetEquity":1010.0000000000,
+"ProtectionEquity":10.0000000000
+}
 
 ## accounts.pause
+Ставит счет на паузу (временное прекращение копирования с закрытием всех открытых позиций)
+ВНИМАНИЕ. Счет трейдера этим методом поставить на паузу нельзя!
 
+URL вызова: https://ramm.store/api/manager/v1/accounts.pause
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID счета|
+
+Возвращаемые данные - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+CommandID|	number|	ID команды постановки на паузу|
+
+
+Пример вызова:
+
+{
+"ID": 445
+}
+
+Пример ответа:
+
+{
+"CommandID": 5654
+}
 
 ## accounts.resume
+Снимает счет с паузы (возобновление копирования, открытие всех позиций стратегии по текущим ценам).
 
+ВНИМАНИЕ. Счет трейдера этим методом снять с паузы нельзя!
+
+URL вызова: https://ramm.store/api/manager/v1/accounts.resume
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID счета|
+
+Возвращаемые данные - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+CommandID|	number|	ID команды снятия с паузы|
+
+
+Пример вызова:
+
+{
+"ID": 445
+}
+
+Пример ответа:
+
+{
+"CommandID": 5654
+}
 
 ## Операции со сделками на счете
 
