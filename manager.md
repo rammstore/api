@@ -1380,6 +1380,129 @@ Clients|	ID|	number|	ID клиента|
 }
 
 ## clients.get
+Получает информацию о клиенте.
+
+URL вызова: https://ramm.store/api/manager/v1/clients.get
+
+Тело запроса - строка JSON, содержит параметр:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID клиента|
+
+Возвращаемые данные: строка JSON, содержит параметры:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+-| ID|	number|	ID клиента|
+-| IDCompany|	number|	ID компании|
+-| IDReferralToken|	number|	ID реферала|
+-| RegisteredDate|	number|	Дата регистрации|
+-| FirstName|	string|	Имя|
+-| LastName|	string|	Фамилия|
+-| Mobile|	string|	Номер телефона|
+-| Login|	string|	Логин|
+-| Comment|	string|	Комментарий|
+-| Language|	string|	Язык интерфейса, макс. 3 символа, например ISO 639-1|
+-| Status| 	number| 	0 - не было балансовых проводок, 1 - были получены бонусы, 2 - было получено вознаграждение партнера, 3 - было получено вознаграждение трейдера, 4 - вносил собственные средства|
+-| Tag|	number|	Произвольное число (для увязки с внешними системами)|
+-| Country|	string|	Страна регистрации|
+-| Email|	string|	Эл.почта|
+-| Enabled|	boolean|	Флаг "Клиент активен"|
+-| ExternalPartnerReference|	string|	Внешняя партнерская ссылка|
+-| ReferralRebate|	real|	Размер партнерских выплат|
+-| Test|	boolean|	Флаг "тестовый клиент"|
+-| StrategyDefaultStreamID|	number|	Стрим при создании стратегии, настройка по умолчанию|
+-| StrategyDefaultHedge|	real|	Доля А-бук при создании стратегии, настройка по умолчанию|
+-| StrategyDefaultStreamName|	string|	Название стрима по умолчанию при создании стратегии|
+AvailableStreams|	StreamID|	number|	ID стрима|
+-| Name|	string|	Название стрима|
+Statistic|	GrossBalance| 	real|	Суммарный текущий баланс всех счетов клиента, кроме типа 1|
+-| NetBalance|	real|	Sum (IIF ((a.Balance - a.Bonus) < 0 and a.Margin = 0, 0, a.Balance - a.Bonus)) кроме типа 1|
+-| Equity|	real|	Суммарный эквити всех счетов клиента, кроме типа 1|
+-| NetEquity|	real|	Разница между суммой эквити и бонусов по всем счетам клиента, кроме типа 1|
+-| ActiveAccounts|	real|	Количество счетов клиента, у которых State < 15, кроме типа 1|
+-| ClosedAccounts|	real|	Количество счетов клиента, у которых State = 15, кроме типа 1|
+-| ActiveStrategies|	real|	Количество стратегий клиента, у которых DTClosed is null|
+-| ClosedStrategies|	real|	Количество стратегий клиента, у которых DTClosed is not null|
+-| ClientFundsTotalIn|	real|	Сумма трансферов типа 0 на все кошельки клиента|
+-| ClientFundsTotalOut|	real|	Модуль суммы трансферов типа 1 на все кошельки клиента|
+-| ClientFundsDelta|	real|	ClientFundsTotalIn-ClientFundsTotalOut|
+-| ClientBonusDelta|	real|	Сумма трансферов типа 2 на все кошельки клиента минус модуль суммы трансферов типа 3 на все кошельки клиента|
+-| GrossProfit|	real|	Сумма Profit по дилам типа 0 и 1 (c учётом свопов и комиссий)|
+-| NetProfit|	real|	Сумма Profit по дилам типа 0 и 1 (без учёта свопов и комиссий)|
+-| GrossSwap|	real|	Сумма Swap по дилам типа 0 и 1|
+-| CommissionBroker|	real|	Сумма CommissionBroker по дилам типа 0 и 1|
+-| CommissionTrader|	real|	Сумма CommissionTrader по дилам типа 0 и 1|
+-| FeeCharged|	real|	Сумма Profit по дилам типа 7|
+-| FeeReceived|	real|	Сумма трансферов типа 6 на все кошельки клиента|
+-| CommissionReceived|	real|	Сумма трансферов типа 7 на все кошельки клиента|
+-| Volume|	real|	Сумма модуля значений колонки Volume дилов типа 0 и 1|
+-| NetFloatingProfit|	real|	Сумма TotalProfit по всем позициям|
+
+
+Пример вызова:
+
+
+{
+"ID":1,
+}
+
+Пример ответа:
+
+{
+"ID":1,
+"IDCompany":2,
+"IDLanguage":0,
+"IDReferralToken":0,
+"RegisteredDate":"2018-11-23T11:59:12.493",
+"FirstName":"Vasiliy",
+"LastName":"Pupkin",
+"Mobile":"+74959466482",
+"Login":"test@test.ru",
+"Comment":"",
+"Language":"ru",
+"Status":0,
+"Tag":4545,
+"Country":"Vanuatu",
+"Email":"test@test.ru",
+"Enabled":true,
+"ExternalPartnerReference":"121321321",
+"ReferralRebate":23.45,
+"Test":false,
+"StrategyDefaultStreamID":5,
+"StrategyDefaultHedge":0.75,
+"StrategyDefaultStreamName":"Stream A",
+"AvailableStreams":
+{
+"StreamID":5,
+"Name":"Stream A"
+}
+"Statistic":
+{
+
+"GrossBalance":100.00,
+"NetBalance":100.00,
+"Equity":100.00,
+"NetEquity":100.00,
+"ActiveAccounts":100.00,
+"ClosedAccounts":100.00,
+"ActiveStrategies":100.00,
+"ClosedStrategies":100.00,
+"ClientFundsTotalIn":100.00,
+"ClientFundsTotalOut":100.00,
+"ClientFundsDelta":100.00,
+"ClientBonusDelta":100.00,
+"GrossProfit":100.00,
+"NetProfit":100.00,
+"GrossSwap":100.00,
+"CommissionBroker":100.00,
+"CommissionTrader":100.00,
+"FeeCharged":100.00,
+"FeeReceived":100.00,
+"CommissionReceived":100.00,
+"Volume":100.00,
+"NetFloatingProfit":100.00
+}
+}
 
 ## clients.set
 
