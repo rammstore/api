@@ -3459,7 +3459,138 @@ TurnoverUSD|	real|	Сгенерированный дилом оборот в USD
 ## Операции с открытыми позициями
 
 ## positions.search
+Поиск открытых позиций с фильтрацией по номеру счета.
 
+URL вызова: https://ramm.store/api/manager/v1/positions.search
+
+Тело запроса - строка JSON, содержит структуры Filter (задает критерий выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	AccountID|	number|	ID счета|
+-| ClientID|	number|	ID клиента|
+-| WalletID|	number|	ID кошелька|
+-| StrategyID|	number|	ID стратегии|
+-| Symbol|	string|	Название инструмента|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, AccountID, SymbolSpecID, Symbol, VolumeRequestLong, VolumeRequestShort, VolumeOpen, VolumeRejected, PriceOpen, Swap, SwapDT, MarginRequestLong, MarginRequestShort, MarginOpen, MarginLongTotal, MarginShortTotal, MarginTotal, Profit, TotalProfit, ProfitCalcQuote, ClientID, WalletID, IDStrategy, StrategyName, TraderID, TraderLogin, Test|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy, массив Positions:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	AccountID|	number|	ID счета|
+-| ClientID|	number|	ID клиента|
+-| WalletID|	number|	ID кошелька|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+-| MaxPerPage|	number|	Максимальное количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты:ID, AccountID, SymbolSpecID, Symbol, VolumeRequestLong, VolumeRequestShort, VolumeOpen, VolumeRejected, PriceOpen, Swap, SwapDT, MarginRequestLong, MarginRequestShort, MarginOpen, MarginLongTotal, MarginShortTotal, MarginTotal, Profit, TotalProfit, ProfitCalcQuote, ClientID, WalletID, IDStrategy, StrategyName, TraderID, TraderLogin, Test|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+Positions|	ID	number|	ID позиции|
+-| AccountID|	number|	ID счета|
+-| SymbolSpecID|	number|	ID спецификации символа|
+-| Symbol|	string|	Название инструмента|
+-| VolumeRequestLong|	real|	Запрошенный в лонг объем|
+-| VolumeRequestShort|	real|	Запрошенный в шорт объем|
+-| VolumeOpen|	real|	Открытый объем|
+-| VolumeRejected|	real|	Объем реджектов|
+-| PriceOpen|	real|	Средняя цена открытия|
+-| Swap|	real|	Накопленный своп|
+-| SwapDT|	number|	Дата последнего начисления свопа|
+-| MarginRequestLong|	real|	Маржа, зарезервированная под запрошенный в лонг объем|
+-| MarginRequestShort|	real|	Маржа, зарезервированная под запрошенный в шорт объем|
+-| MarginOpen|	real|	Маржа под открытый объем|
+-| MarginLongTotal|	real|	Суммарная маржа в лонг|
+-| MarginShortTotal|	real|	Суммарная маржа в шорт|
+-| MarginTotal|	real|	Итоговая необходимая маржа|
+-| Profit|	real|	Прибыль/убыток без учета свопа|
+-| TotalProfit|	real|	Прибыль/убыток с учетом свопа|
+-| ProfitCalcQuote|	real|	Котировка, по которой вычислялась прибыль|
+-| ClientID|	number|	ID клиента|
+-| WalletID|	number|	ID кошелька|
+-| StrategyID|	number|	ID стратегии|
+-| StrategyName|	string|	Название стратегии|
+-| TraderID|	number|	ID трейдера|
+-| TraderLogin|	string|	Логин трейдера|
+-| PrecisionPrice|	number|	Количество знаков после запятой при выводе цены|
+-| PrecisionVolume|	number|	Количество знаков после запятой при выводе объема|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"AccountID":333
+},
+"Pagination":
+{
+"CurrentPage": 1,
+"PerPage": 5
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+}
+}
+
+Пример ответа:
+
+{
+"Filter":
+{
+"AccountID":333
+},
+"Pagination":
+{
+"TotalRecords": 2,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 5,
+"MaxPerPage": 100
+},
+"Positions":
+[
+{
+"ID":333,
+"AccountID":454777,
+"SymbolSpecID":1,
+"Symbol":"EURUSD",
+"VolumeRequestLong":0.1,
+"VolumeRequestShort":0,
+"VolumeOpen":0.1,
+"VolumeRejected":0,
+"PriceOpen":1.1200,
+"Swap":-0.13,
+"SwapDT":"2018-11-23T11:59:12.493",
+"MarginRequestLong":112.00,
+"MarginRequestShort":0,
+"MarginOpen":112.00,
+"MarginLongTotal":224.00,
+"MarginShortTotal":0,
+"MarginTotal":224.00,
+"Profit":100.00,
+"TotalProfit":99.87,
+"ProfitCalcQuote":1.1300,
+"ClientID":222,
+"WalletID":333,
+"StrategyID":444,
+"StrategyName":"ProfitTrading",
+"TraderID":555,
+"TraderLogin":"trader@trader.com",
+"PrecisionPrice":2,
+"PrecisionVolume":4,
+"Test":0
+}
+]
+}
 
 ## positions.get
 
