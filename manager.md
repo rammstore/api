@@ -2210,7 +2210,6 @@ Strategies| -| ID|	number|	ID стратегии|
 -| Chart|	Yield|	real|	Значение доходности|
 
 Ограничения и типы:
-
 ([Commission]>=(0) AND [Commission]<=(1)) 6 знаков после запятой
 ([Fee]>=(0) AND [Fee]<=(1)) 2 знака после запятой
 ([PartnerShare]>=(0) AND [PartnerShare]<=(1)) 3 знака после запятой
