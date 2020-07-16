@@ -2568,20 +2568,20 @@ URL вызова: https://ramm.store/api/manager/v1/accounts.search
 Структура, 1 уровень |	Структура, 2 уровень | Параметр | Тип | Описание
 ---------|----------|----------|----------|----------
 Filter| -| StrategyID|	number|	ID стратегии|
--| -| ClientID	number	ID клиента|
--| -| DTCreatedFrom	number	Дата создания, начало диапазона|
--| -| DTCreatedTo	number	Дата создания, конец диапазона|
--| -| DTClosedFrom	number	Дата закрытия, начало диапазона|
--| -| DTClosedTo	number	Дата закрытия, конец диапазона|
--| -| Type	number	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account|
--| -| State	number	См. ниже|
--| -| ID	number	ID счета|
--| -| StreamID	number	ID потока исполнения|
--| -| Test	number	Признак тестового счета (0,1, 2 - all)|
+-| -| ClientID|	number|	ID клиента|
+-| -| DTCreatedFrom|	number|	Дата создания, начало диапазона|
+-| -| DTCreatedTo|	number|	Дата создания, конец диапазона|
+-| -| DTClosedFrom|	number|	Дата закрытия, начало диапазона|
+-| -| DTClosedTo|	number|	Дата закрытия, конец диапазона|
+-| -| Type|	number|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account|
+-| -| State|	number|	См. ниже|
+-| -| ID|	number|	ID счета|
+-| -| StreamIDм	number|	ID потока исполнения|
+-| -| Test|	number|	Признак тестового счета (0,1, 2 - all)|
 -| Statuses|	-| number|	См.ниже|
-Pagination|	CurrentPage|	number|	Номер текущей страницы|
+Pagination|	-| CurrentPage|	number|	Номер текущей страницы|
 -| -| PerPage|	number|	Количество записей на одной странице|
-OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, ClientID, WalletID, StrategyID, TradingCoreID, AccountSpecAssetID, LiquidityID, StreamID, StreamName, PartnerID, CommandCloseID, TradingIntervalCurrentID, IsSecurity, DTCreated, DTClosed, Type, ABook, Balance, Factor, Equity, ProfitBase, Bonus, Margin, Status, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AssetName, Precision, State, Test|
+OrderBy|	-| Field|	string|	Сортировка по параметру, варианты: ID, ClientID, WalletID, StrategyID, TradingCoreID, AccountSpecAssetID, LiquidityID, StreamID, StreamName, PartnerID, CommandCloseID, TradingIntervalCurrentID, IsSecurity, DTCreated, DTClosed, Type, ABook, Balance, Factor, Equity, ProfitBase, Bonus, Margin, Status, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AssetName, Precision, State, Test|
 -| -| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
 
 Возвращаемые данные - структуры Filter (в т.ч. массив Statuses), OrderBy, Pagination и массив Accounts:
