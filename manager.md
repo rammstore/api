@@ -2140,7 +2140,7 @@ URL вызова: https://ramm.store/api/manager/v1/strategies.search
 Тело запроса - строка JSON, содержит структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
 Структура |	Параметр | Тип | Описание
 ---------|----------|----------|----------
-Filter	WalletID	number	ID кошелька (bigint)|
+Filter|	WalletID|	number|	ID кошелька (bigint)|
 -| ClientID|	number|	ID клиента (трейдера) (bigint)|
 -| Name|	string|	Подстрока поиска имени (Varchar(64))|
 -| DTClosedFrom|	number|	Начальная дата закрытия стратегии|
