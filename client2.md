@@ -911,7 +911,7 @@ Asset	|	string	|	Название актива		|
 Balance	|	real	|	Сумма в кошельке		|
 Invested	|	real	|	Инвестированная сумма		|
 Margin	|	real	|	Задействованная маржа		|
-IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале		|
+ProfitCurrentIntervalGross	|	real	|	Прибыль/убыток в текущем торговом интервале		|
 ***Strategies***
 ID	|	number	|	ID стратегии		|
 Name	|	string	|	Название стратегии (Varchar(64))		|
@@ -954,7 +954,7 @@ Balance	|	real	|	Баланс счета		|
 Equity	|	real	|	Эквити		|
 Margin	|	real	|	Задействованная маржа		|
 MarginLevel	|	real	|	Уровень маржи		|
-IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале		|
+ProfitCurrentIntervalGross	|	real	|	Прибыль/убыток в текущем торговом интервале		|
 Status	|	number	|	0-new (without money), 1-active (trading), 2-MC, 3-ProtectionTarget, 4-Pause, 5-disabled (cant trade), 6-closed (cant activate)		|
 Factor	|	real	|	Повышающий/понижающий коэффициент копирования		|
 MCReached	|	number	|	Дата/время срабатывания StopOut		|
@@ -1014,7 +1014,7 @@ Yield	|	real	|	Прибыль в %	|
             "Balance": 0.132,
             "Invested": 90.07,
             "Margin": 0,
-            "IntervalPnL": -9.93
+            "ProfitCurrentIntervalGross": -9.93
         }
     ],
     "Strategies": [
@@ -1049,7 +1049,7 @@ Yield	|	real	|	Прибыль в %	|
                 "Equity": 1006.64,
                 "Margin": 2.27,
                 "MarginLevel": 5.34,
-                "IntervalPnL": 6.64,
+                "ProfitCurrentIntervalGross": 6.64,
                 "Status": 3,
                 "Factor": 1,
                 "Protection": 0.01,
