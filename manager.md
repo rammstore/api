@@ -2560,18 +2560,238 @@ StrategySymbolStat|	Symbol|	string|	Название символа|
 ## Операции с торговыми счетами клиентов
 
 ## accounts.search
+Поиск счета по заданным параметрам.
+
+URL вызова: https://ramm.store/api/manager/v1/accounts.search
+
+Тело запроса - строка JSON, содержит структуры Filter (в том числе массив Statuses), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура, 1 уровень |	Структура, 2 уровень | Параметр | Тип | Описание
+---------|----------|----------|----------|----------
+Filter| -| StrategyID|	number|	ID стратегии|
+-| -| ClientID	number	ID клиента|
+-| -| DTCreatedFrom	number	Дата создания, начало диапазона|
+-| -| DTCreatedTo	number	Дата создания, конец диапазона|
+-| -| DTClosedFrom	number	Дата закрытия, начало диапазона|
+-| -| DTClosedTo	number	Дата закрытия, конец диапазона|
+-| -| Type	number	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account|
+-| -| State	number	См. ниже|
+-| -| ID	number	ID счета|
+-| -| StreamID	number	ID потока исполнения|
+-| -| Test	number	Признак тестового счета (0,1, 2 - all)|
+-| Statuses|	-| number|	См.ниже|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| -| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, ClientID, WalletID, StrategyID, TradingCoreID, AccountSpecAssetID, LiquidityID, StreamID, StreamName, PartnerID, CommandCloseID, TradingIntervalCurrentID, IsSecurity, DTCreated, DTClosed, Type, ABook, Balance, Factor, Equity, ProfitBase, Bonus, Margin, Status, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AssetName, Precision, State, Test|
+-| -| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+Возвращаемые данные - структуры Filter (в т.ч. массив Statuses), OrderBy, Pagination и массив Accounts:
+Структура, 1 уровень |	Структура, 2 уровень | Параметр | Тип | Описание
+---------|----------|----------|----------|----------
+Filter| -|	StrategyID|	number|	ID стратегии|
+-| -| ClientID|	number|	ID клиента|
+-| -| DTCreatedFrom|	number|	Дата создания, начало диапазона|
+-| -| DTCreatedTo|	number|	Дата создания, конец диапазона|
+-| -| DTClosedFrom|	number|	Дата закрытия, начало диапазона|
+-| -| DTClosedTo|	number|	Дата закрытия, конец диапазона|
+-| -| Type|	number|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account|
+-| -| State|	number|	См.ниже|
+-| -| ID|	number|	ID счета|
+-| -| StreamID|	number|	ID потока исполнения|
+-| -| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+-| Statuses|  -|	number| 	См.ниже|
+OrderBy|  -|	Field|	string|	Сортировка по параметру, варианты: ID, ClientID, WalletID, StrategyID, TradingCoreID, AccountSpecAssetID, LiquidityID, StreamID, StreamName, PartnerID, CommandCloseID, TradingIntervalCurrentID, IsSecurity, DTCreated, DTClosed, Type, ABook, Balance, Factor, Equity, ProfitBase, Bonus, Margin, Status, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AssetName, Precision, State|
+-| -| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+Pagination| -| TotalRecords|	number|	Общее количество записей|
+-| -| TotalPages|	number|	Общее количество страниц|
+-| -| CurrentPage|	number|	Номер текущей страницы|
+-| -| PerPage|	number|	Количество записей на одной странице|
+-| -| MaxPerPage|	number|	Максимальное количество записей на одной странице|
+Accounts|  -|	ID|	number|	ID счета|
+-| -| StrategyID|	number|	ID стратегии|
+-| -| ClientID|	number|	ID клиента (bigint)|
+-| -| WalletID|	number|	ID кошелька (bigint)|
+-| -| TradingCoreID|	number|	ID торгового ядра|
+-| -| DTCreated|	number|	Дата создания|
+-| -| DTClosed|	number|	Дата закрытия|
+-| -| AssetName|	string|	Название валюты счета|
+-| -| AccountSpecAssetID|	number|	Спецификация счета для заданного актива|
+-| -| LiquidityID|	number|	ID ликвидности|
+-| -| StreamID|	number|	ID потока котировок|
+-| -| StreamName|	string|	Название стрима|
+-| -| PartnerID|	number|	ID партнера|
+-| -| CommandCloseID|	number|	ID команды закрытия счета|
+-| -| TradingIntervalCurrentID|	number|	ID текущего торгового интервала|
+-| -| Type|	number|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account|
+-| -| ABook|	real|	Доля A-Book (numeric (3,2))|
+-| -| Balance|	real|	Баланс счета|
+-| -| Factor|	real|	Повышающий/понижающий коэффициент копирования|
+-| -| Equity|	real|	Эквити|
+-| -| ProfitBase|	real|	База для подсчета вознаграждения|
+-| -| Bonus|	real|	Бонус|
+-| -| Margin|	real|	Задействованная маржа|
+-| -| Status|	number|	См.ниже|
+-| -| MCReached|	number|	Дата/время срабатывания StopOut|
+-| -| Protection|	real|	Процент защиты счета (numeric (4,3))|
+-| -| ProtectionEquity|	real|	Значение эквити, при котором сработает защита счета|
+-| -| ProtectionReached|	number|	Дата/время срабатывания защиты счета|
+-| -| Target|	real|	Целевая доходность (numeric (8,3))|
+-| -| TargetEquity|	real|	Целевая доходность в валюте счета|
+-| -| TargetReached|	number|	Дата/время достижения целевой доходности|
+-| -| Precision|	number|	Точность округления, знаки после запятой|
+-| -| IsSecurity|	number|	Признак собственной счета трейдера|
+-| -| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+
+Значения поля "Status"
+Значнеие | Расшифровка
+---------|----------
+0|	new (without money)|
+1|	active (trading)|
+2|	MC|
+3|	ProtectionTarget|
+4|	pause|
+5|	disabled (cant trade)|
+6|	closed (cant activate)|
+
+Значения поля "State"
+Значнеие | Расшифровка
+---------|----------
+0|	new|
+1|	(not used)|
+2|	active, no positions|
+3|	active, with positions|
+4|	margin call, with positions|
+5|	margin call, no positions|
+6|	protection, with positions|
+7|	protection, no positions|
+8|	target, with positions|
+9|	target, no positions|
+10|	pause, with positions|
+11|	pause, no positions|
+12|	disabled, with positions|
+13|	disabled, no positions|
+14|	closed, with positions|
+15|	closed, no positions|
+
+Ограничения и типы
+
+[ABook]>=(0) AND [ABook]<=(1) имеет 2 знака после запятой
+
+[Bonus]>=(0)
+
+[Factor]>=(-1000) AND [Factor]<=(-0.01) OR [Factor]>=(0.01) AND [Factor]<=(1000)
+
+[IsSecurity]=(0) OR [Factor]=(1)
+
+[Margin]>=(0)
+
+[Protection]>=(0) AND [Protection]<(1) имеет 3 знака после запятой
+
+[ProtectionEquity]>=(0)
+
+[Target]>(0) OR [Target] IS NULL имеет 3 знака после запятой
+
+[TargetEquity]>(0)
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"StrategyID":222,
+"ClientID":4545,
+"Statuses": [0,1]
+},
+"Pagination":
+{
+"CurrentPage": 1,
+"PerPage": 5
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+}
+}
+
+Пример ответа:
+
+{
+"Filter":
+{
+"StrategyID":222,
+"ClientID":4545,
+"Statuses": [0,1]
+},
+"Pagination":
+{
+"TotalRecords": 2,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 5,
+"MaxPerPage": 100,
+"OrderByField": "ID",
+"OrderDirection": "Asc"
+},
+"Accounts":
+[
+{
+"ID":111,
+"StrategyID":222,
+"ClientID":454,
+"WalletID":4545,
+"TradingCoreID":1,
+"DTCreated":"2018-11-23T11:59:12.493",
+"DTClosed":"2018-11-23T11:59:12.493",
+"AssetName":"USD",
+"AccountSpecAssetID":5,
+"LiquidityID":5,
+"StreamID":5,
+"StreamName":"StreamA"
+"PartnerID":454,
+"CommandCloseID":6852,
+"TradingIntervalCurrentID":180,
+"Type":0,
+"ABook":1.00,
+"Balance":500.00,
+"Factor":1.00,
+"Equity":500.00,
+"ProfitBase":500.00,
+"Bonus":0,
+"Margin":0,
+"Status":1,
+"MCReached":"2018-11-23T11:59:12.493",
+"Protection":0.5,
+"ProtectionEquity":250,
+"ProtectionReached":"2018-11-23T11:59:12.493",
+"Target":1.00,
+"TargetEquity":1000.00,
+"TargetReached":"2018-11-23T11:59:12.493",
+"Precision":2,
+"IsSecurity":1,
+"Test":0
+}
+]
+}
+
 
 ## accounts.get
 
+
 ## accounts.set
+
 
 ## accounts.close
 
+
 ## accounts.getStatement
+
 
 ## accounts.pause
 
+
 ## accounts.resume
+
 
 ## Операции со сделками на счете
 
