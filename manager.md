@@ -1505,10 +1505,225 @@ Statistic|	GrossBalance| 	real|	Суммарный текущий баланс �
 }
 
 ## clients.set
+Изменяет клиента.
+
+URL вызова: https://ramm.store/api/manager/v1/clients.set
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID клиента|
+FirstName|	string|	Имя|
+LastName|	string|	Фамилия|
+Mobile|	string|	Номер телефона|
+Login|	string|	Логин|
+Comment|	string|	Комментарий|
+Tag|	number|	Произвольное число (для увязки с внешними системами)|
+Country|	string|	Страна регистрации|
+Email|	string|	Эл.почта|
+Language|	string|	Язык интерфейса, макс. 3 символа, например ISO 639-1|
+Enabled|	boolean|	Флаг "Клиент активен"|
+ExternalPartnerReference|	string|	Внешняя партнерская ссылка|
+StrategyDefaultStreamID|	number|	Стрим при создании стратегии, настройка по умолчанию|
+StrategyDefaultHedge|	real|	Доля А-бук при создании стратегии, настройка по умолчанию|
+
+Возвращаемые данные: отсутствуют
+
+Пример вызова:
+
+{
+"ID":1,
+"IDLanguage":0,
+"FirstName":"Vasiliy",
+"LastName":"Pupkin",
+"Mobile":"+74959466482",
+"Login":"test@test.ru",
+"Comment":"",
+"Tag":4545,
+"Country":"Vanuatu",
+"Email":"test@test.ru",
+"Language":"ru",
+"Enabled":true,
+"ExternalPartnerReference":"121321321",
+"StrategyDefaultStreamID":5,
+"StrategyDefaultHedge":0.75
+}
 
 ## clients.getCharges
+Возвращает информацию о снятиях фи и комиссий по всем счетам с заданного сервера MT с ID больше, чем указанный в заголовке ID
+
+URL вызова: https://ramm.store/api/manager/v1/clients.getCharges
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ExecutionServerName|	string|	Имя сервера MT|
+ID|	number|	ID последней проведенной операции|
+
+
+Возвращаемые данные - массив Charges, каждый элемент которого содержит поля:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Charges|	ExecutionAccount|	number|	ID счета в MT|
+-| ID|	number|	ID операции|
+-| Charges|	real|	Сумма снятия|
+
+
+Пример вызова:
+
+{
+"ExecutionServerName":"Server1",
+"ID":146
+}
+
+Пример ответа:
+
+{
+    "Charges": [
+        {
+            "ExecutionAccount": "50000059",
+            "ID": 150,
+            "Charges": 16.81
+        },
+        {
+            "ExecutionAccount": "50000059",
+            "ID": 153,
+            "Charges": 16.81
+        }
+    ]
+}
 
 ## clients.searchStatistic
+Поиск клиентской статистики
+
+URL вызова: https://ramm.store/api/manager/v1/clients.searchStatistic
+
+Тело запроса - строка JSON, может (но не обязана) содержать структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	Login|	string|	Логин|
+-| Test|	number|	Признак тестового клиента|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты:
+IDClient, IDCompany, Test, AccountsBalance, AccountsEquity, AccountsProfitCurrentIntervalGross, AccountsProfitPositionsGross, AccountsPastProfit, AccountsFeeCharged,  AccountsFeePaid, AccountsCommissionPaid, AccountsActive, AccountsClosed, StrategiesActive, StrategiesClosed, StrategiesFeeReceived, StrategiesFeeDue, StrategiesCommissionReceived, StrategiesCommissionDue, WalletTransfersTotalIn, WalletTransfersTotalOut, WalletTransfersTotalDelta, Swap, DealsVolume, WalletsTotalBalance, PositionsCount, Login|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив Statistic, каждый элемент которого содержит поля:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	Login|	string|	Логин|
+-| Test|	number|	Признак тестового клиента|
+OrderBy|	Field|	string|	Параметр сортировки|
+-| OrderDirection|	string|	Направление сортировки|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+Statistic|	IDClient|	number|	ID клиента|
+-| IDCompany|	number|	ID компании|
+-| Test|	number|	Признак тестового счета|
+-| AccountsBalance|	real|	Суммарный баланс инвестиций|
+-| AccountsEquity|	real|	Суммарное эквити инвестиций|
+-| AccountsProfitCurrentIntervalGross|	real|	Суммарный профит в текущем интервале|
+-| AccountsProfitPositionsGross|	real|	Суммарный профит по открытым позициям|
+-| AccountsPastProfit|	real|	Суммарная прибыль предыдущих периодов|
+-| AccountsFeeCharged| real|	Суммарное начисленное вознаграждение (по инвестициям)|
+-| AccountsFeePaid|	real|	Суммарное выплаченное вознаграждение (по инвестициям)|
+-| AccountsCommissionPaid|	real|	Суммарная выплаченная комиссия (по инвестициям)|
+-| AccountsActive|	number|	Количество активных инвестиций|
+-| AccountsClosed	|number|	Количество закрытых инвестиций|
+-| StrategiesActive|	number|	Количество активных стратегий|
+-| StrategiesClosed|	number|	Количество закрытых стратегий|
+-| StrategiesFeeReceived|	real|	Суммарное полученное вознаграждение (по стратегиям)|
+-| StrategiesFeeDue|	real|	Суммарное начисленное, но не полученное вознаграждение (по стратегиям)|
+-| StrategiesCommissionReceived|	real|	Суммарная полученная комиссия (по стратегиям)|
+-| StrategiesCommissionDue|	real|	Суммарная начисленная, но не полученная комиссия (по стратегиям)|
+-| WalletTransfersTotalIn| real|	Сумма входящих перечислений|
+-| WalletTransfersTotalOut|	real|	Сумма исходящих перечислений|
+-| WalletTransfersTotalDelta|	real|	Разница входящих и исходящих|
+-| Swap|	real|	Свопы|
+-| DealsVolume|	real|	Объем сделок|
+-| WalletsTotalBalance|	real|	Суммарный баланс кошельков|
+-| PositionsCount|	number|	Количество открытых позиций|
+-| Login|	string|	Логин клиента|
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"Login":"vp@test.com",
+"Test":0
+},
+"OrderBy":
+{
+"Field": "Login",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"CurrentPage": 2,
+"PerPage": 20
+}
+}
+
+Пример ответа:
+
+{
+"Filter":
+{
+"Login":"vp@test.com",
+"Test":0
+},
+"OrderBy":
+{
+"Field": "Login",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"TotalRecords": 2,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 20
+},
+"Statistic":
+[
+{
+
+    "IDClient": 34,
+    "IDCompany": 2,
+    "Test": 0,
+    "AccountsBalance": 3423.23,
+    "AccountsEquity": 3423.23,
+    "AccountsProfitCurrentIntervalGross": 3423.23,
+    "AccountsProfitPositionsGross": 3423.23,
+    "AccountsPastProfit": 0,
+    "AccountsFeeCharged": 454.45,
+    "AccountsFeePaid": 454.55,
+    "AccountsCommissionPaid": 87.78,
+    "AccountsActive": 5,
+    "AccountsClosed": 10,
+    "StrategiesActive": 3,
+    "StrategiesClosed": 33,
+    "StrategiesFeeReceived": 786,
+    "StrategiesFeeDue": 455,
+    "StrategiesCommissionReceived": 24,
+    "StrategiesCommissionDue": 54,
+    "WalletTransfersTotalIn": 4000,
+    "WalletTransfersTotalOut": 300,
+    "WalletTransfersTotalDelta": 3700,
+    "Swap": 4.15,
+    "DealsVolume": 45000,
+    "WalletsTotalBalance": 4000,
+    "PositionsCount": 5,
+    "Login": "khgjh@gfg.tu"
+}
+]
+}
 
 ## Кошельки клиентов
 
