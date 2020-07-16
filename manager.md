@@ -4144,9 +4144,123 @@ DTProcessed|	number|	Время обработки сигнала|
 ## Активы: валюты, акции, фьючерсы и т. п.
 
 ## assets.search
+Поиск актива по конкретному ID, либо вывод информации о всех активах.
 
+URL вызова: https://ramm.store/api/manager/v1/assets.search
+
+Тело запроса - строка JSON, содержит структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	Type|	number|	0 - currency, 1 - metal, 2 - share, 3 - cryptocurrency|
+-| Name|	string|	Часть названия символа|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, Type, Name, Precision|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив Assets, каждый элемент которого содержит поля:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	Type|	number|	0 - currency, 1 - metal, 2 - share, 3 - cryptocurrency|
+-| Name|	string|	Часть названия символа|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, Type, Name, Precision|
+-| Direction|	string|	Направление сортировки|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+Assets|	ID|	number|	ID актива|
+-| Type|	number|	0 - currency, 1 - metal, 2 - share, 3 - cryptocurrency|
+-| Name|	string|	Название символа|
+-| Precision|	number|	Точность округления|
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"Type":0,
+"Name":"US"
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"CurrentPage": 1,
+"PerPage": 20
+}
+}
+
+Пример ответа:
+
+{
+"Filter":
+{
+"Type":0,
+"Name":"US"
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"TotalRecords": 1,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 20
+},
+"Assets":
+[
+{
+"ID":840,
+"Type":0,
+"Name":"USD",
+"Precision":2
+}
+]
+}
 
 ## assets.get
+Получение информации по конкретному активу.
+
+URL вызова: https://ramm.store/api/manager/v1/assets.get
+
+Тело запроса - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID запроса на исполнение|
+
+
+Возвращаемые данные - строка JSON, содержит параметры:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID актива|
+Type|	number|	0 - currency, 1 - metal, 2 - share, 3 - cryptocurrency|
+Name|	string|	Название символа|
+Precision|	number|	Точность округления|
+
+
+Пример вызова:
+
+{
+"ID":840
+}
+
+Пример ответа:
+
+{
+"ID":840,
+"Type":0,
+"Name":"USD",
+"Precision":2
+}
 
 
 ## Торговые инструменты
