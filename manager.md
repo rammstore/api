@@ -2642,7 +2642,7 @@ Accounts|  -|	ID|	number|	ID счета|
 -| -| Test|	number|	Признак тестового счета (0,1, 2 - all)|
 
 Значения поля "Status"
-Значнеие | Расшифровка
+Значение | Расшифровка
 ---------|----------
 0|	new (without money)|
 1|	active (trading)|
@@ -2653,7 +2653,7 @@ Accounts|  -|	ID|	number|	ID счета|
 6|	closed (cant activate)|
 
 Значения поля "State"
-Значнеие | Расшифровка
+Значение | Расшифровка
 ---------|----------
 0|	new|
 1|	(not used)|
