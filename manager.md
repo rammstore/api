@@ -1727,8 +1727,148 @@ Statistic|	IDClient|	number|	ID клиента|
 ## Кошельки клиентов
 
 ## wallets.get
+Отдает полную информацию по кошельку.
+
+URL вызова: https://ramm.store/api/manager/v1/wallets.get
+
+Тело запроса - строка JSON, содержит параметр:
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID кошелька|
+
+Возвращаемые данные: строка JSON, содержит параметры (некоторые поля могут отсутствовать):
+Параметр | Тип | Описание 
+---------|----------|----------
+ID|	number|	ID кошелька|
+ClientID|	number|	ID клиента|
+Asset|	string|	Название валюты кошелька|
+DTCreated|	number|	Дата создания кошелька|
+Balance|	real|	Баланс кошелька|
+Bonus|	real|	Начисленный бонус|
+Status|	number|	0-new, 1-active|
+Invested|	real|	Инвестированная сумма|
+Margin|	real|	Задействованная маржа|
+IntervalPnL|	real|	Прибыль/убыток в текущем торговом интервале|
+Test|	boolean|	Признак тестового клиента|
+
+
+Пример вызова:
+
+
+{
+"ID":1,
+}
+
+Пример ответа:
+
+{
+"ID":222,
+"ClientID":111,
+"Asset":"USD",
+"DT":"2018-11-23T11:59:12.493",
+"Balance": 1000,
+"Status": 0,
+"Invested": 0,
+"Margin": 0,
+"IntervalPnL": 0,
+"Test": 0
+}
+
+
 
 ## wallets.search
+Поиск кошельков по ID клиента (в будущем количество параметров поиска будет расширяться)
+
+URL вызова: https://ramm.store/api/manager/v1/wallets.search
+
+Тело запроса - строка JSON, содержит структуры Filter (задает критерии выбора), Pagination (разбивка на страницы), OrderBy (сортировка возвращаемых данных):
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	ClientID|	number|	ID клиента|
+-| TestClient|	boolean|	Признак тестового клиента|
+Pagination|	CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, ClientID, Asset, DTCreated, Balance, Bonus, Status, Invested, Margin, IntervalPnL|
+-| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
+
+
+Возвращаемые данные - структуры Filter, Pagination, OrderBy и массив Wallets, каждый элемент которого содержит поля:
+Структура |	Параметр | Тип | Описание
+---------|----------|----------|----------
+Filter|	ClientID|	number|	ID клиента|
+-| TestClient|	boolean|	Признак тестового клиента|
+Pagination|	TotalRecords|	number|	Общее количество записей|
+-| TotalPages|	number|	Общее количество страниц|
+-| CurrentPage|	number|	Номер текущей страницы|
+-| PerPage|	number|	Количество записей на одной странице|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, ClientID, Asset, DTCreated, Balance, Bonus, Status, Invested, Margin, IntervalPnL|
+-| Direction|	string|	Направление сортировки|
+Wallets|	ID|	number|	ID кошелька|
+-| ClientID|	number|	ID клиента|
+-| Asset|	string|	Название валюты кошелька|
+-| DTCreated|	number|	Дата создания кошелька|
+-| Balance|	real|	Баланс кошелька|
+-| Bonus|	real|	Начисленный бонус|
+-| Status|	number|	0-new, 1-active|
+-| Invested|	real|	Инвестированная сумма|
+-| Margin|	real|	Задействованная маржа|
+-| IntervalPnL|	real|	Прибыль/убыток в текущем торговом интервале|
+
+
+Пример вызова:
+
+{
+"Filter":
+{
+"ClientID":111
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"CurrentPage": 1,
+"PerPage": 20
+}
+}
+
+
+Пример ответа:
+
+{
+"Filter":
+{
+"ClientID":111
+},
+"OrderBy":
+{
+"Field": "ID",
+"Direction": "Desc"
+},
+"Pagination":
+{
+"TotalRecords": 1,
+"TotalPages": 1,
+"CurrentPage": 1,
+"PerPage": 20
+},
+"Wallets":
+[
+{
+"ID":220,
+"ClientID":111,
+"Asset":"USD",
+"DTCreated":"2018-11-23T11:59:12.493",
+"Balance": 1000,
+"Status": 0,
+"Invested": 0,
+"Margin": 0,
+"IntervalPnL": 0
+}
+]
+}
 
 ## Операции с кошельками клиентов
 
