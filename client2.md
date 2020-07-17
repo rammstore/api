@@ -590,7 +590,7 @@ DTClosed	|	datetime	|	Дата закрытия	|
 Equity	|	real	|	Суммарное эквити инвестиций в стратегию	|
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
 Status	|	number	|	Статус стратегии	|
-***PublicOffer***
+***PublicOffer (вложенная структура)***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
 CommissionRate |	real	|	Размер комиссии	|
@@ -605,7 +605,7 @@ FeePaid	|	real	|	Выплаченное вознаграждение	|
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 CommissionPaid	|	real	|	Выплаченная комиссия	|
 CommissionToPay	|	real	|	Невыплаченная комиссия	|
-***Tags***
+***Tags (вложенная структура)***
 _TagName_	|	string	|	Название тэга	|
 _Value_	|	structure	|	Структура, содержащая данные	|
 ***MyAccount***
