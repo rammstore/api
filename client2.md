@@ -1060,7 +1060,7 @@ Yield	|	real	|	Прибыль в %	|
                 "TargetEquity": 1010,
                 "TargetReached": "2018-12-12T15:34:54.217",
                 "Positions": 2,
-                "Offer": {
+                "AccountOffer": {
                     "ID": 23140,
                     "Fee": 0.0,
                     "Commission": 0
