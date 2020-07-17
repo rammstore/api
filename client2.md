@@ -574,7 +574,7 @@ ID	| number    | ID стратегии|
 
 **Возвращаемые данные:**
 
-Возвращаемые данные - структуры Strategy и MyAccount:
+Возвращаемые данные - структуры Strategy и Account:
 
 Параметр | Тип | Описание 
 ---------|----------|----------
@@ -608,7 +608,7 @@ CommissionToPay	|	real	|	Невыплаченная комиссия	|
 ***Tags (вложенная структура)***
 _TagName_	|	string	|	Название тэга	|
 _Value_	|	structure	|	Структура, содержащая данные	|
-***MyAccount***
+***Account***
 ID	|	number	|	ID счета	|
 TotalProfit	|	real	|	Прибыль по счету |
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
@@ -625,7 +625,7 @@ Target	|	real	|	Целевая доходность	|
 Protection	|	real	|	Защита капитала	|
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
 Status	|	number	|	Статус счета	|
-***MyAccountOffer***
+***AccountOffer***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
 CommissionRate |	real	|	Размер комиссии	|
