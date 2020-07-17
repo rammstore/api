@@ -625,7 +625,7 @@ Target	|	real	|	Целевая доходность	|
 Protection	|	real	|	Защита капитала	|
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
 Status	|	number	|	Статус счета	|
-***AccountOffer***
+***AccountOffer  (вложенная структура)***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
 CommissionRate |	real	|	Размер комиссии	|
@@ -660,7 +660,7 @@ CommissionRate |	real	|	Размер комиссии	|
             "Youtube": "BERFDOJK8"
         }
     },
-    "MyAccount": {
+    "Account": {
         "ID": 4545,
         "TotalProfit": 512.65,
         "FeeToPay": 54.56,
@@ -677,7 +677,7 @@ CommissionRate |	real	|	Размер комиссии	|
         "Protection": 500,
         "Type": 2,
         "Status": 0,
-        "MyAccountOffer": {
+        "AccountOffer": {
             "ID": 123456,
             "FeeRate": 0.25,
             "CommissionRate": 5
