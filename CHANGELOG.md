@@ -23,3 +23,10 @@ Difference начального API и 2-ой версии с офертами.
 7. accounts.get, accounts.search, session.login, wallets.get, positions.search  - в возвращаемых убран Bonus.
 
 8. accounts.search - в возвращаемых убран PartnerShare.
+
+Продолжение от 15.07.20.
+9. В Strategies.get добавлены блоки PublicOffer, TraderInfo, PartnerInfo.
+10. Fee (где имеется в виду ставка фи) переименовано в FeeRate, Commission (где имеется в виду ставка комиссии) в CommissionRate.
+11. Везде выставлен порядок FeeRate, затем CommissionRate, не наоборот. В интерфейсе нужно аналогично.
+12. accounts.search, в структуру Offer Добавлено ID.
+13. Фильтры в accounts.search, переименованы, везде добавлено "Rate" в конце: Strategy.Offer.FeeRate, Strategy.Offer.CommissionRate.
