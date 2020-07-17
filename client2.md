@@ -574,7 +574,7 @@ ID	| number    | ID стратегии|
 
 **Возвращаемые данные:**
 
-Возвращаемые данные - структуры Strategy и Account:
+Возвращаемые данные - структура Strategy:
 
 Параметр | Тип | Описание 
 ---------|----------|----------
@@ -608,7 +608,7 @@ CommissionToPay	|	real	|	Невыплаченная комиссия	|
 ***Tags (вложенная структура)***
 _TagName_	|	string	|	Название тэга	|
 _Value_	|	structure	|	Структура, содержащая данные	|
-***Account***
+***Account (вложенная структура)***
 ID	|	number	|	ID счета	|
 TotalProfit	|	real	|	Прибыль по счету |
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
@@ -658,33 +658,32 @@ CommissionRate |	real	|	Размер комиссии	|
         },
         "Tags": {
             "Youtube": "BERFDOJK8"
-        }
-    },
-    "Account": {
-        "ID": 4545,
-        "TotalProfit": 512.65,
-        "FeeToPay": 54.56,
-        "FeePaid": 101.58,
-        "ProfitCurrentIntervalGross": 152.23,
-        "TotalCommissionPaid": 25.34,
-        "State": 0,
-        "Equity": 1500.56,
-        "Factor": 1,
-        "AvailableToWithdraw": 1000,
-        "AccountMinBalance": 100,
-        "IsSecurity": false,
-        "Target": 5000,
-        "Protection": 500,
-        "Type": 2,
-        "Status": 0,
-        "AccountOffer": {
-            "ID": 123456,
-            "FeeRate": 0.25,
-            "CommissionRate": 5
+        },
+        "Account": {
+            "ID": 4545,
+            "TotalProfit": 512.65,
+            "FeeToPay": 54.56,
+            "FeePaid": 101.58,
+            "ProfitCurrentIntervalGross": 152.23,
+            "TotalCommissionPaid": 25.34,
+            "State": 0,
+            "Equity": 1500.56,
+            "Factor": 1,
+            "AvailableToWithdraw": 1000,
+            "AccountMinBalance": 100,
+            "IsSecurity": false,
+            "Target": 5000,
+            "Protection": 500,
+            "Type": 2,
+            "Status": 0,
+            "AccountOffer": {
+                "ID": 123456,
+                "FeeRate": 0.25,
+                "CommissionRate": 5
+            }
         }
     }
-}
-```
+}```
 [Вернуться к содержанию](#Содержание)
 #### charts.get
 
