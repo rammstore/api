@@ -625,7 +625,7 @@ Target	|	real	|	Целевая доходность	|
 Protection	|	real	|	Защита капитала	|
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
 Status	|	number	|	Статус счета	|
-***AccountOffer  (вложенная структура)***
+***Offer  (вложенная структура)***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
 CommissionRate |	real	|	Размер комиссии	|
@@ -676,7 +676,7 @@ CommissionRate |	real	|	Размер комиссии	|
             "Protection": 500,
             "Type": 2,
             "Status": 0,
-            "AccountOffer": {
+            "Offer": {
                 "ID": 123456,
                 "FeeRate": 0.25,
                 "CommissionRate": 5
@@ -847,7 +847,7 @@ StrategyID	|	number	|	ID стратегии	|
 Параметр | Тип | Описание 
 ---------|----------|----------
 ***Offers***
-OfferID	|	number	|	ID оферты	|
+ID	|	number	|	ID оферты	|
 PartnerID |	number	|	ID партнера	|
 DTCreated	|	datetime	|	Дата создания стратегии		|
 FeeRate	|	real	|	Вознаграждение с прибыли	|
@@ -970,7 +970,7 @@ AccountMinBalance	|	real	|	Минимальный баланс счета		|
 AvailableToWithdraw	|	real	|	Средства, доступные к выводу		|
 FeePaid	|	real	|	Выплаченное вознаграждение		|
 FeeToPay	|	real	|	Невыплаченное вознаграждение		|
-****AccountOffer (вложенная структура)****
+****Offer (вложенная структура)****
 ID	|	number	|	ID оферты счета		|
 FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
 CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
@@ -1060,7 +1060,7 @@ Yield	|	real	|	Прибыль в %	|
                 "TargetEquity": 1010,
                 "TargetReached": "2018-12-12T15:34:54.217",
                 "Positions": 2,
-                "AccountOffer": {
+                "Offer": {
                     "ID": 23140,
                     "Fee": 0.0,
                     "Commission": 0
