@@ -2117,29 +2117,28 @@ CommandID	|number	|ID команды установки доходности
 ```
 [Вернуться к содержанию](#Содержание)
 
-#### accounts.search
+#### accounts.searchClosed
 
-Поиск счетов и соответствующих им стратегий с фильтрацией по подстроке (из имени стратегии).
+Поиск закрытых счетов и соответствующих им стратегий с фильтрацией по подстроке (из имени стратегии).
 
-**URL:** `https://ramm.store/api/client/v2/accounts.search`
+**URL:** `https://ramm.store/api/client/v2/accounts.searchClosed`
 
 **Параметры:**
 
 Может содержать секции [Filter, Pagination, OrderBy](#Методы-поиска-данных).
 
-Допустимые поля для секции Filter:	
+Допустимые поля для секции Filter:
 
 Поле | Тип | Описание 
 :--------|----------|----------
 Value	|string	|Подстрока поиска
-MyActiveAccounts	|boolean	|флаг поиска собственных счетов. (1 - только собственные, 0 - только чужие, нет параметра - все)
 
 Допустимые поля для секции OrderBy:	
 Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClosed, Strategy.Offer.FeeRate, Strategy.Offer.CommissionRate, Strategy.Status, Strategy.Yield, Strategy.MonthlyYield, Strategy.Accounts, Strategy.Symbols, ID, IsSecurity, Type, AccountSpecAssetID, Asset, TotalProfitNet, TotalProfit, TradingIntervalCurrentID, DTCreated, DTClosed, Balance, Equity, Margin, MarginLevel, IntervalPnL, Status, Factor, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AvailableToWithdraw, AccountMinBalance, IsMyStrategy.
 
 **Возвращаемые данные:**
 
-Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets и Accounts:
+Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets и Strategies:
 
 Параметр | Тип | Описание 
 ---------|----------|----------
@@ -2150,60 +2149,30 @@ Balance	|	real	|	Сумма в кошельке
 Invested	|	real	|	Инвестированная сумма
 Margin	|	real	|	Задействованная маржа
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
-***Accounts***
-ID	|	number	|	ID счета
-IsSecurity	|	boolean	|	Признак счета управляющего
-Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
-AccountSpecAssetID	|	number	|	Спецификация счета для заданного актива
-Asset	|	string	|	Название валюты счета
-TradingIntervalCurrentID	|	number	|	ID текущего торгового интервала
-DTCreated	|	datetime	|	Дата создания
-DTClosed	|	datetime	|	Дата закрытия счета
-Balance	|	real	|	Баланс счета
-Equity	|	real	|	Эквити
-Margin	|	real	|	Задействованная маржа
-MarginLevel	|	real	|	Уровень маржи
-IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
-TotalProfitNet	|	real	|	Суммарная прибыль/убыток
-TotalProfit	|	real	|	Сумма "чистой" прибыли прошлых периодов и "грязной" прибыли текущего периода
-Status	|	number	|	см. ниже
-Factor	|	real	|	Повышающий/понижающий коэффициент копирования
-MCReached	|	number	|	Дата/время срабатывания StopOut
-Protection	|	real	|	Процент защиты счета (numeric (4,3))
-ProtectionEquity	|	real	|	Значение эквити, при котором сработает защита счета
-ProtectionReached	|	number	|	Дата/время срабатывания защиты счета
-Target	|	real	|	Целевая доходность (numeric (8,3))
-TargetEquity	|	real	|	Целевая доходность в валюте счета
-TargetReached	|	number	|	Дата/время достижения целевой доходности
-AvailableToWithdraw	|	real	|	Доступно для вывода
-AccountMinBalance	|	real	|	Минимальный баланс
-****Strategy (вложенная структура)****
+****Strategies****
+***Strategy (вложенная структура)***
 ID	|	number	|	ID стратегии
 Name	|	string	|	Название стратегии (Varchar(64))
-DTCreated	|	datetime	|	Дата создания стратегии
-DTStat	|	datetime	|	Дата сбора статистики
-DTClosed	|	datetime	|	Дата закрытия стратегии
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
-Yield	|	real	|	Прибыль в %
-MonthlyYield	|	real	|	Среднемесячная прибыль в %
-Accounts	|	number	|	Количество счетов
 Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)
 IsMyStrategy	|	bool	|	Признак собственной стратегии
-*****Offer (вложенная структура)*****
-ID |	number	|	ID оферты
-FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))
-CommissionRate	|	real	|	Размер комиссии (numeric (6,6))
-****Charts (вложенный массив)****
-Yield	|	real	|	Значение доходности
+ActiveAccountID |	number	|	Номер счета активной инвестиции в ту же стратегию (для определения возможных действий по стратегии)
+***Account (вложенная структура)***
+ID	|	number	|	ID счета
+Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
+Asset	|	string	|	Название валюты счета
+DTCreated	|	datetime	|	Дата создания
+DTClosed	|	datetime	|	Дата закрытия счета
+TotalProfit	|	real	|	Итоговый профит
 
 **Пример вызова:**
 ```json
 {
     "Filter": {
-        "MyActiveAccounts": true
+        "Value": "Strategy"
     },
     "OrderBy": {
-        "Field": "Strategy.Yield",
+        "Field": "Strategy.Name",
         "Direction": "Desc"
     },
     "Pagination": {
@@ -2216,10 +2185,10 @@ Yield	|	real	|	Значение доходности
 ```json
 {
     "Filter": {
-        "MyActiveAccounts": true
+        "Value": "Strategy"
     },
     "OrderBy": {
-        "Field": "Strategy.Yield",
+        "Field": "Strategy.Name",
         "Direction": "Desc"
     },
     "Pagination": {
@@ -2239,59 +2208,27 @@ Yield	|	real	|	Значение доходности
             "IntervalPnL": -85.37
         }
     ],
-    "Accounts": [
+    "Strategies": [
         {
             "Strategy": {
                 "ID": 1252,
-                "Name": "TestStr2003_1",
-                "DTCreated": "2020-03-20T14:29:13.697",
-                "DTStat": "2020-03-20T14:29:13.697",
-                "Offer": {
-                    "ID": 123456,
-                    "Commission": 0.000002,
-                    "Fee": 0.25
-                },
+                "Name": "Strategy158",
                 "Status": 1,
-                "Yield": -0.0854,
-                "MonthlyYield": -0.0854,
-                "Accounts": 2,
                 "Symbols": "EURUSD",
-                "IsMyStrategy": true
-            },
-            "ID": 1000196,
-            "IsSecurity": true,
-            "Type": 0,
-            "AccountSpecAssetID": 5,
-            "Asset": "USD",
-            "TradingIntervalCurrentID": 7931,
-            "DTCreated": "2020-03-20T14:29:13.697",
-            "Balance": 914.63,
-            "Equity": 914.63,
-            "Margin": 0,
-            "IntervalPnL": -85.37,
-            "Status": 1,
-            "Factor": 1,
-            "Protection": 0.5,
-            "ProtectionEquity": 500,
-            "Target": 1,
-            "TargetEquity": 2000,
-            "AvailableToWithdraw": 714.63,
-            "AccountMinBalance": 200,
-            "Chart": [
-                {
-                    "Yield": -10.173
-                },
-                {
-                    "Yield": -13.131
-                },
-                {
-                    "Yield": -8.644
+                "IsMyStrategy": true,
+                "ActiveAccountID": 1000357,
+                "Account": {
+                    "ID": 1000196,
+                    "IsSecurity": true,
+                    "Type": 0,
+                    "Asset": "USD",
+                    "DTCreated": "2020-03-20T14:29:13.697",
+                    "DTClosed": "2020-03-20T15:32:57.123"
                 }
-            ]
+            }
         }
     ]
-}
-```
+}```
 [Вернуться к содержанию](#Содержание)
 
 #### accounts.getCharts
