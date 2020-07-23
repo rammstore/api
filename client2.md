@@ -2134,18 +2134,7 @@ CommandID	|number	|ID команды установки доходности
 Name	|	string	|	Подстрока поиска	|
 
 Допустимые поля для секции OrderBy:	
-ID, Name, DT, DTStat, DTClosed, PublicOffer.FeeRate, PublicOffer.CommissionRate, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
-
-
-
-
-
-Поле | Тип | Описание 
-:--------|----------|----------
-Value	|string	|Подстрока поиска
-
-Допустимые поля для секции OrderBy:	
-Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClosed, Strategy.Offer.FeeRate, Strategy.Offer.CommissionRate, Strategy.Status, Strategy.Yield, Strategy.MonthlyYield, Strategy.Accounts, Strategy.Symbols, ID, IsSecurity, Type, AccountSpecAssetID, Asset, TotalProfitNet, TotalProfit, TradingIntervalCurrentID, DTCreated, DTClosed, Balance, Equity, Margin, MarginLevel, IntervalPnL, Status, Factor, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AvailableToWithdraw, AccountMinBalance, IsMyStrategy.
+ID, Name, DTCreated, DTStat, DTClosed, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, PublicOffer.FeeRate, PublicOffer.CommissionRate, Account.ID, Account.Type, Account.Asset, Account.DTCreated, Account.DTClosed, Account.TotalProfit.
 
 **Возвращаемые данные:**
 
@@ -2163,19 +2152,10 @@ IntervalPnL	|	real	|	Прибыль/убыток в текущем торгов�
 ****Strategies****
 ID	|	number	|	ID стратегии		|
 Name	|	string	|	Название стратегии (Varchar(64))		|
-DTCreated	|	datetime	|	Дата создания стратегии		|
-DTStat	|	datetime	|	Дата сбора статистики		|
-DTClosed	|	datetime	|	Дата закрытия стратегии		|
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
-Yield	|	real	|	Прибыль в %		|
-MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
-Accounts	|	number	|	Количество счетов		|
 Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
 ActiveAccountID |	number	|	Номер счета активной инвестиции в ту же стратегию (для определения возможных действий по стратегии)
-***Tags***
-_TagName_	|	string	|	Название тэга	|
-_Value_	|	structure	|	Структура, содержащая данные	|
 ****PublicOffer (вложенная структура)****
 ID	|	number	|	ID публичной оферты		|
 FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
@@ -2244,18 +2224,29 @@ CommissionRate	|	number	|	Размер комиссии в долларах на
                 "Symbols": "EURUSD",
                 "IsMyStrategy": true,
                 "ActiveAccountID": 1000357,
+                "Offer": {
+                    "ID": 123456,
+                    "FeeRate": 0.25,
+                    "CommissionRate": 5
+                },
                 "Account": {
                     "ID": 1000196,
                     "IsSecurity": true,
                     "Type": 0,
                     "Asset": "USD",
                     "DTCreated": "2020-03-20T14:29:13.697",
-                    "DTClosed": "2020-03-20T15:32:57.123"
+                    "DTClosed": "2020-03-20T15:32:57.123",
+                    "Offer": {
+                        "ID": 123456,
+                        "FeeRate": 0.25,
+                        "CommissionRate": 5
+                    }
                 }
             }
         }
     ]
-}```
+}
+```
 [Вернуться к содержанию](#Содержание)
 
 #### accounts.getCharts
