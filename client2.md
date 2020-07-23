@@ -2131,9 +2131,23 @@ CommandID	|number	|ID команды установки доходности
 
 Поле | Тип | Описание 
 :--------|----------|----------
+Name	|	string	|	Подстрока поиска	|
+MyStrategies	|	boolean	|	если = true, то ищем собственные стратегии клиента	|
+ActiveStrategies	|	boolean	|	если = true, то ищем только активные стратегии	|
+
+
+Допустимые поля для секции OrderBy:	
+ID, Name, DT, DTStat, DTClosed, Offer.FeeRate, Offer.CommissionRate, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
+
+
+
+
+
+Поле | Тип | Описание 
+:--------|----------|----------
 Value	|string	|Подстрока поиска
 
-Допустимые поля для секции OrderBy:
+Допустимые поля для секции OrderBy:	
 Strategy.ID, Strategy.Name, Strategy.DTCreated, Strategy.DTStat, Strategy.DTClosed, Strategy.Offer.FeeRate, Strategy.Offer.CommissionRate, Strategy.Status, Strategy.Yield, Strategy.MonthlyYield, Strategy.Accounts, Strategy.Symbols, ID, IsSecurity, Type, AccountSpecAssetID, Asset, TotalProfitNet, TotalProfit, TradingIntervalCurrentID, DTCreated, DTClosed, Balance, Equity, Margin, MarginLevel, IntervalPnL, Status, Factor, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AvailableToWithdraw, AccountMinBalance, IsMyStrategy.
 
 **Возвращаемые данные:**
@@ -2150,13 +2164,25 @@ Invested	|	real	|	Инвестированная сумма
 Margin	|	real	|	Задействованная маржа
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
 ****Strategies****
-***Strategy (вложенная структура)***
-ID	|	number	|	ID стратегии
-Name	|	string	|	Название стратегии (Varchar(64))
-Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
-Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)
-IsMyStrategy	|	bool	|	Признак собственной стратегии
+ID	|	number	|	ID стратегии		|
+Name	|	string	|	Название стратегии (Varchar(64))		|
+DTCreated	|	datetime	|	Дата создания стратегии		|
+DTStat	|	datetime	|	Дата сбора статистики		|
+DTClosed	|	datetime	|	Дата закрытия стратегии		|
+Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
+Yield	|	real	|	Прибыль в %		|
+MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
+Accounts	|	number	|	Количество счетов		|
+Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)		|
+IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
 ActiveAccountID |	number	|	Номер счета активной инвестиции в ту же стратегию (для определения возможных действий по стратегии)
+***Tags***
+_TagName_	|	string	|	Название тэга	|
+_Value_	|	structure	|	Структура, содержащая данные	|
+****PublicOffer (вложенная структура)****
+ID	|	number	|	ID публичной оферты		|
+FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
+CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
 ***Account (вложенная структура)***
 ID	|	number	|	ID счета
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
@@ -2164,6 +2190,10 @@ Asset	|	string	|	Название валюты счета
 DTCreated	|	datetime	|	Дата создания
 DTClosed	|	datetime	|	Дата закрытия счета
 TotalProfit	|	real	|	Итоговый профит
+****Offer (вложенная структура)****
+ID	|	number	|	ID оферты счета		|
+FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
+CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
 
 **Пример вызова:**
 ```json
