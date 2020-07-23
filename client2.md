@@ -48,7 +48,7 @@
         * [accounts.setFactor](#accountssetFactor)
         * [accounts.setProtection](#accountssetProtection)
         * [accounts.setTarget](#accountssetTarget)
-        * [accounts.search](#accountssearch)
+        * [accounts.searchClosed](#accountssearchClosed)
         * [accounts.getCharts](#accountsgetCharts)
         * [accounts.searchSpec](#accountssearchSpec)
         * [accountCommands.get](#accountCommandsget)
