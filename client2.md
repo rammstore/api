@@ -2148,7 +2148,7 @@ Asset	|	string	|	Название актива
 Balance	|	real	|	Сумма в кошельке
 Invested	|	real	|	Инвестированная сумма
 Margin	|	real	|	Задействованная маржа
-IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
+TotalProfit	|	real	|	Прибыль/убыток в текущем торговом интервале
 ****Strategies****
 ID	|	number	|	ID стратегии		|
 Name	|	string	|	Название стратегии (Varchar(64))		|
@@ -2217,30 +2217,28 @@ CommissionRate	|	number	|	Размер комиссии в долларах на
     ],
     "Strategies": [
         {
-            "Strategy": {
-                "ID": 1252,
-                "Name": "Strategy158",
-                "Status": 1,
-                "Symbols": "EURUSD",
-                "IsMyStrategy": true,
-                "ActiveAccountID": 1000357,
+            "ID": 1252,
+            "Name": "Strategy158",
+            "Status": 1,
+            "Symbols": "EURUSD",
+            "IsMyStrategy": true,
+            "ActiveAccountID": 1000357,
+            "Offer": {
+                "ID": 123456,
+                "FeeRate": 0.25,
+                "CommissionRate": 5
+            },
+            "Account": {
+                "ID": 1000196,
+                "IsSecurity": true,
+                "Type": 0,
+                "Asset": "USD",
+                "DTCreated": "2020-03-20T14:29:13.697",
+                "DTClosed": "2020-03-20T15:32:57.123",
                 "Offer": {
                     "ID": 123456,
                     "FeeRate": 0.25,
                     "CommissionRate": 5
-                },
-                "Account": {
-                    "ID": 1000196,
-                    "IsSecurity": true,
-                    "Type": 0,
-                    "Asset": "USD",
-                    "DTCreated": "2020-03-20T14:29:13.697",
-                    "DTClosed": "2020-03-20T15:32:57.123",
-                    "Offer": {
-                        "ID": 123456,
-                        "FeeRate": 0.25,
-                        "CommissionRate": 5
-                    }
                 }
             }
         }
