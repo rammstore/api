@@ -22,6 +22,7 @@
         * [charts.get](#chartsget)
         * [strategyportfolio.get](#strategyportfolioget)
         * [strategysymbolstat.get](#strategysymbolstatget)
+        * [strategies.getOffers](#strategiesgetoffers)
         * [strategies.search](#strategiessearch)
     * [Собственные стратегии клиента](#Собственные-стратегии-клиента)
         * [myStrategies.add](#mystrategiesadd)	
