@@ -59,7 +59,8 @@
         * [deals.search](#dealssearch)
 
 ## Выполнение запросов
-Для обращения к API необходимо сделать POST-запрос по адресу `https://ramm.store/api/client/v2/{method}`, где:
+Для обращения к API необходимо сделать POST-запрос по адресу `https://{env}.ramm.store/api/client/v2/{method}`, где:
+* {env} — название среды (например, demo или master).
 * {method} — метод API.
 
 Ответ вернётся в JSON.
