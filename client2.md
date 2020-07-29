@@ -615,7 +615,7 @@ FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 FeePaid	|	real	|	Выплаченное вознаграждение	|
 ProfitCurrentIntervalGross	|	real	|	Прибыль в текущем торговом интервале	|
 TotalCommissionPaid	|	real	|	Суммарная выплаченная комиссия	|
-State	|	number	|	Состояние счета (см. ниже)	|
+State	|	number	|	[Состояние счета] (#Значения-AccountState)	|
 Equity	|	real	|	Название валюты депозита	|
 Factor	|	real	|	Повышающий/понижающий коэффициент копирования	|
 AvailableToWithdraw	|	real	|	Доступные к выводу средства	|
@@ -1880,7 +1880,7 @@ LeverageMax	|	number	|	Максимальное плечо
 MCLevel	|	number	|	Уровень StopOut
 Balance	|	real	|	Баланс счета
 Margin	|	real	|	Использованная маржа счета
-State	|	number	|	Код состояния счета (см.ниже)
+State	|	number	|	[Состояние счета] (#Значения-AccountState)
 Factor	|	real	|	Повышающий/понижающий коэффициент копирования
 Target	|	real	|	Целевая доходность (numeric (8,3))
 Protection	|	real	|	Процент защиты счета (numeric (4,3))
