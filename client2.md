@@ -23,7 +23,6 @@
         * [charts.get](#chartsget)
         * [strategyportfolio.get](#strategyportfolioget)
         * [strategysymbolstat.get](#strategysymbolstatget)
-        * [strategies.getOffers](#strategiesgetoffers)
         * [strategies.search](#strategiessearch)
     * [Собственные стратегии клиента](#Собственные-стратегии-клиента)
         * [myStrategies.add](#mystrategiesadd)	
@@ -576,8 +575,8 @@ Link	| string    | Ссылка оферты |
 
 Возвращаемые данные - структура Strategy:
 
-Параметр | Тип | Описание | Видимость
----------|----------|----------|
+Параметр | Тип | Описание
+---------|----------|----------
 ***Strategy***
 ID	|	number	|	ID стратегии	|
 Name	|	string	|	Имя стратегии	|
