@@ -590,7 +590,6 @@ FeeRate	|	real	|	Размер вознаграждения	|
 CommissionRate |	real	|	Размер комиссии	|
 ***LinkOffer (вложенная структура)***
 ID	|	number	|	ID оферты	|
-Link | string | Cсылка на оферту. Отображается партнеру и владельцу стратегии. |
 FeeRate	|	real	|	Размер вознаграждения	|
 CommissionRate |	real	|	Размер комиссии	|
 ****TraderInfo (вложенная структура)****
@@ -604,7 +603,9 @@ FeePaid	|	real	|	Выплаченное вознаграждение	|
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 CommissionPaid	|	real	|	Выплаченная комиссия	|
 CommissionToPay	|	real	|	Невыплаченная комиссия	|
-***Tags (вложенный объект)***
+***Tags (вложенная структура)***
+_TagName_	|	string	|	Название тэга	|
+_Value_	|	structure	|	Структура, содержащая данные	|
 ***Account (вложенная структура)***
 ID	|	number	|	ID счета	|
 TotalProfit	|	real	|	Прибыль по счету |
