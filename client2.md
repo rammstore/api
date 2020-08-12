@@ -569,11 +569,10 @@ Link	| string    | Ссылка оферты |
 
 **Возвращаемые данные:**
 
-Возвращаемые данные - структура Strategy:
+Возвращаемые данные:
 
 Параметр | Тип | Описание
 ---------|----------|----------
-***Strategy***
 ID	|	number	|	ID стратегии	|
 Name	|	string	|	Имя стратегии	|
 Yield	|	real	|	Доходность	|
@@ -636,12 +635,12 @@ FeeRate	|	real	|	Вознаграждение с прибыли	|
 CommissionRate	|	real	|	Размер комиссии	|
 ***PrivateOffers (вложенный массив)***
 ID	|	number	|	ID оферты	|
-DTCreated	|	datetime	|	Дата создания стратегии		|
+Link | string | Cсылка на оферту. Отображается партнеру и владельцу стратегии. |
 FeeRate	|	real	|	Вознаграждение с прибыли	|
 CommissionRate	|	real	|	Размер комиссии	|
+DTCreated	|	datetime	|	Дата создания стратегии		|
 PartnerID |	number	|	ID партнера	|
 PartnerShareRate |	real	|	Доля вознаграждения партнера	|
-Link | string | Cсылка на оферту. Отображается партнеру и владельцу стратегии. |
 Status | number | 0-active, 1-disabled (new investments prohibited), 2-closed (all active investments will closed) |
 Description | string | Описание, заданное при создании оферты. Отображается только владельцу стратегии. | 
 
@@ -655,49 +654,66 @@ Description | string | Описание, заданное при создани�
 **Пример ответа:**
 ```json
 {
-    "Strategy": {
-        "ID": 333,
-        "Name": "TEST1",
-        "Yield": 0.00001,
-        "MonthlyYield": 0.05,
-        "Accounts": 5,
-        "DTCreated": "2018-09-21T11:09:38.243",
-        "DTStat": "2017-09-21T11:09:38.243",
-        "Equity": 1000,
-        "IsMyStrategy": true,
+    "ID": 333,
+    "Name": "TEST1",
+    "Yield": 0.00001,
+    "MonthlyYield": 0.05,
+    "Accounts": 5,
+    "DTCreated": "2018-09-21T11:09:38.243",
+    "DTStat": "2017-09-21T11:09:38.243",
+    "Equity": 1000,
+    "IsMyStrategy": true,
+    "Status": 0,
+    "PublicOffer": {
+        "ID": 123456,
+        "FeeRate": 0.25,
+        "CommissionRate": 5
+    },
+    "LinkOffer": {
+        "ID": 123457,
+        "Link": "cca6x1qoq1",
+        "FeeRate": 0.2,
+        "CommissionRate": 2
+    },
+    "Tags": {
+        "Youtube": "BERFDOJK8"
+    },
+    "Account": {
+        "ID": 4545,
+        "TotalProfit": 512.65,
+        "FeeToPay": 54.56,
+        "FeePaid": 101.58,
+        "ProfitCurrentIntervalGross": 152.23,
+        "TotalCommissionPaid": 25.34,
+        "State": 0,
+        "Equity": 1500.56,
+        "Factor": 1,
+        "AvailableToWithdraw": 1000,
+        "AccountMinBalance": 100,
+        "IsSecurity": false,
+        "Target": 5000,
+        "Protection": 500,
+        "Type": 2,
         "Status": 0,
-        "PublicOffer": {
+        "Offer": {
             "ID": 123456,
             "FeeRate": 0.25,
-            "CommissionRate": 5
-        },
-        "Tags": {
-            "Youtube": "BERFDOJK8"
-        },
-        "Account": {
-            "ID": 4545,
-            "TotalProfit": 512.65,
-            "FeeToPay": 54.56,
-            "FeePaid": 101.58,
-            "ProfitCurrentIntervalGross": 152.23,
-            "TotalCommissionPaid": 25.34,
-            "State": 0,
-            "Equity": 1500.56,
-            "Factor": 1,
-            "AvailableToWithdraw": 1000,
-            "AccountMinBalance": 100,
-            "IsSecurity": false,
-            "Target": 5000,
-            "Protection": 500,
-            "Type": 2,
-            "Status": 0,
-            "Offer": {
-                "ID": 123456,
-                "FeeRate": 0.25,
-                "CommissionRate": 5
-            }
+            "CommissionRate": 5,
+            "IsPublic": true
         }
-    }
+    },
+    "PrivateOffers": [
+        {
+            "ID": 123457,
+            "Link": "cca6x1qoq1",
+            "FeeRate": 0.2,
+            "CommissionRate": 2,
+            "DTCreated": "2018-09-21T11:09:40",
+            "PartnerID": 9876543,
+            "PartnerShareRate": 0.3,
+            "Status": 0
+        }
+    ]
 }
 ```
 [Вернуться к содержанию](#Содержание)
@@ -1838,7 +1854,6 @@ IsSecurity	|	bool	|	Признак сигнальной инвестиции
 IDCompany	|	number	|	ID компании
 DT	|	datetime	|	Дата создания
 DTClosed	|	datetime	|	Дата закрытия
-ABook	|	real	|	Доля А-Бук
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
 AssetName	|	string	|	Название валюты депозита
 LeverageMax	|	number	|	Максимальное плечо
@@ -1884,7 +1899,6 @@ AvailableToWithdraw	|	real	|	Средства, доступные к вывод�
                 "IsSecurity": 0,
                 "IDCompany": 9,
                 "DT": "2020-01-14T09:58:04.403",
-                "ABook": 1,
                 "Type": 2,
                 "AssetName": "USD",
                 "LeverageMax": 50,
