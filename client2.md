@@ -1051,7 +1051,7 @@ Yield	|	real	|	Прибыль в %	|
 Партнер получает информацию по офертам, в которых он указаны в качестве партнера.
 Владелец стратегии получает полную информацию.
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.add`
+**URL:** `https://ramm.store/api/client/v2/strategies.getOffers`
 
 **Параметры:**
 Поле | Тип | Описание 
