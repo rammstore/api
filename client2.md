@@ -681,19 +681,7 @@ CommissionRate |	real	|	Размер комиссии	|
             "CommissionRate": 5,
             "IsPublic": true
         }
-    },
-    "Offers": [
-        {
-            "ID": 123457,
-            "Link": "cca6x1qoq1",
-            "FeeRate": 0.2,
-            "CommissionRate": 2,
-            "DTCreated": "2018-09-21T11:09:40",
-            "PartnerID": 9876543,
-            "PartnerShareRate": 0.3,
-            "Status": 0
-        }
-    ]
+    }
 }
 ```
 [Вернуться к содержанию](#Содержание)
