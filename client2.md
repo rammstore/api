@@ -611,7 +611,7 @@ Link | string | Cсылка на оферту. Отображается парт
 IsPublic |	boolean	|	Является ли оферта публичной. Для непубличных оферт не передается.	|
 Status | number | 0-active, 1-disabled (new investments prohibited), 2-closed (all active investments will closed) |
 Description | string | Описание, заданное при создании оферты. Отображается только владельцу стратегии. | 
-***Tags (вложенный объект)***
+***Tags (вложенная структура)***
 ***Account (вложенная структура)***
 ID	|	number	|	ID счета	|
 TotalProfit	|	real	|	Прибыль по счету |
@@ -895,9 +895,7 @@ MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
 Accounts	|	number	|	Количество счетов		|
 Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
-***Tags***
-_TagName_	|	string	|	Название тэга	|
-_Value_	|	structure	|	Структура, содержащая данные	|
+***Tags (вложенная структура)***
 ****PublicOffer (вложенная структура)****
 ID	|	number	|	ID публичной оферты		|
 FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
