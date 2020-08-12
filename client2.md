@@ -1115,81 +1115,11 @@ AccountCommandID	|	number	|	ID команды на пополнение счет
 
 [Вернуться к содержанию](#Содержание)
 
-#### myStrategies.setPublicOffer
+#### myStrategies.addOffer
 
-Установка новой публичной оферты для стратегии.
+Создание новой оферты для стратегии.
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.addPublicOffer`
-
-**Параметры:**
-
-Поле | Тип | Описание 
-:--------|----------|----------
-StrategyID	|number	|ID стратегии|
-FeeRate	|	real	|	Вознаграждение с прибыли	|
-CommissionRate	|	real	|	Размер комиссии	|
-
-**Возвращаемые данные:**
-
-Параметр | Тип | Описание 
----------|----------|----------
-ID	| number	| ID созданной оферты 
-
-**Пример вызова:**
-```json
-{
-    "StrategyID": 12345,
-    "FeeRate": 0.25,
-    "CommissionRate": 0
-}
-```
-**Пример ответа:**
-```json
-{
-    "ID": 5654
-}
-```
-[Вернуться к содержанию](#Содержание)
-
-#### myStrategies.deactivatePublicOffer
-
-Деактивация публичной оферты для стратегии.
-
-**URL:** `https://ramm.store/api/client/v2/myStrategies.deactivatePublicOffer`
-
-**Параметры:**
-
-Поле | Тип | Описание 
-:--------|----------|----------
-StrategyID	|number	|ID стратегии|
-
-**Возвращаемые данные:**
-
-Параметр | Тип | Описание 
----------|----------|----------
-ID	| number	| ID деактивированной оферты 
-
-**Пример вызова:**
-```json
-{
-    "StrategyID": 12345,
-    "FeeRate": 0.25,
-    "CommissionRate": 0
-}
-```
-**Пример ответа:**
-```json
-{
-    "ID": 5654
-}
-```
-[Вернуться к содержанию](#Содержание)
-
-#### myStrategies.addPrivateOffer
-
-Создание новой приватной оферты для стратегии.
-
-**URL:** `https://ramm.store/api/client/v2/myStrategies.addPrivateOffer`
+**URL:** `https://ramm.store/api/client/v2/myStrategies.addOffer`
 
 **Параметры:**
 
@@ -1198,9 +1128,6 @@ ID	| number	| ID деактивированной оферты
 StrategyID	|number	|ID стратегии|
 FeeRate	|	real	|	Вознаграждение с прибыли	|
 CommissionRate	|	real	|	Размер комиссии	|
-PartnerID |	number	|	ID партнера	|
-PartnerShareRate |	real	|	Доля вознаграждения партнера	|
-Description | string | Комментарий владельца. Отображается только владельцу стратегии. | 
 
 **Возвращаемые данные:**
 
@@ -1222,6 +1149,31 @@ Link | string | ссылка на оферту
 {
     "OfferID": 5654,
     "Link": "cca6x1qoq1"
+}
+```
+
+#### myStrategies.setPublicOffer
+
+Установка публичной оферты для стратегии. Сброс публичной оферты.
+
+**URL:** `https://ramm.store/api/client/v2/myStrategies.setPublicOffer`
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+StrategyID	|number	|ID стратегии|
+OfferID	|	real	|	ID оферты, которую нужно сделать публичной. Если параметр не передан, то все оферты станут непубличными. 	|
+
+**Возвращаемые данные:**
+
+В случае успешной установки возвращается ответ 200 OK.
+
+**Пример вызова:**
+```json
+{
+    "StrategyID": 12345,
+    "OfferID": 23456
 }
 ```
 
