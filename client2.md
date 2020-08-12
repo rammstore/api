@@ -24,6 +24,7 @@
         * [strategyportfolio.get](#strategyportfolioget)
         * [strategysymbolstat.get](#strategysymbolstatget)
         * [strategies.search](#strategiessearch)
+        * [strategies.getOffers](#strategiesgetoffers)
     * [Собственные стратегии клиента](#Собственные-стратегии-клиента)
         * [myStrategies.add](#mystrategiesadd)	
         * [myStrategies.addOffer](#mystrategiesaddOffer)	
@@ -600,17 +601,6 @@ FeePaid	|	real	|	Выплаченное вознаграждение	|
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 CommissionPaid	|	real	|	Выплаченная комиссия	|
 CommissionToPay	|	real	|	Невыплаченная комиссия	|
-***Offers (вложенный массив)***
-ID	|	number	|	ID оферты	|
-DTCreated	|	datetime	|	Дата создания стратегии		|
-FeeRate	|	real	|	Вознаграждение с прибыли	|
-CommissionRate	|	real	|	Размер комиссии	|
-PartnerID |	number	|	ID партнера	|
-PartnerShareRate |	real	|	Доля вознаграждения партнера	|
-Link | string | Cсылка на оферту. Отображается партнеру и владельцу стратегии. |
-IsPublic |	boolean	|	Является ли оферта публичной. Для непубличных оферт не передается.	|
-Status | number | 0-active, 1-disabled (new investments prohibited), 2-closed (all active investments will closed) |
-Description | string | Описание, заданное при создании оферты. Отображается только владельцу стратегии. | 
 ***Tags (вложенная структура)***
 ***Account (вложенная структура)***
 ID	|	number	|	ID счета	|
@@ -1054,6 +1044,57 @@ Yield	|	real	|	Прибыль в %	|
 }
 ```
 [Вернуться к содержанию](#Содержание)
+
+#### Strategies.getOffers
+
+Получение доступных оферт для трейдера и партнера.
+Партнер получает информацию по офертам, в которых он указаны в качестве партнера.
+Владелец стратегии получает полную информацию.
+
+**URL:** `https://ramm.store/api/client/v2/myStrategies.add`
+
+**Параметры:**
+Поле | Тип | Описание 
+:--------|----------|----------
+StrategyID	|	number	|	ID стратегии	|
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - массив Offers:
+
+***Offers***
+ID	|	number	|	ID оферты	|
+DTCreated	|	datetime	|	Дата создания стратегии		|
+FeeRate	|	real	|	Вознаграждение с прибыли	|
+CommissionRate	|	real	|	Размер комиссии	|
+PartnerID |	number	|	ID партнера	|
+PartnerShareRate |	real	|	Доля вознаграждения партнера	|
+Link | string | Cсылка на оферту. Отображается партнеру и владельцу стратегии. |
+IsPublic |	boolean	|	Является ли оферта публичной. Для непубличных оферт не передается.	|
+Status | number | 0-active, 1-disabled (new investments prohibited), 2-closed (all active investments will closed) |
+Description | string | Описание, заданное при создании оферты. Отображается только владельцу стратегии. | 
+ActiveAccounts |	number	|	количество активных счетов	|
+TotalAccounts |	number	|	количество счетов всего	|
+FeePaid	|	real	|	Выплаченное вознаграждение	|
+FeeToPay	|	real	|	Невыплаченное вознаграждение	|
+CommissionPaid	|	real	|	Выплаченная комиссия	|
+CommissionToPay	|	real	|	Невыплаченная комиссия	|
+
+**Пример вызова:**
+```json
+{
+    "StrategyID": 12345
+}
+```
+**Пример ответа:**
+```json
+{
+    "Offers": [
+        {
+        }
+    ]
+}
+```
 
 ### Собственные стратегии клиента
 #### myStrategies.add
