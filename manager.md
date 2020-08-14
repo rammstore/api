@@ -2519,7 +2519,7 @@ CommandID|	number|	ID команды закрытия стратегии|
 "CommandID":2222
 }
 
-## myStrategies.checkName
+## Strategies.checkName
 
 Проверка имени стратегии на уникальность.
 
