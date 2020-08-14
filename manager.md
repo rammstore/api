@@ -59,6 +59,7 @@
         * [strategies.add](#strategiesadd)
         * [strategies.set](#strategiesset)
         * [strategies.close](#strategiesclose)
+        * [strategies.checkName](#strategiescheckname)
         * [strategysymbolstat.get](#strategysymbolstatget)
     * [Операции с торговыми счетами клиентов](#Операции-с-торговыми-счетами-клиентов)
         * [accounts.search](#accountssearch)
@@ -2517,6 +2518,39 @@ CommandID|	number|	ID команды закрытия стратегии|
 {
 "CommandID":2222
 }
+
+## myStrategies.checkName
+
+Проверка имени стратегии на уникальность.
+
+**URL:** https://ramm.store/api/manager/v1/strategies.checkName
+
+**Параметры:**
+
+Поле | Тип | Описание 
+:--------|----------|----------
+Name	|string	|Название стратегии|
+
+**Возвращаемые данные:**
+
+Параметр | Тип | Описание 
+---------|----------|----------
+StrategyNameAvailable	|boolean |Признак уникальности имени
+
+**Пример вызова:**
+```json
+{
+    "Name": "Strategy1"
+}
+```
+**Пример ответа:**
+```json
+{
+    "StrategyNameAvailable": false
+}
+```
+[Вернуться к содержанию](#Содержание)
+
 
 ## strategysymbolstat.get
 Отдает информацию по статистике использования различных торговых инструментов стратегией.
