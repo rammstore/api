@@ -10,12 +10,11 @@ Trading API предназначен для передачи торговых п
 
 Заголовок запроса имеет вид:
 
+`
 Content-Type: application/json
-
 Token: 099b40eb-cca6-4316-8d35-cc333899f9a2
-
 AppToken: 7f33625b-0e13-4d87-abf4-42eef85c6d99,
-
+`
 где Token относится к конкретной стратегии RAMM, а AppToken идентифицирует приложение, из которого отправлен сигнал.
 
 
@@ -180,15 +179,14 @@ Symbols
 400
 
 Bad Request
-
+```json
 {
-error:
-{
-"code":"invalid_input",
-"message":"invalid input in field 'ID'"
+    "error": {
+        "code": "invalid_input",
+        "message": "invalid input in field 'ID'"
+    }
 }
-}
-
+```
 
 
 **Внутренние коды ошибок**
@@ -200,63 +198,3 @@ access_denied|	No rights to use the invoked method
 invalid_input|	Invalid input in the field <field name>
 bad_credentials|	Login/Password incorrect or not found
 login_blocked|	The login you are using was blocked
-  
-  
-**Схема валидации входящего сигнала**
-
-{
-"type": "object",
-"title": "Trading API Sent Signal Schema",
-"required": [
-"Type"
-],
-"properties": {
-"Type": {
-"$id": "#/properties/Type",
-"type": "integer",
-"title": "The Type Schema",
-"default": 0,
-"minimum": 0
-},
-"Signals": {
-"$id": "#/properties/Signals",
-"type": "array",
-"title": "The Signals Schema",
-"items": {
-"$id": "#/properties/Signals/items",
-"type": "object",
-"title": "The Items Schema",
-"required": [
-"Symbol",
-"leverage"
-],
-"properties": {
-"Symbol": {
-"$id": "#/properties/Signals/items/properties/Symbol",
-"type": "string",
-"title": "The Symbol Schema",
-"default": ""
-},
-"leverage": {
-"$id": "#/properties/Signals/items/properties/leverage",
-"type": "number",
-"title": "The Leverage Schema",
-"default": 0.0
-},
-"Ticket": {
-"$id": "#/properties/Signals/items/properties/Ticket",
-"type": "string",
-"title": "The Ticket Schema",
-"default": ""
-},
-"Comment": {
-"$id": "#/properties/Signals/items/properties/Comment",
-"type": "string",
-"title": "The Comment Schema",
-"default": ""
-}
-}
-}
-}
-}
-}
