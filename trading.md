@@ -62,49 +62,46 @@ Type:
 
 В случае запроса с признаком GetInfo = false возвращается сокращенный набор параметров:
 
-
+```json
 {
-"App":
-{
-"CurrentVersion": "1.0.0.0",
-"NewestVersion": "1.0.0.1",
-"UpdateImportance": 0
+    "App": {
+        "CurrentVersion": "1.0.0.0",
+        "NewestVersion": "1.0.0.1",
+        "UpdateImportance": 0
+    }
 }
-}
+```
 
 В случае запроса с признаком GetInfo = true возвращается полный набор параметров:
-
+```json
 {
-"App":
-{
-"CurrentVersion": "1.0.0.0",
-"NewestVersion": "1.0.0.1",
-"UpdateImportance": 0
-},
-"Strategy":
-{
-"Yield": 123.45,
-"Accounts": 123,
-"Status": 0,
-"NeedSync": false
-},
-"Account":
-{
-"Equity": 12333.45,
-"Margin": 454.56,
-"Factor": 1.00,
-"ProfitBase": 10000.00,
-"MCReached": "2018-12-11 08:22",
-"Protection":0.20,
-"ProtectionEquity":2133.23,
-"ProtectionReached":"2018-12-11 08:22",
-"Target":1.0,
-"TargetEquity":20000.00,
-"TargetReached":"2018-12-11 08:22",
-"Asset":"USD"
+    "App": {
+        "CurrentVersion": "1.0.0.0",
+        "NewestVersion": "1.0.0.1",
+        "UpdateImportance": 0
+    },
+    "Strategy": {
+        "Yield": 123.45,
+        "Accounts": 123,
+        "Status": 0,
+        "NeedSync": false
+    },
+    "Account": {
+        "Equity": 12333.45,
+        "Margin": 454.56,
+        "Factor": 1,
+        "ProfitBase": 10000,
+        "MCReached": "2018-12-11 08:22",
+        "Protection": 0.2,
+        "ProtectionEquity": 2133.23,
+        "ProtectionReached": "2018-12-11 08:22",
+        "Target": 1,
+        "TargetEquity": 20000,
+        "TargetReached": "2018-12-11 08:22",
+        "Asset": "USD"
+    }
 }
-}
-
+```
 Status:
 Код | Значение
 ---------|----------
