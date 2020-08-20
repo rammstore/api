@@ -12,7 +12,9 @@ Trading API предназначен для передачи торговых п
 
 `
 Content-Type: application/json
+
 Token: 099b40eb-cca6-4316-8d35-cc333899f9a2
+
 AppToken: 7f33625b-0e13-4d87-abf4-42eef85c6d99,
 `
 где Token относится к конкретной стратегии RAMM, а AppToken идентифицирует приложение, из которого отправлен сигнал.
