@@ -838,10 +838,8 @@ Share	|	real	|	Доля символа	|
 
 Поле | Тип | Описание 
 :--------|----------|----------
+SearchMode |	string	| режим поиска (Rating, MyActiveStrategies, MyActiveAccounts)	|
 Name	|	string	|	Подстрока поиска	|
-MyActiveAccounts	|	boolean	|	если = true, то ищем только стратегии с активными инвестициями данного клиента	|
-MyStrategies	|	boolean	|	если = true, то ищем собственные стратегии клиента	|
-ActiveStrategies	|	boolean	|	если = true, то ищем только активные стратегии	|
 AgeMin |	number	|	минимальный возраст в днях |
 DealsMin |	number	|	минимальное количество сделок |
 
