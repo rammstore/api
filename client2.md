@@ -1417,6 +1417,7 @@ StrategyID	|number	|ID стратегии
 ***Accounts***
 ID	|	number	|	ID инвестиции	|
 DT	|	datetime	|	Дата создания инвестиции	|
+State	|	number	|	[Состояние счета](#Значения-AccountState)
 Equity	|	real	|	Эквити инвестиции	|
 ProfitCurrentIntervalGross	|	real	|	Грязная прибыль за текущий торговый интервал	|
 FeePaid	|	real	|	Выплаченное вознаграждение	|
@@ -1454,6 +1455,7 @@ IsMyAccount	|	boolean	|	Признак собственного счета	|
         {
             "ID": 48,
             "DT": "2019-02-07T14:28:09.580",
+            "State": 4,
             "Equity": 1000,
             "ProfitCurrentIntervalGross": 100,
             "FeePaid": 10,
