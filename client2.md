@@ -901,7 +901,7 @@ Margin	|	real	|	Задействованная маржа		|
 MarginLevel	|	real	|	Уровень маржи		|
 ProfitCurrentIntervalGross	|	real	|	Прибыль/убыток в текущем торговом интервале		|
 TotalProfit | real	| итого прибыль по счету	|
-Status	|	number	|	0-new (without money), 1-active (trading), 2-MC, 3-ProtectionTarget, 4-Pause, 5-disabled (cant trade), 6-closed (cant activate)		|
+State	|	number	|	[Состояние счета](#Значения-AccountState)
 Factor	|	real	|	Повышающий/понижающий коэффициент копирования		|
 MCReached	|	number	|	Дата/время срабатывания StopOut		|
 Protection	|	real	|	Процент защиты счета (numeric (4,3))		|
