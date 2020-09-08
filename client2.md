@@ -844,7 +844,7 @@ AgeMin |	number	|	минимальный возраст в днях |
 DealsMin |	number	|	минимальное количество сделок |
 
 Допустимые поля для секции OrderBy:	
-ID, Name, DT, DTStat, DTClosed, PublicOffer.FeeRate, PublicOffer.CommissionRate, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.Status, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
+ID, Name, DT, DTStat, DTClosed, PublicOffer.FeeRate, PublicOffer.CommissionRate, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.State, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
 
 **Возвращаемые данные:**
 
@@ -997,7 +997,7 @@ Yield	|	real	|	Прибыль в %	|
                 "MarginLevel": 5.34,
                 "ProfitCurrentIntervalGross": 6.64,
                 "TotalProfit": 3.32,
-                "Status": 3,
+                "State": 3,
                 "Factor": 1,
                 "Protection": 0.01,
                 "ProtectionEquity": 10,
