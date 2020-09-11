@@ -1776,7 +1776,7 @@ DTClosed	|	datetime	|	Дата закрытия
 Fee |	real	|	Размер вознаграждения
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
 IsSecurity	|	boolean	|	Признак сигнальной инвестиции
-Status	|	number	|	см.ниже
+State	|	number	|	[Состояние счета](#Значения-AccountState)	|
 Balance	|	real	|	Баланс счета
 Equity	|	real	|	Эквити
 AvailableToWithdraw	|	real	|	Доступно для снятия
