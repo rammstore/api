@@ -618,7 +618,6 @@ IsSecurity	|	bool	|	Признак сигнальной инвестиции	|
 Target	|	real	|	Целевая доходность	|
 Protection	|	real	|	Защита капитала	|
 Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
-Status	|	number	|	Статус счета	|
 ***Offer  (вложенная структура)***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
@@ -674,7 +673,6 @@ CommissionRate |	real	|	Размер комиссии	|
         "Target": 5000,
         "Protection": 500,
         "Type": 2,
-        "Status": 0,
         "Offer": {
             "ID": 123456,
             "FeeRate": 0.25,
