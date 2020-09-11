@@ -1821,7 +1821,7 @@ Status	|	number	|	Код статуса стратегии
     "DTClosed": "2019-02-07T14:28:09.580",
     "Type": 0,
     "IsSecurity": true,
-    "Status": 6,
+    "State": 3,
     "Balance": 0,
     "Equity": 0,
     "AvailableToWithdraw": 0,
