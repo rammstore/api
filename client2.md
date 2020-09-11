@@ -1889,7 +1889,6 @@ ProtectionEquity	|	real	|	Значение эквити, при котором �
 Equity	|	real	|	Эквити
 FreeMargin	|	real	|	Свободная маржа
 MarginLevel	|	real	|	Уровень маржи
-Status	|	number	|	0-new (without money), 1-active (trading), 2-MC, 3-ProtectionTarget, 4-Pause, 5-disabled (cant trade), 6-closed (cant activate)
 AccountMinBalance	|	real	|	Минимальный баланс инвестиции
 AvailableToWithdraw	|	real	|	Средства, доступные к выводу
 
@@ -1933,7 +1932,6 @@ AvailableToWithdraw	|	real	|	Средства, доступные к вывод�
                 "ProtectionEquity": 2500,
                 "Equity": 2900.82,
                 "FreeMargin": 2900.82,
-                "Status": 1,
                 "AccountMinBalance": 200,
                 "AvailableToWithdraw": 2700.82
             }
