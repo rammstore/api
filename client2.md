@@ -836,7 +836,7 @@ Share	|	real	|	Доля символа	|
 
 Поле | Тип | Описание 
 :--------|----------|----------
-SearchMode |	string	| режим поиска (Rating, MyActiveStrategies, MyActiveAccounts)	|
+SearchMode |	string	| режим поиска (Rating, MyActiveStrategies, MyClosedStrategies, MyActiveAccounts)	|
 Name	|	string	|	Подстрока поиска	|
 AgeMin |	number	|	минимальный возраст в днях |
 DealsMin |	number	|	минимальное количество сделок |
