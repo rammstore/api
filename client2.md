@@ -1034,6 +1034,7 @@ Yield	|	real	|	Прибыль в %	|
 Получение доступных оферт для трейдера и партнера.
 Партнер получает информацию по офертам, в которых он указаны в качестве партнера.
 Владелец стратегии получает полную информацию.
+Массив упорядочен: Order by Type desc, ID desc. 
 
 **URL:** `https://ramm.store/api/client/v2/strategies.getOffers`
 
@@ -1056,7 +1057,7 @@ CommissionRate	|	real	|	Размер комиссии	|
 PartnerID |	number	|	ID партнера	|
 PartnerShareRate |	real	|	Доля вознаграждения партнера	|
 Link | string | Cсылка на оферту. Отображается партнеру и владельцу стратегии. |
-IsPublic |	boolean	|	Является ли оферта публичной. Для непубличных оферт не передается.	|
+Type |	number	|	0-оферта трейдера, 1-непубличная, 2-публичная	|
 Status | number | 0-active, 1-disabled (new investments prohibited), 2-closed (all active investments will closed) |
 Description | string | Описание, заданное при создании оферты. Отображается только владельцу стратегии. | 
 ActiveAccounts |	number	|	количество активных счетов	|
