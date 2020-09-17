@@ -1500,6 +1500,7 @@ DTClosed	|	datetime	|	Дата закрытия инвестиции
 FeePaid	|	real	|	Выплаченное вознаграждение
 TotalCommissionTrader	|	real	|	Общая сумма комиссии трейдера
 TotalProfitNet	|	real	|	Суммарная чистая прибыль
+IsMyAccount	|	boolean	|	Признак своего счета
 
 **Пример вызова:**
 ```json
@@ -1533,7 +1534,8 @@ TotalProfitNet	|	real	|	Суммарная чистая прибыль
             "DTClosed": "2020-02-07T14:28:09.580",
             "FeePaid": 10,
             "TotalCommissionTrader": 5,
-            "TotalProfitNet": 56.45
+            "TotalProfitNet": 56.45,
+            "IsMyAccount": false
         }
     ]
 }
