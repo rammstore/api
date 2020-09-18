@@ -1804,6 +1804,8 @@ DT	|	datetime	|	Дата создания
 DTClosed	|	datetime	|	Дата закрытия
 IsMyAccount	|	boolean	|	Признак собственной инвестиции
 IsSecurity	|	bool	|	Признак сигнальной инвестиции	|
+Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
+State	|	number	|	[Состояние счета](#Значения-AccountState)	|
 Balance	|	real	|	Баланс счета
 Equity	|	real	|	Эквити
 AssetName	|	string	|	Название валюты депозита
@@ -1824,8 +1826,6 @@ FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 FeePaid	|	real	|	Выплаченное вознаграждение	|
 ProfitCurrentIntervalGross	|	real	|	Прибыль в текущем торговом интервале	|
 TotalCommissionPaid	|	real	|	Суммарная выплаченная комиссия	|
-State	|	number	|	[Состояние счета](#Значения-AccountState)	|
-Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
 ***Offer  (вложенная структура)***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
