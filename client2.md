@@ -1808,7 +1808,7 @@ Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account,
 State	|	number	|	[Состояние счета](#Значения-AccountState)	|
 Balance	|	real	|	Баланс счета
 Equity	|	real	|	Эквити
-AssetName	|	string	|	Название валюты депозита
+Asset	|	string	|	Название валюты депозита
 LeverageMax	|	number	|	Максимальное плечо
 MCLevel	|	number	|	Уровень StopOut
 Margin	|	real	|	Использованная маржа счета
@@ -1867,7 +1867,7 @@ CommissionRate |	real	|	Размер комиссии	|
         "State": 2,
         "Balance": 2900.82,
         "Equity": 2900.82,
-        "AssetName": "USD",
+        "Asset": "USD",
         "LeverageMax": 50,
         "MCLevel": 20,
         "Margin": 0,
