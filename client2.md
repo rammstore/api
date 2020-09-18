@@ -591,7 +591,8 @@ Link	| string    | Ссылка оферты |
 FeeRate	|	real	|	Размер вознаграждения	|
 CommissionRate |	real	|	Размер комиссии	|
 ****TraderInfo (вложенная структура)****
-MasterAccount | string | Логин внешнего счета
+MasterAccount | string | Логин внешнего счета |
+ManageType |	number	|	0: управление через Trading API, 1: управление через Manager API |
 FeePaid	|	real	|	Выплаченное вознаграждение	|
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 CommissionPaid	|	real	|	Выплаченная комиссия	|
@@ -876,7 +877,8 @@ ID	|	number	|	ID публичной оферты		|
 FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
 CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
 ****TraderInfo (вложенная структура)****
-MasterAccount | string | Логин внешнего счета
+MasterAccount | string | Логин внешнего счета |
+ManageType |	number	|	0: управление через Trading API, 1: управление через Manager API |
 FeePaid	|	real	|	Выплаченное вознаграждение	|
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 CommissionPaid	|	real	|	Выплаченная комиссия	|
