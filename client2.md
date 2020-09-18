@@ -1769,7 +1769,7 @@ AccountID	| number    | ID счета|
 
 Параметр | Тип | Описание 
 ---------|----------|----------
-CurrentDate	|	number	|	Дата получения стейтмента |
+***Strategy***
 ID	|	number	|	ID стратегии	|
 Name	|	string	|	Имя стратегии	|
 Yield	|	real	|	Доходность	|
@@ -1798,7 +1798,7 @@ FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 CommissionPaid	|	real	|	Выплаченная комиссия	|
 CommissionToPay	|	real	|	Невыплаченная комиссия	|
 ***Tags (вложенная структура)***
-***Account (вложенная структура)***
+***Account***
 ID	|	number	|	ID счета	|
 DT	|	datetime	|	Дата создания
 DTClosed	|	datetime	|	Дата закрытия
@@ -1888,110 +1888,6 @@ CommissionRate |	real	|	Размер комиссии	|
             "IsPublic": true
         }
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Возвращаемые данные содержат массив Statement:
-
-Параметр | Тип | Описание 
----------|----------|----------
-***Statement***
-CurrentDate	|	number	|	Дата получения стейтмента
-****Strategy (вложенная структура)****
-ID	|	number	|	ID стратегии
-Name	|	string	|	Имя стратегии
-Fee	|	real	|	Размер вознаграждения
-Commission	|	real	|	Размер комиссии
-IsMyStrategy	|	bool	|	Признак собственной стратегии
-Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
-****Account (вложенная структура)****
-ID	|	number	|	ID счета
-IsMyAccount	|	boolean	|	Признак собственной инвестиции
-IsSecurity	|	bool	|	Признак сигнальной инвестиции
-IDCompany	|	number	|	ID компании
-DT	|	datetime	|	Дата создания
-DTClosed	|	datetime	|	Дата закрытия
-Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
-AssetName	|	string	|	Название валюты депозита
-LeverageMax	|	number	|	Максимальное плечо
-MCLevel	|	number	|	Уровень StopOut
-Balance	|	real	|	Баланс счета
-Margin	|	real	|	Использованная маржа счета
-State	|	number	|	[Состояние счета](#Значения-AccountState)
-Factor	|	real	|	Повышающий/понижающий коэффициент копирования
-Target	|	real	|	Целевая доходность (numeric (8,3))
-Protection	|	real	|	Процент защиты счета (numeric (4,3))
-TargetEquity	|	real	|	Целевая доходность в валюте счета
-ProtectionEquity	|	real	|	Значение эквити, при котором сработает защита счета
-Equity	|	real	|	Эквити
-FreeMargin	|	real	|	Свободная маржа
-MarginLevel	|	real	|	Уровень маржи
-AccountMinBalance	|	real	|	Минимальный баланс инвестиции
-AvailableToWithdraw	|	real	|	Средства, доступные к выводу
-
-**Пример вызова:**
-```json
-{
-  "AccountID": "1000005"
-}
-```
-**Пример ответа:**
-```json
-{
-    "Statement": [
-        {
-            "CurrentDate": "2020-03-24T08:52:30.233",
-            "Strategy": {
-                "ID": 744,
-                "Name": "EURUSD_sell",
-                "Fee": 0.25,
-                "Commission": 0,
-                "IsMyStrategy": true,
-                "Status": 1
-            },
-            "Account": {
-                "ID": 1000005,
-                "IsMyAccount": false,
-                "IsSecurity": 0,
-                "IDCompany": 9,
-                "DT": "2020-01-14T09:58:04.403",
-                "Type": 2,
-                "AssetName": "USD",
-                "LeverageMax": 50,
-                "MCLevel": 20,
-                "Balance": 2900.82,
-                "Margin": 0,
-                "State": 2,
-                "Factor": 1,
-                "Target": 1,
-                "Protection": 0.5,
-                "TargetEquity": 10000,
-                "ProtectionEquity": 2500,
-                "Equity": 2900.82,
-                "FreeMargin": 2900.82,
-                "AccountMinBalance": 200,
-                "AvailableToWithdraw": 2700.82
-            }
-        }
-    ]
 }
 ```
 [Вернуться к содержанию](#Содержание)
