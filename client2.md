@@ -1769,8 +1769,7 @@ AccountID	| number    | ID счета|
 
 Параметр | Тип | Описание 
 ---------|----------|----------
-CurrentDate	|	number	|	Дата получения стейтмента
-
+CurrentDate	|	number	|	Дата получения стейтмента |
 ID	|	number	|	ID стратегии	|
 Name	|	string	|	Имя стратегии	|
 Yield	|	real	|	Доходность	|
@@ -1807,7 +1806,6 @@ IsMyAccount	|	boolean	|	Признак собственной инвестици
 IsSecurity	|	bool	|	Признак сигнальной инвестиции	|
 Balance	|	real	|	Баланс счета
 Equity	|	real	|	Эквити
-
 AssetName	|	string	|	Название валюты депозита
 LeverageMax	|	number	|	Максимальное плечо
 MCLevel	|	number	|	Уровень StopOut
@@ -1821,7 +1819,6 @@ FreeMargin	|	real	|	Свободная маржа
 MarginLevel	|	real	|	Уровень маржи
 AccountMinBalance	|	real	|	Минимальный баланс инвестиции
 AvailableToWithdraw	|	real	|	Средства, доступные к выводу
-
 TotalProfit	|	real	|	Прибыль по счету |
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 FeePaid	|	real	|	Выплаченное вознаграждение	|
