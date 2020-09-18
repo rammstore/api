@@ -44,7 +44,6 @@
         * [accounts.fund](#accountsfund)
         * [accounts.withdraw](#accountswithdraw)
         * [accounts.get](#accountsget)
-        * [accounts.getStatement](#accountsgetStatement)
         * [accounts.pause](#accountspause)
         * [accounts.resume](#accountsresume)
         * [accounts.setFactor](#accountssetFactor)
@@ -1766,96 +1765,152 @@ CommandID	|number	|ID команды закрытия
 :--------|----------|----------
 AccountID	| number    | ID счета|
 
-
 **Возвращаемые данные:**
-
-Возвращаемые данные содержат структуру Strategy:
 
 Параметр | Тип | Описание 
 ---------|----------|----------
-ID	|	number	|	ID счета
+CurrentDate	|	number	|	Дата получения стейтмента
+
+ID	|	number	|	ID стратегии	|
+Name	|	string	|	Имя стратегии	|
+Yield	|	real	|	Доходность	|
+MonthlyYield	|	real	|	Среднемесячная доходность|
+Accounts	|	number	|	Количество инвестиций	|
+DTCreated	|	datetime	|	Дата создания	|
+DTStat	|	datetime	|	Дата начала сбора статистики	|
+DTClosed	|	datetime	|	Дата закрытия	|
+Equity	|	real	|	Суммарное эквити инвестиций в стратегию	|
+IsMyStrategy	|	bool	|	Признак собственной стратегии	|
+Status	|	number	|	Статус стратегии	|
+***PublicOffer (вложенная структура)***
+ID	|	number	|	ID оферты	|
+FeeRate	|	real	|	Размер вознаграждения	|
+CommissionRate |	real	|	Размер комиссии	|
+****TraderInfo (вложенная структура)****
+MasterAccount | string | Логин внешнего счета |
+ManageType |	number	|	0: управление через Trading API, 1: управление через Manager API |
+FeePaid	|	real	|	Выплаченное вознаграждение	|
+FeeToPay	|	real	|	Невыплаченное вознаграждение	|
+CommissionPaid	|	real	|	Выплаченная комиссия	|
+CommissionToPay	|	real	|	Невыплаченная комиссия	|
+****PartnerInfo (вложенная структура)****
+FeePaid	|	real	|	Выплаченное вознаграждение	|
+FeeToPay	|	real	|	Невыплаченное вознаграждение	|
+CommissionPaid	|	real	|	Выплаченная комиссия	|
+CommissionToPay	|	real	|	Невыплаченная комиссия	|
+***Tags (вложенная структура)***
+***Account (вложенная структура)***
+ID	|	number	|	ID счета	|
 DT	|	datetime	|	Дата создания
 DTClosed	|	datetime	|	Дата закрытия
-Fee |	real	|	Размер вознаграждения
-Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account
-IsSecurity	|	boolean	|	Признак сигнальной инвестиции
-State	|	number	|	[Состояние счета](#Значения-AccountState)	|
+IsMyAccount	|	boolean	|	Признак собственной инвестиции
+IsSecurity	|	bool	|	Признак сигнальной инвестиции	|
 Balance	|	real	|	Баланс счета
 Equity	|	real	|	Эквити
-AvailableToWithdraw	|	real	|	Доступно для снятия
-AccountMinBalance	|	real	|	Минимальный баланс счета
+
+AssetName	|	string	|	Название валюты депозита
+LeverageMax	|	number	|	Максимальное плечо
+MCLevel	|	number	|	Уровень StopOut
+Margin	|	real	|	Использованная маржа счета
 Factor	|	real	|	Повышающий/понижающий коэффициент копирования
-Margin	|	real	|	Задействованная маржа
-MarginLevel	|	real	|	Уровень маржи
-MCReached	|	number	|	Дата/время срабатывания StopOut
-Protection	|	real	|	Процент защиты счета (numeric (4,3))
-ProtectionEquity	|	real	|	Значение эквити, при котором сработает защита счета
-ProtectionReached	|	number	|	Дата/время срабатывания защиты счета
 Target	|	real	|	Целевая доходность (numeric (8,3))
+Protection	|	real	|	Процент защиты счета (numeric (4,3))
 TargetEquity	|	real	|	Целевая доходность в валюте счета
-TargetReached	|	number	|	Дата/время достижения целевой доходности
-ProfitBase	|	real	|	База для подсчета вознаграждения
-AssetName	|	string	|	Название валюты счета
-Precision	|	number	|	Точность округления, знаки после запятой
-PositionsCount	|	number	|	Количество позиций
-TotalProfitGross	|	real	|	"Грязная" прибыль, до вычета вознаграждения
-***Strategy***
-ID	|	number	|	ID стратегии
-Name	|	string	|	Имя стратегии
-Status	|	number	|	Код статуса стратегии
+ProtectionEquity	|	real	|	Значение эквити, при котором сработает защита счета
+FreeMargin	|	real	|	Свободная маржа
+MarginLevel	|	real	|	Уровень маржи
+AccountMinBalance	|	real	|	Минимальный баланс инвестиции
+AvailableToWithdraw	|	real	|	Средства, доступные к выводу
+
+TotalProfit	|	real	|	Прибыль по счету |
+FeeToPay	|	real	|	Невыплаченное вознаграждение	|
+FeePaid	|	real	|	Выплаченное вознаграждение	|
+ProfitCurrentIntervalGross	|	real	|	Прибыль в текущем торговом интервале	|
+TotalCommissionPaid	|	real	|	Суммарная выплаченная комиссия	|
+State	|	number	|	[Состояние счета](#Значения-AccountState)	|
+Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account	|
+***Offer  (вложенная структура)***
+ID	|	number	|	ID оферты	|
+FeeRate	|	real	|	Размер вознаграждения	|
+CommissionRate |	real	|	Размер комиссии	|
+
 
 **Пример вызова:**
 ```json
 {
-    "AccountID": 333
+    "ID": 333
 }
 ```
 **Пример ответа:**
 ```json
 {
-    "ID": 22,
-    "Strategy": {
-        "ID": 17,
-        "Name": "TEST1",
-        "Status": 0
+    "ID": 333,
+    "Name": "TEST1",
+    "Yield": 0.00001,
+    "MonthlyYield": 0.05,
+    "Accounts": 5,
+    "DTCreated": "2018-09-21T11:09:38.243",
+    "DTStat": "2017-09-21T11:09:38.243",
+    "Equity": 1000,
+    "IsMyStrategy": true,
+    "Status": 0,
+    "PublicOffer": {
+        "ID": 123456,
+        "FeeRate": 0.25,
+        "CommissionRate": 5
     },
-    "Fee": 0.25,
-    "DT": "2019-01-24T10:05:39.960",
-    "DTClosed": "2019-02-07T14:28:09.580",
-    "Type": 0,
-    "IsSecurity": true,
-    "State": 3,
-    "Balance": 0,
-    "Equity": 0,
-    "AvailableToWithdraw": 0,
-    "Factor": 1,
-    "Margin": 0,
-    "Protection": 0.5,
-    "ProtectionEquity": 501.795,
-    "Target": 1,
-    "TargetEquity": 2007.18,
-    "ProfitBase": 61.87,
-    "AssetName": "USD",
-    "Precision": 2,
-    "PositionsCount": 0
+    "LinkOffer": {
+        "ID": 123457,
+        "Link": "cca6x1qoq1",
+        "FeeRate": 0.2,
+        "CommissionRate": 2
+    },
+    "Tags": {
+        "Youtube": "BERFDOJK8"
+    },
+    "Account": {
+        "ID": 4545,
+        "TotalProfit": 512.65,
+        "FeeToPay": 54.56,
+        "FeePaid": 101.58,
+        "ProfitCurrentIntervalGross": 152.23,
+        "TotalCommissionPaid": 25.34,
+        "State": 0,
+        "Equity": 1500.56,
+        "Factor": 1,
+        "AvailableToWithdraw": 1000,
+        "AccountMinBalance": 100,
+        "IsSecurity": false,
+        "Target": 5000,
+        "Protection": 500,
+        "Type": 2,
+        "Offer": {
+            "ID": 123456,
+            "FeeRate": 0.25,
+            "CommissionRate": 5,
+            "IsPublic": true
+        }
+    }
 }
-```
-[Вернуться к содержанию](#Содержание)
-
-#### accounts.getStatement
-
-Получение стейтмента счета.
-
-**URL:** `https://ramm.store/api/client/v2/accounts.getStatement`
-
-**Параметры:**
-
-Поле | Тип | Описание 
-:--------|----------|----------
-AccountID	| number    | ID счета|
 
 
-**Возвращаемые данные:**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Возвращаемые данные содержат массив Statement:
 
