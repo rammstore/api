@@ -1841,51 +1841,54 @@ CommissionRate |	real	|	Размер комиссии	|
 **Пример ответа:**
 ```json
 {
-    "ID": 333,
-    "Name": "TEST1",
-    "Yield": 0.00001,
-    "MonthlyYield": 0.05,
-    "Accounts": 5,
-    "DTCreated": "2018-09-21T11:09:38.243",
-    "DTStat": "2017-09-21T11:09:38.243",
-    "Equity": 1000,
-    "IsMyStrategy": true,
-    "Status": 0,
-    "PublicOffer": {
-        "ID": 123456,
-        "FeeRate": 0.25,
-        "CommissionRate": 5
-    },
-    "LinkOffer": {
-        "ID": 123457,
-        "Link": "cca6x1qoq1",
-        "FeeRate": 0.2,
-        "CommissionRate": 2
-    },
-    "Tags": {
-        "Youtube": "BERFDOJK8"
+    "Strategy": {
+        "ID": 333,
+        "Name": "TEST1",
+        "Yield": 0.00001,
+        "MonthlyYield": 0.05,
+        "Accounts": 5,
+        "DTCreated": "2018-09-21T11:09:38.243",
+        "DTStat": "2017-09-21T11:09:38.243",
+        "Equity": 1000,
+        "IsMyStrategy": true,
+        "Status": 0,
+        "PublicOffer": {
+            "ID": 123456,
+            "FeeRate": 0.25,
+            "CommissionRate": 5
+        }
     },
     "Account": {
         "ID": 4545,
+        "DT": "2020-01-14T09:58:04.403",
+        "IsMyAccount": false,
+        "IsSecurity": 0,
+        "Type": 2,
+        "State": 2,
+        "Balance": 2900.82,
+        "Equity": 2900.82,
+        "AssetName": "USD",
+        "LeverageMax": 50,
+        "MCLevel": 20,
+        "Margin": 0,
+        "Factor": 1,
+        "Target": 1,
+        "Protection": 0.5,
+        "TargetEquity": 10000,
+        "ProtectionEquity": 2500,
+        "FreeMargin": 2900.82,
+        "FreeLevel": 100,
+        "AccountMinBalance": 200,
+        "AvailableToWithdraw": 2700.82,
         "TotalProfit": 512.65,
         "FeeToPay": 54.56,
         "FeePaid": 101.58,
         "ProfitCurrentIntervalGross": 152.23,
         "TotalCommissionPaid": 25.34,
-        "State": 0,
-        "Equity": 1500.56,
-        "Factor": 1,
-        "AvailableToWithdraw": 1000,
-        "AccountMinBalance": 100,
-        "IsSecurity": false,
-        "Target": 5000,
-        "Protection": 500,
-        "Type": 2,
         "Offer": {
             "ID": 123456,
             "FeeRate": 0.25,
-            "CommissionRate": 5,
-            "IsPublic": true
+            "CommissionRate": 5
         }
     }
 }
