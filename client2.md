@@ -1826,6 +1826,7 @@ FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 FeePaid	|	real	|	Выплаченное вознаграждение	|
 ProfitCurrentIntervalGross	|	real	|	Прибыль в текущем торговом интервале	|
 TotalCommissionPaid	|	real	|	Суммарная выплаченная комиссия	|
+PositionsCount |	number	|	Количество открытых позиций |
 ***Offer  (вложенная структура)***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
@@ -1885,6 +1886,7 @@ CommissionRate |	real	|	Размер комиссии	|
         "FeePaid": 101.58,
         "ProfitCurrentIntervalGross": 152.23,
         "TotalCommissionPaid": 25.34,
+        "PositionsCount": 0,
         "Offer": {
             "ID": 123456,
             "FeeRate": 0.25,
