@@ -157,7 +157,7 @@ API может возвращать различные ошибки в след�
 2	|	balance |
 3	|	credit |
 4	|	additional charge |
-5	|  correctoin |
+5	|  correction |
 6	|	bonus	|
 7  |  fee |
 8  |  dividend |
