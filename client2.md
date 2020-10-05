@@ -6,6 +6,7 @@
 * [Ошибки](#Ошибки)
 * [Константы](#Константы)
    * [Значения Account.State](#Значения-AccountState)
+   * [Значения Deal.Type](#Значения-DealType)
 * [Методы](#Методы)
     * [Аутентификация и авторизация клиента, действия с собственной сессией](#Аутентификация-и-авторизация-клиента-действия-с-собственной-сессией)
         * [session.login](#sessionlogin)
@@ -2512,7 +2513,7 @@ CommandID	|	number	|	ID команды
 SOID	|	number	|	ID StopOut
 TradingIntervalID	|	number	|	ID спецификации инструментов
 DT	|	datetime	|	Дата/время создания сделки
-Type	|	number	|	См.ниже
+Type	|	number	|	См. выше в "Константах"
 Symbol	|	string	|	Название инструмента
 Volume	|	real	|	Суммарный объем
 Price	|	real	|	Средняя цена
