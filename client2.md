@@ -147,6 +147,26 @@ API может возвращать различные ошибки в след�
 14	|	closed, with positions	|
 15	|	closed, no positions	|
 
+### Значения Deal.Type  
+
+Значение|Расшифровка
+---------|----------
+0	|	buy |
+1	|	sell |
+2	|	balance |
+3	|	credit |
+4	|	additional charge |
+5	|  correctoin |
+6	|	bonus	|
+7  |  fee |
+8  |  dividend |
+9  |  interest |
+10 |  cancelled/rejected buy deal |
+11 |  cancelled/rejected sell deal |
+12 |  periodical commission |
+13 |  zero total order |
+
+
 ## Методы
 ### Аутентификация и авторизация клиента, действия с собственной сессией
 #### session.login
