@@ -2441,13 +2441,11 @@ PrecisionVolume	|	number	|	Количество знаков после запя
             "IntervalPnL": -18.01
         }
     ],
-    "PositionsTotal": [
-        {
+    "PositionsTotal": {
             "Profit": -18.39,
             "TotalProfit": -18.39,
             "Swap": 0
-        }
-    ],
+    },
     "Positions": [
         {
             "ID": 13912,
