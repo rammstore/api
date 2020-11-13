@@ -604,12 +604,12 @@ Status	|	number	|	Статус стратегии	|
 ***PublicOffer (вложенная структура)***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
-CommissionRate |	real	|	Размер комиссии	|
+CommissionRate |	real	|	Размер комиссии в долларах на млн оборота в долларах	|
 ***LinkOffer (вложенная структура)***
 ID	|	number	|	ID оферты	|
 Link	| string    | Ссылка оферты |
 FeeRate	|	real	|	Размер вознаграждения	|
-CommissionRate |	real	|	Размер комиссии	|
+CommissionRate |	real	|	Размер комиссии в долларах на млн оборота в долларах	|
 ****TraderInfo (вложенная структура)****
 MasterAccount | string | Логин внешнего счета |
 ManageType |	number	|	0: управление через Trading API, 1: управление через Manager API |
@@ -642,7 +642,7 @@ Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account,
 ***Offer  (вложенная структура)***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
-CommissionRate |	real	|	Размер комиссии	|
+CommissionRate |	real	|	Размер комиссии в долларах на млн оборота в долларах	|
 
 
 **Пример вызова:**
@@ -1077,7 +1077,7 @@ StrategyID	|	number	|	ID стратегии	|
 ID	|	number	|	ID оферты	|
 DTCreated	|	datetime	|	Дата создания стратегии		|
 FeeRate	|	real	|	Вознаграждение с прибыли	|
-CommissionRate	|	real	|	Размер комиссии	|
+CommissionRate	|	real	|	Размер комиссии в долларах на млн оборота в долларах	|
 PartnerID |	number	|	ID партнера	|
 PartnerShareRate |	real	|	Доля вознаграждения партнера	|
 Link | string | Cсылка на оферту. Отображается партнеру и владельцу стратегии. |
@@ -1169,7 +1169,7 @@ AccountCommandID	|	number	|	ID команды на пополнение счет
 :--------|----------|----------
 StrategyID	|number	|ID стратегии|
 FeeRate	|	real	|	Вознаграждение с прибыли	|
-CommissionRate	|	real	|	Размер комиссии	|
+CommissionRate	|	real	|	Размер комиссии в долларах на млн оборота в долларах	|
 
 **Возвращаемые данные:**
 
@@ -1183,7 +1183,7 @@ Link | string | ссылка на оферту
 {
     "StrategyID": 12345,
     "FeeRate": 0.25,
-    "CommissionRate": 0
+    "CommissionRate": 5
 }
 ```
 **Пример ответа:**
@@ -1805,7 +1805,7 @@ Status	|	number	|	Статус стратегии	|
 ***PublicOffer (вложенная структура)***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
-CommissionRate |	real	|	Размер комиссии	|
+CommissionRate |	real	|	Размер комиссии в долларах на млн оборота в долларах	|
 ****TraderInfo (вложенная структура)****
 MasterAccount | string | Логин внешнего счета |
 ManageType |	number	|	0: управление через Trading API, 1: управление через Manager API |
@@ -1851,7 +1851,7 @@ PositionsCount |	number	|	Количество открытых позиций |
 ***Offer  (вложенная структура)***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
-CommissionRate |	real	|	Размер комиссии	|
+CommissionRate |	real	|	Размер комиссии в долларах на млн оборота в долларах	|
 
 
 **Пример вызова:**
