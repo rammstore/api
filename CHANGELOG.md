@@ -17,11 +17,13 @@
 5. myStrategies.add - входные параметры: FeeRate, CommissionRate, Shared - удалены; Protection, Target, Money - выделены в отдельный блок Account.
 Возвращаемые параметры: StrategyID, AccountID, AccountCommandID, множество других старых параметров удалены.
 6. accounts.add - во входных добавлены OfferID, Link.
-7. accounts.get, accounts.search, session.login, wallets.get, positions.search, wallettransfers.search  - в возвращаемых убран Bonus.
+7. accounts.get, accounts.search, session.login, wallets.get, positions.search, wallettransfers.search, deals.search  - в возвращаемых убран Bonus.
 8. accounts.search - в возвращаемых убран PartnerShare, в структуру Offer Добавлено ID. Фильтры в accounts.search переименованы, везде добавлено "Rate" в конце: Strategy.Offer.FeeRate, Strategy.Offer.CommissionRate.
 9. Fee (там, где имеется в виду ставка фи) переименовано в FeeRate, Commission (там, где имеется в виду ставка комиссии) переименован в CommissionRate.
 10. Везде выставлен порядок FeeRate, затем CommissionRate, не наоборот.
 11. Удален метод ratings.get, вместо него при получении рейтинга используется strategies.search с параметром SearchMode = "Rating"
 12. Удален метод accounts.getStatement
-13. Метод accounts.search переименован в accounts.searchClosed
+13. Метод accounts.search удален, вместо него добавлен метод accounts.searchClosed для поиска только закрытых счетов
 14. Во всех методах, возвращающих параметры счета, вместо поля Status теперь используется State (strategies.get, strategies.search - в блоке Account, accounts.xxx - в основном блоке возвращаемых параметров)
+15. Accounts.get - изменен набор входных параметров
+
