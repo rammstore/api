@@ -1,6 +1,12 @@
 Лог изменений методов API ramm.store.
 
-Различия 1-ой и 2-ой версии клиентского API (с офертами).
+Различия 1-ой и 2-ой версии клиентского API.
+
+Основные изменения связаны с добавлением понятия Offer, т.е. условия вознаграждения трейдера.
+API v2 разработан для создания множественных оферт, но в данный момент в стратегии может быть максимум две оферты - трейдерская (создается при создании стратегии, все параметры вознаграждения равны 0) и инвесторская (создается в произвольный момент времени).
+
+Инвесторская Оферта может быть публичной или непубличной. Поменять публичность оферты можно в любое время.
+Доступ к непубличной оферте возможен по линку (Link) в методе strategies.get.
 
 1. Strategies.get: в возвращаемых: Fee и Commission перемещены из блока Strategy в новый блок PublicOffer под названиями FeeRate, CommissionRate.
 Блок MyAccount переименован в Account, из него убрано поле TotalProfitNet и добавлено несколько новых полей.
@@ -12,7 +18,7 @@
 Новый блок TraderInfo с полями MasterAccount, FeePaid, FeeToPay, CommissionPaid, CommissionToPay.
 Новый блок PartnerInfo с полями MasterAccount, FeePaid, FeeToPay, CommissionPaid, CommissionToPay.
 Новый блок AccountOffer с полями ID, Commission, Fee.
-3. Удален полностью метод myStrategies.search.
+3. Удален полностью метод myStrategies.search. Для поиска своих стратегий надо пользоваться методом strategies.search в режиме 'SearchMode' = 'MyActiveStrategies'.
 4. Добавлены 3 новых метода по офертам: myStrategies.addOffer, myStrategies.setPublicOffer, strategies.getOffers.
 5. myStrategies.add - входные параметры: FeeRate, CommissionRate, Shared - удалены; Protection, Target, Money - выделены в отдельный блок Account.
 Возвращаемые параметры: StrategyID, AccountID, AccountCommandID, множество других старых параметров удалены.
