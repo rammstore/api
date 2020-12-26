@@ -294,7 +294,7 @@ Content-Type: application/jsonstrategies
 
 ## signals.get
 
-## Активы-валюты-акции-фьючерсы и т.п.
+## Активы-валюты-акции-фьючерсы
 
 ## assets.search
 
