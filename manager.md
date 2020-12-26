@@ -244,9 +244,7 @@ Content-Type: application/jsonstrategies
 
 ## strategies.set
 
-## strategies.close
-
-## strategysymbolstat.get
+## strategies.getSymbolStat
 
 ## Операции с торговыми счетами клиентов
 
