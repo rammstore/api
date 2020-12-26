@@ -317,5 +317,3 @@ Content-Type: application/jsonstrategies
 ## Операции со стримами
 
 ## streams.get
-
-## Ошибки и возможные коды ответа
