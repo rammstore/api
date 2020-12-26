@@ -1,17 +1,16 @@
 # RAMM.STORE Manager API Documentation
 ### Содержание
 Образец формата для редактирования ссылок: * [Выполнение запросов](#Выполнение-запросов)
-
 * [Введение](#Введение)
-    * [Регистрация менеджера](#Регистрация-менеджера)
+  * [Регистрация менеджера](#Регистрация-менеджера)
 * [Описание методов API](#Описание-методов-API)
-    * [Аутентификация, действия с собственной сессией](#Аутентификация-действия-с-собственной-сессией)
-        * [session.login](#sessionlogin)
-        * [session.get](#sessionget)
-        * [session.getMethods](#sessiongetMethods)
-        * [session.heartbeat](#sessionheartbeat)
-        * [session.getMySessions](#sessiongetMySessions)
-        * [session.logout](#sessionlogout)
+  * [Аутентификация, действия с собственной сессией](#Аутентификация-действия-с-собственной-сессией)
+    * [session.login](#sessionlogin)
+    * [session.get](#sessionget)
+    * [session.getMethods](#sessiongetMethods)
+    * [session.heartbeat](#sessionheartbeat)
+    * [session.getMySessions](#sessiongetMySessions)
+    * [session.logout](#sessionlogout)
   * Управление сессиями других менеджеров
     * sessions.search
     * sessions.logout
