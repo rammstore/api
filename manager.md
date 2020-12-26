@@ -202,8 +202,6 @@ Content-Type: application/jsonstrategies
 
 ## company.set
 
-## company.getEquity
-
 ## Операции с клиентами сервиса RAMM
 
 ## clients.addWithWallet
