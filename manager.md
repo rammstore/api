@@ -2,15 +2,15 @@
 ### Содержание
 Образец формата для редактирования ссылок: * [Выполнение запросов](#Выполнение-запросов)
 * [Введение](#Введение)
-* [Регистрация менеджера](#Регистрация-менеджера)
-* [Описание методов API](#Описание-методов-API)
-  * [Аутентификация, действия с собственной сессией](#Аутентификация-действия-с-собственной-сессией)
-    * [session.login](#sessionlogin)
-    * [session.get](#sessionget)
-    * [session.getMethods](#sessiongetMethods)
-    * [session.heartbeat](#sessionheartbeat)
-    * [session.getMySessions](#sessiongetMySessions)
-    * [session.logout](#sessionlogout)
+* Регистрация менеджера
+* Описание методов API
+  * Аутентификация, действия с собственной сессией
+    * session.login
+    * session.get
+    * session.getMethods
+    * session.heartbeat
+    * session.getMySessions
+    * session.logout
   * Управление сессиями других менеджеров
     * sessions.search
     * sessions.logout
@@ -111,7 +111,7 @@ API построен на указании названий вызываемых
 Token: <токен>
 Content-Type: application/jsonstrategies
 
-## Регистрация менеджера
+Регистрация менеджера
 Новый менеджер может быть зарегистрирован следующими способами:
 
 На сайте RAMM.TECH, при создании новой компании:
@@ -134,175 +134,175 @@ Content-Type: application/jsonstrategies
 
 Аналогично реализован функционал API для входа. Сначала отправляется запрос к основному домену, который возвращает URL AccessServer'а. Далее, на выданном URL вызывается метод session.login, который возвращает токен. Все остальные функции менеджерского API используют этот токен для авторизации.
 
-## Описание методов API
-## Аутентификация, действия с собственной сессией.
+Описание методов API
+Аутентификация, действия с собственной сессией.
 
-## session.login
+session.login
 
-## session.get
+session.get
 
-## session.getMethods
+session.getMethods
 
-## session.heartbeat
+session.heartbeat
 
-## session.getMySessions
+session.getMySessions
 
-## session.logout
+session.logout
 
-## Управление сессиями других менеджеров
+Управление сессиями других менеджеров
 
-## sessions.search
+sessions.search
 
-## sessions.logout
+sessions.logout
 
-## Информация о залогиненном менеджере, получение и изменение собственного профиля.
+Информация о залогиненном менеджере, получение и изменение собственного профиля.
 
-## profile.get
+profile.get
 
-## profile.set
+profile.set
 
-## Действия с паролями
+Действия с паролями
 
-## password.set
+password.set
 
-## clients.setPassword
+clients.setPassword
 
-## clients.getOTP
+clients.getOTP
 
-## Операции с менеджерами, управляющими сервисом RAMM.
+Операции с менеджерами, управляющими сервисом RAMM.
 
-## managers.add
+managers.add
 
-## managers.search
+managers.search
 
-## managers.get
+managers.get
 
-## managers.set
+managers.set
 
-## managers.getMethods
+managers.getMethods
 
-## managers.setMethods
+managers.setMethods
 
-## Операции с зарегистрированными в RAMM компаниями.
+Операции с зарегистрированными в RAMM компаниями.
 
-## companies.add
+companies.add
 
-## companies.search
+companies.search
 
-## companies.get
+companies.get
 
-## Операции с компанией текущей сессии менеджера
+Операции с компанией текущей сессии менеджера
 
-## company.get
+company.get
 
-## company.set
+company.set
 
-## Операции с клиентами сервиса RAMM
+Операции с клиентами сервиса RAMM
 
-## clients.addWithWallet
+clients.addWithWallet
 
-## clients.search
+clients.search
 
-## clients.get
+clients.get
 
-## clients.set
+clients.set
 
-## clients.getCharges
+clients.getCharges
 
-## Кошельки клиентов
+Кошельки клиентов
 
-## wallets.get
+wallets.get
 
-## wallets.search
+wallets.search
 
-## Операции с кошельками клиентов
+Операции с кошельками клиентов
 
-## walletTransfers.add
+walletTransfers.add
 
-## walletTransfers.search
+walletTransfers.search
 
-## walletTransfers.get
+walletTransfers.get
 
-## walletTransfers.getRewards
+walletTransfers.getRewards
 
-## Операции со стратегиями RAMM
+Операции со стратегиями RAMM
 
-## strategies.search
+strategies.search
 
-## strategies.get
+strategies.get
 
-## strategies.add
+strategies.add
 
-## strategies.set
+strategies.set
 
-## strategies.getSymbolStat
+strategies.getSymbolStat
 
-## Операции с торговыми счетами клиентов
+Операции с торговыми счетами клиентов
 
-## accounts.search
+accounts.search
 
-## accounts.get
+accounts.get
 
-## accounts.set
+accounts.set
 
-## accounts.close
+accounts.close
 
-## accounts.getStatement
+accounts.getStatement
 
-## accounts.pause
+accounts.pause
 
-## accounts.resume
+accounts.resume
 
-## Операции со сделками на счете
+Операции со сделками на счете
 
-## deals.search
+deals.search
 
-## deals.get
+deals.get
 
-## Операции с открытыми позициями
+Операции с открытыми позициями
 
-## positions.search
+positions.search
 
-## positions.get
+positions.get
 
-## Операции с записями об исполнении ордеров.
+Операции с записями об исполнении ордеров.
 
-## fills.search
+fills.search
 
-## fills.get
+fills.get
 
-## Операции с запросами на исполнение
+Операции с запросами на исполнение
 
-## fillRequests.search
+fillRequests.search
 
-## fillRequests.get
+fillRequests.get
 
-## Операции с торговыми сигналами
+Операции с торговыми сигналами
 
-## signals.search
+signals.search
 
-## signals.get
+signals.get
 
-## Активы (валюты, акции, фьючерсы и т.п.)
+Активы (валюты, акции, фьючерсы и т.п.)
 
-## assets.search
+assets.search
 
-## assets.get
+assets.get
 
-## Торговые инструменты
+Торговые инструменты
 
-## symbols.search
+symbols.search
 
-## symbols.get
+symbols.get
 
-## Передача торговых сигналов
+Передача торговых сигналов
 
-## trading.searchStrategies
+trading.searchStrategies
 
-## trading.addSignal
+trading.addSignal
 
-## trading.addSync
+trading.addSync
 
-## Операции со стримами
+Операции со стримами
 
-## streams.get
+streams.get
