@@ -911,7 +911,7 @@ DTCreated	|	datetime	|	Дата создания стратегии		|
 DTStat	|	datetime	|	Дата сбора статистики		|
 DTClosed	|	datetime	|	Дата закрытия стратегии		|
 DTInvestBefore	|	datetime	|	Дата закрытия приема инвестиций		|
-DTInvestFinish	|	datetime	|	Дата ожидаемого закрытия стратегии		|
+DTExpire	|	datetime	|	Дата ожидаемого закрытия стратегии		|
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
 Yield	|	real	|	Прибыль в %		|
 MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
@@ -1025,7 +1025,7 @@ Yield	|	real	|	Прибыль в %	|
             "DTCreated": "2018-09-21T11:09:38.23",
             "DTStat": "2017-09-21T11:09:38.23",
             "DTInvestBefore": "2018-09-22T11:09:38.23",
-            "DTInvestFinish": "2017-10-21T11:09:38.23",
+            "DTExpire": "2017-10-21T11:09:38.23",
             "PublicOffer": {
                 "ID": 23148,
                 "Fee": 0.25,
