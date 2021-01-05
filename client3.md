@@ -910,13 +910,21 @@ Type |	string	|	Тип стратегии ( Trading, Portfolio, Idea, Bet )		|
 DTCreated	|	datetime	|	Дата создания стратегии		|
 DTStat	|	datetime	|	Дата сбора статистики		|
 DTClosed	|	datetime	|	Дата закрытия стратегии		|
+DTInvestBefore	|	datetime	|	Дата закрытия приема инвестиций		|
+DTInvestFinish	|	datetime	|	Дата ожидаемого закрытия стратегии		|
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
 Yield	|	real	|	Прибыль в %		|
 MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
 Accounts	|	number	|	Количество счетов		|
-Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
-***Tags (вложенная структура)***
+Youtube	|	string	|	ссылка на YouTube		|
+***Symbols (вложенный массив)***
+Symbol	|	string	|	Название символа	|
+Share	|	real	|	Доля символа	|
+Direction |	number	|	1 : buy, -1 sell	|
+***Description (вложенный массив)***
+{Lang}	|	string	|	Язык	|
+{Value}	|	string	|	Описание	|
 ****PublicOffer (вложенная структура)****
 ID	|	number	|	ID публичной оферты		|
 FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
@@ -1016,6 +1024,8 @@ Yield	|	real	|	Прибыль в %	|
             "Type": "Portfolio",
             "DTCreated": "2018-09-21T11:09:38.23",
             "DTStat": "2017-09-21T11:09:38.23",
+            "DTInvestBefore": "2018-09-22T11:09:38.23",
+            "DTInvestFinish": "2017-10-21T11:09:38.23",
             "PublicOffer": {
                 "ID": 23148,
                 "Fee": 0.25,
@@ -1025,11 +1035,28 @@ Yield	|	real	|	Прибыль в %	|
             "Yield": 1.076,
             "MonthlyYield": 0.07,
             "Accounts": 17,
-            "Symbols": "EURUSD",
             "IsMyStrategy": 1,
-            "Tags": {
-                "Youtube": "BERFDOJK8"
-            },
+            "Symbols": [
+                {
+                    "Symbol": "EURUSD",
+                    "Share": 50.2,
+                    "Direction": 1
+                },
+                {
+                    "Symbol": "GBPUSD",
+                    "Share": 49.8,
+                    "Direction": -1
+                }
+            ],
+            "Youtube": "BERFDOJK8",
+            "Description": [
+                {
+                    "EN": "Description of the strategy"
+                },
+                {
+                    "RU": "Описание стратегии"
+                }
+            ],
             "Account": {
                 "ID": 1185,
                 "IsSecurity": true,
@@ -1054,28 +1081,27 @@ Yield	|	real	|	Прибыль в %	|
                 "Positions": 2,
                 "Offer": {
                     "ID": 23140,
-                    "Fee": 0.0,
+                    "Fee": 0,
                     "Commission": 0
-                }
-            },
-            "Chart": [
-                {
-                    "Yield": -0.391
                 },
-                {
-                    "Yield": -2.886
-                },
-                {
-                    "Yield": -4.735
-                },
-                {
-                    "Yield": -9.322
-                }
-            ]
+                "Chart": [
+                    {
+                        "Yield": -0.391
+                    },
+                    {
+                        "Yield": -2.886
+                    },
+                    {
+                        "Yield": -4.735
+                    },
+                    {
+                        "Yield": -9.322
+                    }
+                ]
+            }
         }
     ]
-}
-```
+}```
 [Вернуться к содержанию](#Содержание)
 
 #### strategies.getOffers
