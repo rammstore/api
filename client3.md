@@ -921,7 +921,7 @@ Youtube	|	string	|	ссылка на YouTube		|
 ***Symbols (вложенный массив)***
 Symbol	|	string	|	Название символа	|
 Share	|	real	|	Доля символа	|
-Direction |	number	|	1 : buy, -1 sell	|
+Direction |	number	|	1: buy, -1: sell	|
 ***Description (вложенный массив)***
 {Lang}	|	string	|	Язык	|
 {Value}	|	string	|	Описание	|
