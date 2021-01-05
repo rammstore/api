@@ -1013,6 +1013,7 @@ Yield	|	real	|	Прибыль в %	|
         {
             "ID": 341,
             "Name": "TEST_1",
+            "Type": "Portfolio",
             "DTCreated": "2018-09-21T11:09:38.23",
             "DTStat": "2017-09-21T11:09:38.23",
             "PublicOffer": {
