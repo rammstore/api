@@ -1,4 +1,4 @@
-# RAMM.STORE Client2 API Documentation
+# RAMM.STORE Client3 API Documentation
 ### Содержание
 * [Выполнение запросов](#Выполнение-запросов)
 * [Получение данных](#Получение-данных)
@@ -881,7 +881,7 @@ Share	|	real	|	Доля символа	|
 
 Поле | Тип | Описание 
 :--------|----------|----------
-SearchMode |	string	| режим поиска (Rating, MyActiveStrategies, MyClosedStrategies, MyActiveAccounts)	|
+SearchMode |	string	| режим поиска (Rating, Portfolios, Ideas, Bets, MyActiveStrategies, MyClosedStrategies, MyActiveAccounts)	|
 Name	|	string	|	Подстрока поиска	|
 AgeMin |	number	|	минимальный возраст в днях |
 DealsMin |	number	|	минимальное количество сделок |
@@ -906,6 +906,7 @@ ProfitCurrentIntervalGross	|	real	|	Прибыль/убыток в текуще�
 ***Strategies***
 ID	|	number	|	ID стратегии		|
 Name	|	string	|	Название стратегии (Varchar(64))		|
+Type |	string	|	Тип стратегии ( Trading, Portfolio, Idea, Bet )		|
 DTCreated	|	datetime	|	Дата создания стратегии		|
 DTStat	|	datetime	|	Дата сбора статистики		|
 DTClosed	|	datetime	|	Дата закрытия стратегии		|
