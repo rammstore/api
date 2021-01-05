@@ -60,7 +60,7 @@
         * [deals.search](#dealssearch)
 
 ## Выполнение запросов
-Для обращения к API необходимо сделать POST-запрос по адресу `https://{env}.ramm.store/api/client/v2/{method}`, где:
+Для обращения к API необходимо сделать POST-запрос по адресу `https://{env}.ramm.store/api/client/v3/{method}`, где:
 * {env} — название среды (получите у поддержки).
 * {method} — метод API.
 
@@ -176,7 +176,7 @@ API может возвращать различные ошибки в след�
 
 Вместо логина и пароля может быть передан OTP-токен, в случае авторизации через сайт брокера.
 
-**URL:** `https://ramm.store/api/client/v2/session.login`
+**URL:** `https://ramm.store/api/client/v3/session.login`
 
 **Параметры:**
 
@@ -269,7 +269,7 @@ ActiveStrategiesCount | number | количество активных стра�
 
 Удаляет сессию.
 
-**URL:** `https://ramm.store/api/client/v2/session.logout`
+**URL:** `https://ramm.store/api/client/v3/session.logout`
 
 **Параметры:** отсутствуют
 
@@ -281,7 +281,7 @@ ActiveStrategiesCount | number | количество активных стра�
 
 Установка пароля собственной учетной записи клиента. Перед установкой нового пароля проверяется правильность текущего пароля.
 
-**URL:** `https://ramm.store/api/client/v2/password.set`
+**URL:** `https://ramm.store/api/client/v3/password.set`
 
 **Параметры:**
 
@@ -305,7 +305,7 @@ OldPassword   | string | Текущий пароль |
 
 Получение общей статистики клиента
 
-**URL:** `https://ramm.store/api/client/v2/statistic.get`
+**URL:** `https://ramm.store/api/client/v3/statistic.get`
 
 **Параметры:** отсутствуют
 
@@ -384,7 +384,7 @@ Login	|	string	|	Логин клиента
 
 Получение спецификации платформы
 
-**URL:** `https://ramm.store/api/client/v2/platform.getSpecification`
+**URL:** `https://ramm.store/api/client/v3/platform.getSpecification`
 
 **Параметры:** отсутствуют
 
@@ -420,7 +420,7 @@ MinAmountToCreate	|	real	|	Минимальный баланс инвестиц�
 
 Полная информацию по кошельку.
 
-**URL:** `https://ramm.store/api/client/v2/wallets.get`
+**URL:** `https://ramm.store/api/client/v3/wallets.get`
 
 **Параметры:**
 
@@ -463,7 +463,7 @@ ActiveStrategiesCount| number | Количество активных страт
 
 Поиск переводов.
 
-**URL:** `https://ramm.store/api/client/v2/walletTransfers.search`
+**URL:** `https://ramm.store/api/client/v3/walletTransfers.search`
 
 **Параметры:**
 
@@ -572,7 +572,7 @@ StrategyName   | string | Название стратегии  |
 
 Получение информации о стратегии.
 
-**URL:** `https://ramm.store/api/client/v2/strategies.get`
+**URL:** `https://ramm.store/api/client/v3/strategies.get`
 
 **Параметры:**
 
@@ -732,7 +732,7 @@ CommissionRate |	real	|	Размер комиссии в долларах на �
 
 Получение графика доходности для заданной стратегии.
 
-**URL:** `https://ramm.store/api/client/v2/charts.get`
+**URL:** `https://ramm.store/api/client/v3/charts.get`
 
 **Параметры:**
 
@@ -781,7 +781,7 @@ Yield	|	real	|	Значение доходности	|
 
 Получение информации о текущем портфеле позиций для заданной стратегии.
 
-**URL:** `https://ramm.store/api/client/v2/strategyportfolio.get`
+**URL:** `https://ramm.store/api/client/v3/strategyportfolio.get`
 
 **Параметры:**
 
@@ -826,7 +826,7 @@ Share	|	real	|	Доля инструмента	|
 
 Отдает информацию по статистике использования различных торговых инструментов стратегией.
 
-**URL:** `https://ramm.store/api/client/v2/strategysymbolstat.get`
+**URL:** `https://ramm.store/api/client/v3/strategysymbolstat.get`
 
 **Параметры:**
 
@@ -871,7 +871,7 @@ Share	|	real	|	Доля символа	|
 
 Поиск стратегий с фильтрацией и сортировками.
 
-**URL:** `https://ramm.store/api/client/v2/strategies.search`
+**URL:** `https://ramm.store/api/client/v3/strategies.search`
 
 **Параметры:**
 
@@ -1084,7 +1084,7 @@ Yield	|	real	|	Прибыль в %	|
 
 Массив упорядочен: Order by Type desc, ID desc. 
 
-**URL:** `https://ramm.store/api/client/v2/strategies.getOffers`
+**URL:** `https://ramm.store/api/client/v3/strategies.getOffers`
 
 **Параметры:**
 Поле | Тип | Описание 
@@ -1137,7 +1137,7 @@ CommissionToPay	|	real	|	Невыплаченная комиссия	|
 
 Создание клиентом новой стратегии.
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.add`
+**URL:** `https://ramm.store/api/client/v3/myStrategies.add`
 
 **Параметры:**
 
@@ -1185,7 +1185,7 @@ AccountCommandID	|	number	|	ID команды на пополнение счет
 
 Создание новой оферты для стратегии.
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.addOffer`
+**URL:** `https://ramm.store/api/client/v3/myStrategies.addOffer`
 
 **Параметры:**
 
@@ -1222,7 +1222,7 @@ Link | string | ссылка на оферту
 
 Установка публичной оферты для стратегии. Сброс публичной оферты.
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.setPublicOffer`
+**URL:** `https://ramm.store/api/client/v3/myStrategies.setPublicOffer`
 
 **Параметры:**
 
@@ -1249,7 +1249,7 @@ OfferID	|	real	|	ID оферты, которую нужно сделать пу�
 
 Закрывает стратегию.
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.close`
+**URL:** `https://ramm.store/api/client/v3/myStrategies.close`
 
 **Параметры:**
 
@@ -1281,7 +1281,7 @@ CommandID	|number	|ID команды закрытия счета
 
 Ставит стратегию на "Паузу" (копирование сигналов временно прекращается, все позиции закрываются).
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.pause`
+**URL:** `https://ramm.store/api/client/v3/myStrategies.pause`
 
 **Параметры:**
 
@@ -1313,7 +1313,7 @@ CommandID	|number	|ID команды
 
 Снимает стратегию с "Паузы" (копирование сигналов возобновляется). При возобновлении торговли на стратегии выставляется признак NeedSync, который используется в торговом АПИ для отправки синхронизации.
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.resume`
+**URL:** `https://ramm.store/api/client/v3/myStrategies.resume`
 
 **Параметры:**
 
@@ -1345,7 +1345,7 @@ CommandID	|number	|ID команды
 
 Возвращает текущий токен стратегии.
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.getToken`
+**URL:** `https://ramm.store/api/client/v3/myStrategies.getToken`
 
 **Параметры:**
 
@@ -1377,7 +1377,7 @@ Token	|string	|Токен, уникальный идентификатор
 
 Получение нового токена стратегии (старый немедленно перестает работать).
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.setToken`
+**URL:** `https://ramm.store/api/client/v3/myStrategies.setToken`
 
 **Параметры:**
 
@@ -1409,7 +1409,7 @@ Token	|string	|Токен, уникальный идентификатор
 
 Проверка имени новой стратегии на уникальность.
 
-**URL:** `https://ramm.store/api/client/v2/mystrategies.checkName`
+**URL:** `https://ramm.store/api/client/v3/mystrategies.checkName`
 
 **Параметры:**
 
@@ -1441,7 +1441,7 @@ StrategyNameAvailable	|boolean |Признак уникальности имен
 
 Поиск активных инвестиций в стратегию.
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.getActiveAccounts`
+**URL:** `https://ramm.store/api/client/v3/myStrategies.getActiveAccounts`
 
 **Параметры:**
 
@@ -1520,7 +1520,7 @@ IsMyAccount	|	boolean	|	Признак собственного счета	|
 
 Поиск закрытых инвестиций в стратегию.
 
-**URL:** `https://ramm.store/api/client/v2/myStrategies.getClosedAccounts`
+**URL:** `https://ramm.store/api/client/v3/myStrategies.getClosedAccounts`
 
 **Параметры:**
 
@@ -1593,7 +1593,7 @@ IsMyAccount	|	boolean	|	Признак своего счета
 
 Получение текущего статуса команды управления стратегиями по ее ID и ID стратегии.
 
-**URL:** `https://ramm.store/api/client/v2/strategyCommands.get`
+**URL:** `https://ramm.store/api/client/v3/strategyCommands.get`
 
 **Параметры:**
 
@@ -1631,7 +1631,7 @@ StrategyCommandStatus	|number |Статус команды (0-new, 1-ok, 2-rejec
 
 Создание счета.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.add`
+**URL:** `https://ramm.store/api/client/v3/accounts.add`
 
 **Параметры:**
 
@@ -1695,7 +1695,7 @@ CommandBalanceID	|number	|ID команды пополнения счета
 
 Пополняет счет.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.fund`
+**URL:** `https://ramm.store/api/client/v3/accounts.fund`
 
 **Параметры:**
 
@@ -1732,7 +1732,7 @@ CommandBalanceID	|number	|ID команды пополнения счета
 
 Снимает средства со счета.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.withdraw`
+**URL:** `https://ramm.store/api/client/v3/accounts.withdraw`
 
 **Параметры:**
 
@@ -1769,7 +1769,7 @@ CommandBalanceID	|number	|ID команды снятия средств
 
 Закрывает счет.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.close`
+**URL:** `https://ramm.store/api/client/v3/accounts.close`
 
 **Параметры:**
 
@@ -1802,7 +1802,7 @@ CommandID	|number	|ID команды закрытия
 
 Получение информации о счете.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.get`
+**URL:** `https://ramm.store/api/client/v3/accounts.get`
 
 **Параметры:**
 
@@ -1947,7 +1947,7 @@ CommissionRate |	real	|	Размер комиссии в долларах на �
 Ставит счет на паузу (временное прекращение копирования с закрытием всех открытых позиций)
 ВНИМАНИЕ. Счет трейдера этим методом поставить на паузу нельзя! Используйте метод myStrategies.pause для постановки на паузу всей стратегии.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.pause`
+**URL:** `https://ramm.store/api/client/v3/accounts.pause`
 
 **Параметры:**
 
@@ -1981,7 +1981,7 @@ CommandID	|number	|ID команды постановки на паузу
 Снимает счет с паузы (возобновление копирования, открытие всех позиций стратегии по текущим ценам).
 ВНИМАНИЕ. Счет трейдера этим методом снять с паузы нельзя! Используйте метод myStrategies.resume для снятия с паузы всей стратегии.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.resume`
+**URL:** `https://ramm.store/api/client/v3/accounts.resume`
 
 **Параметры:**
 
@@ -2014,7 +2014,7 @@ CommandID	|number	|ID команды снятия с паузы
 
 Устанавливает на счета значение повышающего/понижающего коэффициента копирования.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.setFactor`
+**URL:** `https://ramm.store/api/client/v3/accounts.setFactor`
 
 **Параметры:**
 
@@ -2049,7 +2049,7 @@ CommandID	|number	|ID команды установки коэффициента
 
 Устанавливает процент защиты счета.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.setProtection`
+**URL:** `https://ramm.store/api/client/v3/accounts.setProtection`
 
 **Параметры:**
 
@@ -2084,7 +2084,7 @@ CommandID	|number	|ID команды установки защиты
 
 Устанавливает целевую доходность счета.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.setTarget`
+**URL:** `https://ramm.store/api/client/v3/accounts.setTarget`
 
 **Параметры:**
 
@@ -2119,7 +2119,7 @@ CommandID	|number	|ID команды установки доходности
 
 Поиск закрытых счетов и соответствующих им стратегий с фильтрацией по подстроке (из имени стратегии).
 
-**URL:** `https://ramm.store/api/client/v2/accounts.searchClosed`
+**URL:** `https://ramm.store/api/client/v3/accounts.searchClosed`
 
 **Параметры:**
 
@@ -2249,7 +2249,7 @@ CommissionRate	|	number	|	Размер комиссии в долларах на
 
 Получение графика заданного типа для заданного счета.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.getCharts`
+**URL:** `https://ramm.store/api/client/v3/accounts.getCharts`
 
 **Параметры:**
 
@@ -2304,7 +2304,7 @@ Equity	|real	|Эквити счета
 
 Получение настроек счетов клиента.
 
-**URL:** `https://ramm.store/api/client/v2/accounts.searchSpec`
+**URL:** `https://ramm.store/api/client/v3/accounts.searchSpec`
 
 **Параметры: отсутствуют**
 
@@ -2345,7 +2345,7 @@ Precision	|	number	|	Точность (знаки после запятой)
 
 Получение текущего статуса команды управления счетами по ее ID и ID счета.
 
-**URL:** `https://ramm.store/api/client/v2/accountCommands.get`
+**URL:** `https://ramm.store/api/client/v3/accountCommands.get`
 
 **Параметры:**
 
@@ -2381,7 +2381,7 @@ AccountCommandStatus	|number	|Статус команды (0-new, 1-ok, 2-reject
 
 Поиск открытых позиций с фильтрацией по номеру счета.
 
-**URL:** `https://ramm.store/api/client/v2/positions.search`
+**URL:** `https://ramm.store/api/client/v3/positions.search`
 
 **Параметры:**
 
@@ -2495,7 +2495,7 @@ PrecisionVolume	|	number	|	Количество знаков после запя
 
 Поиск сделок с фильтрацией по номеру счета.
 
-**URL:** `https://ramm.store/api/client/v2/deals.search`
+**URL:** `https://ramm.store/api/client/v3/deals.search`
 
 **Параметры:**
 
