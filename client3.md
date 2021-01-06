@@ -915,6 +915,7 @@ DTExpire	|	datetime	|	Дата ожидаемого закрытия страт�
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
 Yield	|	real	|	Прибыль в %		|
 MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
+PotentialYield |	real	| Потенциальная прибыль в %		|
 Accounts	|	number	|	Количество счетов		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
 Youtube	|	string	|	ссылка на YouTube		|
@@ -1034,6 +1035,7 @@ Yield	|	real	|	Прибыль в %	|
             "Status": 2,
             "Yield": 1.076,
             "MonthlyYield": 0.07,
+            "PotentialYieldYield": 0.07,
             "Accounts": 17,
             "IsMyStrategy": 1,
             "Symbols": [
