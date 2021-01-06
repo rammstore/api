@@ -913,9 +913,9 @@ DTClosed	|	datetime	|	Дата закрытия стратегии		|
 DTInvestBefore	|	datetime	|	Дата закрытия приема инвестиций		|
 DTExpire	|	datetime	|	Дата ожидаемого закрытия стратегии		|
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
-Yield	|	real	|	Прибыль в %		|
-MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
-PotentialYield |	real	| Потенциальная прибыль в %		|
+Yield	|	real	|	Прибыль в долях	|
+MonthlyYield	|	real	|	Среднемесячная прибыль в долях		|
+PotentialYield |	real	| Потенциальная прибыль в долях		|
 Accounts	|	number	|	Количество счетов		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
 Youtube	|	string	|	ссылка на YouTube		|
@@ -975,7 +975,7 @@ ID	|	number	|	ID оферты счета		|
 FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
 CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
 ****Chart (вложенный массив)****
-Yield	|	real	|	Прибыль в %	|
+Yield	|	real	|	Прибыль в долях	|
 
 **Пример вызова:**
 ```json
