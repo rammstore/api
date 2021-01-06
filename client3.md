@@ -881,8 +881,9 @@ Share	|	real	|	Доля символа	|
 
 Поле | Тип | Описание 
 :--------|----------|----------
-SearchMode |	string	| режим поиска (Rating, Portfolios, Ideas, Bets, MyActiveStrategies, MyClosedStrategies, MyActiveAccounts)	|
+SearchMode |	string	| режим поиска (Rating, MyActiveStrategies, MyClosedStrategies, MyActiveAccounts)	|
 Name	|	string	|	Подстрока поиска	|
+Type |	string	|	Подстрока поиска	| Варианты: Trading, Portfolios, Ideas, Bets
 AgeMin |	number	|	минимальный возраст в днях |
 DealsMin |	number	|	минимальное количество сделок |
 YieldMin |	real	|	минимальная доходность |
