@@ -881,7 +881,7 @@ Share	|	real	|	Доля символа	|
 
 Поле | Тип | Описание 
 :--------|----------|----------
-SearchMode |	string	| режим поиска (Rating, MyActiveStrategies, MyClosedStrategies, MyActiveAccounts)	|
+SearchMode |	string	| Обязательное поле. Режим поиска (Rating, MyActiveStrategies, MyClosedStrategies, MyActiveAccounts)	|
 Name	|	string	|	Подстрока поиска	|
 Type |	string	|	Варианты: Trading, Portfolios, Ideas, Bets	| 
 AgeMin |	number	|	минимальный возраст в днях |
