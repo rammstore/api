@@ -917,6 +917,7 @@ Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
 Yield	|	real	|	Прибыль в долях	|
 MonthlyYield	|	real	|	Среднемесячная прибыль в долях		|
 PotentialYield |	real	| Потенциальная прибыль в долях		|
+PotentialLoss |	real	| Потенциальный убыток в долях		|
 Accounts	|	number	|	Количество счетов		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
 Youtube	|	string	|	ссылка на YouTube		|
