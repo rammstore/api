@@ -920,6 +920,7 @@ PotentialYield |	real	| Потенциальная прибыль в долях	
 Accounts	|	number	|	Количество счетов		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
 Youtube	|	string	|	ссылка на YouTube		|
+FactorMax	|	number	|	Максимальное значение повышающего коэффициента		|
 ***Symbols (вложенный массив)***
 Symbol	|	string	|	Название символа	|
 Share	|	real	|	Доля символа	|
@@ -1052,6 +1053,7 @@ Yield	|	real	|	Прибыль в долях	|
                 }
             ],
             "Youtube": "BERFDOJK8",
+            "FactorMax": 10,
             "Description": [
                 {
                     "EN": "Description of the strategy"
