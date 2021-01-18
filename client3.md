@@ -926,7 +926,7 @@ FactorMax	|	number	|	Максимальное значение повышающ�
 Symbol	|	string	|	Название символа	|
 Share	|	real	|	Доля символа	|
 Direction |	number	|	1: buy, -1: sell	|
-***Description (вложенный массив)***
+***Description (вложенная структура)***
 {Lang}	|	string	|	Язык	|
 {Value}	|	string	|	Описание	|
 ****PublicOffer (вложенная структура)****
@@ -1055,14 +1055,11 @@ Yield	|	real	|	Прибыль в долях	|
             ],
             "Youtube": "BERFDOJK8",
             "FactorMax": 10,
-            "Description": [
-                {
-                    "EN": "Description of the strategy"
-                },
-                {
-                    "RU": "Описание стратегии"
-                }
-            ],
+            "Description":
+            {
+                "EN": "Description of the strategy",
+                "RU": "Описание стратегии"
+            },
             "Account": {
                 "ID": 1185,
                 "IsSecurity": true,
