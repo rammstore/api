@@ -1175,6 +1175,14 @@ CommissionToPay	|	real	|	Невыплаченная комиссия	|
 Поле | Тип | Описание 
 :--------|----------|----------
 Name	|	string	|	Название стратегии	|
+Type	|	string	|	Варианты: Trading, Portfolio, Idea, Bet	|
+PotentialYield |	real	| Потенциальная прибыль в долях |
+PotentialRisk	| real	| Потенциальный риск в долях |
+FactorMax	| number |	Максимальное значение повышающего коэффициента |
+Youtube	| string	| ссылка на YouTube |
+****Description (вложенная структура)****		
+{Lang}	| string	| Язык |
+{Value}	| string	| Описание |
 ****Account (вложенная структура)****
 Protection	|	real	|	Процент защиты счета	|
 Target	|	real	|	Целевая доходность	|
