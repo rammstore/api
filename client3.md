@@ -1038,7 +1038,7 @@ Yield	|	real	|	Прибыль в долях	|
             "Status": 2,
             "Yield": 1.076,
             "MonthlyYield": 0.07,
-            "PotentialYieldYield": 0.07,
+            "PotentialYield": 0.07,
             "Accounts": 17,
             "IsMyStrategy": 1,
             "Symbols": [
