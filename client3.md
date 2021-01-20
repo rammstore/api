@@ -1201,10 +1201,19 @@ AccountCommandID	|	number	|	ID команды на пополнение счет
 **Пример вызова:**
 ```json
 {
-    "Name": "TEST_1",
+    "Name": "TestF1611084553",
+    "Type": "Bet",
+    "FactorMax": 2,
+    "PotentialYield": 1.11,
+    "PotentialRisk": 0.22,
+    "Youtube": "bH41TOREHVg",
+    "Description": {
+        "En": "Bet Try 1",
+        "Ru": "Bet Try 1"
+    },
     "Account": {
-        "Protection": 0.5,
-        "Target": 1.5,
+        "Protection": 0.22,
+        "Target": 1.11,
         "Money": 1000
     }
 }
