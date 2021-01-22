@@ -910,6 +910,7 @@ Name	|	string	|	Название стратегии (Varchar(64))		|
 Type |	string	|	Тип стратегии ( Trading, Portfolio, Idea, Bet )		|
 DTCreated	|	datetime	|	Дата создания стратегии		|
 DTStat	|	datetime	|	Дата сбора статистики		|
+DTVideo	|	datetime	|	Дата последнего обновления видео		|
 DTClosed	|	datetime	|	Дата закрытия стратегии		|
 DTInvestBefore	|	datetime	|	Дата закрытия приема инвестиций		|
 DTExpire	|	datetime	|	Дата ожидаемого закрытия стратегии		|
