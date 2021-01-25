@@ -1453,7 +1453,7 @@ Token	|string	|Токен, уникальный идентификатор
 
 #### myStrategies.setVideo
 
-Установка нового видео.
+Установка нового видео. Устанавливает текущее время в свойство стратегии DTVideo.
 
 **URL:** `https://ramm.store/api/client/v3/myStrategies.setVideo`
 
