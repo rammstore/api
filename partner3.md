@@ -57,7 +57,7 @@ ID, Name, DT, DTVideo.
 
 **Возвращаемые данные:**
 
-Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets и Strategies:
+Возвращаемые данные - структуры Pagination, Filter, OrderBy и массив Strategies:
 
 Параметр | Тип | Описание 
 ---------|----------|----------
