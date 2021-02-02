@@ -7,7 +7,7 @@
    * [strategies.search](#strategiesSearch)
 
 ## Выполнение запросов
-Для обращения к API необходимо сделать `POST`-запрос по адресу `https://api.ramm.store/api/partner/v{VER}/{method}`, где:
+Для обращения к API необходимо сделать `POST`-запрос по адресу `https://ramm.store/api/partner/v{VER}/{method}`, где:
 * `{VER}` — версия API (на данный момент — 3);
 * `{method}` — метод API.
 
