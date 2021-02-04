@@ -1711,7 +1711,6 @@ StrategyCommandStatus	|number |Статус команды (0-new, 1-ok, 2-rejec
 Поле | Тип | Описание 
 :--------|----------|----------
 StrategyID	|	number	|	ID стратегии
-Factor	|	real	|	Повышающий/понижающий коэффициент копирования
 Money	|	real	|	Сумма счета (numeric (28,2))
 
 **Возвращаемые данные:**
@@ -1726,7 +1725,6 @@ CommandBalanceID	|number	|ID команды пополнения счета
 ```json
 {
     "StrategyID": 4566,
-    "Factor": 1,
     "Money": 500
 }
 ```
