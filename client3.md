@@ -776,7 +776,7 @@ Share	|	real	|	Доля символа	|
 :--------|----------|----------
 SearchMode |	string	| Обязательное поле. Режим поиска (Rating, MyActiveStrategies, MyClosedStrategies, MyActiveAccounts)	|
 Name	|	string	|	Подстрока поиска	|
-Type |	string	|	Варианты: Trading, Portfolios, Ideas, Bets	| 
+Type |	string	|	Варианты: Simple, Advanced	| 
 AgeMin |	number	|	минимальный возраст в днях |
 DealsMin |	number	|	минимальное количество сделок |
 YieldMin |	real	|	минимальная доходность |
@@ -800,7 +800,7 @@ ProfitCurrentIntervalGross	|	real	|	Прибыль/убыток в текуще�
 ***Strategies***
 ID	|	number	|	ID стратегии		|
 Name	|	string	|	Название стратегии (Varchar(64))		|
-Type |	string	|	Тип стратегии ( Trading, Portfolio, Idea, Bet )		|
+Type |	string	|	Тип стратегии ( Simple, Advanced )		|
 DTCreated	|	datetime	|	Дата создания стратегии		|
 DTStat	|	datetime	|	Дата сбора статистики		|
 DTVideo	|	datetime	|	Дата последнего обновления видео		|
@@ -919,7 +919,7 @@ Yield	|	real	|	Прибыль в долях	|
         {
             "ID": 341,
             "Name": "TEST_1",
-            "Type": "Portfolio",
+            "Type": "Advanced",
             "DTCreated": "2018-09-21T11:09:38.23",
             "DTStat": "2017-09-21T11:09:38.23",
             "DTInvestBefore": "2018-09-22T11:09:38.23",
@@ -998,7 +998,8 @@ Yield	|	real	|	Прибыль в долях	|
             }
         }
     ]
-}```
+}
+```
 [Вернуться к содержанию](#Содержание)
 
 #### strategies.getOffers
@@ -1069,7 +1070,7 @@ CommissionToPay	|	real	|	Невыплаченная комиссия	|
 Поле | Тип | Описание 
 :--------|----------|----------
 Name	|	string	|	Название стратегии	|
-Type	|	string	|	Варианты: Trading, Portfolio, Idea, Bet	|
+Type	|	string	|	Варианты: Simple, Advanced	|
 PotentialYield |	real	| Потенциальная прибыль в долях |
 PotentialRisk	| real	| Потенциальный риск в долях |
 FactorMax	| number |	Максимальное значение повышающего коэффициента |
@@ -1096,15 +1097,11 @@ AccountCommandID	|	number	|	ID команды на пополнение счет
 ```json
 {
     "Name": "TestF1611084553",
-    "Type": "Bet",
+    "Type": "Simple",
     "FactorMax": 2,
     "PotentialYield": 1.11,
     "PotentialRisk": 0.22,
     "Youtube": "bH41TOREHVg",
-    "Description": {
-        "En": "Bet Try 1",
-        "Ru": "Bet Try 1"
-    },
     "Account": {
         "Protection": 0.22,
         "Target": 1.11,
