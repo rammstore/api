@@ -44,11 +44,8 @@
         * [accounts.add](#accountsadd)
         * [accounts.close](#accountsclose)
         * [accounts.fund](#accountsfund)
-        * [accounts.withdraw](#accountswithdraw)
         * [accounts.get](#accountsget)
-        * [accounts.setFactor](#accountssetFactor)
         * [accounts.searchClosed](#accountssearchClosed)
-        * [accounts.getCharts](#accountsgetCharts)
         * [accounts.searchSpec](#accountssearchSpec)
         * [accountCommands.get](#accountCommandsget)
     * [Открытые позиции](#Открытые-позиции)        
@@ -2046,61 +2043,6 @@ CommissionRate	|	number	|	Размер комиссии в долларах на
                     "CommissionRate": 5
                 }
             }
-        }
-    ]
-}
-```
-[Вернуться к содержанию](#Содержание)
-
-#### accounts.getCharts
-
-Получение графика заданного типа для заданного счета.
-
-**URL:** `https://ramm.store/api/client/v3/accounts.getCharts`
-
-**Параметры:**
-
-Поле | Тип | Описание 
-:--------|----------|----------
-AccountID	|	number	|	ID стратегии
-MaxPoints	|	number	|	Макс.количество точек графика
-chartType	|	string	|	Тип графика (yield, yield-leverage)
-chartSize	|	string	|	Размер графика (full, large, medium, small)
-
-
-**Возвращаемые данные:**
-
-Возвращаемые данные - массив Chart:
-
-Параметр | Тип | Описание 
----------|----------|----------
-***Chart***
-DT	|datetime	|Дата/время
-Yield	|real	|Значение доходности
-Equity	|real	|Эквити счета
-
-
-**Пример вызова:**
-```json
-{
-    "AccountID": 445,
-    "chartType": "yield",
-    "MaxPoints": 10
-}
-```
-**Пример ответа:**
-```json
-{
-    "Chart": [
-        {
-            "DT": "2018-12-13T00:00:00",
-            "Yield": 0.5,
-            "Equity": 1500
-        },
-        {
-            "DT": "2018-12-14T00:00:00",
-            "Yield": 1,
-            "Equity": 2000
         }
     ]
 }
