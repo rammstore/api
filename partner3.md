@@ -54,10 +54,9 @@ ID	| number    | ID стратегии |
 ---------|----------|----------
 ID	|	number	|	ID стратегии		|
 Name	|	string	|	Название стратегии (Varchar(64))		|
-Type |	string	|	Тип стратегии ( Portfolio, Idea, Bet )		|
+Type |	string	|	Тип стратегии ( Simple, Advanced )		|
 DTVideo	|	datetime	|	Дата последнего обновления видео		|
 Youtube	|	string	|	ссылка на YouTube		|
-FactorMax	|	number	|	Максимальное значение повышающего коэффициента		|
 State	|	string	|	Состояние стратегии (Active, Hidden, Closed)		|
 DTClosed |	datetime	|	Дата закрытия. Передается только когда стратегия закрыта.		|
 ***Tags (вложенный массив)***
@@ -74,11 +73,10 @@ DTClosed |	datetime	|	Дата закрытия. Передается тольк
 ```json
 {
     "ID": 341,
-    "Name": "TEST_1",
+    "Name": "TEST",
     "Type": "Idea",
     "DTVideo": "2018-09-21T12:10:18",
     "Youtube": "BERFDOJK8",
-    "FactorMax": 10,
     "State": "Active",
     "Tags": [
         "MSFT",
