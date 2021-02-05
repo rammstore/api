@@ -74,7 +74,7 @@ DTClosed |	datetime	|	Дата закрытия. Передается тольк
 {
     "ID": 341,
     "Name": "RTH",
-    "Type": "Idea",
+    "Type": "Simple",
     "DTVideo": "2018-09-21T12:10:18",
     "Youtube": "BERFDOJK8",
     "State": "Active",
