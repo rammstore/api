@@ -73,7 +73,7 @@ DTClosed |	datetime	|	Дата закрытия. Передается тольк
 ```json
 {
     "ID": 341,
-    "Name": "TEST",
+    "Name": "RTH",
     "Type": "Idea",
     "DTVideo": "2018-09-21T12:10:18",
     "Youtube": "BERFDOJK8",
@@ -125,7 +125,6 @@ Name	|	string	|	Название стратегии (Varchar(64))		|
 Type |	string	|	Тип стратегии ( Portfolio, Idea, Bet )		|
 DTVideo	|	datetime	|	Дата последнего обновления видео		|
 Youtube	|	string	|	ссылка на YouTube		|
-FactorMax	|	number	|	Максимальное значение повышающего коэффициента		|
 ***Tags (вложенный массив)***
 {Tag}	|	string	|	Tag	|
 
@@ -134,7 +133,7 @@ FactorMax	|	number	|	Максимальное значение повышающ�
 ```json
 {
     "Filter": {
-        "Name": "TEST"
+        "Name": "RTH"
     },
     "Pagination": {
         "CurrentPage": 1,
@@ -152,7 +151,7 @@ FactorMax	|	number	|	Максимальное значение повышающ�
 ```json
 {
     "Filter": {
-        "Name": "TEST"
+        "Name": "RTH"
     },
     "OrderBy": {
         "Field": "DTVideo",
@@ -168,11 +167,10 @@ FactorMax	|	number	|	Максимальное значение повышающ�
     "Strategies": [
         {
             "ID": 341,
-            "Name": "TEST_1",
-            "Type": "Idea",
+            "Name": "RTH",
+            "Type": "Simple",
             "DTVideo": "2018-09-21T12:10:18",
             "Youtube": "BERFDOJK8",
-            "FactorMax": 10,
             "Tags": [
                 "MSFT",
                 "EgorPetrov",
