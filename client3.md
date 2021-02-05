@@ -21,11 +21,7 @@
         * [walletTransfers.search](#walletTransferssearch)
     * [Информация о стратегиях](#Информация-о-стратегиях)
         * [strategies.get](#strategiesget)
-        * [charts.get](#chartsget)
-        * [strategyportfolio.get](#strategyportfolioget)
-        * [strategysymbolstat.get](#strategysymbolstatget)
         * [strategies.search](#strategiessearch)
-        * [strategies.getOffers](#strategiesgetoffers)
     * [Собственные стратегии клиента](#Собственные-стратегии-клиента)
         * [myStrategies.add](#mystrategiesadd)	
         * [myStrategies.addOffer](#mystrategiesaddOffer)	
@@ -585,7 +581,6 @@ Equity	|	real	|	Эквити
 Asset	|	string	|	Название валюты депозита
 Profit	|	real	|	Прибыль по счету |
 PositionsCount |	number	|	Количество открытых позиций |
-DealsCount |	number	|	Количество сделок |
 
 **Пример вызова:**
 ```json
@@ -615,147 +610,8 @@ DealsCount |	number	|	Количество сделок |
         "Equity": 3123.45,
         "Asset": "USD",
         "Profit": 123.45,
-        "PositionsCount": 1,
-        "DealsCount": 2,
+        "PositionsCount": 1
     }
-}
-```
-[Вернуться к содержанию](#Содержание)
-#### charts.get
-
-Получение графика доходности для заданной стратегии.
-
-**URL:** `https://ramm.store/api/client/v3/charts.get`
-
-**Параметры:**
-
-Поле | Тип | Описание 
-:--------|----------|----------
-StrategyID	|	number	|	ID стратегии	|
-MaxPoints	|	number	|	Макс.количество точек графика. Варианты: 25, 250 |
-
-Другие поддерживаемые варианты MaxPoints могут быть реализованы по запросу.
-
-**Возвращаемые данные:**
-
-Возвращаемые данные - массив Chart:
-
-Параметр | Тип | Описание 
----------|----------|----------
-***Chart***
-DT	|	datetime	|	Дата/время	|
-Yield	|	real	|	Значение доходности	|
-
-
-**Пример вызова:**
-```json
-{
-    "StrategyID": 445,
-    "MaxPoints": 25
-}
-```
-**Пример ответа:**
-```json
-{
-    "Chart": [
-        {
-            "DT": "2018-12-13T00:00:00",
-            "Yield": 0.626
-        },
-        {
-            "DT": "2018-12-14T00:00:00",
-            "Yield": 1.62
-        }
-    ]
-}
-```
-[Вернуться к содержанию](#Содержание)
-#### strategyportfolio.get
-
-Получение информации о текущем портфеле позиций для заданной стратегии.
-
-**URL:** `https://ramm.store/api/client/v3/strategyportfolio.get`
-
-**Параметры:**
-
-Поле | Тип | Описание 
-:--------|----------|----------
-StrategyID	| number	| ID стратегии |
-
-**Возвращаемые данные:**
-
-Возвращаемые данные - массив StrategyPortfolio:
-
-Параметр | Тип | Описание 
----------|----------|----------
-***StrategyPortfolio***
-Symbol	|	string	|	Название инструмента	|
-Share	|	real	|	Доля инструмента	|
-
-**Пример вызова:**
-```json
-{
-    "StrategyID": 445
-}
-```
-**Пример ответа:**
-```json
-{
-    "StrategyPortfolio": [
-        {
-            "Symbol": "EURUSD",
-            "Share": 0.75
-        },
-        {
-            "Symbol": "GBPUSD",
-            "Share": 0.25
-        }
-    ]
-}
-```
-
-[Вернуться к содержанию](#Содержание)
-#### strategysymbolstat.get
-
-Отдает информацию по статистике использования различных торговых инструментов стратегией.
-
-**URL:** `https://ramm.store/api/client/v3/strategysymbolstat.get`
-
-**Параметры:**
-
-Поле | Тип | Описание 
-:--------|----------|----------
-StrategyID	|number	|ID стратегии|
-
-**Возвращаемые данные:**
-
-Возвращаемые данные - массив StrategySymbolStat:
-
-Параметр | Тип | Описание 
----------|----------|----------
-***StrategySymbolStat***
-Symbol	|	string	|	Название символа	|
-Share	|	real	|	Доля символа	|
-
-**Пример вызова:**
-```json
-{
-    "StrategyID": 445
-}
-```
-**Пример ответа:**
-```json
-{
-    "StrategySymbolStat": [
-        {
-            "Symbol": "EURUSD",
-            "Share": 50.2
-        },
-        {
-            "Symbol": "GBPUSD",
-            "Share": 49.8
-        }
-    ]
 }
 ```
 [Вернуться к содержанию](#Содержание)
@@ -862,144 +718,31 @@ PositionsCount |	number	|	Количество открытых позиций |
     "Strategies": [
         {
             "ID": 341,
-            "Name": "TEST_1",
-            "Type": "Advanced",
-            "DTCreated": "2018-09-21T11:09:38.23",
-            "DTStat": "2017-09-21T11:09:38.23",
-            "DTInvestBefore": "2018-09-22T11:09:38.23",
-            "DTExpire": "2017-10-21T11:09:38.23",
-            "PublicOffer": {
-                "ID": 23148,
-                "Fee": 0.25,
-                "Commission": 10
-            },
-            "Status": 2,
-            "Yield": 1.076,
-            "MonthlyYield": 0.07,
-            "PotentialYield": 0.07,
-            "Accounts": 17,
-            "IsMyStrategy": 1,
-            "Symbols": [
-                {
-                    "Symbol": "EURUSD",
-                    "Share": 50.2,
-                    "Direction": 1
-                },
-                {
-                    "Symbol": "GBPUSD",
-                    "Share": 49.8,
-                    "Direction": -1
-                }
-            ],
+            "Name": "RTH",
+            "Type": "Simple",
+            "DTVideo": "2018-09-21T12:10:18",
             "Youtube": "BERFDOJK8",
-            "FactorMax": 10,
-            "Description":
-            {
-                "EN": "Description of the strategy",
-                "RU": "Описание стратегии"
-            },
+            "State": "Active",
+            "Tags": [
+                "MSFT",
+                "EgorPetrov",
+                "FastProfitSystem"
+            ],
             "Account": {
-                "ID": 1185,
-                "IsSecurity": true,
-                "Type": 0,
-                "AccountSpecAssetID": 5,
+                "ID": 4545,
+                "DT": "2020-01-14T09:58:04.403",
+                "State": 2,
+                "Balance": 3000,
+                "Equity": 3123.45,
                 "Asset": "USD",
-                "TradingIntervalCurrentID": 164,
-                "DTCreated": "2018-09-21T11:09:38.243",
-                "Balance": 1000.46,
-                "Equity": 1006.64,
-                "Margin": 2.27,
-                "MarginLevel": 5.34,
-                "ProfitCurrentIntervalGross": 6.64,
-                "TotalProfit": 3.32,
-                "State": 3,
-                "Factor": 1,
-                "Protection": 0.01,
-                "ProtectionEquity": 10,
-                "Target": 0.01,
-                "TargetEquity": 1010,
-                "TargetReached": "2018-12-12T15:34:54.217",
-                "Positions": 2,
-                "Offer": {
-                    "ID": 23140,
-                    "Fee": 0,
-                    "Commission": 0
-                },
-                "Chart": [
-                    {
-                        "Yield": -0.391
-                    },
-                    {
-                        "Yield": -2.886
-                    },
-                    {
-                        "Yield": -4.735
-                    },
-                    {
-                        "Yield": -9.322
-                    }
-                ]
+                "Profit": 123.45,
+                "PositionsCount": 1
             }
         }
     ]
 }
 ```
-[Вернуться к содержанию](#Содержание)
 
-#### strategies.getOffers
-
-Получение доступных оферт для трейдера и партнера.
-Партнер получает информацию по офертам, в которых он указаны в качестве партнера.
-Владелец стратегии получает полную информацию.
-
-Массив упорядочен: Order by Type desc, ID desc. 
-
-**URL:** `https://ramm.store/api/client/v3/strategies.getOffers`
-
-**Параметры:**
-Поле | Тип | Описание 
-:--------|----------|----------
-StrategyID	|	number	|	ID стратегии	|
-
-**Возвращаемые данные:**
-
-Возвращаемые данные - массив Offers:
-
-Параметр | Тип | Описание 
----------|----------|----------
-***Offers***
-ID	|	number	|	ID оферты	|
-DTCreated	|	datetime	|	Дата создания стратегии		|
-FeeRate	|	real	|	Вознаграждение с прибыли	|
-CommissionRate	|	real	|	Размер комиссии в долларах на млн оборота в долларах	|
-PartnerID |	number	|	ID партнера	|
-PartnerShareRate |	real	|	Доля вознаграждения партнера	|
-Link | string | Cсылка на оферту. Отображается партнеру и владельцу стратегии. |
-Type |	number	|	0-оферта трейдера, 1-непубличная, 2-публичная	|
-Status | number | 0-active, 1-disabled (new investments prohibited), 2-closed (all active investments will closed) |
-Description | string | Описание, заданное при создании оферты. Отображается только владельцу стратегии. | 
-ActiveAccounts |	number	|	количество активных счетов	|
-TotalAccounts |	number	|	количество счетов всего	|
-FeePaid	|	real	|	Выплаченное вознаграждение	|
-FeeToPay	|	real	|	Невыплаченное вознаграждение	|
-CommissionPaid	|	real	|	Выплаченная комиссия	|
-CommissionToPay	|	real	|	Невыплаченная комиссия	|
-
-**Пример вызова:**
-```json
-{
-    "StrategyID": 12345
-}
-```
-**Пример ответа:**
-```json
-{
-    "Offers": [
-        {
-        }
-    ]
-}
-```
 [Вернуться к содержанию](#Содержание)
 
 ### Собственные стратегии клиента
