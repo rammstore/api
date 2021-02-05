@@ -782,7 +782,11 @@ DealsMin |	number	|	минимальное количество сделок |
 YieldMin |	real	|	минимальная доходность |
 
 Допустимые поля для секции OrderBy:	
-ID, Name, DT, DTStat, DTVideo, DTClosed, PublicOffer.FeeRate, PublicOffer.CommissionRate, Status, Yield, MonthlyYield, Accounts, Symbols, IsMyStrategy, Account.ID, Account.IsSecurity, Account.Type, Account.AccountSpecAssetID, Account.Asset, Account.TradingIntervalCurrentID, Account.DTCreated, Account.Balance, Account.Equity, Account.Margin, Account.MarginLevel, Account.IntervalPnL, Account.State, Account.Factor, Account.MCReached, Account.Protection, Account.ProtectionEquity, Account.ProtectionReached, Account.Target, Account.TargetEquity, Account.TargetReached, Account.Positions, Account.AccountMinBalance, Account.AvailableToWithdraw, Account.FeePaid, Account.FeeToPay.
+Поле | Тип | Описание 
+:--------|----------|----------
+ID |	number	|	Порядковый номер стратегии	| 
+Name	|	string	|	Название стратегии	|
+DTVideo |	datetime	|	дата обновления видео |
 
 **Возвращаемые данные:**
 
@@ -801,78 +805,18 @@ ProfitCurrentIntervalGross	|	real	|	Прибыль/убыток в текуще�
 ID	|	number	|	ID стратегии		|
 Name	|	string	|	Название стратегии (Varchar(64))		|
 Type |	string	|	Тип стратегии ( Simple, Advanced )		|
-DTCreated	|	datetime	|	Дата создания стратегии		|
-DTStat	|	datetime	|	Дата сбора статистики		|
 DTVideo	|	datetime	|	Дата последнего обновления видео		|
-DTClosed	|	datetime	|	Дата закрытия стратегии		|
-DTInvestBefore	|	datetime	|	Дата закрытия приема инвестиций		|
-DTExpire	|	datetime	|	Дата ожидаемого закрытия стратегии		|
-Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
-Yield	|	real	|	Прибыль в долях	|
-MonthlyYield	|	real	|	Среднемесячная прибыль в долях		|
-PotentialYield |	real	| Потенциальная прибыль в долях		|
-PotentialRisk |	real	| Потенциальный риск в долях		|
-Accounts	|	number	|	Количество счетов		|
-IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
 Youtube	|	string	|	ссылка на YouTube		|
-FactorMax	|	number	|	Максимальное значение повышающего коэффициента		|
-***Symbols (вложенный массив)***
-Symbol	|	string	|	Название символа	|
-Share	|	real	|	Доля символа	|
-Direction |	number	|	1: buy, -1: sell	|
-***Description (вложенная структура)***
-{Lang}	|	string	|	Язык	|
-{Value}	|	string	|	Описание	|
-****PublicOffer (вложенная структура)****
-ID	|	number	|	ID публичной оферты		|
-FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
-CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
-****TraderInfo (вложенная структура)****
-MasterAccount | string | Логин внешнего счета |
-ManageType |	number	|	0: управление через Trading API, 1: управление через Manager API |
-FeePaid	|	real	|	Выплаченное вознаграждение	|
-FeeToPay	|	real	|	Невыплаченное вознаграждение	|
-CommissionPaid	|	real	|	Выплаченная комиссия	|
-CommissionToPay	|	real	|	Невыплаченная комиссия	|
-****PartnerInfo (вложенная структура)****
-FeePaid	|	real	|	Выплаченное вознаграждение	|
-FeeToPay	|	real	|	Невыплаченное вознаграждение	|
-CommissionPaid	|	real	|	Выплаченная комиссия	|
-CommissionToPay	|	real	|	Невыплаченная комиссия	|
+Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
 ****Account (вложенная структура)****
-ID	|	number	|	ID счета		|
-IsSecurity	|	boolean	|	Признак счета управляющего		|
-Type	|	number	|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account		|
-AccountSpecAssetID	|	number	|	Спецификация счета для заданного актива		|
-Asset	|	string	|	Название валюты счета		|
-TradingIntervalCurrentID	|	number	|	ID текущего торгового интервала		|
-DTCreated	|	datetime	|	Дата создания		|
-Balance	|	real	|	Баланс счета		|
-Equity	|	real	|	Эквити		|
-Margin	|	real	|	Задействованная маржа		|
-MarginLevel	|	real	|	Уровень маржи		|
-ProfitCurrentIntervalGross	|	real	|	Прибыль/убыток в текущем торговом интервале		|
-TotalProfit | real	| итого прибыль по счету	|
-State	|	number	|	[Состояние счета](#Значения-AccountState)
-Factor	|	real	|	Повышающий/понижающий коэффициент копирования		|
-MCReached	|	number	|	Дата/время срабатывания StopOut		|
-Protection	|	real	|	Процент защиты счета (numeric (4,3))		|
-ProtectionEquity	|	real	|	Значение эквити, при котором сработает защита счета		|
-ProtectionReached	|	number	|	Дата/время срабатывания защиты счета		|
-Target	|	real	|	Целевая доходность (numeric (8,3))		|
-TargetEquity	|	real	|	Целевая доходность в валюте счета		|
-TargetReached	|	number	|	Дата/время достижения целевой доходности		|
-Positions	|	number	|	Количество открытых		|
-AccountMinBalance	|	real	|	Минимальный баланс счета		|
-AvailableToWithdraw	|	real	|	Средства, доступные к выводу		|
-FeePaid	|	real	|	Выплаченное вознаграждение		|
-FeeToPay	|	real	|	Невыплаченное вознаграждение		|
-****Offer (вложенная структура)****
-ID	|	number	|	ID оферты счета		|
-FeeRate	|	real	|	Вознаграждение с прибыли (numeric (3,2))		|
-CommissionRate	|	number	|	Размер комиссии в долларах на млн оборота в долларах 		|
-****Chart (вложенный массив)****
-Yield	|	real	|	Прибыль в долях	|
+ID	|	number	|	ID счета	|
+DT	|	datetime	|	Дата создания
+State	|	number	|	[Состояние счета](#Значения-AccountState)	|
+Balance	|	real	|	Баланс счета
+Equity	|	real	|	Эквити
+Asset	|	string	|	Название валюты депозита
+Profit	|	real	|	Прибыль по счету |
+PositionsCount |	number	|	Количество открытых позиций |
 
 **Пример вызова:**
 ```json
