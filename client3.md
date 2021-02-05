@@ -128,20 +128,8 @@ API может возвращать различные ошибки в след�
 
 Значение|Расшифровка
 ---------|----------
-0	|	new	|
-1	|	(not used)	|
 2	|	active, no positions	|
 3	|	active, with positions	|
-4	|	margin call, with positions	|
-5	|	margin call, no positions	|
-6	|	protection, with positions	|
-7	|	protection, no positions	|
-8	|	target, with positions	|
-9	|	target, no positions	|
-10	|	pause, with positions	|
-11	|	pause, no positions	|
-12	|	disabled, with positions	|
-13	|	disabled, no positions	|
 14	|	closed, with positions	|
 15	|	closed, no positions	|
 
