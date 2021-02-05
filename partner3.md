@@ -1,4 +1,4 @@
-# RAMM.STORE Partner API Documentation
+# RAMM.STORE Partner3 API Documentation
 ### Содержание
 * [Выполнение запросов](#Выполнение-запросов)
 * [Получение данных](#Получение-данных)
@@ -102,7 +102,7 @@ DTClosed |	datetime	|	Дата закрытия. Передается тольк
 Поле | Тип | Описание 
 :--------|----------|----------
 Name	|	string	|	Подстрока поиска по названию стратегии	|
-Type |	string	|	Варианты: Portfolios, Ideas, Bets	| 
+Type |	string	|	Варианты: Simple, Advanced	| 
 DTVideoFrom |	datetime	|	дата видео не раньше указанного времени |
 Tag |	string	|	Таг (например, "MSFT")	|
 
@@ -122,7 +122,7 @@ DTVideo |	datetime	|	дата обновления видео |
 ***Strategies***
 ID	|	number	|	ID стратегии		|
 Name	|	string	|	Название стратегии (Varchar(64))		|
-Type |	string	|	Тип стратегии ( Portfolio, Idea, Bet )		|
+Type |	string	|	Тип стратегии ( Simple, Advanced )		|
 DTVideo	|	datetime	|	Дата последнего обновления видео		|
 Youtube	|	string	|	ссылка на YouTube		|
 ***Tags (вложенный массив)***
