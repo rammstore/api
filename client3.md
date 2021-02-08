@@ -758,50 +758,28 @@ PositionsCount |	number	|	Количество открытых позиций |
 :--------|----------|----------
 Name	|	string	|	Название стратегии	|
 Type	|	string	|	Варианты: Simple, Advanced	|
-PotentialYield |	real	| Потенциальная прибыль в долях |
-PotentialRisk	| real	| Потенциальный риск в долях |
-FactorMax	| number |	Максимальное значение повышающего коэффициента |
 Youtube	| string	| ссылка на YouTube |
-****Description (вложенная структура)****		
-{Lang}	| string	| Язык |
-{Value}	| string	| Описание |
-****Account (вложенная структура)****
-Protection	|	real	|	Процент защиты счета	|
-Target	|	real	|	Целевая доходность	|
-Money	|	real	|	Сумма на собственном счете трейдера	|
 
 **Возвращаемые данные:**
 
-Возвращаемые данные - ID стратегии, счета трейдра и команды на пополнение. После создания стратегии нужно создать оферту и, если требуется, сделать ее публичной.
+Возвращаемые данные - ID стратегии.
 
 Параметр | Тип | Описание 
 ---------|----------|----------
 StrategyID | number	|	ID стратегии	| 
-AccountID | number	|	ID счета трейдера	| 
-AccountCommandID	|	number	|	ID команды на пополнение счета трейдера	|
 
 **Пример вызова:**
 ```json
 {
-    "Name": "TestF1611084553",
+    "Name": "MSFT x1 buy market",
     "Type": "Simple",
-    "FactorMax": 2,
-    "PotentialYield": 1.11,
-    "PotentialRisk": 0.22,
-    "Youtube": "bH41TOREHVg",
-    "Account": {
-        "Protection": 0.22,
-        "Target": 1.11,
-        "Money": 1000
-    }
+    "Youtube": "bH41TOREHVg"
 }
 ```
 **Пример ответа:**
 ```json
 {
-    "StrategyID": 12345,
-    "AccountID": 654321,
-    "AcountCommandID": 7654321
+    "StrategyID": 12345
 }
 ```
 
