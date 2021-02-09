@@ -632,49 +632,49 @@ PrecisionVolume	|	number	|	Количество знаков после запя
         "Balance": 3000,
         "Equity": 3123.45,
         "Asset": "USD",
-        "Profit": 123.45,
-        "Positions": [
-            {
-                "ID": 13912,
-                "Symbol": "EURUSD",
-                "Volume": 0.0388,
-                "Price": 1.08673,
-                "Margin": 83.97,
-                "Swap": 0,
-                "Profit": -18.39,
-                "TotalProfit": -18.39,
-                "ProfitCalcQuote": 1.08199,
-                "PrecisionPrice": 6,
-                "PrecisionVolume": 4
-            }
-        ],
-        "Deals": [
-            {
-                "ID": 246529,
-                "DT": "2020-03-24T10:52:45.637",
-                "Type": 2,
-                "Commission": 0,
-                "Profit": 500,
-                "Swap": 0,
-                "TotalProfit": 500
-            },
-            {
-                "ID": 246535,
-                "DT": "2020-03-24T11:36:34.063",
-                "Type": 0,
-                "Symbol": "EURUSD",
-                "Volume": 0.0388,
-                "Price": 1.08673,
-                "Commission": 0.08,
-                "Entry": 0,
-                "Profit": 0,
-                "Swap": 0,
-                "TotalProfit": -0.08,
-                "PrecisionPrice": 6,
-                "PrecisionVolume": 4
-            }
-        ]
-    }
+        "Profit": 123.45
+    },
+    "Positions": [
+        {
+            "ID": 13912,
+            "Symbol": "EURUSD",
+            "Volume": 0.0388,
+            "Price": 1.08673,
+            "Margin": 83.97,
+            "Swap": 0,
+            "Profit": -18.39,
+            "TotalProfit": -18.39,
+            "ProfitCalcQuote": 1.08199,
+            "PrecisionPrice": 6,
+            "PrecisionVolume": 4
+        }
+    ],
+    "Deals": [
+        {
+            "ID": 246529,
+            "DT": "2020-03-24T10:52:45.637",
+            "Type": 2,
+            "Commission": 0,
+            "Profit": 500,
+            "Swap": 0,
+            "TotalProfit": 500
+        },
+        {
+            "ID": 246535,
+            "DT": "2020-03-24T11:36:34.063",
+            "Type": 0,
+            "Symbol": "EURUSD",
+            "Volume": 0.0388,
+            "Price": 1.08673,
+            "Commission": 0.08,
+            "Entry": 0,
+            "Profit": 0,
+            "Swap": 0,
+            "TotalProfit": -0.08,
+            "PrecisionPrice": 6,
+            "PrecisionVolume": 4
+        }
+    ]
 }
 ```
 [Вернуться к содержанию](#Содержание)
@@ -823,49 +823,49 @@ PrecisionVolume	|	number	|	Количество знаков после запя
                 "Balance": 3000,
                 "Equity": 3123.45,
                 "Asset": "USD",
-                "Profit": 123.45,
-                "Positions": [
-                    {
-                        "ID": 13912,
-                        "Symbol": "EURUSD",
-                        "Volume": 0.0388,
-                        "Price": 1.08673,
-                        "Margin": 83.97,
-                        "Swap": 0,
-                        "Profit": -18.39,
-                        "TotalProfit": -18.39,
-                        "ProfitCalcQuote": 1.08199,
-                        "PrecisionPrice": 6,
-                        "PrecisionVolume": 4
-                    }
-                ],
-                "Deals": [
-                    {
-                        "ID": 246529,
-                        "DT": "2020-03-24T10:52:45.637",
-                        "Type": 2,
-                        "Commission": 0,
-                        "Profit": 500,
-                        "Swap": 0,
-                        "TotalProfit": 500
-                    },
-                    {
-                        "ID": 246535,
-                        "DT": "2020-03-24T11:36:34.063",
-                        "Type": 0,
-                        "Symbol": "EURUSD",
-                        "Volume": 0.0388,
-                        "Price": 1.08673,
-                        "Commission": 0.08,
-                        "Entry": 0,
-                        "Profit": 0,
-                        "Swap": 0,
-                        "TotalProfit": -0.08,
-                        "PrecisionPrice": 6,
-                        "PrecisionVolume": 4
-                    }
-                ]
-            }
+                "Profit": 123.45
+            },
+            "Positions": [
+                {
+                    "ID": 13912,
+                    "Symbol": "EURUSD",
+                    "Volume": 0.0388,
+                    "Price": 1.08673,
+                    "Margin": 83.97,
+                    "Swap": 0,
+                    "Profit": -18.39,
+                    "TotalProfit": -18.39,
+                    "ProfitCalcQuote": 1.08199,
+                    "PrecisionPrice": 6,
+                    "PrecisionVolume": 4
+                }
+            ],
+            "Deals": [
+                {
+                    "ID": 246529,
+                    "DT": "2020-03-24T10:52:45.637",
+                    "Type": 2,
+                    "Commission": 0,
+                    "Profit": 500,
+                    "Swap": 0,
+                    "TotalProfit": 500
+                },
+                {
+                    "ID": 246535,
+                    "DT": "2020-03-24T11:36:34.063",
+                    "Type": 0,
+                    "Symbol": "EURUSD",
+                    "Volume": 0.0388,
+                    "Price": 1.08673,
+                    "Commission": 0.08,
+                    "Entry": 0,
+                    "Profit": 0,
+                    "Swap": 0,
+                    "TotalProfit": -0.08,
+                    "PrecisionPrice": 6,
+                    "PrecisionVolume": 4
+                }
+            ]
         }
     ]
 }
