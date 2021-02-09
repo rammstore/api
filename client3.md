@@ -580,8 +580,32 @@ Balance	|	real	|	Баланс счета
 Equity	|	real	|	Эквити
 Asset	|	string	|	Название валюты депозита
 Profit	|	real	|	Прибыль по счету |
-PositionsCount |	number	|	Количество открытых позиций |
-
+***Positions (вложенный массив)***
+ID	|	number	|	ID позиции
+Symbol	|	string	|	Название инструмента
+Volume	|	real	|	Открытый объем
+Price	|	real	|	Средняя цена открытия
+Swap	|	real	|	Накопленный своп
+Profit	|	real	|	Прибыль/убыток без учета свопа
+TotalProfit	|	real	|	Прибыль/убыток с учетом свопа
+ProfitCalcQuote	|	real	|	Котировка, по которой вычислялась прибыль
+PrecisionPrice	|	number	|	Количество знаков после запятой при выводе цены
+PrecisionVolume	|	number	|	Количество знаков после запятой при выводе объема
+***Deals (вложенный массив)***
+ID	|	number	|	ID сделки
+DT	|	datetime	|	Дата/время создания сделки
+Type	|	number	|	См. выше в "Константах"
+Symbol	|	string	|	Название инструмента
+Volume	|	real	|	Объем сделки
+VolumeClosed	|	real	|	Объем закрытия (для сделок Out и InOut)
+Price	|	real	|	Средняя цена
+Commission	|	real	|	Суммарная комиссия
+Entry	|	number	|	0 - In, 1 - Out, 2 - InOut
+Profit	|	real	|	Прибыль/убыток по сделке (без учета комиссий и свопов)
+Swap	|	real	|	Своп
+TotalProfit	|	real	|	Прибыль/убыток по сделке (с учетом комиссий и свопов)
+PrecisionPrice	|	number	|	Количество знаков после запятой при выводе цены
+PrecisionVolume	|	number	|	Количество знаков после запятой при выводе объема
 **Пример вызова:**
 ```json
 {
@@ -606,11 +630,51 @@ PositionsCount |	number	|	Количество открытых позиций |
         "ID": 4545,
         "DT": "2020-01-14T09:58:04.403",
         "State": 2,
-        "Balance": 3000.00,
+        "Balance": 3000,
         "Equity": 3123.45,
         "Asset": "USD",
         "Profit": 123.45,
-        "PositionsCount": 1
+        "Positions": [
+            {
+                "ID": 13912,
+                "Symbol": "EURUSD",
+                "Volume": 0.0388,
+                "Price": 1.08673,
+                "Margin": 83.97,
+                "Swap": 0,
+                "Profit": -18.39,
+                "TotalProfit": -18.39,
+                "ProfitCalcQuote": 1.08199,
+                "PrecisionPrice": 6,
+                "PrecisionVolume": 4
+            }
+        ],
+        "Deals": [
+            {
+                "ID": 246529,
+                "DT": "2020-03-24T10:52:45.637",
+                "Type": 2,
+                "Commission": 0,
+                "Profit": 500,
+                "Swap": 0,
+                "TotalProfit": 500
+            },
+            {
+                "ID": 246535,
+                "DT": "2020-03-24T11:36:34.063",
+                "Type": 0,
+                "Symbol": "EURUSD",
+                "Volume": 0.0388,
+                "Price": 1.08673,
+                "Commission": 0.08,
+                "Entry": 0,
+                "Profit": 0,
+                "Swap": 0,
+                "TotalProfit": -0.08,
+                "PrecisionPrice": 6,
+                "PrecisionVolume": 4
+            }
+        ]
     }
 }
 ```
@@ -672,7 +736,32 @@ Balance	|	real	|	Баланс счета
 Equity	|	real	|	Эквити
 Asset	|	string	|	Название валюты депозита
 Profit	|	real	|	Прибыль по счету |
-PositionsCount |	number	|	Количество открытых позиций |
+***Positions (вложенный массив)***
+ID	|	number	|	ID позиции
+Symbol	|	string	|	Название инструмента
+Volume	|	real	|	Открытый объем
+Price	|	real	|	Средняя цена открытия
+Swap	|	real	|	Накопленный своп
+Profit	|	real	|	Прибыль/убыток без учета свопа
+TotalProfit	|	real	|	Прибыль/убыток с учетом свопа
+ProfitCalcQuote	|	real	|	Котировка, по которой вычислялась прибыль
+PrecisionPrice	|	number	|	Количество знаков после запятой при выводе цены
+PrecisionVolume	|	number	|	Количество знаков после запятой при выводе объема
+***Deals (вложенный массив)***
+ID	|	number	|	ID сделки
+DT	|	datetime	|	Дата/время создания сделки
+Type	|	number	|	См. выше в "Константах"
+Symbol	|	string	|	Название инструмента
+Volume	|	real	|	Объем сделки
+VolumeClosed	|	real	|	Объем закрытия (для сделок Out и InOut)
+Price	|	real	|	Средняя цена
+Commission	|	real	|	Суммарная комиссия
+Entry	|	number	|	0 - In, 1 - Out, 2 - InOut
+Profit	|	real	|	Прибыль/убыток по сделке (без учета комиссий и свопов)
+Swap	|	real	|	Своп
+TotalProfit	|	real	|	Прибыль/убыток по сделке (с учетом комиссий и свопов)
+PrecisionPrice	|	number	|	Количество знаков после запятой при выводе цены
+PrecisionVolume	|	number	|	Количество знаков после запятой при выводе объема
 
 **Пример вызова:**
 ```json
@@ -736,7 +825,47 @@ PositionsCount |	number	|	Количество открытых позиций |
                 "Equity": 3123.45,
                 "Asset": "USD",
                 "Profit": 123.45,
-                "PositionsCount": 1
+                "Positions": [
+                    {
+                        "ID": 13912,
+                        "Symbol": "EURUSD",
+                        "Volume": 0.0388,
+                        "Price": 1.08673,
+                        "Margin": 83.97,
+                        "Swap": 0,
+                        "Profit": -18.39,
+                        "TotalProfit": -18.39,
+                        "ProfitCalcQuote": 1.08199,
+                        "PrecisionPrice": 6,
+                        "PrecisionVolume": 4
+                    }
+                ],
+                "Deals": [
+                    {
+                        "ID": 246529,
+                        "DT": "2020-03-24T10:52:45.637",
+                        "Type": 2,
+                        "Commission": 0,
+                        "Profit": 500,
+                        "Swap": 0,
+                        "TotalProfit": 500
+                    },
+                    {
+                        "ID": 246535,
+                        "DT": "2020-03-24T11:36:34.063",
+                        "Type": 0,
+                        "Symbol": "EURUSD",
+                        "Volume": 0.0388,
+                        "Price": 1.08673,
+                        "Commission": 0.08,
+                        "Entry": 0,
+                        "Profit": 0,
+                        "Swap": 0,
+                        "TotalProfit": -0.08,
+                        "PrecisionPrice": 6,
+                        "PrecisionVolume": 4
+                    }
+                ]
             }
         }
     ]
