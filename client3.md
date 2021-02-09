@@ -567,7 +567,6 @@ Name	|	string	|	Название стратегии (Varchar(64))		|
 Type |	string	|	Тип стратегии ( Simple, Advanced )		|
 DTVideo	|	datetime	|	Дата последнего обновления видео		|
 Youtube	|	string	|	ссылка на YouTube		|
-IsMyStrategy	|	bool	|	Признак собственной стратегии	|
 State	|	string	|	Состояние стратегии (Active, Hidden, Closed)		|
 DTClosed |	datetime	|	Дата закрытия. Передается только когда стратегия закрыта.		|
 ***Tags (вложенный массив)***
