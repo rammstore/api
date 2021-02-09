@@ -877,7 +877,7 @@ PrecisionVolume	|	number	|	Количество знаков после запя
 ### Собственные стратегии клиента
 #### myStrategies.add
 
-Создание клиентом новой стратегии.
+Создание новой стратегии.
 
 **URL:** `https://ramm.store/api/client/v3/myStrategies.add`
 
@@ -885,9 +885,8 @@ PrecisionVolume	|	number	|	Количество знаков после запя
 
 Поле | Тип | Описание 
 :--------|----------|----------
-Name	|	string	|	Название стратегии	|
-Type	|	string	|	Варианты: Simple, Advanced	|
 Youtube	| string	| ссылка на YouTube |
+Command	|	string	|	Торговая команда	|
 
 **Возвращаемые данные:**
 
@@ -900,9 +899,8 @@ StrategyID | number	|	ID стратегии	|
 **Пример вызова:**
 ```json
 {
-    "Name": "MSFT x1 buy market",
-    "Type": "Simple",
-    "Youtube": "bH41TOREHVg"
+    "Youtube": "bH41TOREHVg",
+    "Name": "{"Name":"MSFT","market buy":{"x":1}}",
 }
 ```
 **Пример ответа:**
