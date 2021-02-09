@@ -900,7 +900,7 @@ StrategyID | number	|	ID стратегии	|
 ```json
 {
     "Youtube": "bH41TOREHVg",
-    "Name": "{"Name":"MSFT","market buy":{"x":1}}",
+    "Command": {"Name":"MSFT","market buy":{"x":1}}
 }
 ```
 **Пример ответа:**
