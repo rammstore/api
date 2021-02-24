@@ -12,6 +12,7 @@
         * [session.login](#sessionlogin)
         * [session.logout](#sessionlogout)
         * [password.set](#passwordset)
+        * [otp.get](#otpget)
     * [Общая информация о клиенте](#Общая-информация-о-клиенте)
         * [statistic.get](#statisticget)        
     * [Спецификации](#Спецификации)
