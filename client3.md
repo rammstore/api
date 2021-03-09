@@ -717,9 +717,7 @@ PrecisionVolume	|	number	|	Количество знаков после запя
 SearchMode |	string	| Обязательное поле. Режим поиска (Rating, MyActiveStrategies, MyClosedStrategies, MyActiveAccounts)	|
 Name	|	string	|	Подстрока поиска	|
 Type |	string	|	Варианты: Simple, Advanced	| 
-AgeMin |	number	|	минимальный возраст в днях |
-DealsMin |	number	|	минимальное количество сделок |
-YieldMin |	real	|	минимальная доходность |
+IDMax |	number	|	максимальный номер стратегии |
 
 Допустимые поля для секции OrderBy:	
 Поле | Тип | Описание 
