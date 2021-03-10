@@ -1965,6 +1965,14 @@ Balance	|	real	|	Сумма в кошельке
 Invested	|	real	|	Инвестированная сумма
 Margin	|	real	|	Задействованная маржа
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
+***Account (вложенная структура)***
+ID	|	number	|	ID счета	|
+DT	|	datetime	|	Дата создания
+State	|	number	|	[Состояние счета](#Значения-AccountState)	|
+Balance	|	real	|	Баланс счета
+Equity	|	real	|	Эквити
+Asset	|	string	|	Название валюты депозита
+Profit	|	real	|	Прибыль по счету |
 ***PositionsTotal***
 Profit	|	real	|	Прибыль
 TotalProfit	|	real	|	Суммарная прибыль
@@ -2021,6 +2029,15 @@ PrecisionVolume	|	number	|	Количество знаков после запя
             "IntervalPnL": -18.01
         }
     ],
+    "Account": {
+        "ID": 4545,
+        "DT": "2020-01-14T09:58:04.403",
+        "State": 2,
+        "Balance": 3000,
+        "Equity": 3123.45,
+        "Asset": "USD",
+        "Profit": 123.45
+    },    
     "PositionsTotal": {
             "Profit": -18.39,
             "TotalProfit": -18.39,
@@ -2079,6 +2096,14 @@ Balance	|	real	|	Сумма в кошельке
 Invested	|	real	|	Инвестированная сумма
 Margin	|	real	|	Задействованная маржа
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
+***Account (вложенная структура)***
+ID	|	number	|	ID счета	|
+DT	|	datetime	|	Дата создания
+State	|	number	|	[Состояние счета](#Значения-AccountState)	|
+Balance	|	real	|	Баланс счета
+Equity	|	real	|	Эквити
+Asset	|	string	|	Название валюты депозита
+Profit	|	real	|	Прибыль по счету |
 ***DealsTotal***
 Profit	|	real	|	Прибыль
 TotalProfit	|	real	|	Суммарная прибыль
@@ -2145,6 +2170,15 @@ Netting	|	number	|	признак неттинговой сделки
             "IntervalPnL": -37.29
         }
     ],
+    "Account": {
+        "ID": 4545,
+        "DT": "2020-01-14T09:58:04.403",
+        "State": 2,
+        "Balance": 3000,
+        "Equity": 3123.45,
+        "Asset": "USD",
+        "Profit": 123.45
+    },    
     "DealsTotal": [
         {
             "Profit": 462.87,
