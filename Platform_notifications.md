@@ -1,17 +1,17 @@
 # Список событий платформы RAMM
 
 * [event_deal_create](#event_deal_create)
-* [event_investment_close]
-* [event_investment_create]
-* [event_investment_in]
-* [event_investment_out]
-* [event_investment_pause]
-* [event_investment_start]
-* [event_strategy_close]
-* [event_strategy_create]
-* [event_wallet_create]
-* [event_wallet_in]
-* [event_wallet_out]
+* [event_investment_close](#event_investment_close)
+* [event_investment_create](#event_investment_create)
+* [event_investment_in](#event_investment_in)
+* [event_investment_out](#event_investment_out)
+* [event_investment_pause](#event_investment_pause)
+* [event_investment_start](#event_investment_start)
+* [event_strategy_close](#event_strategy_close)
+* [event_strategy_create](#event_strategy_create)
+* [event_wallet_create](#event_wallet_create)
+* [event_wallet_in](#event_wallet_in)
+* [event_wallet_out](#event_wallet_out)
 
 ## События
 
@@ -93,3 +93,31 @@
 Закрытие инвестиции
 
 **Возвращаемые данные**
+```json
+{
+  "type": "event_investment_close",
+  "sent_at": "2021-03-22T10:17:55.980",
+  "uuid": "D394B6A4-D780-4E68-811E-39805C99648E",
+  "publisher": "ramm",
+  "version": "1",
+  "data": {
+    "client": {
+      "id": 158
+    },
+    "strategy": {
+      "id": 1,
+      "name": "Best Technologies"
+    },
+    "account": {
+      "id": 1004788,
+      "balance": 0,
+      "equity": 0,
+      "dt": "2021-03-22T08:23:16.343",
+      "margin": 0,
+      "state": 15,
+      "status": 6
+    }
+  }
+}
+```
+### 
