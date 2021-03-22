@@ -218,3 +218,67 @@
   }
 }
 ```
+### event_investment_pause
+
+**Постановка инвестиции на паузу**
+
+**Возвращаемые данные:**
+```json
+{
+  "type": "event_investment_pause",
+  "sent_at": "2021-01-21T10:09:38.483",
+  "uuid": "7C5FA86D-40AE-4345-9FEF-BFF1DEDB8152",
+  "publisher": "ramm",
+  "version": "1",
+  "data": {
+    "client": {
+      "id": 158
+    },
+    "strategy": {
+      "id": 2175,
+      "name": "Best Technologies"
+    },
+    "account": {
+      "id": 1004187,
+      "balance": 579.18,
+      "equity": 605.95,
+      "dt": "2021-01-21T20:04:57.533",
+      "margin": 17.33,
+      "state": 3,
+      "status": 1
+    }
+  }
+}
+```
+### event_investment_start
+
+**Снятие инвестиции с паузы**
+
+**Возвращаемые данные:**
+```json
+{
+  "type": "event_investment_start",
+  "sent_at": "2021-01-21T10:39:33.853",
+  "uuid": "CBC6817D-15E8-468F-A9FE-2B9F84C3B759",
+  "publisher": "ramm",
+  "version": "1",
+  "data": {
+    "client": {
+      "id": 158
+    },
+    "strategy": {
+      "id": 2175,
+      "name": "Best Technologies"
+    },
+    "account": {
+      "id": 1004187,
+      "balance": 405.93,
+      "equity": 405.93,
+      "dt": "2021-01-21T20:04:57.533",
+      "margin": 0,
+      "state": 11,
+      "status": 4
+    }
+  }
+}
+```
