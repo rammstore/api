@@ -44,7 +44,7 @@
       "type": 0,
       "volume": 0.01,
       "price": 1732.4,
-      "dtexecuted": "2021-03-22T10:39:35.057",
+      "dtexecuted": "2021-01-21T10:39:35.057",
       "commissionbroker": 0,
       "commissionliquidity": 0.02,
       "commissiontrader": 0,
@@ -64,7 +64,7 @@
 ```json
 {
   "type": "event_deal_create",
-  "sent_at": "2021-03-19T14:50:24.010",
+  "sent_at": "2021-01-21T14:50:24.010",
   "uuid": "FDF0FF74-0A52-4007-B54A-0CA672C7E91B",
   "publisher": "ramm",
   "version": "1",
@@ -96,7 +96,7 @@
 ```json
 {
   "type": "event_investment_close",
-  "sent_at": "2021-03-22T10:17:55.980",
+  "sent_at": "2021-01-21T10:17:55.980",
   "uuid": "D394B6A4-D780-4E68-811E-39805C99648E",
   "publisher": "ramm",
   "version": "1",
@@ -112,7 +112,7 @@
       "id": 1004788,
       "balance": 0,
       "equity": 0,
-      "dt": "2021-03-22T08:23:16.343",
+      "dt": "2021-01-21T08:23:16.343",
       "margin": 0,
       "state": 15,
       "status": 6
@@ -120,4 +120,99 @@
   }
 }
 ```
-### 
+### event_investment_create
+
+Создание инвестиции
+
+**Возвращаемые данные**
+```json
+{
+  "type": "event_investment_create",
+  "sent_at": "2021-01-21T08:23:16.343",
+  "uuid": "EDA4A76C-FE46-464F-9CC9-8F4F72C4EADE",
+  "publisher": "ramm",
+  "version": "1",
+  "data": {
+    "сlient": {
+      "id": 158
+    },
+    "strategy": {
+      "id": 1,
+      "name": "Best Technologies"
+    },
+    "account": {
+      "id": 1004788,
+      "balance": 0,
+      "equity": 0,
+      "dt": "2021-01-212T08:23:16.343",
+      "margin": 0,
+      "state": 0,
+      "status": 0
+    }
+  }
+}
+```
+### event_investment_in
+
+Пополнение средств инвестиции
+**Возвращаемые данные**
+```json
+{
+  "type": "event_investment_in",
+  "sent_at": "2021-01-21T08:23:16.390",
+  "uuid": "9AB7C768-8063-40B6-BEA7-7F134007A225",
+  "publisher": "ramm",
+  "version": "1",
+  "data": {
+    "client": {
+      "id": 158
+    },
+    "strategy": {
+      "id": 1,
+      "name": "Best Technologies"
+    },
+    "account": {
+      "id": 1004788,
+      "balance": 0,
+      "equity": 0,
+      "dt": "2021-01-21T08:23:16.343",
+      "margin": 0,
+      "state": 0,
+      "status": 0
+    },
+    "amount": 2800.74
+  }
+}
+```
+### event_investment_out
+
+Частичный вывод средств из инвестиции
+**Возвращаемые данные**
+```json
+{
+  "type": "event_investment_out",
+  "sent_at": "2021-01-21T10:10:08.270",
+  "uuid": "C59E9AFA-8D86-4412-A6CA-EA79AC4482F0",
+  "publisher": "ramm",
+  "version": "1",
+  "data": {
+    "client": {
+      "id": 158
+    },
+    "strategy": {
+      "id": 1,
+      "name": "Best Technologies"
+    },
+    "account": {
+      "id": 1004187,
+      "balance": 605.93,
+      "equity": 605.93,
+      "dt": "2021-01-21T20:04:57.533",
+      "margin": 0,
+      "state": 11,
+      "status": 4
+    },
+    "amount": 200
+  }
+}
+```
