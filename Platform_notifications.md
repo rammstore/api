@@ -282,3 +282,129 @@
   }
 }
 ```
+### event_strategy_close
+
+**Закрытие стратегии**
+
+**Возвращаемые данные:**
+```json
+{
+  "type": "event_strategy_close",
+  "sent_at": "2021-03-22T10:17:55.010",
+  "uuid": "CEAFF01B-679D-4A85-877C-6347D02A2DBE",
+  "publisher": "ramm",
+  "version": "1",
+  "data": {
+    "client": {
+      "id": 158
+    },
+    "strategy": {
+      "id": 1,
+      "name": "Best Technologies"
+    }
+  }
+}
+```
+### event_strategy_create
+**Создание стратегии**
+
+**Возвращаемые данные:**
+```json
+{
+  "type": "event_strategy_create",
+  "sent_at": "2021-01-21T10:18:31.517",
+  "uuid": "312B2FDD-D006-4DE8-9674-A36D4891D95F",
+  "publisher": "ramm",
+  "version": "1",
+  "data": {
+    "client": {
+      "id": 158
+    },
+    "strategy": {
+      "id": 5180,
+      "name": "Best Technologies"
+    }
+  }
+}
+```
+### event_wallet_create
+
+**Создание кошелька (клиента)**
+
+**Возвращаемые данные:**
+```json
+{
+  "type": "event_wallet_create",
+  "sent_at": "2021-01-21T10:01:24.903",
+  "uuid": "A885E0D3-ACD3-44EE-8C0D-17A7BC647269",
+  "publisher": "ramm",
+  "version": "1",
+  "data": {
+    "client": {
+      "id": 158
+    },
+    "wallet": {
+      "id": 158,
+      "dt": "2021-01-21T10:01:24.903",
+      "balance": 0,
+      "invested": 0
+    }
+  }
+}
+```
+### event_wallet_in
+
+**Пополнение кошелька**
+
+balance - баланс до пополнения, amount - сумма пополнения
+
+**Возвращаемые данные:**
+```json
+{
+  "type": "event_wallet_in",
+  "sent_at": "2021-01-21T10:17:56.887",
+  "uuid": "B1A8EA44-F39F-4486-810D-5C81C0D3580A",
+  "publisher": "ramm",
+  "version": "1",
+  "data": {
+    "client": {
+      "id": 1581
+    },
+    "wallet": {
+      "id": 158,
+      "dt": "2021-01-21T07:57:43.897",
+      "balance": 26922.64,
+      "invested": 3871.02
+    },
+    "amount": 10608.61
+  }
+}
+```
+### event_wallet_out
+
+**Снятие денег с кошелька**
+
+balance - баланс до снятия, amount - сумма снятия
+
+**Возвращаемые данные:**
+```json
+{
+  "type": "event_wallet_out",
+  "sent_at": "2021-01-21T08:23:16.343",
+  "uuid": "DF12AA0A-3607-402F-95F3-140E0D27B28A",
+  "publisher": "ramm",
+  "version": "1",
+  "data": {
+    "client": {
+      "id": 158
+    },
+    "wallet": {
+      "id": 158,
+      "dt": "2021-01-21T13:21:15.377",
+      "balance": 29430.74,
+      "invested": 10197.83
+    },
+    "amount": 2800.31
+  }
+}
+```
