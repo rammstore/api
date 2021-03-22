@@ -1,6 +1,6 @@
 # Список событий платформы RAMM
 
-* [event_deal_create]
+* [event_deal_create](#event_deal_create)
 * [event_investment_close]
 * [event_investment_create]
 * [event_investment_in]
@@ -58,6 +58,7 @@
 }
 ```
 ***- перевод денег***
+Отрицательное значение profit говорит о том, что это перевод с инвестиции на кошелёк.
 ```json
 {
   "type": "event_deal_create",
