@@ -235,7 +235,7 @@
       "id": 158
     },
     "strategy": {
-      "id": 2175,
+      "id": 1,
       "name": "Best Technologies"
     },
     "account": {
@@ -267,7 +267,7 @@
       "id": 158
     },
     "strategy": {
-      "id": 2175,
+      "id": 1,
       "name": "Best Technologies"
     },
     "account": {
@@ -321,7 +321,7 @@
       "id": 158
     },
     "strategy": {
-      "id": 5180,
+      "id": 1,
       "name": "Best Technologies"
     }
   }
