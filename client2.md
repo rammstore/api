@@ -1472,6 +1472,7 @@ TotalCommissionTrader	|	real	|	Общая сумма комиссии трейд
 FeeToPay	|	real	|	Невыплаченное вознаграждение	|
 TotalProfitNet	|	real	|	Суммарная чистая прибыль	|
 IsMyAccount	|	boolean	|	Признак собственного счета	|
+ClientID | number | ID клиента|
 
 **Пример вызова:**
 ```json
@@ -1509,7 +1510,8 @@ IsMyAccount	|	boolean	|	Признак собственного счета	|
             "TotalCommissionTrader": 5,
             "FeeToPay": 7.93,
             "TotalProfitNet": 56.45,
-            "IsMyAccount": 1
+            "IsMyAccount": 1,
+            "ClientID": 158
         }
     ]
 }
@@ -1548,6 +1550,7 @@ FeePaid	|	real	|	Выплаченное вознаграждение
 TotalCommissionTrader	|	real	|	Общая сумма комиссии трейдера
 TotalProfitNet	|	real	|	Суммарная чистая прибыль
 IsMyAccount	|	boolean	|	Признак своего счета
+ClientID | number | ID клиента
 
 **Пример вызова:**
 ```json
@@ -1582,7 +1585,8 @@ IsMyAccount	|	boolean	|	Признак своего счета
             "FeePaid": 10,
             "TotalCommissionTrader": 5,
             "TotalProfitNet": 56.45,
-            "IsMyAccount": false
+            "IsMyAccount": false,
+            "ClientID": 158
         }
     ]
 }
