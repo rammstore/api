@@ -192,6 +192,7 @@ ID|number|ID стратегии
 Name|string|Имя стратегии
 Yield|real|Прибыль, в долях от стартового баланса
 MonthlyYield|real|Среднемесячная прибыль, в долях от стартового баланса
+AgeByDays|number|Возраст в днях
 Fee|real|Размер вознаграждения
 Commission|real|Размер комиссии
 Accounts|number|Количество инвестиций
@@ -215,6 +216,7 @@ Status|number|0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
         "Name": "TEST1",
         "Yield": 0.1,
         "MonthlyYield": 0.05,
+        "AgeByDays": 158,
         "Fee": 0.25,
         "Commission": 0.00001,
         "Accounts": 12,
