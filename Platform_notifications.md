@@ -367,7 +367,8 @@ balance - баланс инвестиции до вывода средств, am
   "version": "1",
   "data": {
     "client": {
-      "id": 158
+      "id": 158,
+      "email": "test@test.com"
     },
     "wallet": {
       "id": 158,
