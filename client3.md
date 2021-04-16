@@ -588,6 +588,7 @@ Name	|	string	|	Название стратегии (Varchar(64))		|
 Type |	string	|	Тип стратегии ( Simple, Advanced )		|
 DTVideo	|	datetime	|	Дата последнего обновления видео		|
 Youtube	|	string	|	ссылка на YouTube		|
+LeverageMax |	number	|	Максимальное плечо
 State	|	string	|	Состояние стратегии (Active, Hidden, Closed)		|
 DTClosed |	datetime	|	Дата закрытия. Передается только когда стратегия закрыта.		|
 ***Tags (вложенный массив)***
@@ -600,6 +601,7 @@ Balance	|	real	|	Баланс счета
 Equity	|	real	|	Эквити
 Asset	|	string	|	Название валюты депозита
 Profit	|	real	|	Прибыль по счету |
+Leverage |	number	|	Заданное плечо
 ***Positions (вложенный массив)***
 ID	|	number	|	ID позиции
 Symbol	|	string	|	Название инструмента
@@ -640,6 +642,7 @@ PrecisionVolume	|	number	|	Количество знаков после запя
     "Type": "Simple",
     "DTVideo": "2018-09-21T12:10:18",
     "Youtube": "BERFDOJK8",
+    "LeverageMax": 10,
     "State": "Active",
     "Tags": [
         "MSFT",
@@ -653,7 +656,8 @@ PrecisionVolume	|	number	|	Количество знаков после запя
         "Balance": 3000,
         "Equity": 3123.45,
         "Asset": "USD",
-        "Profit": 123.45
+        "Profit": 123.45,
+        "Leverage": 1
     },
     "Positions": [
         {
@@ -745,6 +749,7 @@ Name	|	string	|	Название стратегии (Varchar(64))		|
 Type |	string	|	Тип стратегии ( Simple, Advanced )		|
 DTVideo	|	datetime	|	Дата последнего обновления видео		|
 Youtube	|	string	|	ссылка на YouTube		|
+LeverageMax |	number	|	Максимальное плечо
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
 ****Account (вложенная структура)****
 ID	|	number	|	ID счета	|
@@ -753,7 +758,8 @@ State	|	number	|	[Состояние счета](#Значения-AccountState)
 Balance	|	real	|	Баланс счета
 Equity	|	real	|	Эквити
 Asset	|	string	|	Название валюты депозита
-Profit	|	real	|	Прибыль по счету |
+Profit	|	real	|	Прибыль по счету 
+Leverage |	number	|	Заданное плечо 
 ***Positions (вложенный массив)***
 ID	|	number	|	ID позиции
 Symbol	|	string	|	Название инструмента
@@ -829,6 +835,7 @@ PrecisionVolume	|	number	|	Количество знаков после запя
             "Type": "Simple",
             "DTVideo": "2018-09-21T12:10:18",
             "Youtube": "BERFDOJK8",
+            "LeverageMax": 10,
             "State": "Active",
             "Tags": [
                 "MSFT",
@@ -842,7 +849,8 @@ PrecisionVolume	|	number	|	Количество знаков после запя
                 "Balance": 3000,
                 "Equity": 3123.45,
                 "Asset": "USD",
-                "Profit": 123.45
+                "Profit": 123.45,
+                "Leverage": 1
             },
             "Positions": [
                 {
@@ -1242,6 +1250,7 @@ ID	|	number	|	ID инвестиции	|
 DT	|	datetime	|	Дата создания инвестиции	|
 State	|	number	|	[Состояние счета](#Значения-AccountState)
 Equity	|	real	|	Эквити инвестиции	|
+Leverage |	number	|	Заданное плечо
 ProfitCurrentIntervalGross	|	real	|	Грязная прибыль за текущий торговый интервал	|
 FeePaid	|	real	|	Выплаченное вознаграждение	|
 TotalCommissionTrader	|	real	|	Общая сумма комиссии трейдера	|
@@ -1280,6 +1289,7 @@ IsMyAccount	|	boolean	|	Признак собственного счета	|
             "DT": "2019-02-07T14:28:09.580",
             "State": 4,
             "Equity": 1000,
+            "Leverage" : 1,
             "ProfitCurrentIntervalGross": 100,
             "FeePaid": 10,
             "TotalCommissionTrader": 5,
@@ -1415,6 +1425,8 @@ StrategyCommandStatus	|number |Статус команды (0-new, 1-ok, 2-rejec
 :--------|----------|----------
 StrategyID	|	number	|	ID стратегии
 Money	|	real	|	Сумма счета (numeric (28,2))
+Leverage |	number	| Плечо
+
 
 **Возвращаемые данные:**
 
@@ -1574,6 +1586,7 @@ DTStat	|	datetime	|	Дата начала сбора статистики	|
 DTClosed	|	datetime	|	Дата закрытия	|
 Equity	|	real	|	Суммарное эквити инвестиций в стратегию	|
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
+LeverageMax |	number	|	Максимальное плечо
 Status	|	number	|	Статус стратегии	|
 ***PublicOffer (вложенная структура)***
 ID	|	number	|	ID оферты	|
