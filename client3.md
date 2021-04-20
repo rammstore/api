@@ -42,7 +42,7 @@
         * [accounts.close](#accountsclose)
         * [accounts.fund](#accountsfund)
         * [accounts.get](#accountsget)
-        * [accounts.get](#accountsget)accounts.
+        * [accounts.get](#accountsget)
         * [accounts.setLeverage](#accountssetleverage)
         * [accounts.searchSpec](#accountssearchSpec)
         * [accountCommands.get](#accountCommandsget)
