@@ -42,7 +42,7 @@
         * [accounts.close](#accountsclose)
         * [accounts.fund](#accountsfund)
         * [accounts.get](#accountsget)
-        * [accounts.searchClosed](#accountssearchClosed)
+        * [accounts.setLeverage](#accountssetleverage)
         * [accounts.searchSpec](#accountssearchSpec)
         * [accountCommands.get](#accountCommandsget)
     * [Открытые позиции](#Открытые-позиции)        
@@ -1704,31 +1704,31 @@ CommissionRate |	real	|	Размер комиссии в долларах на �
 ```
 [Вернуться к содержанию](#Содержание)
 
-#### accounts.setFactor
+#### accounts.setLeverage
 
-Устанавливает на счета значение повышающего/понижающего коэффициента копирования.
+Устанавливает плечо .
 
-**URL:** `https://ramm.store/api/client/v3/accounts.setFactor`
+**URL:** `https://ramm.store/api/client/v3/accounts.setLeverage`
 
 **Параметры:**
 
 Поле | Тип | Описание 
 :--------|----------|----------
 AccountID	|number	| ID счета
-Factor	|real	| Значение коэффициента для установки
+Leverage	| real	| Значение плеча для установки
 
 **Возвращаемые данные:**
 
 Параметр | Тип | Описание 
 ---------|----------|----------
-CommandID	|number	|ID команды установки коэффициента
+CommandID	|number	|ID команды установки плеча
 
 
 **Пример вызова:**
 ```json
 {
     "AccountID": 445,
-    "Factor": 1.5
+    "Leverage": 10
 }
 ```
 **Пример ответа:**

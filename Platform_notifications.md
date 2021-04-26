@@ -51,11 +51,18 @@
       "commissionliquidity": 0.02,
       "commissiontrader": 0,
       "profit": 0,
-      "entry": "in"
+      "entry": "in",
+      "swap": 1.23 
     },
     "account": {
       "id": 1004187
-    }
+    },
+    "position": {
+      "id": 17379,
+      "volume": 0,
+      "priceopen": 57089.83,
+      "pricecurrent": 57089.83,
+      "swap": 3.4    
   }
 }
 ```
