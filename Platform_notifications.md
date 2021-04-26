@@ -59,10 +59,10 @@
     },
     "position": {
       "id": 17379,
-      "volume": 0,
-      "priceopen": 57089.83,
-      "pricecurrent": 57089.83,
-      "swap": 3.4    
+      "volume": 0.01,
+      "priceopen": 1800.83,
+      "pricecurrent": 1800.83,
+      "swap": 1.4    
   }
 }
 ```
