@@ -590,7 +590,13 @@ ID	|	number	|	ID стратегии	|
 Name	|	string	|	Имя стратегии	|
 Yield	|	real	|	Доходность	|
 MonthlyYield	|	real	|	Среднемесячная доходность|
-Yields | real | Массив доходностей |
+****Yields (вложенный массив)****
+current | real | текущая доходность|
+day | real | дневная доходность |
+week | real | недельная доходность |
+month | real | месячная доходность |
+quarter | real | квартальная доходность |
+****Конец Yields****
 Fee	|	real	|	Размер вознаграждения	|
 Commission |	real	|	Размер комиссии	|
 Accounts	|	number	|	Количество инвестиций	|
@@ -839,7 +845,7 @@ ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, PartnerShare
 
 Параметр | Тип | Описание 
 ---------|----------|----------
-***Wallets***
+****Wallets****
 ID	|	number	|	ID кошелька (bigint)		|
 Asset	|	string	|	Название актива		|
 Balance	|	real	|	Сумма в кошельке		|
@@ -847,7 +853,7 @@ Bonus	|	real	|	Сумма бонусов		|
 Invested	|	real	|	Инвестированная сумма		|
 Margin	|	real	|	Задействованная маржа		|
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале		|
-***Strategies***
+****Strategies****
 ID	|	number	|	ID стратегии		|
 Name	|	string	|	Название стратегии (Varchar(64))		|
 DTCreated	|	number	|	Дата создания стратегии		|
@@ -857,7 +863,13 @@ PartnerShare	|	real	|	Доля партнера		|
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
 Yield	|	real	|	Прибыль в %		|
 MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
-Yields | real | Массив доходностей |
+****Yields (вложенный массив)****
+current | real | текущая доходность|
+day | real | дневная доходность |
+week | real | недельная доходность |
+month | real | месячная доходность |
+quarter | real | квартальная доходность |
+****Конец Yields****
 Accounts	|	number	|	Количество счетов		|
 Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
