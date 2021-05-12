@@ -11,7 +11,7 @@
    * [strategies.getSymbolStat](#strategiesgetSymbolStat)
 
 ## Выполнение запросов
-Для обращения к API необходимо сделать `POST`-запрос по адресу `https://api.ramm.store/api/partner/v{VER}/{method}`, где:
+Для обращения к API необходимо сделать `POST`-запрос по адресу `https://demo.ramm.store/api/partner/v{VER}/{method}`, где:
 * `{VER}` — версия API (на данный момент — 1);
 * `{method}` — метод API.
 
@@ -42,7 +42,7 @@ API может возвращать различные ошибки в след�
 
 Получение рейтинга стратегий с краткой информацией по каждой из них.
 
-**URL:** `https://api.ramm.store/api/partner/v1/ratings.get`
+**URL:** `https://demo.ramm.store/api/partner/v1/ratings.get`
 
 **Параметры:**
 
@@ -173,7 +173,7 @@ Yield   | real | Значение доходности  |
 
 Получение информации о стратегии
 
-**URL:** `https://api.ramm.store/api/partner/v1/strategies.get`
+**URL:** `https://demo.ramm.store/api/partner/v1/strategies.get`
 
 **Параметры:**
 
@@ -234,7 +234,7 @@ Status|number|0-not activated, 1-active, 2-paused, 3-disabled, 4-closed
 
 Получение графика заданного типа для заданной стратегии
 
-**URL:** `https://api.ramm.store/api/partner/v1/strategies.getChart`
+**URL:** `https://demo.ramm.store/api/partner/v1/strategies.getChart`
 
 **Параметры:**
 
@@ -281,7 +281,7 @@ Yield|real|Прибыль, в долях от стартового баланс�
 Получение информации о текущем портфеле позиций для заданной стратегии.
 Возможность использования данной функции зависит от настроек компании.
 
-**URL:** `https://api.ramm.store/api/partner/v1/strategies.getPortfolio`
+**URL:** `https://demo.ramm.store/api/partner/v1/strategies.getPortfolio`
 
 **Параметры:**
 
@@ -327,7 +327,7 @@ Share|real|Доля символа
 
 Отдает информацию по статистике использования различных торговых инструментов стратегией.
 
-**URL:** `https://api.ramm.store/api/partner/v1/strategies.getSymbolStat`
+**URL:** `https://demo.ramm.store/api/partner/v1/strategies.getSymbolStat`
 
 **Параметры:**
 
