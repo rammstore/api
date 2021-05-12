@@ -509,6 +509,13 @@ ID	|	number	|	ID стратегии	|
 Name	|	string	|	Имя стратегии	|
 Yield	|	real	|	Доходность	|
 MonthlyYield	|	real	|	Среднемесячная доходность|
+****Yields (вложенный массив)****
+current | real | текущая доходность|
+day | real | дневная доходность |
+week | real | недельная доходность |
+month | real | месячная доходность |
+quarter | real | квартальная доходность |
+****Конец Yields****
 Fee	|	real	|	Размер вознаграждения	|
 Commission |	real	|	Размер комиссии	|
 Accounts	|	number	|	Количество инвестиций	|
@@ -551,6 +558,13 @@ Status	|	number	|	Статус счета	|
         "Name": "TEST1",
         "Yield": 0.00001,
         "MonthlyYield": 0.05,
+        "Yields": {
+            "current": -0.0149,
+            "day": -0.0887,
+            "week": -0.4601,
+            "month": -0.5868,
+            "quarter": 2.3559
+        },
         "Fee": 0.25,
         "Accounts": 5,
         "DTCreated": "2018-09-21T11:09:38.243",
@@ -750,7 +764,7 @@ ID, Name, DTCreated, DTStat, DTClosed, Offer.Commission, Offer.Fee, PartnerShare
 
 Параметр | Тип | Описание 
 ---------|----------|----------
-***Wallets***
+****Wallets****
 ID	|	number	|	ID кошелька (bigint)		|
 Asset	|	string	|	Название актива		|
 Balance	|	real	|	Сумма в кошельке		|
@@ -758,7 +772,7 @@ Bonus	|	real	|	Сумма бонусов		|
 Invested	|	real	|	Инвестированная сумма		|
 Margin	|	real	|	Задействованная маржа		|
 IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале		|
-***Strategies***
+****Strategies****
 ID	|	number	|	ID стратегии		|
 Name	|	string	|	Название стратегии (Varchar(64))		|
 DTCreated	|	number	|	Дата создания стратегии		|
@@ -768,6 +782,13 @@ PartnerShare	|	real	|	Доля партнера		|
 Status	|	number	|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed		|
 Yield	|	real	|	Прибыль в %		|
 MonthlyYield	|	real	|	Среднемесячная прибыль в %		|
+****Yields (вложенный массив)****
+current | real | текущая доходность|
+day | real | дневная доходность |
+week | real | недельная доходность |
+month | real | месячная доходность |
+quarter | real | квартальная доходность |
+****Конец Yields****
 Accounts	|	number	|	Количество счетов		|
 Symbols	|	string	|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)		|
 IsMyStrategy	|	boolean	|	Признак собственной стратегии		|
@@ -860,6 +881,13 @@ Yield	|	real	|	Прибыль в %	|
             "Status": 2,
             "Yield": 1.076,
             "MonthlyYield": 0.07,
+            "Yields": {
+               "current": -0.0149,
+               "day": -0.0887,
+               "week": -0.4601,
+               "month": -0.5868,
+               "quarter": 2.3559
+            },
             "Accounts": 17,
             "Symbols": "EURUSD",
             "IsMyStrategy": 1,
