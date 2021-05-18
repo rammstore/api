@@ -678,13 +678,13 @@ CommissionRate |	real	|	Размер комиссии в долларах на �
     "Name": "TEST1",
     "Yield": 0.00001,
     "MonthlyYield": 0.05,
-     "Yields": {
-         "current": -0.0229,
-         "day": -0.0556,
-         "week": -0.1221,
-         "month": -0.2658,
-         "quarter": 2.3356
-     },    
+    "Yields": {
+        "current": -0.0229,
+        "day": -0.0556,
+        "week": -0.1221,
+        "month": -0.2658,
+        "quarter": 2.3356
+    },    
     "Accounts": 5,
     "DTCreated": "2018-09-21T11:09:38.243",
     "DTStat": "2017-09-21T11:09:38.243",
