@@ -944,13 +944,8 @@ CommissionRate	|	number	|	Размер комиссии в долларах на
 ****TraderInfo (вложенная структура)****
 MasterAccount | string | Логин внешнего счета |
 ManageType |	number	|	0: управление через Trading API, 1: управление через Manager API |
-FeePaid	|	real	|	Выплаченное вознаграждение	|
-FeeToPay	|	real	|	Невыплаченное вознаграждение	|
-CommissionPaid	|	real	|	Выплаченная комиссия	|
-CommissionToPay	|	real	|	Невыплаченная комиссия	|
-****PartnerInfo (вложенная структура)****
-FeePaid	|	real	|	Выплаченное вознаграждение	|
-FeeToPay	|	real	|	Невыплаченное вознаграждение	|
+FeePaid	|	real	|	Выплаченное вознаграждение	(если оно не определено, параметр не возвращается)|
+FeeToPay	|	real	|	Невыплаченное вознаграждение (если оно не определено, параметр не возвращается)|
 CommissionPaid	|	real	|	Выплаченная комиссия	|
 CommissionToPay	|	real	|	Невыплаченная комиссия	|
 ****Account (вложенная структура)****
