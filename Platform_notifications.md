@@ -353,7 +353,8 @@ balance - баланс инвестиции до вывода средств, am
     },
     "strategy": {
       "id": 1,
-      "name": "Best Technologies"
+      "name": "Best Technologies",
+      "externalaccount": "109416916"
     }
   }
 }
