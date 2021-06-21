@@ -174,6 +174,7 @@
 **Пополнение средств инвестиции**
 
 **balance - баланс инвестиции до пополнения средств, amount - сумма пополнения**
+
 **transfer.type в данном событии всегда равен 4. Подробнее https://github.com/rammstore/api/blob/dev/client.md#walletTransferssearch типы перевода.**
 
 **Возвращаемые данные:**
@@ -215,7 +216,9 @@
 **Частичный вывод средств из инвестиции**
 
 **balance - баланс инвестиции до вывода средств, amount - сумма вывода**
+
 **transfer.type в данном событии всегда равен 5. Подробнее https://github.com/rammstore/api/blob/dev/client.md#walletTransferssearch типы перевода.**
+
 **Возвращаемые данные:**
 ```json
 {
@@ -401,6 +404,7 @@
 **Пополнение кошелька**
 
 **balance - баланс кошелька до пополнения средств, amount - сумма пополнения**
+
 **transfer.type см. https://github.com/rammstore/api/blob/dev/client.md#walletTransferssearch**
 
 **Возвращаемые данные:**
@@ -436,6 +440,7 @@
 **Вывод средств с кошелька**
 
 **balance - баланс кошелька до вывода средств, amount - сумма вывода**
+
 **transfer.type см. https://github.com/rammstore/api/blob/dev/client.md#walletTransferssearch**
 
 **Возвращаемые данные:**
