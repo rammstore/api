@@ -173,7 +173,9 @@
 
 **Пополнение средств инвестиции**
 
-balance - баланс инвестиции до пополнения средств, amount - сумма пополнения
+**balance - баланс инвестиции до пополнения средств, amount - сумма пополнения**
+
+**transfer.type в данном событии всегда равен 4. Подробнее https://github.com/rammstore/api/blob/dev/client.md#walletTransferssearch типы перевода.**
 
 **Возвращаемые данные:**
 ```json
@@ -186,6 +188,9 @@ balance - баланс инвестиции до пополнения средс
   "data": {
     "client": {
       "id": 158
+    },
+    "transfer": {
+      "type": 4
     },
     "strategy": {
       "id": 1,
@@ -210,7 +215,9 @@ balance - баланс инвестиции до пополнения средс
 
 **Частичный вывод средств из инвестиции**
 
-balance - баланс инвестиции до вывода средств, amount - сумма вывода
+**balance - баланс инвестиции до вывода средств, amount - сумма вывода**
+
+**transfer.type в данном событии всегда равен 5. Подробнее https://github.com/rammstore/api/blob/dev/client.md#walletTransferssearch типы перевода.**
 
 **Возвращаемые данные:**
 ```json
@@ -224,6 +231,9 @@ balance - баланс инвестиции до вывода средств, am
     "client": {
       "id": 158
     },
+    "transfer": {
+      "type": 5
+    },    
     "strategy": {
       "id": 1,
       "name": "Best Technologies"
@@ -393,7 +403,9 @@ balance - баланс инвестиции до вывода средств, am
 
 **Пополнение кошелька**
 
-balance - баланс кошелька до пополнения средств, amount - сумма пополнения
+**balance - баланс кошелька до пополнения средств, amount - сумма пополнения**
+
+**transfer.type см. https://github.com/rammstore/api/blob/dev/client.md#walletTransferssearch**
 
 **Возвращаемые данные:**
 ```json
@@ -407,6 +419,9 @@ balance - баланс кошелька до пополнения средств
     "client": {
       "id": 1581
     },
+    "transfer": {
+      "type": 0
+    },    
     "wallet": {
       "id": 158,
       "dt": "2021-01-21T07:57:43.897",
@@ -424,7 +439,9 @@ balance - баланс кошелька до пополнения средств
 
 **Вывод средств с кошелька**
 
-balance - баланс кошелька до вывода средств, amount - сумма вывода
+**balance - баланс кошелька до вывода средств, amount - сумма вывода**
+
+**transfer.type см. https://github.com/rammstore/api/blob/dev/client.md#walletTransferssearch**
 
 **Возвращаемые данные:**
 ```json
@@ -438,6 +455,9 @@ balance - баланс кошелька до вывода средств, amount
     "client": {
       "id": 158
     },
+    "transfer": {
+      "type": 1
+    },     
     "wallet": {
       "id": 158,
       "dt": "2021-01-21T13:21:15.377",
