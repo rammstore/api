@@ -32,13 +32,21 @@
   "uuid": "F2442CC5-19FA-4584-9EF1-D18858B2010F",
   "publisher": "ramm",
   "version": "1",
-  "data": {
+ "data": {
+    "event": {
+      "dt": "2021-01-21T10:39:34.057"
+    },
     "client": {
       "id": 158
     },
+    "wallet": {
+      "id": 11436
+    },    
     "strategy": {
       "id": 1,
-      "name": "Best Technologies"
+      "executiontags": "Tags",
+      "name": "Best Technologies",
+      "externalaccount": "2046940abc"
     },
     "deal": {
       "id": 264400,
@@ -80,12 +88,20 @@
   "publisher": "ramm",
   "version": "1",
   "data": {
+    "event": {
+      "dt": "2021-01-21T10:39:34.057"
+    },
     "client": {
       "id": 158
     },
+    "wallet": {
+      "id": 11436
+    },    
     "strategy": {
       "id": 1,
-      "name": "Best Technologies"
+      "executiontags": "Tags",
+      "name": "Best Technologies",
+      "externalaccount": "2046940abc"
     },
     "deal": {
       "id": 264231,
@@ -114,12 +130,20 @@
   "publisher": "ramm",
   "version": "1",
   "data": {
+    "event": {
+      "dt": "2021-01-21T10:39:34.057"
+    },
     "client": {
       "id": 158
     },
+    "wallet": {
+      "id": 11436
+    },    
     "strategy": {
       "id": 1,
-      "name": "Best Technologies"
+      "executiontags": "Tags",
+      "name": "Best Technologies",
+      "externalaccount": "2046940abc"
     },
     "account": {
       "id": 1004788,
@@ -148,12 +172,20 @@
   "publisher": "ramm",
   "version": "1",
   "data": {
-    "сlient": {
+    "event": {
+      "dt": "2021-01-21T10:39:34.057"
+    },
+    "client": {
       "id": 158
     },
+    "wallet": {
+      "id": 11436
+    },    
     "strategy": {
       "id": 1,
-      "name": "Best Technologies"
+      "executiontags": "Tags",
+      "name": "Best Technologies",
+      "externalaccount": "2046940abc"
     },
     "account": {
       "id": 1004788,
@@ -164,90 +196,6 @@
       "state": 0,
       "status": 0
     }
-  }
-}
-```
-[Вернуться к содержанию](#Содержание)
-
-### event_investment_in
-
-**Пополнение средств инвестиции**
-
-**balance - баланс инвестиции до пополнения средств, amount - сумма пополнения**
-
-**transfer.type в данном событии всегда равен 4. Подробнее https://github.com/rammstore/api/blob/dev/client.md#walletTransferssearch типы перевода.**
-
-**Возвращаемые данные:**
-```json
-{
-  "type": "event_investment_in",
-  "sent_at": "2021-01-21T08:23:16.390",
-  "uuid": "9AB7C768-8063-40B6-BEA7-7F134007A225",
-  "publisher": "ramm",
-  "version": "1",
-  "data": {
-    "client": {
-      "id": 158
-    },
-    "transfer": {
-      "type": 4
-    },
-    "strategy": {
-      "id": 1,
-      "name": "Best Technologies"
-    },
-    "account": {
-      "id": 1004788,
-      "balance": 0,
-      "equity": 0,
-      "dt": "2021-01-21T08:23:16.343",
-      "margin": 0,
-      "state": 0,
-      "status": 0
-    },
-    "amount": 2800.74
-  }
-}
-```
-[Вернуться к содержанию](#Содержание)
-
-### event_investment_out
-
-**Частичный вывод средств из инвестиции**
-
-**balance - баланс инвестиции до вывода средств, amount - сумма вывода**
-
-**transfer.type в данном событии всегда равен 5. Подробнее https://github.com/rammstore/api/blob/dev/client.md#walletTransferssearch типы перевода.**
-
-**Возвращаемые данные:**
-```json
-{
-  "type": "event_investment_out",
-  "sent_at": "2021-01-21T10:10:08.270",
-  "uuid": "C59E9AFA-8D86-4412-A6CA-EA79AC4482F0",
-  "publisher": "ramm",
-  "version": "1",
-  "data": {
-    "client": {
-      "id": 158
-    },
-    "transfer": {
-      "type": 5
-    },    
-    "strategy": {
-      "id": 1,
-      "name": "Best Technologies"
-    },
-    "account": {
-      "id": 1004187,
-      "balance": 605.93,
-      "equity": 605.93,
-      "dt": "2021-01-21T20:04:57.533",
-      "margin": 0,
-      "state": 11,
-      "status": 4
-    },
-    "amount": 200
   }
 }
 ```
@@ -266,12 +214,20 @@
   "publisher": "ramm",
   "version": "1",
   "data": {
+    "event": {
+      "dt": "2021-01-21T10:39:34.057"
+    },
     "client": {
       "id": 158
     },
+    "wallet": {
+      "id": 11436
+    },    
     "strategy": {
       "id": 1,
-      "name": "Best Technologies"
+      "executiontags": "Tags",
+      "name": "Best Technologies",
+      "externalaccount": "2046940abc"
     },
     "account": {
       "id": 1004187,
@@ -300,12 +256,20 @@
   "publisher": "ramm",
   "version": "1",
   "data": {
+    "event": {
+      "dt": "2021-01-21T10:39:34.057"
+    },
     "client": {
       "id": 158
     },
+    "wallet": {
+      "id": 11436
+    },    
     "strategy": {
       "id": 1,
-      "name": "Best Technologies"
+      "executiontags": "Tags",
+      "name": "Best Technologies",
+      "externalaccount": "2046940abc"
     },
     "account": {
       "id": 1004187,
@@ -334,12 +298,20 @@
   "publisher": "ramm",
   "version": "1",
   "data": {
+    "event": {
+      "dt": "2021-01-21T10:39:34.057"
+    },
     "client": {
       "id": 158
     },
+    "wallet": {
+      "id": 11436
+    },    
     "strategy": {
       "id": 1,
-      "name": "Best Technologies"
+      "executiontags": "Tags",
+      "name": "Best Technologies",
+      "externalaccount": "2046940abc"
     }
   }
 }
@@ -358,13 +330,20 @@
   "publisher": "ramm",
   "version": "1",
   "data": {
+    "event": {
+      "dt": "2021-01-21T10:39:34.057"
+    },
     "client": {
       "id": 158
     },
+    "wallet": {
+      "id": 11436
+    },    
     "strategy": {
       "id": 1,
+      "executiontags": "Tags",
       "name": "Best Technologies",
-      "externalaccount": "109416916"
+      "externalaccount": "2046940abc"
     }
   }
 }
@@ -384,6 +363,9 @@
   "publisher": "ramm",
   "version": "1",
   "data": {
+    "event": {
+      "dt": "2021-01-21T10:39:34.057"
+    },
     "client": {
       "id": 158,
       "email": "test@test.com"
@@ -416,16 +398,28 @@
   "publisher": "ramm",
   "version": "1",
   "data": {
+    "event": {
+      "dt": "2021-01-21T10:39:34.057"
+    },
     "client": {
-      "id": 1581
+      "id": 158
     },
     "transfer": {
-      "type": 0
+      "type": 0,
+      "id": 18483
+    }, 
+    "strategy": {
+      "id": 1,
+      "executiontags": "Tags",
+      "name": "Best Technologies",
+      "externalaccount": "2046940abc"
+    },
+    "account": {
+      "id": 158
     },    
     "wallet": {
       "id": 158,
       "dt": "2021-01-21T07:57:43.897",
-      "transferid": 157,
       "balance": 26922.64,
       "invested": 3871.02
     },
@@ -452,20 +446,32 @@
   "publisher": "ramm",
   "version": "1",
   "data": {
+    "event": {
+      "dt": "2021-01-21T10:39:34.057"
+    },
     "client": {
       "id": 158
     },
     "transfer": {
-      "type": 1
-    },     
+      "type": 0,
+      "id": 18483
+    }, 
+    "strategy": {
+      "id": 1,
+      "executiontags": "Tags",
+      "name": "Best Technologies",
+      "externalaccount": "2046940abc"
+    },
+    "account": {
+      "id": 158
+    },    
     "wallet": {
       "id": 158,
-      "dt": "2021-01-21T13:21:15.377",
-      "transferid": 157,
-      "balance": 29430.74,
-      "invested": 10197.83
+      "dt": "2021-01-21T07:57:43.897",
+      "balance": 26922.64,
+      "invested": 3871.02
     },
-    "amount": 2800.31
+    "amount": 10608.61
   }
 }
 ```
