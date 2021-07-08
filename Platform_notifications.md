@@ -5,8 +5,6 @@
 * [event_deal_create](#event_deal_create)
 * [event_investment_close](#event_investment_close)
 * [event_investment_create](#event_investment_create)
-* [event_investment_in](#event_investment_in)
-* [event_investment_out](#event_investment_out)
 * [event_investment_pause](#event_investment_pause)
 * [event_investment_start](#event_investment_start)
 * [event_strategy_close](#event_strategy_close)
