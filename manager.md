@@ -2200,6 +2200,13 @@ Strategies| -| ID|	number|	ID стратегии|
 -| -| Fee|	real|	Вознаграждение с прибыли (numeric (3,2))|
 -| -| PartnerShare|	real|	Доля партнера|
 -| -| Yield|	real|	Прибыль в %|
+-| -| Yields (вложенный массив)||
+-| -| current| real|	текущая доходность|
+-| -| day| real|	дневная доходность|
+-| -| week| real|	недельная доходность|
+-| -| month| real|	месячная доходность|
+-| -| quarter| real|	квартальная  доходность|
+-| -| Конец Yields||
 -| -| Accounts|	number|	Количество счетов|
 -| -| Status|	number|	0-not activated, 1-active, 2-paused, 3-disabled, 4-closed|
 -| -| Symbols|	string|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)|
