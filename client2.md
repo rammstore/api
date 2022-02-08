@@ -1167,10 +1167,10 @@ CommissionToPay	|	real	|	Невыплаченная комиссия	|
 Поле | Тип | Описание 
 :--------|----------|----------
 Name	|	string	|	Название стратегии	|
-****Account (вложенная структура)****
 Protection	|	real	|	Процент защиты счета	|
 Target	|	real	|	Целевая доходность	|
 Money	|	real	|	Сумма на собственном счете трейдера	|
+AccountingSystem | int | Схема учёта позиций (хеджинг 0, неттинг 1)
 
 **Возвращаемые данные:**
 
@@ -1186,11 +1186,10 @@ AccountCommandID	|	number	|	ID команды на пополнение счет
 ```json
 {
     "Name": "TEST_1",
-    "Account": {
-        "Protection": 0.5,
-        "Target": 1.5,
-        "Money": 1000
-    }
+    "Protection": 0.5,
+    "Target": 1.5,
+    "Money": 1000,
+    "AccountingSystem" : 0
 }
 ```
 **Пример ответа:**
