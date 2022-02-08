@@ -56,6 +56,9 @@
         * [accountCommands.get](#accountCommandsget)
     * [Открытые позиции](#Открытые-позиции)        
         * [positions.search](#positionssearch)
+        * [hedgingPositions.searchOpen](#hedgingPositionssearchOpen)
+    * [Закрытые позиции](#Закрытые-позиции) 
+        * [hedgingPositions.searchClosed](#hedgingPositionssearchClosed)
     * [Сделки на счете](#Сделки-на-счете)    
         * [deals.search](#dealssearch)
 
@@ -2518,7 +2521,334 @@ PrecisionVolume	|	number	|	Количество знаков после запя
         }
     ]
 }
+
 ```
+[Вернуться к содержанию](#Содержание)
+
+### Открытые позиции
+
+#### hedgingPositions.searchOpen
+
+Поиск открытых позиций с фильтрацией по номеру счета.
+
+**URL:** `https://ramm.store/api/client/v2/hedgingPositions.searchOpen`
+
+**Параметры:**
+
+Может содержать секции [Filter, Pagination, OrderBy](#Методы-поиска-данных).
+
+Допустимые поля для секции Filter:	
+
+Поле | Тип | Описание 
+:--------|----------|----------
+AccountID	|number	|ID счета
+
+Допустимые поля для секции OrderBy:	
+ID, Symbol, Volume, Price, Margin, ProfitCalcQuote, Profit, Swap, TotalProfit, Ticket.
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets, PositionsTotal и Positions:
+Параметр | Тип | Описание 
+---------|----------|----------
+***Wallets***
+ID	|	number	|	ID кошелька
+Asset	|	string	|	Название актива
+Balance	|	real	|	Сумма в кошельке
+Invested	|	real	|	Инвестированная сумма
+Margin	|	real	|	Задействованная маржа
+IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
+***PositionsTotal***
+Profit	|	real	|	Прибыль
+TotalProfit	|	real	|	Суммарная прибыль
+Swap	|	real	|	Свопы
+***Positions***
+ID	|	number	|	ID позиции
+Symbol	|	string	|	Название инструмента
+Volume	|	real	|	Открытый объем
+PriceOpen	|	real	|	Цена открытия
+DT | datetime	|	Дата/время создания позиции
+Ticket | string | Тикет позиции трейдера в МТ
+Margin	|	real	|	Маржа под открытый объем
+Swap	|	real	|	Накопленный своп
+Profit	|	real	|	Прибыль/убыток без учета свопа
+TotalProfit	|	real	|	Прибыль/убыток с учетом свопа
+ProfitCalcQuote	|	real	|	Котировка, по которой вычислялась прибыль
+PrecisionPrice	|	number	|	Количество знаков после запятой при выводе цены
+PrecisionVolume	|	number	|	Количество знаков после запятой при выводе объема
+
+**Пример вызова:**
+```json
+{
+  "Filter": {
+    "AccountID": 1007779
+  },
+  "OrderBy": {
+    "Direction": "Ask",
+    "Field": "Ticket"
+  },
+  "Pagination": {
+    "CurrentPage": 1,
+    "PerPage": 20
+  }
+}
+```
+**Пример ответа:**
+```json
+{
+  "Filter": {
+    "AccountID": 1000201
+  },
+  "OrderBy": {
+    "Field": "Ticket",
+    "Direction": "Asc"
+  },
+  "Pagination": {
+    "TotalRecords": 1,
+    "TotalPages": 1,
+    "CurrentPage": 1,
+    "PerPage": 20,
+    "MaxPerPage": 100
+  },
+  "Wallets": [
+    {
+      "ID": 11442,
+      "Asset": "USD",
+      "Balance": 89000,
+      "Invested": 11017.42,
+      "Margin": 22.81,
+      "IntervalPnL": 17.42
+    }
+  ],
+  "PositionsTotal": {
+    "Profit": 0.02,
+    "TotalProfit": 0.02,
+    "Swap": 0
+  },
+  "Positions": [
+    {
+      "ID": 53660,
+      "Symbol": "EURUSD",
+      "Volume": -0.02,
+      "PriceOpen": 1.14013,
+      "DT": "2022-02-08T09:12:00.223",
+      "Ticket": "66146",
+      "Margin": 22.81,
+      "Swap": 0,
+      "Profit": 0.02,
+      "TotalProfit": 0.02,
+      "ProfitCalcQuote": 1.14012,
+      "PrecisionPrice": 6,
+      "PrecisionVolume": 4
+    }
+  ]
+}
+```
+[Вернуться к содержанию](#Содержание)
+
+### Закрытые позиции
+
+#### hedgingPositions.searchClosed
+
+Поиск закрытых позиций с фильтрацией по номеру счета.
+
+**URL:** `https://ramm.store/api/client/v2/hedgingPositions.searchClosed`
+**Параметры:**
+
+Может содержать секции [Filter, Pagination, OrderBy](#Методы-поиска-данных).
+
+Допустимые поля для секции Filter:	
+
+Поле | Тип | Описание 
+:--------|----------|----------
+AccountID	|number	|ID счета
+
+Допустимые поля для секции OrderBy:	
+IDDealIn, IDDealOut, Symbol, Volume, Price, Margin, ProfitCalcQuote, Profit, Swap, TotalProfit, Ticket.
+
+**Возвращаемые данные:**
+
+Возвращаемые данные - структуры Pagination, Filter, OrderBy, массивы Wallets, PositionsTotal и Positions:
+Параметр | Тип | Описание 
+---------|----------|----------
+***Wallets***
+ID	|	number	|	ID кошелька
+Asset	|	string	|	Название актива
+Balance	|	real	|	Сумма в кошельке
+Invested	|	real	|	Инвестированная сумма
+Margin	|	real	|	Задействованная маржа
+IntervalPnL	|	real	|	Прибыль/убыток в текущем торговом интервале
+***PositionsTotal***
+Profit	|	real	|	Прибыль
+TotalProfit	|	real	|	Суммарная прибыль
+Swap	|	real	|	Свопы
+***Positions***
+Ticket | string | Тикет позиции трейдера в МТ
+Symbol	|	string	|	Название инструмента
+IDDealIn	|	number	|	ID сделки in
+Volume	|	real	|	Открытый объем
+PriceOpen	|	real	|	Цена открытия
+DTOpen | datetime	|	Дата/время создания позиции
+IDDealOut |	number	|	ID сделки out
+PriceClose	|	real	|	Цена закрытие
+DTClose | datetime	|	Дата/время закрытия позиции
+Swap	|	real	|	Накопленный своп
+Profit	|	real	|	Прибыль/убыток без учета свопа
+CommissionBroker |	real	|	Комиссия брокера
+CommissionLiquidity |	real	|	Комиссия ликвидности
+CommissionTrader |	real	|	Комиссия трейдера
+TotalProfit	|	real	|	Прибыль/убыток с учетом свопа и комиссий
+PrecisionPrice	|	number	|	Количество знаков после запятой при выводе цены
+PrecisionVolume	|	number	|	Количество знаков после запятой при выводе объема
+
+**Пример вызова:**
+```json
+{
+  "Filter": {
+    "AccountID": 1007779
+  },
+  "OrderBy": {
+    "Direction": "Ask",
+    "Field": "Ticket"
+  },
+  "Pagination": {
+    "CurrentPage": 1,
+    "PerPage": 20
+  }
+}
+```
+**Пример ответа:**
+```json
+{
+  "Filter": {
+    "AccountID": 1007779
+  },
+  "OrderBy": {
+    "Field": "Ticket",
+    "Direction": "Asc"
+  },
+  "Pagination": {
+    "TotalRecords": 5,
+    "TotalPages": 1,
+    "CurrentPage": 1,
+    "PerPage": 20,
+    "MaxPerPage": 100
+  },
+  "Wallets": [
+    {
+      "ID": 11442,
+      "Asset": "USD",
+      "Balance": 89000,
+      "Invested": 11017.08,
+      "Margin": 22.81,
+      "IntervalPnL": 17.08
+    }
+  ],
+  "PositionsTotal": {
+    "Profit": 17.84,
+    "TotalProfit": 16.31,
+    "Swap": -0.12
+  },
+  "Positions": [
+    {
+      "Ticket": "66141",
+      "Symbol": "EURUSD",
+      "IDDealIn": 322281,
+      "Volume": -0.03,
+      "PriceOpen": 1.14437,
+      "DTOpen": "2022-02-07T15:29:06.240",
+      "IDDealOut": 322301,
+      "PriceClose": 1.14076,
+      "DTClose": "2022-02-08T08:52:37.393",
+      "Swap": -0.06,
+      "Profit": 8.25,
+      "CommissionBroker": 0,
+      "CommissionLiquidity": 0.37,
+      "CommissionTrader": 0,
+      "TotalProfit": 7.82,
+      "PrecisionPrice": 6,
+      "PrecisionVolume": 4
+    },
+    {
+      "Ticket": "66142",
+      "Symbol": "EURUSD",
+      "IDDealIn": 322283,
+      "Volume": -0.03,
+      "PriceOpen": 1.14438,
+      "DTOpen": "2022-02-07T15:29:10.707",
+      "IDDealOut": 322316,
+      "PriceClose": 1.14019,
+      "DTClose": "2022-02-08T09:12:00.270",
+      "Swap": -0.06,
+      "Profit": 9.96,
+      "CommissionBroker": 0,
+      "CommissionLiquidity": 0.38,
+      "CommissionTrader": 0,
+      "TotalProfit": 9.52,
+      "PrecisionPrice": 6,
+      "PrecisionVolume": 4
+    },
+    {
+      "Ticket": "66143",
+      "Symbol": "EURUSD",
+      "IDDealIn": 322291,
+      "Volume": 0.01,
+      "PriceOpen": 1.14034,
+      "DTOpen": "2022-02-08T08:13:03.093",
+      "IDDealOut": 322295,
+      "PriceClose": 1.14017,
+      "DTClose": "2022-02-08T08:22:22.257",
+      "Swap": 0,
+      "Profit": -0.17,
+      "CommissionBroker": 0,
+      "CommissionLiquidity": 0.14,
+      "CommissionTrader": 0,
+      "TotalProfit": -0.31,
+      "PrecisionPrice": 6,
+      "PrecisionVolume": 4
+    },
+    {
+      "Ticket": "66144",
+      "Symbol": "EURUSD",
+      "IDDealIn": 322306,
+      "Volume": 0.01,
+      "PriceOpen": 1.14061,
+      "DTOpen": "2022-02-08T08:54:02.323",
+      "IDDealOut": 322310,
+      "PriceClose": 1.14038,
+      "DTClose": "2022-02-08T08:55:05.003",
+      "Swap": 0,
+      "Profit": -0.23,
+      "CommissionBroker": 0,
+      "CommissionLiquidity": 0.14,
+      "CommissionTrader": 0,
+      "TotalProfit": -0.37,
+      "PrecisionPrice": 6,
+      "PrecisionVolume": 4
+    },
+    {
+      "Ticket": "66145",
+      "Symbol": "EURUSD",
+      "IDDealIn": 322297,
+      "Volume": 0.03,
+      "PriceOpen": 1.14072,
+      "DTOpen": "2022-02-08T08:49:26.773",
+      "IDDealOut": 322304,
+      "PriceClose": 1.14073,
+      "DTClose": "2022-02-08T08:52:37.423",
+      "Swap": 0,
+      "Profit": 0.03,
+      "CommissionBroker": 0,
+      "CommissionLiquidity": 0.38,
+      "CommissionTrader": 0,
+      "TotalProfit": -0.35,
+      "PrecisionPrice": 6,
+      "PrecisionVolume": 4
+    }
+  ]
+}
+```
+
 [Вернуться к содержанию](#Содержание)
 
 ### Сделки на счете
