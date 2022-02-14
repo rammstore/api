@@ -3531,9 +3531,11 @@ Filter|	AccountID|	number|	ID счета|
 -| StrategyID|	number|	ID стратегии|
 -| Symbol|	string|	Название инструмента|
 -| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+-| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
+-| Ticket|	string|	Тикет позиции трейдера в МТ (только для хеджинга)|
 Pagination|	CurrentPage|	number|	Номер текущей страницы|
 -| PerPage|	number|	Количество записей на одной странице|
-OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, AccountID, SymbolSpecID, Symbol, VolumeRequestLong, VolumeRequestShort, VolumeOpen, VolumeRejected, PriceOpen, Swap, SwapDT, MarginRequestLong, MarginRequestShort, MarginOpen, MarginLongTotal, MarginShortTotal, MarginTotal, Profit, TotalProfit, ProfitCalcQuote, ClientID, WalletID, IDStrategy, StrategyName, TraderID, TraderLogin, Test|
+OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, AccountID, SymbolSpecID, Symbol, VolumeRequestLong, VolumeRequestShort, VolumeOpen, VolumeRejected, PriceOpen, Swap, SwapDT, MarginRequestLong, MarginRequestShort, MarginOpen, MarginLongTotal, MarginShortTotal, MarginTotal, Profit, TotalProfit, ProfitCalcQuote, ClientID, WalletID, IDStrategy, StrategyName, TraderID, TraderLogin, Test, AccountingSystem, Ticket|
 -| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
 
 Возвращаемые данные - структуры Filter, Pagination, OrderBy, массив Positions:
@@ -3543,6 +3545,12 @@ Filter|	AccountID|	number|	ID счета|
 -| ClientID|	number|	ID клиента|
 -| WalletID|	number|	ID кошелька|
 -| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+-| StrategyID|	number|	ID стратегии|
+-| Symbol|	string|	Название инструмента|
+-| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+-| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
+-| Ticket|	string|	Тикет позиции трейдера в МТ (только для хеджинга)|
+
 Pagination|	TotalRecords|	number|	Общее количество записей|
 -| TotalPages|	number|	Общее количество страниц|
 -| CurrentPage|	number|	Номер текущей страницы|
@@ -3551,6 +3559,8 @@ Pagination|	TotalRecords|	number|	Общее количество записей
 OrderBy|	Field|	string|	Сортировка по параметру, варианты:ID, AccountID, SymbolSpecID, Symbol, VolumeRequestLong, VolumeRequestShort, VolumeOpen, VolumeRejected, PriceOpen, Swap, SwapDT, MarginRequestLong, MarginRequestShort, MarginOpen, MarginLongTotal, MarginShortTotal, MarginTotal, Profit, TotalProfit, ProfitCalcQuote, ClientID, WalletID, IDStrategy, StrategyName, TraderID, TraderLogin, Test|
 -| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
 Positions|	ID|	number|	ID позиции|
+-| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
+-| Ticket|	string|	Тикет позиции трейдера в МТ (только для хеджинга)|
 -| AccountID|	number|	ID счета|
 -| SymbolSpecID|	number|	ID спецификации символа|
 -| Symbol|	string|	Название инструмента|
@@ -3619,6 +3629,7 @@ Positions|	ID|	number|	ID позиции|
 [
 {
 "ID":333,
+"AccountingSystem" : 1,
 "AccountID":454777,
 "SymbolSpecID":1,
 "Symbol":"EURUSD",
