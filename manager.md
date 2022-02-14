@@ -3416,6 +3416,8 @@ ID|	number|	ID сделки|
 Параметр | Тип | Описание 
 ---------|----------|----------
 DealID|	number|	ID сделки|
+StrategyID| number| ID стратегии|
+AccountingSystem| number| Схема учёта позиций (хеджинг 0, неттинг 1)|
 AccountID|	number|	ID счета|
 SignalID|	number|	ID сигнала|
 CommandID|	number|	ID команды|
@@ -3475,6 +3477,8 @@ TurnoverUSD|	real|	Сгенерированный дилом оборот в USD
 
 {
 "DealID":3335,
+"StrategyID" : 12,
+"AccountingSystem" : 0,
 "AccountID":545,
 "SignalID":4878,
 "CommandID":4554,
