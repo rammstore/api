@@ -2620,6 +2620,7 @@ Filter| -| StrategyID|	number|	ID стратегии|
 -| -| ID|	number|	ID счета|
 -| -| StreamID|	number|	ID потока исполнения|
 -| -| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+-| -| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
 -| Statuses|	-| number|	См. ниже|
 Pagination|	-| CurrentPage|	number|	Номер текущей страницы|
 -| -| PerPage|	number|	Количество записей на одной странице|
@@ -2640,6 +2641,7 @@ Filter| -|	StrategyID|	number|	ID стратегии|
 -| -| ID|	number|	ID счета|
 -| -| StreamID|	number|	ID потока исполнения|
 -| -| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+-| -| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
 -| Statuses|  -|	number| 	См. ниже|
 OrderBy|  -|	Field|	string|	Сортировка по параметру, варианты: ID, ClientID, WalletID, StrategyID, TradingCoreID, AccountSpecAssetID, LiquidityID, StreamID, StreamName, PartnerID, CommandCloseID, TradingIntervalCurrentID, IsSecurity, DTCreated, DTClosed, Type, ABook, Balance, Factor, Equity, ProfitBase, Bonus, Margin, Status, MCReached, Protection, ProtectionEquity, ProtectionReached, Target, TargetEquity, TargetReached, AssetName, Precision, State|
 -| -| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
@@ -2649,9 +2651,10 @@ Pagination| -| TotalRecords|	number|	Общее количество запис�
 -| -| PerPage|	number|	Количество записей на одной странице|
 -| -| MaxPerPage|	number|	Максимальное количество записей на одной странице|
 Accounts|  -|	ID|	number|	ID счета|
--| -| StrategyID|	number|	ID стратегии|
 -| -| ClientID|	number|	ID клиента (bigint)|
 -| -| WalletID|	number|	ID кошелька (bigint)|
+-| -| StrategyID|	number|	ID стратегии|
+-| -| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
 -| -| TradingCoreID|	number|	ID торгового ядра|
 -| -| DTCreated|	number|	Дата создания|
 -| -| DTClosed|	number|	Дата закрытия|
@@ -2780,9 +2783,10 @@ Accounts|  -|	ID|	number|	ID счета|
 [
 {
 "ID":111,
-"StrategyID":222,
 "ClientID":454,
 "WalletID":4545,
+"StrategyID":222,
+"AccountingSystem" : 1,
 "TradingCoreID":1,
 "DTCreated":"2018-11-23T11:59:12.493",
 "DTClosed":"2018-11-23T11:59:12.493",
