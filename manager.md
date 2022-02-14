@@ -3666,6 +3666,8 @@ ID|	number|	ID позиции|
 Параметр | Тип | Описание 
 ---------|----------|----------
 PositionID|	number|	ID позиции|
+AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
+Ticket|	string|	Тикет позиции трейдера в МТ (только для хеджинга)|
 AccountID|	number|	ID счета|
 SymbolSpecID|	number|	ID спецификации символа|
 Symbol|	string|	Название инструмента|
@@ -3701,6 +3703,8 @@ PrecisionVolume|	number|	Количество знаков после запят
 
 {
 "PositionID":333,
+"AccountingSystem" : 0,
+"Ticket": "123454",
 "AccountID":454777,
 "SymbolSpecID":1,
 "Symbol":"EURUSD",
