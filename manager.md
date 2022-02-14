@@ -2834,6 +2834,7 @@ ID|	number|	ID счета|
 ---------|----------|----------|----------
 -| ID|	number|	ID счета|
 -| StrategyID|	number|	ID стратегии|
+-| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
 -| CompanyID|	number|	ID компании|
 -| ClientID|	number|	ID клиента (bigint)|
 -| WalletID|	number|	ID кошелька (bigint)|
@@ -2943,6 +2944,7 @@ AvailableStreams|	StreamID|	number|	ID стрима|
 {
 "ID":111,
 "StrategyID":222,
+"AccountingSystem" : 0,
 "CompanyID":1,
 "ClientID":454,
 "WalletID":4545,
