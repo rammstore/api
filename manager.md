@@ -3076,6 +3076,7 @@ ID|	number|	ID счета|
 ---------|----------|----------
 IDStrategy|	number|	ID стратегии|
 StrategyName|	string|	Название стратегии|
+AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
 Commission|	real|	Комиссия|
 Fee|	real|	Вознаграждение|
 IDAccount|	number|	ID счета|
@@ -3133,6 +3134,7 @@ ProtectionEquity|	real|	Уровень срабатывания защиты|
 {
 "IDStrategy":341,
 "StrategyName":"TEST_1",
+"AccountingSystem" : 0,
 "Commission":0.000010,
 "Fee":0.25,
 "IDAccount":333,
