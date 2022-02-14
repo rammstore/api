@@ -3240,6 +3240,8 @@ Filter|	AccountID|	number|	ID счета|
 -| ClientID|	number|	ID клиента|
 -| WalletID|	number|	ID кошелька|
 -| Test|	number|	Признак сделок с тестового счета (0,1, 2 - all)|
+-| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
+
 Pagination|	CurrentPage|	number|	Номер текущей страницы|
 -| PerPage|	number|	Количество записей на одной странице|
 OrderBy|	Field|	string|	Параметр сортировки, варианты: ID, StrategyID, AccountID, AccountType, SignalID, CommandID, SOID, SymbolSpecID, StreamID, FillRequestID, ClientID, WalletID, DT, Type, Symbol, Volume, VolumeA, Price, Commission, Entry, Profit, Swap, TotalProfit, DealToID, Netting, ClientLogin, ClientEmail, Test, TurnoverUSD|
@@ -3262,6 +3264,7 @@ Filter|	AccountID|	number|	ID счета|
 -| WalletID|	number|	ID кошелька|
 -| ID	number|	ID| сделки|
 -| Test|	number|	Признак тестового счета (0,1, 2 - all)|
+-| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
 Pagination|	TotalRecords|	number|	Общее количество записей|
 -| TotalPages|	number|	Общее количество страниц|
 -| CurrentPage|	number|	Номер текущей страницы|
@@ -3271,6 +3274,7 @@ OrderBy|	Field|	string|	Параметр сортировки, варианты:
 -| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
 Deals|	ID|	number|	ID сделки|
 -| StrategyID|	number|	ID стратегии|
+-| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
 -| AccountID|	number|	ID счета|
 -| AccountType|	number|	0-real security, 1-virtual master, 2-real internal ramm account, 3-real external account|
 -| SignalID|	number|	ID сигнала|
@@ -3367,6 +3371,7 @@ Deals|	ID|	number|	ID сделки|
 {
 "ID":4546,
 "StrategyID":2233,
+"AccountingSystem" : 0,
 "AccountID":545,
 "AccountType":0,
 "SignalID":4878,
