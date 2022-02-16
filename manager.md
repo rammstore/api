@@ -2318,11 +2318,11 @@ URL вызова: https://ramm.store/api/manager/v1/strategies.get
 ---------|----------|----------
 ID|	number|	ID стратегии|
 
-
 Возвращаемые данные - строка JSON, содержит указанные параметры и массив Chart с данными графика:
 Структура |	Параметр | Тип | Описание
 ---------|----------|----------|----------
 -| ID|	number|	ID стратегии|
+-| AccountingSystem| number| Схема учёта позиций (хеджинг 0, неттинг 1)|
 -| CompanyID|	number|	ID компании|
 -| TraderID|	number|	ID клиента (трейдера) (bigint)|
 -| WalletID|	number|	ID кошелька (bigint)|
