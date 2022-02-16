@@ -2157,6 +2157,7 @@ Filter|	WalletID|	number|	ID кошелька (bigint)|
 -| Value|	string|	Значение поиска|
 -| ExternalAccount|	string|	Номер внешнего счета|
 -| Closed|	boolean|	Признак закрытой стратегии|
+-| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
 Pagination|	CurrentPage|	number|	Номер текущей страницы|
 -| PerPage|	number|	Количество записей на одной странице|
 OrderBy|	Field|	string|	Сортировка по параметру, варианты: ID, ClientID, WalletID, Name, DTCreated, DTClosed, Yield, Accounts, Status, Symbols, UnitPrice, Leverage, MonthlyYield, TraderLogin|
@@ -2180,6 +2181,7 @@ Filter| -|Closed|	boolean|	Признак закрытой стратегии|
 -|-| Symbols|	string|	Строка с перечислением самых используемых торговых инструментов (не более 3-х)|
 -|-| TraderLogin|	string|	Логин трейдера|
 -|-| Value|	string|	Значение поиска|
+-|-| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
 OrderBy| -| Field|	string|	Сортировка по параметру, варианты: ID, ClientID, WalletID, Name, DTCreated, DTClosed, Yield, Accounts, Status, Symbols, UnitPrice, Leverage, MonthlyYield, TraderLogin|
 -| -| Direction|	string|	Направление сортировки, варианты: Asc, Desc|
 Pagination|	-| TotalRecords|	number|	Общее количество записей|
@@ -2188,6 +2190,7 @@ Pagination|	-| TotalRecords|	number|	Общее количество запис�
 -| -| PerPage|	number|	Количество записей на одной странице|
 -| -| MaxPerPage|	number|	Максимальное количество записей на одной странице|
 Strategies| -| ID|	number|	ID стратегии|
+-| -| AccountingSystem|	number|	Схема учёта позиций (хеджинг 0, неттинг 1)|
 -| -| ClientID|	number|	ID клиента (трейдера) (bigint)|
 -| -| WalletID|	number|	ID кошелька (bigint)|
 -| -| TradingCoreID|	number|	ID торгового ядра|
@@ -2274,6 +2277,7 @@ Strategies| -| ID|	number|	ID стратегии|
 [
 {
 "ID":7986,
+"AccountingSystem" : 0,
 "ClientID": 222,
 "WalletID":4565465,
 "TradingCoreID":1,
@@ -2372,6 +2376,7 @@ Chart|	Yield|	real|	Значение доходности|
 
 {
 "ID":7986,
+"AccountingSystem" : 1,
 "CompanyID":1,
 "TraderID": 222,
 "WalletID":4565465,
