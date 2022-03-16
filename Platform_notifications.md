@@ -30,7 +30,7 @@
   "uuid": "F2442CC5-19FA-4584-9EF1-D18858B2010F",
   "publisher": "ramm",
   "version": "1",
- "data": {
+  "data": {
     "event": {
       "dt": "2021-01-21T10:39:34.057"
     },
@@ -39,7 +39,7 @@
     },
     "wallet": {
       "id": 11436
-    },    
+    },
     "strategy": {
       "id": 1,
       "executiontags": "Tags",
@@ -58,7 +58,7 @@
       "commissiontrader": 0,
       "profit": 0,
       "entry": "in",
-      "swap": 1.23 
+      "swap": 1.23
     },
     "account": {
       "id": 1004187
@@ -68,7 +68,8 @@
       "volume": 0.01,
       "priceopen": 1800.83,
       "pricecurrent": 1800.83,
-      "swap": 1.4    
+      "swap": 1.4
+    }
   }
 }
 ```
