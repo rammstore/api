@@ -1858,6 +1858,7 @@ DTClosed	|	datetime	|	Дата закрытия	|
 Equity	|	real	|	Суммарное эквити инвестиций в стратегию	|
 IsMyStrategy	|	bool	|	Признак собственной стратегии	|
 Status	|	number	|	Статус стратегии	|
+AccountingSystem | number | Схема учёта позиций (хеджинг 0, неттинг 1)
 ***PublicOffer (вложенная структура)***
 ID	|	number	|	ID оферты	|
 FeeRate	|	real	|	Размер вознаграждения	|
