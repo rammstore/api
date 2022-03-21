@@ -2533,7 +2533,7 @@ PrecisionVolume	|	number	|	Количество знаков после запя
 
 #### hedgingPositions.searchOpen
 
-Поиск открытых позиций с фильтрацией по номеру счета.
+Поиск открытых позиций с фильтрацией по номеру счета. Аналог вкладки "Торговля" в МТ4.
 
 **URL:** `https://ramm.store/api/client/v2/hedgingPositions.searchOpen`
 
@@ -2567,17 +2567,23 @@ Profit	|	real	|	Прибыль
 TotalProfit	|	real	|	Суммарная прибыль
 Swap	|	real	|	Свопы
 ***Positions***
-ID	|	number	|	ID позиции
-Symbol	|	string	|	Название инструмента
-Volume	|	real	|	Открытый объем
-PriceOpen	|	real	|	Цена открытия
-DT | datetime	|	Дата/время создания позиции
+PositionID	|	number	|	ID позиции
 Ticket | string | Тикет позиции трейдера в МТ
-Margin	|	real	|	Маржа под открытый объем
-Swap	|	real	|	Накопленный своп
+DTOpen | datetime	|	Дата/время создания позиции
+Type | number | Тип (0 buy, 1 sell)
+VolumeOpen	|	real	|	Открытый объем
+Symbol	|	string	|	Название инструмента
+PriceOpen	|	real	|	Цена открытия
+ProfitCalcQuote	|	real	|	Котировка, по которой вычислялась прибыль
 Profit	|	real	|	Прибыль/убыток без учета свопа
 TotalProfit	|	real	|	Прибыль/убыток с учетом свопа
-ProfitCalcQuote	|	real	|	Котировка, по которой вычислялась прибыль
+Swap	|	real	|	Накопленный своп
+SwapDT | datetime | Дата последнего начисления 
+DealInID | number | ID сделки In
+CommissionBroker | real | комиссия брокера
+CommissionLiquidity | real | комиссия ликвидности
+CommissionTrader | real | комиссия трейдера
+Margin	|	real	|	Маржа под открытый объем
 PrecisionPrice	|	number	|	Количество знаков после запятой при выводе цены
 PrecisionVolume	|	number	|	Количество знаков после запятой при выводе объема
 
@@ -2629,19 +2635,24 @@ PrecisionVolume	|	number	|	Количество знаков после запя
     "TotalProfit": 0.02,
     "Swap": 0
   },
-  "Positions": [
+ "Positions": [
     {
-      "ID": 53660,
-      "Symbol": "EURUSD",
-      "Volume": -0.02,
-      "PriceOpen": 1.14013,
-      "DT": "2022-02-08T09:12:00.223",
-      "Ticket": "66146",
-      "Margin": 22.81,
+      "PositionID": 54012,
+      "Ticket": "66878",
+      "DTOpen": "2022-03-21T11:35:49.207",
+      "Type": 1,
+      "VolumeOpen": -24.5,
+      "Symbol": "USDCHF",
+      "PriceOpen": 0.93053,
+      "ProfitCalcQuote": 0.93043,
+      "Profit": 263.32,
+      "TotalProfit": 263.32,
+      "MarginTotal": 24500,
       "Swap": 0,
-      "Profit": 0.02,
-      "TotalProfit": 0.02,
-      "ProfitCalcQuote": 1.14012,
+      "DealInID": 325056,
+      "CommissionBroker": 0,
+      "CommissionLiquidity": 24.5,
+      "CommissionTrader": 0,
       "PrecisionPrice": 6,
       "PrecisionVolume": 4
     }
@@ -2654,7 +2665,7 @@ PrecisionVolume	|	number	|	Количество знаков после запя
 
 #### hedgingPositions.searchClosed
 
-Поиск закрытых позиций с фильтрацией по номеру счета.
+Поиск закрытых позиций с фильтрацией по номеру счета. Аналог вкладки "История счёта" в МТ4.
 
 **URL:** `https://ramm.store/api/client/v2/hedgingPositions.searchClosed`
 **Параметры:**
@@ -2687,21 +2698,23 @@ Profit	|	real	|	Прибыль
 TotalProfit	|	real	|	Суммарная прибыль
 Swap	|	real	|	Свопы
 ***Positions***
-Ticket | string | Тикет позиции трейдера в МТ
-Symbol	|	string	|	Название инструмента
-IDDealIn	|	number	|	ID сделки in
-Volume	|	real	|	Открытый объем
-PriceOpen	|	real	|	Цена открытия
+TicketIn | string | Тикет открывающей позиции трейдера в МТ
+TicketOut | string | Тикет закрывающей позиции трейдера в МТ
+DealInID	|	number	|	ID сделки in
+DealOutID	|	number	|	ID сделки out
 DTOpen | datetime	|	Дата/время создания позиции
-IDDealOut |	number	|	ID сделки out
-PriceClose	|	real	|	Цена закрытие
+Type | number | Тип (0 buy, 1 sell)
+Volume	|	real	|	Закрытый объем
+Symbol	|	string	|	Название инструмента
+PriceOpen	|	real	|	Цена открытия
 DTClose | datetime	|	Дата/время закрытия позиции
-Swap	|	real	|	Накопленный своп
+PriceClose	|	real	|	Цена закрытия
 Profit	|	real	|	Прибыль/убыток без учета свопа
+TotalProfit	|	real	|	Прибыль/убыток с учетом свопа и комиссий
+Swap	|	real	|	Накопленный своп
 CommissionBroker |	real	|	Комиссия брокера
 CommissionLiquidity |	real	|	Комиссия ликвидности
 CommissionTrader |	real	|	Комиссия трейдера
-TotalProfit	|	real	|	Прибыль/убыток с учетом свопа и комиссий
 PrecisionPrice	|	number	|	Количество знаков после запятой при выводе цены
 PrecisionVolume	|	number	|	Количество знаков после запятой при выводе объема
 
@@ -2725,127 +2738,95 @@ PrecisionVolume	|	number	|	Количество знаков после запя
 ```json
 {
   "Filter": {
-    "AccountID": 1007779
+    "AccountID": 1008033
   },
   "OrderBy": {
-    "Field": "Ticket",
-    "Direction": "Asc"
+    "Field": "TicketIn",
+    "Direction": "Desc"
   },
   "Pagination": {
-    "TotalRecords": 5,
+    "TotalRecords": 3,
     "TotalPages": 1,
     "CurrentPage": 1,
-    "PerPage": 20,
+    "PerPage": 12,
     "MaxPerPage": 100
   },
   "Wallets": [
     {
-      "ID": 11442,
+      "ID": 9000055,
       "Asset": "USD",
-      "Balance": 89000,
-      "Invested": 11017.08,
-      "Margin": 22.81,
-      "IntervalPnL": 17.08
+      "Balance": 1996193.14,
+      "Invested": 34810.32,
+      "Margin": 1100,
+      "IntervalPnL": -610.56
     }
   ],
   "PositionsTotal": {
-    "Profit": 17.84,
-    "TotalProfit": 16.31,
-    "Swap": -0.12
+    "Profit": -4.58,
+    "TotalProfit": -4.85,
+    "Swap": 0
   },
   "Positions": [
     {
-      "Ticket": "66141",
-      "Symbol": "EURUSD",
-      "IDDealIn": 322281,
+      "TicketIn": "66879",
+      "TicketOut": "66879",
+      "DealInID": 325060,
+      "DealOutID": 325066,
+      "DTOpen": "2022-03-21T11:52:41.737",
+      "Type": 1,
+      "Volume": -0.09,
+      "Symbol": "GBPUSD",
+      "PriceOpen": 1.3138,
+      "DTClose": "2022-03-21T12:14:34.820",
+      "PriceClose": 1.31417,
+      "Profit": -3.33,
+      "TotalProfit": -3.45,
+      "Swap": 0,
+      "CommissionBroker": 0,
+      "CommissionLiquidity": 0.24,
+      "CommissionTrader": 0,
+      "PrecisionPrice": 6,
+      "PrecisionVolume": 4
+    },
+    {
+      "TicketIn": "66878",
+      "TicketOut": "66880",
+      "DealInID": 325059,
+      "DealOutID": 325064,
+      "DTOpen": "2022-03-21T11:52:12.450",
+      "Type": 1,
+      "Volume": -0.12,
+      "Symbol": "USDCHF",
+      "PriceOpen": 0.93042,
+      "DTClose": "2022-03-21T11:52:56.300",
+      "PriceClose": 0.93049,
+      "Profit": -0.9,
+      "TotalProfit": -1.02,
+      "Swap": 0,
+      "CommissionBroker": 0,
+      "CommissionLiquidity": 0.24,
+      "CommissionTrader": 0,
+      "PrecisionPrice": 6,
+      "PrecisionVolume": 4
+    },
+    {
+      "TicketIn": "66878",
+      "TicketOut": "66880",
+      "DealInID": 325059,
+      "DealOutID": 325062,
+      "DTOpen": "2022-03-21T11:52:12.450",
+      "Type": 1,
       "Volume": -0.03,
-      "PriceOpen": 1.14437,
-      "DTOpen": "2022-02-07T15:29:06.240",
-      "IDDealOut": 322301,
-      "PriceClose": 1.14076,
-      "DTClose": "2022-02-08T08:52:37.393",
-      "Swap": -0.06,
-      "Profit": 8.25,
-      "CommissionBroker": 0,
-      "CommissionLiquidity": 0.37,
-      "CommissionTrader": 0,
-      "TotalProfit": 7.82,
-      "PrecisionPrice": 6,
-      "PrecisionVolume": 4
-    },
-    {
-      "Ticket": "66142",
-      "Symbol": "EURUSD",
-      "IDDealIn": 322283,
-      "Volume": -0.03,
-      "PriceOpen": 1.14438,
-      "DTOpen": "2022-02-07T15:29:10.707",
-      "IDDealOut": 322316,
-      "PriceClose": 1.14019,
-      "DTClose": "2022-02-08T09:12:00.270",
-      "Swap": -0.06,
-      "Profit": 9.96,
-      "CommissionBroker": 0,
-      "CommissionLiquidity": 0.38,
-      "CommissionTrader": 0,
-      "TotalProfit": 9.52,
-      "PrecisionPrice": 6,
-      "PrecisionVolume": 4
-    },
-    {
-      "Ticket": "66143",
-      "Symbol": "EURUSD",
-      "IDDealIn": 322291,
-      "Volume": 0.01,
-      "PriceOpen": 1.14034,
-      "DTOpen": "2022-02-08T08:13:03.093",
-      "IDDealOut": 322295,
-      "PriceClose": 1.14017,
-      "DTClose": "2022-02-08T08:22:22.257",
+      "Symbol": "USDCHF",
+      "PriceOpen": 0.93042,
+      "DTClose": "2022-03-21T11:52:51.487",
+      "PriceClose": 0.93053,
+      "Profit": -0.35,
+      "TotalProfit": -0.38,
       "Swap": 0,
-      "Profit": -0.17,
       "CommissionBroker": 0,
-      "CommissionLiquidity": 0.14,
+      "CommissionLiquidity": 0.06,
       "CommissionTrader": 0,
-      "TotalProfit": -0.31,
-      "PrecisionPrice": 6,
-      "PrecisionVolume": 4
-    },
-    {
-      "Ticket": "66144",
-      "Symbol": "EURUSD",
-      "IDDealIn": 322306,
-      "Volume": 0.01,
-      "PriceOpen": 1.14061,
-      "DTOpen": "2022-02-08T08:54:02.323",
-      "IDDealOut": 322310,
-      "PriceClose": 1.14038,
-      "DTClose": "2022-02-08T08:55:05.003",
-      "Swap": 0,
-      "Profit": -0.23,
-      "CommissionBroker": 0,
-      "CommissionLiquidity": 0.14,
-      "CommissionTrader": 0,
-      "TotalProfit": -0.37,
-      "PrecisionPrice": 6,
-      "PrecisionVolume": 4
-    },
-    {
-      "Ticket": "66145",
-      "Symbol": "EURUSD",
-      "IDDealIn": 322297,
-      "Volume": 0.03,
-      "PriceOpen": 1.14072,
-      "DTOpen": "2022-02-08T08:49:26.773",
-      "IDDealOut": 322304,
-      "PriceClose": 1.14073,
-      "DTClose": "2022-02-08T08:52:37.423",
-      "Swap": 0,
-      "Profit": 0.03,
-      "CommissionBroker": 0,
-      "CommissionLiquidity": 0.38,
-      "CommissionTrader": 0,
-      "TotalProfit": -0.35,
       "PrecisionPrice": 6,
       "PrecisionVolume": 4
     }
