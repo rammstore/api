@@ -2700,6 +2700,7 @@ Swap	|	real	|	Свопы
 ***Positions***
 TicketIn | string | Тикет открывающей позиции трейдера в МТ
 TicketOut | string | Тикет закрывающей позиции трейдера в МТ
+PositionID | number | ID закрытой позиции
 DealInID	|	number	|	ID сделки in
 DealOutID	|	number	|	ID сделки out
 DTOpen | datetime	|	Дата/время создания позиции
@@ -2756,9 +2757,9 @@ PrecisionVolume	|	number	|	Количество знаков после запя
       "ID": 9000055,
       "Asset": "USD",
       "Balance": 1996193.14,
-      "Invested": 34810.32,
-      "Margin": 1100,
-      "IntervalPnL": -610.56
+      "Invested": 34698.46,
+      "Margin": 0,
+      "IntervalPnL": -607.65
     }
   ],
   "PositionsTotal": {
@@ -2770,6 +2771,7 @@ PrecisionVolume	|	number	|	Количество знаков после запя
     {
       "TicketIn": "66879",
       "TicketOut": "66879",
+      "PositionID": 54014,
       "DealInID": 325060,
       "DealOutID": 325066,
       "DTOpen": "2022-03-21T11:52:41.737",
@@ -2791,6 +2793,7 @@ PrecisionVolume	|	number	|	Количество знаков после запя
     {
       "TicketIn": "66878",
       "TicketOut": "66880",
+      "PositionID": 54013,
       "DealInID": 325059,
       "DealOutID": 325064,
       "DTOpen": "2022-03-21T11:52:12.450",
@@ -2812,6 +2815,7 @@ PrecisionVolume	|	number	|	Количество знаков после запя
     {
       "TicketIn": "66878",
       "TicketOut": "66880",
+      "PositionID": 54013,
       "DealInID": 325059,
       "DealOutID": 325062,
       "DTOpen": "2022-03-21T11:52:12.450",
